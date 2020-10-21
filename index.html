@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Single page App</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="#"><img class="logo" src="img/SF-Logo.png"/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Search</a></li>
+                        <li><a href="#">Map</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row" id="screen1">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="common-style my-profile" onclick="showDiv(this)" id="my-profile">
+                        <span class="glyphicon glyphicon-user"></span>
+                        <p>My Profile</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="common-style my-meds" onclick="showDiv(this)" id="my-meds">
+                        <i class="fas fa-capsules"></i>
+                        <p>My Med</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="common-style gps-check" onclick="showDiv(this)" id="gps-check">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                        <p>GPS Check-In</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="common-style video-check">
+                        <span class="glyphicon glyphicon-facetime-video"></span>
+                        <p>Video Check-In</p>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="common-style shelters" onclick="showDiv(this)" id="shelters">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <p>Shelters</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="screen2" style="display: none" >
+                <div class="col-xs-12">
+                    <h1> Profile</h1>
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                            <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                            <input id="phone" type="text" class="form-control" name="phone" placeholder="Phone Number">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                            <input id="phone" type="text" class="form-control" name="age" placeholder="Age">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                            <input id="phone" type="text" class="form-control" name="ethnicity" placeholder="Ethnicity">
+                        </div>
+                        <br>
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Save</button>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="map-check" style="display: none" >
+                <div class="col-xs-12">
+                    <h1> GPS Check-In</h1>
+                    <form>
+                        <textarea class="form-control"  rows="10"  name="note"> Note</textarea>
+                        <br>
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="shelters-screen" style="display: none" >
+                <div class="col-xs-12">
+                    <h1> Shelters </h1>
+                    <div class="shelter-open">
+                        <a href="#">America's Job Center (AJCC)</a>
+                        <p>Rio Hondo AJCC (WorkSource)</p>
+                        <br>
+                        <p>Full service career center</p>
+                        <br>
+                        <br>
+                        <p>M-P: 8am-5pm   &nbsp;&nbsp;&nbsp;  Open</p>
+                        <p>East Country</p>
+                    </div>
+                    <br><br>
+                    <div class="shelter-close">
+                        <a href="#">America's Job Center (AJCC)</a>
+                        <p>Rio Hondo AJCC (WorkSource)</p>
+                        <br>
+                        <p>Full service career center</p>
+                        <br>
+                        <br>
+                        <p>M-P: 8am-5pm   &nbsp;&nbsp;&nbsp;  Open</p>
+                        <p>East Country</p>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+<script type="text/javascript">
+    function showDiv(obj) {
+        var selctID = obj.id;
+        if (selctID == 'my-profile') {
+            document.getElementById('screen1').style.display = "none";
+            document.getElementById('map-check').style.display = "none";
+            document.getElementById('shelters-screen').style.display = "none";
+            document.getElementById('screen2').style.display = "block";
+        }
+        if (selctID == 'gps-check') {
+            document.getElementById('screen1').style.display = "none";
+            document.getElementById('screen2').style.display = "none";
+            document.getElementById('shelters-screen').style.display = "none";
+            document.getElementById('map-check').style.display = "block";
+        }
+        if (selctID == 'shelters') {
+            document.getElementById('screen1').style.display = "none";
+            document.getElementById('screen2').style.display = "none";
+            document.getElementById('map-check').style.display = "none";
+            document.getElementById('shelters-screen').style.display = "block";
+        }
+    }
+</script>
