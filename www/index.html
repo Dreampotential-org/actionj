@@ -8,7 +8,13 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/resources.js"></script>
     </head>
     <body>
 
@@ -18,7 +24,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>                        
+                        <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#"><img class="logo" src="img/SF-Logo.png"/></a>
                 </div>
@@ -60,7 +66,7 @@
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
-                    <div class="common-style shelters" onclick="showDiv(this)" id="shelters">
+                    <div class="common-style shelters" id="shelters">
                         <span class="glyphicon glyphicon-home"></span>
                         <p>Shelters</p>
                     </div>
@@ -109,34 +115,14 @@
                 </div>
             </div>
             <div class="row" id="shelters-screen" style="display: none" >
-                <div class="col-xs-12">
-                    <h1> Shelters </h1>
-                    <div class="shelter-open">
-                        <a href="#">America's Job Center (AJCC)</a>
-                        <p>Rio Hondo AJCC (WorkSource)</p>
-                        <br>
-                        <p>Full service career center</p>
-                        <br>
-                        <br>
-                        <p>M-P: 8am-5pm   &nbsp;&nbsp;&nbsp;  Open</p>
-                        <p>East Country</p>
-                    </div>
-                    <br><br>
-                    <div class="shelter-close">
-                        <a href="#">America's Job Center (AJCC)</a>
-                        <p>Rio Hondo AJCC (WorkSource)</p>
-                        <br>
-                        <p>Full service career center</p>
-                        <br>
-                        <br>
-                        <p>M-P: 8am-5pm   &nbsp;&nbsp;&nbsp;  Open</p>
-                        <p>East Country</p>
-                    </div>
-                    <br>
+                <h3> Shelters </h3>
+                <div class="col-xs-12" id='shelters-list'>
                 </div>
             </div>
+            <div class="row" id="shelters-map" style="display: none" >
+              <div id='map' style='width: 400px; height: 300px;'></div>
+            </div>
         </div>
-
     </body>
 </html>
 <script type="text/javascript">

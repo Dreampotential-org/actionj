@@ -74,14 +74,13 @@
     padding: 20px;
     border-radius: 4px;
     color: white;
-    font-weight: bold;
 }
 .shelter-close{
     background:#ff4d4d;
     padding: 20px;
     border-radius: 4px;
     color: white;
-    font-weight: bold;
+	 margin-bottom: 10px;
 }
 .shelter-open a{
     text-decoration: underline;
