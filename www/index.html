@@ -82,6 +82,27 @@
                     </div>
                 </div>
             </div>
+            <div class="row" id="map-check" style="display: none">
+                <div class="col-xs-12">
+                    <h1> GPS Check-In</h1>
+                    <form>
+                        <textarea class="form-control" rows="10" name="note"> Note</textarea>
+                        <br>
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <div class="row" id="shelters-screen" style="display: none">
+                <div class='title'>Shelters</div>
+                <div class='filter-row'>
+                  Population: <select id='population_filter'></select></div>
+                <div class='filter-row'>
+                  Service: <select id='service_filter'></select></div>
+                <div class="col-xs-12" id='shelters-list'>
+                </div>
+            </div>
             <div class="row" id="screen2" style="display: none">
                 <div class="col-xs-12">
                     <h1> Profile</h1>
@@ -150,27 +171,6 @@
                         <button type="button" class="btn btn-default"><a href='tel:44444'>Veterans</a></button>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row" id="map-check" style="display: none">
-            <div class="col-xs-12">
-                <h1> GPS Check-In</h1>
-                <form>
-                    <textarea class="form-control" rows="10" name="note"> Note</textarea>
-                    <br>
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
-                    <br>
-                    <br>
-                </form>
-            </div>
-        </div>
-        <div class="row" id="shelters-screen" style="display: none">
-            <div class='title'>Shelters</div>
-            <div class='filter-row'>
-              Population: <select id='population_filter'></select></div>
-            <div class='filter-row'>
-              Service: <select id='service_filter'></select></div>
-            <div class="col-xs-12" id='shelters-list'>
             </div>
         </div>
     </body>
