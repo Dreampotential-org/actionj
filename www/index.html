@@ -52,13 +52,13 @@
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
-                    <div class="common-style my-meds" onclick="showDiv(this)" id="my-meds">
+                    <div class="common-style my-meds" id="my-meds">
                         <i class="fas fa-capsules"></i>
                         <p>My Med</p>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
-                    <div class="common-style gps-check" onclick="showDiv(this)" id="gps-check">
+                    <div class="common-style gps-check">
                         <span class="glyphicon glyphicon-map-marker"></span>
                         <p>GPS Journal</p>
                     </div>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-3">
-                    <div class="common-style help" onclick="showDiv(this)" id="help">
+                    <div class="common-style help" id="help">
                         <span class="glyphicon glyphicon-question-sign"></span>
                         <p>Help</p>
                     </div>
@@ -176,29 +176,3 @@
     </body>
 
 </html>
-<script type="text/javascript">
-    function showDiv(obj) {
-        var selctID = obj.id;
-        if (selctID == 'gps-check') {
-            document.getElementById('screen1').style.display = "none";
-            document.getElementById('screen2').style.display = "none";
-            document.getElementById('shelters-screen').style.display = "none";
-            document.getElementById('help-screen').style.display = "none";
-            document.getElementById('map-check').style.display = "block";
-        }
-        if (selctID == 'shelters') {
-            document.getElementById('screen1').style.display = "none";
-            document.getElementById('screen2').style.display = "none";
-            document.getElementById('map-check').style.display = "none";
-            document.getElementById('help-screen').style.display = "none";
-            document.getElementById('shelters-screen').style.display = "block";
-        }
-        if (selctID == 'help') {
-            document.getElementById('screen1').style.display = "none";
-            document.getElementById('screen2').style.display = "none";
-            document.getElementById('map-check').style.display = "none";
-            document.getElementById('shelters-screen').style.display = "none";
-            document.getElementById('help-screen').style.display = "block";
-        }
-    }
-</script>

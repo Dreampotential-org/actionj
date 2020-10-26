@@ -15,34 +15,45 @@ function home() {
     $('.navbar-brand').click()
 }
 
+function hide_screens() {
+    $('#screen1').hide()
+    $('#screen2').hide()
+    $('#map-check').hide()
+    $('#shelters-screen').hide()
+    $('#help-screen').hide()
+}
+
 function setup_click_events() {
+    // controls the flow of buttons clicked
     $("body").delegate(".navbar-brand", "click", function(e) {
+        hide_screens()
         $('#screen1').show()
-        $('#screen2').hide()
-        $('#map-check').hide()
-        $('#shelters-screen').hide()
+    });
+    $("body").delegate(".gps-check", "click", function(e) {
+        hide_screens()
+        $("#map-check").show()
+    })
+    $("body").delegate("#my-meds", "click", function(e) {
+        hide_screens()
+        alert("Coming soon")
     });
 
+    $("body").delegate("#help", "click", function(e) {
+        hide_screens()
+        $('#help-screen').show()
+    })
+
     $("body").delegate("#my-profile", "click", function(e) {
+        hide_screens()
         $('#screen2').show()
-        $('#screen1').hide()
-        $('#map-check').hide()
-        $('#shelters-screen').hide()
-
-
     })
     $("body").delegate(".shelters", "click", function(e) {
-        $('#screen1').hide()
-        $('#screen2').hide()
-        $('#map-check').hide()
+        hide_screens()
         $('#shelters-screen').show()
-
         get_shelters();
     });
 
     $("body").delegate(".shelters-map", "click", function(e) {
-
-
         map_shelters()
     });
 }
