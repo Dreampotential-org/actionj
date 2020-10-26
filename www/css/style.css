@@ -157,3 +157,21 @@ h1{
     border-radius: 3px;
     font-weight: bold;
 }
+
+#shelters-list {
+	overflow: scroll;
+	margin-top: 4px;
+	height: calc(100vh - 200px);
+	border-radius: 5px;
+}
+
+.title {
+	font-weight: 600;
+	font-size: 18px;
+	text-align: center;
+	color: white;
+}
+
+.filter-row {
+	padding: 3px;
+}

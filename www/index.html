@@ -129,17 +129,6 @@
                     </form>
                 </div>
             </div>
-            <div class="row" id="shelters-screen" style="display: none">
-                <h3> Shelters </h3>
-                Populate: <select id='filter_services'>
-                    <option>adults</option>
-                    <option>young adults</option>
-                    <option>seniors</option>
-                    <option>hiv/aids</option>
-                </select> TOGGLE FOR MAP View (On / Off)
-                <div class="col-xs-12" id='shelters-list'>
-                </div>
-            </div>
             <div class="row" id="help-screen" style="display: none">
                 <div class="col-sm-12">
                     <h1>Help</h1>
@@ -162,8 +151,26 @@
                     </div>
                 </div>
             </div>
-            <div class="row" id="shelters-map" style="display: none">
-                <div id='map' style='width: 400px; height: 300px;'></div>
+        </div>
+        <div class="row" id="map-check" style="display: none">
+            <div class="col-xs-12">
+                <h1> GPS Check-In</h1>
+                <form>
+                    <textarea class="form-control" rows="10" name="note"> Note</textarea>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+        <div class="row" id="shelters-screen" style="display: none">
+            <div class='title'>Shelters</div>
+            <div class='filter-row'>
+              Population: <select id='population_filter'></select></div>
+            <div class='filter-row'>
+              Service: <select id='service_filter'></select></div>
+            <div class="col-xs-12" id='shelters-list'>
             </div>
         </div>
     </body>
