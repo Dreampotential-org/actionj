@@ -89,7 +89,10 @@
     background: #fc5e5d;
     border: 1px solid #fc5e5d;
 }
-
+.help {
+    background: #3f8ed0;
+    border: 1px solid #3f8ed0;
+}
 .shelter-open {
     background: #b1e46d;
     padding: 20px;
@@ -131,4 +134,26 @@ body {
 
 .info-txt {
     margin-right: 5px
+}
+.text-center{
+    text-align: center;
+}
+h1{
+    color: white;
+}
+.white{
+    color: white;
+}
+.crisi-line{
+    background: #b1e46d;
+    padding: 30px 0px;
+    text-align: center;
+    border-radius: 3px;
+    font-weight: bold;
+}
+.physical-danger{
+    background: #286090;
+    padding: 30px 28px;
+    border-radius: 3px;
+    font-weight: bold;
 }
