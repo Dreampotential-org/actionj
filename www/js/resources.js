@@ -12,6 +12,12 @@ function add_resource(resource) {
             "<a href='#'>" + resource['title'] + "</a><br><br>" +
             resource['services']  +
             "<br><br><p>" + resource['description'].substring(0, 200) + "...</p>" +
+        "<button>" +
+            "<span>Info</span>" +
+            "<i class='fa fa-chevron-down pull-right'>" +
+        "</button>" +
+        "<div style='display:none'>" +
+            "Toggle show this div area" +
         "</div'>")
 }
 

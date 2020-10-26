@@ -76,10 +76,10 @@
     color: white;
 }
 .shelter-close{
-    background:#ff4d4d;
+    background:#fff;
     padding: 20px;
     border-radius: 4px;
-    color: white;
+    color: black;
 	 margin-bottom: 10px;
 }
 .shelter-open a{
@@ -87,4 +87,8 @@
 }
 .shelter-close a{
     text-decoration: underline;
+}
+
+body {
+	background-color: grey;
 }
