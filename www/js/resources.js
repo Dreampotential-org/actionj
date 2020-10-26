@@ -14,7 +14,7 @@ function add_resource(resource) {
             "<br><br><p>" + resource['description'].substring(0, 200) + "...</p>" +
         "<button>" +
             "<span>Info</span>" +
-            "<i class='fa fa-chevron-down pull-right'>" +
+            "<i class='fa fa-chevron-down pull-right'></i>" +
         "</button>" +
         "<div style='display:none'>" +
             "Toggle show this div area" +
