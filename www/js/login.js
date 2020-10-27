@@ -58,6 +58,7 @@ function phone_login() {
         "data": form
     }
     $.ajax(settings).done(function (response) {
+        console.log(response)
         // change screen for code collecton
         $(".phone-code-input").show()
         $(".phone-input").hide()
