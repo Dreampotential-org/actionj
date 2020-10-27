@@ -368,3 +368,12 @@ span.switch-label:after {
     font-weight: bold;
     margin: -23px 0px 0px 33px;
 }
+
+#population_filter {
+   border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	height: 35px;
+}
+#service_filter {
+	height: 35px;
+}
