@@ -111,86 +111,88 @@
                     </div>
                     <div class="col-xs-4 col-sm-4" style="display: grid;">
                         <span class="map-togle">Map</span>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                            <span class="absolute-no">OFF</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="col-xs-12" id='shelters-list'>
-                </div>
-            </div>
-            <div class="row" id="screen2" style="display: none">
-                <div class="col-xs-12">
-                    <h1> Profile</h1>
-                    <div>
-                        <div class="input-group name-input" style='display:none'>
-                            <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                            <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                        <div class="anil_nepal">
+                            <label class="switch switch-left-right">
+                                <input class="switch-input" type="checkbox">
+                                <span class="switch-label" data-on="On" data-off="Off"></span> <span class="switch-handle"></span> </label>
                         </div>
-                        <br>
-                        <div class="input-group phone-code-input" style='display:none;'>
-                            <span class="input-group-addon"><i class="fa" aria-hidden="true"></i></span>
-                            <input id="phone-code" type="tel" class="form-control" name="phone-code" placeholder="Text Code">
-                        </div>
-                        <div class="input-group phone-input">
-                            <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                            <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" name="phone" placeholder="Phone Number">
-                        </div>
-                        <!--
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
-                                <input id="phone" type="text" class="form-control" name="age" placeholder="Age">
-                            </div>
-                            <br>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
-                                <input id="phone" type="text" class="form-control" name="ethnicity" placeholder="Ethnicity">
-                            </div>-->
-                        <br>
-                        <button id="login_number" type="button" class="btn btn-primary btn-lg btn-block">Next</button>
-                        <br>
-                        <br>
+
                     </div>
                 </div>
             </div>
-            <div class="row" id="map-check" style="display: none">
-                <div class="col-xs-12">
-                    <h1> GPS Check-In</h1>
-                    <form>
-                        <textarea class="form-control" rows="10" name="note"> Note</textarea>
-                        <br>
-                        <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
-                        <br>
-                        <br>
-                    </form>
-                </div>
+            <div class="col-xs-12" id='shelters-list'>
             </div>
-            <div class="row" id="help-screen" style="display: none">
-                <div class="col-sm-12">
-                    <h1>Help</h1>
-                    <p class="white">Choose the help you need</p>
-                    <p class="white">(All help lines are available 24/7)</p>
-                    <div class="crisi-line">
-                        <p class="white">Youth (12-24) Crisis Line</p>
-                        <p class="white">We're here when you need us.</p>
-                        <br>
-                        <button type="button" class="btn btn-primary btn-lg">Counseling/ Referrals</button>
+        </div>
+        <div class="row" id="screen2" style="display: none">
+            <div class="col-xs-12">
+                <h1> Profile</h1>
+                <div>
+                    <div class="input-group name-input" style='display:none'>
+                        <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                        <input id="name" type="text" class="form-control" name="name" placeholder="Name">
                     </div>
                     <br>
-                    <div class="physical-danger">
-                        <p class="white text-left">Suicide Prevention:</p>
-                        <p class="white text-left">Counselors available 24/7</p>
-                        <br>
-                        <button type="button" class="btn btn-default"><a href='tel:44444'>All Youth and Adult</a></button>
-                        <button type="button" class="btn btn-default"><a href='tel:44444'>LGBTQ</a></button>
-                        <button type="button" class="btn btn-default"><a href='tel:44444'>Veterans</a></button>
+                    <div class="input-group phone-code-input" style='display:none;'>
+                        <span class="input-group-addon"><i class="fa" aria-hidden="true"></i></span>
+                        <input id="phone-code" type="tel" class="form-control" name="phone-code" placeholder="Text Code">
                     </div>
+                    <div class="input-group phone-input">
+                        <span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" name="phone" placeholder="Phone Number">
+                    </div>
+                    <!--
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                            <input id="phone" type="text" class="form-control" name="age" placeholder="Age">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                            <input id="phone" type="text" class="form-control" name="ethnicity" placeholder="Ethnicity">
+                        </div>-->
+                    <br>
+                    <button id="login_number" type="button" class="btn btn-primary btn-lg btn-block">Next</button>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
-    </body>
+        <div class="row" id="map-check" style="display: none">
+            <div class="col-xs-12">
+                <h1> GPS Check-In</h1>
+                <form>
+                    <textarea class="form-control" rows="10" name="note"> Note</textarea>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+        <div class="row" id="help-screen" style="display: none">
+            <div class="col-sm-12">
+                <h1>Help</h1>
+                <p class="white">Choose the help you need</p>
+                <p class="white">(All help lines are available 24/7)</p>
+                <div class="crisi-line">
+                    <p class="white">Youth (12-24) Crisis Line</p>
+                    <p class="white">We're here when you need us.</p>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-lg">Counseling/ Referrals</button>
+                </div>
+                <br>
+                <div class="physical-danger">
+                    <p class="white text-left">Suicide Prevention:</p>
+                    <p class="white text-left">Counselors available 24/7</p>
+                    <br>
+                    <button type="button" class="btn btn-default"><a href='tel:44444'>All Youth and Adult</a></button>
+                    <button type="button" class="btn btn-default"><a href='tel:44444'>LGBTQ</a></button>
+                    <button type="button" class="btn btn-default"><a href='tel:44444'>Veterans</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
 </html>
