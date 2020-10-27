@@ -74,8 +74,7 @@ function add_resource(resource, index) {
 
     $("#shelters-list").append(
         `<div class='shelter-close'>
-            <a href='#'> ${resource['title']} </a><br><br>
-            ${resource['services']}
+            <b> ${resource['title']} </b>
             <br><br><p>${resource['description'].substring(0, 200)} ...</p>
         <button  type='button' class='slide-toggle info' id="${index}"
                 onclick='toggle("${index}")'>
@@ -84,7 +83,8 @@ function add_resource(resource, index) {
             <i class='fa fa-chevron-down pull-right arrow-icon'></i>
         </button>
         <div class='box' style='display:none'>
-            Toggle show this div area
+            ${resource['services']}<br><br>
+            ${resource['other_info']}
         </div'>`)
 
 }
