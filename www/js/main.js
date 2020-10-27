@@ -17,6 +17,7 @@ function home() {
 }
 
 function hide_screens() {
+    $('#shelters-list').hide()
     $('#screen1').hide()
     $('#screen2').hide()
     $('#map-check').hide()
@@ -58,6 +59,7 @@ function setup_click_events() {
     $("body").delegate(".shelters", "click", function(e) {
         hide_screens()
         $('#shelters-screen').show()
+        $('#shelters-list').show()
         get_shelters();
     });
 

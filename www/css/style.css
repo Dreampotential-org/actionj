@@ -377,3 +377,7 @@ span.switch-label:after {
 #service_filter {
 	height: 35px;
 }
+
+#shelters-list {
+	display: none;
+}
