@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-xs-6 col-sm-3">
                     <div class="common-style help" id="help">
-                        <span class="glyphicon glyphicon-question-sign"></span>
+                        <span class="glyphicon glyphicon-earphone"></span>
                         <p>Help</p>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <textarea class="form-control" rows="10" name="note"></textarea>
                         <br>
                         <button id='post_gps' type="button" class="btn btn-primary btn-lg btn-block">
-                          Submit
+                            Submit
                         </button>
                         <br>
                         <br>
@@ -101,10 +101,21 @@
             <div class="row" id="shelters-screen" style="display: none">
                 <div class='title'>Shelters</div>
                 <div class='filter-row'>
-                  <select id='population_filter'></select>
-                  <select id='service_filter'></select>
-                  <!--Make so all fit on same line with toggle map view UI -->
-                  <span>Toggle Map</span>
+                    <div class="col-xs-4 col-sm-4" style="display: grid;">
+                        <select id='population_filter'></select>
+                    </div>
+                    <div class="col-xs-4 col-sm-4" style="display: grid;">
+                        <select id='service_filter'></select>
+                        <!--Make so all fit on same line with toggle map view UI -->
+                    </div>
+                    <div class="col-xs-4 col-sm-4" style="display: grid;">
+                        <span class="map-togle">Map</span>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                            <span class="absolute-no">OFF</span>
+                        </label>
+                    </div>
                 </div>
                 <div class="col-xs-12" id='shelters-list'>
                 </div>

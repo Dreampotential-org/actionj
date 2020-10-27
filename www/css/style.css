@@ -159,19 +159,119 @@ h1{
 }
 
 #shelters-list {
-	overflow: scroll;
-	margin-top: 4px;
-	height: calc(100vh - 200px);
-	border-radius: 5px;
+    overflow: scroll;
+    margin-top: 4px;
+    height: calc(100vh - 200px);
+    border-radius: 5px;
 }
 
 .title {
-	font-weight: 600;
-	font-size: 18px;
-	text-align: center;
-	color: white;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+    color: white;
 }
 
 .filter-row {
-	padding: 3px;
+    padding: 3px;
+}
+/*map toggle css start*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 106px;
+    height: 30px;
+}
+
+.switch input {display:none;}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2f2f2;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    z-index: 2;
+    content: "";
+    height: 41px;
+    width: 76px;
+    left: -9px;
+    bottom: -6px;
+    background-color: darkslategrey;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+    -webkit-transition: .4s;
+    transition: all 0.4s ease-in-out;
+}
+.slider:after {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    content: "ON";
+    font-size: 15px;
+    text-align: left !important;
+    line-height: 31px;
+    padding-left: 0;
+    width: 66px;
+    color: #fff;
+    height: 30px;
+    border-radius: 100px;
+    border-radius: 100px;
+    background-color: #ff6418;
+    -webkit-transform: translateX(-160px);
+    -ms-transform: translateX(-160px);
+    transform: translateX(-160px);
+    transition: all 0.4s ease-in-out;
+}
+
+input:checked + .slider:after {
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+    transform: translateX(0px);
+    /*width: 235px;*/
+    padding-left: 25px;
+}
+
+input:checked + .slider:before {
+    background-color: #fff;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(160px);
+    -ms-transform: translateX(160px);
+    transform: translateX(160px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 100px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+.absolute-no {
+    position: absolute;
+    left: 0;
+    color: darkslategrey;
+    text-align: right !important;
+    font-size: 15px;
+    width: calc(93% - 0px);
+    line-height: 33px;
+    cursor: pointer;
+}
+/*map toggle css end*/
+.map-togle {
+    color: white;
+    font-weight: bold;
+    margin: -23px 0px 0px 33px;
 }
