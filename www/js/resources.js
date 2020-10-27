@@ -83,21 +83,21 @@ function add_resource(resource, index) {
         `<div class='shelter-close'>
             <b> ${resource['title']} </b>
             <br><br><p>${resource['description'].substring(0, 200)} ...</p>
-        <button  type='button' class='slide-toggle info' id="${index}"
-                onclick='toggle("${index}")'>
-            <span class="info-txt">Info</span>
-            <i class='fa fa-chevron-up pull-right is-active arrow-icon'></i>
-            <i class='fa fa-chevron-down pull-right arrow-icon'></i>
-        </button>
         <div class='box' style='display:none'>
             ${resource['services']}<br><br>
             ${resource['other_info']}
-        </div'>`)
+        </div>
+        <button  type='button' class='slide-toggle info' id="${index}"
+                onclick='toggle("${index}")'>
+            <span class="info-txt">Info</span>
+            <i class='fa fa-chevron-up pull-right arrow-icon'></i>
+            <i class='fa fa-chevron-down pull-right is-active arrow-icon'></i>
+        </button>`)
 
 }
 
 function toggle(i) {
-    $(`#${i}`).next().slideToggle();
+    $(`#${i}`).prev().slideToggle();
     $(`#${i}`).find('i').toggleClass('is-active')
 }
 
