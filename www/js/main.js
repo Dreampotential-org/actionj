@@ -5,6 +5,7 @@ var SERVER = 'https://sfapp-api.dreamstate-4-all.org/'
 function init() {
     init_mapbox()
     setup_click_events()
+    setup_gps_events()
     setup_click_resources()
     init_login()
     // $('.shelters').click()
@@ -25,13 +26,19 @@ function hide_screens() {
 
 function setup_click_events() {
     // controls the flow of buttons clicked
+    $("body").delegate("#logout", "click", function(e) {
+        localStorage.removeItem('token')
+    })
     $("body").delegate(".navbar-brand", "click", function(e) {
         hide_screens()
         $('#screen1').show()
     });
+    $("body").delegate(".video-check", "click", function(e) {
+        handle_video_click()
+    })
+
     $("body").delegate(".gps-check", "click", function(e) {
-        hide_screens()
-        $("#map-check").show()
+        handle_gps_click()
     })
     $("body").delegate("#my-meds", "click", function(e) {
         hide_screens()
@@ -46,6 +53,7 @@ function setup_click_events() {
     $("body").delegate("#my-profile", "click", function(e) {
         hide_screens()
         $('#screen2').show()
+
     })
     $("body").delegate(".shelters", "click", function(e) {
         hide_screens()

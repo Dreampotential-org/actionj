@@ -18,6 +18,8 @@
         <script src="js/main.js"></script>
         <script src="js/resources.js"></script>
         <script src="js/login.js"></script>
+        <script src="js/gps.js"></script>
+        <script src="js/video.js"></script>
     </head>
 
     <body>
@@ -36,7 +38,7 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#">Search</a></li>
-                        <li><a href="#">Map</a></li>
+                        <li><a id='logout' href="#">Logout</a></li>
                     </ul>
 
                 </div>
@@ -85,13 +87,15 @@
             <div class="row" id="map-check" style="display: none">
                 <div class="col-xs-12">
                     <h1> GPS Check-In</h1>
-                    <form>
-                        <textarea class="form-control" rows="10" name="note"> Note</textarea>
+                    <div>
+                        <textarea class="form-control" rows="10" name="note"></textarea>
                         <br>
-                        <button type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+                        <button id='post_gps' type="button" class="btn btn-primary btn-lg btn-block">
+                          Submit
+                        </button>
                         <br>
                         <br>
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="row" id="shelters-screen" style="display: none">

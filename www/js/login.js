@@ -64,7 +64,11 @@ function phone_login() {
         $(".phone-input").hide()
 
     }).fail(function (err) {
-      alert("ERROR")
+        swal({
+          title: "Error",
+          text: "Invalid Phone Number",
+          icon: "error",
+        });
     });
 }
 
@@ -89,15 +93,16 @@ function next_code_login() {
         localStorage.setItem('token', resp.token)
         swal({
           title: "Good job!",
-          text: "Correct",
+          text: "You are logged in",
           icon: "success",
         });
-        $(".phone-code-input").hide()
-        $(".name-input").show()
+        home();
+        // $(".phone-code-input").hide()
+        // $(".name-input").show()
       }
     }).fail(function (err) {
         swal({
-          title: "Issue",
+          title: "Error",
           text: "Incorrect code Try again",
           icon: "error",
         });
