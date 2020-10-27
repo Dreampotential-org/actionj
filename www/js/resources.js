@@ -84,6 +84,7 @@ function add_resource(resource, index) {
             <b> ${resource['title']} </b>
             <br><br><p>${resource['description'].substring(0, 200)} ...</p>
         <div class='box' style='display:none'>
+            <p>${resource['description']}</p>
             ${resource['services']}<br><br>
             ${resource['other_info']}
         </div>
@@ -98,6 +99,7 @@ function add_resource(resource, index) {
 
 function toggle(i) {
     $(`#${i}`).prev().slideToggle();
+    $(`#${i}`).parent().find('p').toggle()
     $(`#${i}`).find('i').toggleClass('is-active')
 }
 
