@@ -1,5 +1,10 @@
 var resources = null;
 function get_shelters(callback) {
+
+    if (resources != null) {
+        filter_results();
+    }
+
     $.get(SERVER + "sfapp2/api/get_services", function(results) {
         resources = results
         console.log((results))
