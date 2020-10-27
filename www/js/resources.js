@@ -38,7 +38,7 @@ function filter_results() {
 function populate_services(services) {
     console.log(services)
     $("#service_filter").append(
-        "<option value=''>Filter Population</option>"
+        "<option value=''>Filter Service</option>"
     )
     for (var service of services) {
 
@@ -52,7 +52,7 @@ function populate_services(services) {
 
 function populate_population(populations) {
     $("#population_filter").append(
-        "<option value=''>Filter Service</option>"
+        "<option value=''>Filter Population</option>"
     )
     for(var population of populations) {
         $("#population_filter").append(
