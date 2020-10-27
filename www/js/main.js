@@ -7,7 +7,7 @@ function init() {
     setup_click_events()
     setup_click_resources()
     init_login()
-    $('.shelters').click()
+    // $('.shelters').click()
     // $("#my-profile").click()
 }
 
