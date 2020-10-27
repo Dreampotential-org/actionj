@@ -270,3 +270,8 @@ input:checked + .slider:before {
     cursor: pointer;
 }
 /*map toggle css end*/
+.map-togle {
+    color: white;
+    font-weight: bold;
+    margin: -23px 0px 0px 33px;
+}
