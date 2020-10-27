@@ -12,10 +12,12 @@ function get_shelters(callback) {
 
 function setup_click_resources() {
     $("body").delegate("#service_filter", "change", function(e) {
+        $("#population_filter").val("")
         filter_results()
     })
 
     $("body").delegate("#population_filter", "change", function(e) {
+        $("#service_filter").val("")
         filter_results()
     })
 }
@@ -31,7 +33,7 @@ function filter_results() {
 function populate_services(services) {
     console.log(services)
     $("#service_filter").append(
-        "<option value=''>Select Filter</option>"
+        "<option value=''>Filter Population</option>"
     )
     for (var service of services) {
 
@@ -45,7 +47,7 @@ function populate_services(services) {
 
 function populate_population(populations) {
     $("#population_filter").append(
-        "<option value=''>Select Filter</option>"
+        "<option value=''>Filter Service</option>"
     )
     for(var population of populations) {
         $("#population_filter").append(
