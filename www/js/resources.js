@@ -138,8 +138,7 @@ function display_map_view() {
             onscreen_resources[0]['longitude'],
             onscreen_resources[0]['latitude']
         ],
-        zoom: 15,
-
+        zoom: 10,
     });
     map.on('load', function() {
         map.loadImage(
@@ -214,6 +213,9 @@ function display_map_view() {
 }
 
 function add_map_point(resource, id) {
+    if (!('longitude' in resource)) {
+        return;
+    }
     var map = new mapboxgl.Map({
         container: id,
         style: 'mapbox://styles/mapbox/streets-v11',
@@ -221,7 +223,7 @@ function add_map_point(resource, id) {
             resource['longitude'],
             resource['latitude']
         ],
-        zoom: 11.15,
+        zoom: 10.15,
     });
     map.on('load', function() {
         map.loadImage(
