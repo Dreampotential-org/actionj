@@ -23,6 +23,7 @@ function hide_screens() {
     $('#map-check').hide()
     $('#shelters-screen').hide()
     $('#help-screen').hide()
+    $('#my-meds-screen').hide()
 }
 
 function setup_click_events() {
@@ -43,7 +44,7 @@ function setup_click_events() {
     })
     $("body").delegate("#my-meds", "click", function(e) {
         hide_screens()
-        alert("Coming soon")
+        $('#my-meds-screen').show()
     });
 
     $("body").delegate("#help", "click", function(e) {
