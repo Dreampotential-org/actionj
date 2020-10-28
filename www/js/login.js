@@ -112,7 +112,7 @@ function next_code_login() {
 
 var questions = [
     {'question': 'How old are you?',
-     'answers': ['I am 25 years old or order', 'I am under the age of 25']},
+     'answers': ['I am 25 years old or older', 'I am under the age of 25']},
     {'question': 'What best describes your current housing situation?',
      'option': ['I need immediate shelter tonight or within the next week',
                 'I am currently at a shelter or some other form of temporary housing',
@@ -137,4 +137,5 @@ var questions = [
     {'question': 'Are you a veteran?',
      'answers': ['Yes, I am a veteran',  'No, I am not a veteran']}
 ]
-
+var question_responses = [];
+// ^ stores list of {'question': 'how old are you': 'answer': 'I am 25 years  or older ...}, {'question': ... }
