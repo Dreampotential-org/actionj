@@ -63,6 +63,7 @@
     font-size: 25px;
     border-radius: 5px;
     margin-bottom: 15px;
+    min-height: 190px;
 }
 
 .my-profile {
@@ -92,6 +93,18 @@
 .help {
     background: #3f8ed0;
     border: 1px solid #3f8ed0;
+}
+.journal{
+     background: #29911d;
+    border: 1px solid #29911d;
+}
+.food{
+     background: #b02f2f;
+    border: 1px solid #b02f2f;
+}
+.work{
+     background: #1da8c6;
+    border: 1px solid #1da8c6;
 }
 .shelter-open {
     background: #b1e46d;
