@@ -4,27 +4,31 @@ function init_login() {
         if ($(".phone-code-input").is(":visible")) {
             next_code_login()
         }
-        if ($(".name-input").is(":visible")) {
-
+        else if ($(".name-input").is(":visible")) {
+            set_user_info()
         } else {
             phone_login()
         }
     })
 }
 
-function name_set() {
+function set_user_info() {
     var form = new FormData();
     form.append("name", $("#name").val());
 
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": SERVER + "sfapp2/api/set_info",
+        "url": SERVER + "sfapp2/api/set_user_info",
         "method": "POST",
         "processData": false,
         "contentType": false,
         "mimeType": "multipart/form-data",
-        "data": form
+        "data": form,
+        "headers": {
+            "Authorization": localStorage.getItem("token"),
+        },
+
     }
     $.ajax(settings).done(function (response) {
         // change screen for code collecton
@@ -34,7 +38,8 @@ function name_set() {
           icon: "success",
         });
         home()
-        $("#login_number").hide()
+        /// XXXX revisit
+        //$("#login_number").hide()
 
     }).fail(function (err) {
       alert("ERROR")
@@ -91,14 +96,14 @@ function next_code_login() {
       var resp = JSON.parse(response)
       if(resp.message.includes("success")) {
         localStorage.setItem('token', resp.token)
-        swal({
+        /* swal({
           title: "Good job!",
           text: "You are logged in",
           icon: "success",
-        });
-        home();
-        // $(".phone-code-input").hide()
-        // $(".name-input").show()
+        });*/
+        //home();
+        $(".phone-code-input").hide()
+        $(".name-input").show()
       }
     }).fail(function (err) {
         swal({
