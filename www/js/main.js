@@ -17,6 +17,7 @@ function home() {
 }
 
 function hide_screens() {
+    $('#journal-screen').hide()
     $('#shelters-list').hide()
     $('#screen1').hide()
     $('#screen2').hide()
@@ -31,6 +32,13 @@ function setup_click_events() {
     $("body").delegate("#logout", "click", function(e) {
         localStorage.removeItem('token')
     })
+
+    $("body").delegate("#journal", "click", function(e) {
+        hide_screens()
+        $('#journal-screen').show()
+        populate_journals()
+    });
+
     $("body").delegate(".navbar-brand", "click", function(e) {
         hide_screens()
         $('#screen1').show()
