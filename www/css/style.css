@@ -63,7 +63,6 @@
     font-size: 25px;
     border-radius: 5px;
     margin-bottom: 15px;
-    min-height: 190px;
 }
 
 .my-profile {
@@ -95,15 +94,15 @@
     border: 1px solid #3f8ed0;
 }
 .journal{
-     background: #29911d;
+    background: #29911d;
     border: 1px solid #29911d;
 }
 .food{
-     background: #b02f2f;
+    background: #b02f2f;
     border: 1px solid #b02f2f;
 }
 .work{
-     background: #1da8c6;
+    background: #1da8c6;
     border: 1px solid #1da8c6;
 }
 .shelter-open {
@@ -212,7 +211,7 @@ input[type=checkbox], input[type=radio] {
     margin: 4px 0 0;
 
     line-height: normal;
-      -webkit-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0;
@@ -290,7 +289,7 @@ span.switch-label:after {
     color: #FFFFFF;
     text-shadow: 0 1px rgba(0, 0, 0, 0.2);
     position: absolute;
-  
+
 }
 
 .switch-label:before, .switch-label:after {
@@ -324,7 +323,7 @@ span.switch-label:after {
     left: -100px!important;
     opacity: 1;
     width: 100%!important;
- 
+
 }
 .switch-left-right .switch-label:before, .switch-left-right .switch-label:after {
     width: 20px;
@@ -383,16 +382,16 @@ span.switch-label:after {
 }
 
 #population_filter {
-   border-top-left-radius: 10px;
-	border-bottom-left-radius: 10px;
-	height: 35px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height: 35px;
 }
 #service_filter {
-	height: 35px;
+    height: 35px;
 }
 
 #shelters-list {
-	display: none;
+    display: none;
 }
 th {
     color: white;
@@ -401,4 +400,19 @@ th {
 td {
     color: white;
     text-align: center;
+}
+.container.start-container {
+    margin-top: 100px;
+}
+@media only screen and (min-width: 600px) {
+    .common-style {
+        min-height: 160px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .common-style {
+        text-align: center;
+        padding: 30px 0px 20px 0px;
+        min-height: 150px;
+    }
 }
