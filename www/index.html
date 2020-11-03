@@ -26,73 +26,12 @@
     <script src="js/questions.js"></script>
 
     <style>
-        #regForm {
-            background-color: #ffffff;
-            margin: 10px auto;
-            padding: 40px;
-            width: 70%;
-            min-width: 300px;
+        .radio label {
+            padding-left: 25px;
         }
 
-        /* #regForm input {
-            padding: 10px;
-            width: 100%;
-            font-size: 17px;
-            font-family: Raleway;
-            border: 1px solid #aaaaaa;
-        } */
-
-        /* Mark input boxes that gets an error on validation: */
-
-        #regForm input.invalid {
-            background-color: #ffdddd;
-        }
-
-        /* Hide all steps by default: */
-
-        #regForm .tab {
-            display: none;
-        }
-
-        #regForm button {
-            background-color: #4CAF50;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 17px;
-            font-family: Raleway;
-            cursor: pointer;
-        }
-
-        #regForm button:hover {
-            opacity: 0.8;
-        }
-
-        #regForm #prevBtn {
-            background-color: #bbbbbb;
-        }
-
-        /* Make circles that indicate the steps of the form: */
-
-        #regForm .step {
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbbbbb;
-            border: none;
-            border-radius: 50%;
-            display: inline-block;
-            opacity: 0.5;
-        }
-
-        #regForm .step.active {
-            opacity: 1;
-        }
-
-        /* Mark the steps that are finished and valid: */
-
-        #regForm .step.finish {
-            background-color: #4CAF50;
+        .radio input[type="radio"] {
+            margin-left: -25px;
         }
     </style>
 
@@ -256,10 +195,10 @@
         <div class="row" id="shelters-screen" style="display: none">
             <div class='title'>Shelters</div>
             <div class='filter-row'>
-                <div class="col-xs-4 col-sm-4" style="display: grid;">
+                <div class="col-xs-6 col-sm-4" style="display: grid;">
                     <select id='population_filter'></select>
                 </div>
-                <div class="col-xs-4 col-sm-4" style="display: grid;">
+                <div class="col-xs-6 col-sm-4" style="display: grid;">
                     <select id='service_filter'></select>
                     <!--Make so all fit on same line with toggle map view UI -->
                 </div>
@@ -417,6 +356,15 @@
 
         </div>
     </div>
+
+    <!-- <script>
+        $(document).ready(function () {
+            alert("document ready");
+            $("input[type=radio]").change(function () {
+                alert($(this).val());
+            });
+        });
+    </script> -->
 </body>
 
 </html>
