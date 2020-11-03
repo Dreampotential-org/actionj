@@ -43,8 +43,8 @@ function filter_results() {
         console.log(place)
         if (add_resource(place, index)) {
             onscreen_resources.push(place)
+            index += 1;
         }
-        index += 1;
     }
     display_map_view();
 
@@ -213,6 +213,7 @@ function display_map_view() {
 }
 
 function add_map_point(resource, id) {
+    console.log(resource)
     if (!('longitude' in resource)) {
         return;
     }
