@@ -404,6 +404,76 @@ td {
 .container.start-container {
     margin-top: 100px;
 }
+
+#regForm {
+    background-color: #ffffff;
+    margin: 10px auto;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
+}
+
+/* #regForm input {
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border: 1px solid #aaaaaa;
+} */
+
+/* Mark input boxes that gets an error on validation: */
+
+#regForm input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+
+#regForm .tab {
+    display: none;
+}
+
+#regForm button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+}
+
+#regForm button:hover {
+    opacity: 0.8;
+}
+
+#regForm #prevBtn {
+    background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+
+#regForm .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+#regForm .step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+
+#regForm .step.finish {
+    background-color: #4CAF50;
+}
+
 @media only screen and (min-width: 600px) {
     .common-style {
         min-height: 160px;
@@ -414,5 +484,16 @@ td {
         text-align: center;
         padding: 30px 0px 20px 0px;
         min-height: 150px;
+    }
+}
+@media only screen and (max-width: 767px){
+    #service_filter{
+        width: 100%;
+    }
+    #population_filter{
+        width: 100%;
+    }
+    .map-togle{
+        margin: 10px 0 0 0;
     }
 }
