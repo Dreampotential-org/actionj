@@ -1,3 +1,4 @@
+var questions = null;
 var currentTab = 0
 
 function init_questions () {
@@ -8,8 +9,8 @@ function init_questions () {
 
   questions.forEach((element, i) => {
     que += `<div class="tab" id="tab${i}">
-                        <h4>${element.question}</h4>
-                        ${getOptions(element.answers, i)}
+                        <h4>${element.question_text}</h4>
+                        ${getOptions(element.choices, i)}
                     </div>`
     html += `<span class="step"></span>`
   })
@@ -31,14 +32,14 @@ function init_questions () {
 }
 
 var answers = []
-function getOptions (answers, i) {
+function getOptions(choices, i) {
   var opt = ''
-  answers.forEach((item, ind) => {
+  choices.forEach((item, ind) => {
     opt += `
             <div class="radio">
-                <label><input type="radio" value="${item}"
+                <label><input type="radio" value="${item.id}"
                         oninput="this.className = ''" name="que${i}">
-                            ${item}</label>
+                            ${item.choice_text}</label>
             </div>`
   })
 
@@ -103,9 +104,7 @@ function nextPrev (n) {
 function validateForm () {
   // This function deals with validation of the form fields
   var x
-
   var y
-
   var i
 
   var valid = true
@@ -138,4 +137,26 @@ function fixStepIndicator (n) {
   }
   // ... and adds the "active" class on the current step:
   x[n].className += ' active'
+}
+
+
+function get_questions_api() {
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "sfapp2/api/list_questions",
+        "method": "GET",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+    }
+    $.ajax(settings).done(function (response) {
+        // change screen for code collecton
+        questions = (JSON.parse(response).questions)
+        init_questions()
+    }).fail(function (err) {
+      alert("ERROR")
+    });
+
+
 }

@@ -114,33 +114,3 @@ function next_code_login() {
 
     });
 }
-
-var questions = [
-    {'question': 'How old are you?',
-     'answers': ['I am 25 years old or older', 'I am under the age of 25']},
-    {'question': 'What best describes your current housing situation?',
-     'answers': ['I need immediate shelter tonight or within the next week',
-                'I am currently at a shelter or some other form of temporary housing',
-                'I am currently housed but am at-risk of homelessness']},
-
-    {'question': 'What best describes your current Family?',
-     'answers': ['Our family is composed of one or more adults with physical and legal custody of a minor child who is 17 years or younger',
-                 'I am currently pregnant',
-                 'None of the above options']},
-    {'question': 'What best describes your current housing situation?',
-     'answers': ['I need immediate shelter tonight or within the next week',
-                 'I am currently at a shelter or some other form of temporary housing',
-                 'I am currently housed but am at-risk of homelessness']},
-    {'question': 'What best describes your current living situation?',
-     'answers': ['My family and I need immediate shelter tonight or within the next week',
-                 'My family and I am temporarily living with a family member, friend or someone else',
-                 'My family and I am currently stay at the shelter',
-                 'My family and I am currently housing but am at-risk of homelessness']},
-    {'question': 'Are you seeking relief from domestic violence?',
-     'answers': ['Yes, I am seeking relief from domestic violence',
-                'No, I am not seeking relief from domestic violence']},
-    {'question': 'Are you a veteran?',
-     'answers': ['Yes, I am a veteran',  'No, I am not a veteran']}
-]
-var question_responses = [];
-// ^ stores list of {'question': 'how old are you': 'answer': 'I am 25 years  or older ...}, {'question': ... }
