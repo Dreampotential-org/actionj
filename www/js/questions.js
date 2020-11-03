@@ -1,4 +1,5 @@
 var currentTab = 0;
+
 function init_questions() {
     var html = "";
     var que = "";
@@ -15,16 +16,17 @@ function init_questions() {
 
     que += `<div style="overflow:auto;">
                 <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button" id="prevBtn"
+                        onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn"
+                        onclick="nextPrev(1)">Next</button>
                 </div>
             </div>`
 
-    que += `<div id="custom-indicator" style="text-align:center;margin-top:40px;">${html}</div>`
+    que += `<div id="custom-indicator"
+            style="text-align:center;margin-top:40px;">${html}</div>`
 
-    //$("#journal-list").append("<p>TEST</p>");
     $("#regForm").append(que);
-    //$("#custom-indicator").append(html);
     showTab(currentTab);
 
 }
@@ -33,13 +35,12 @@ var answers = []
 function getOptions(answers, i) {
     var opt = "";
     answers.forEach((item, ind) => {
-        // opt += `<p>
-        //     <input type="radio" placeholder="First name..." oninput="this.className = ''" name="que${ind}">${item}
-        // </p>`;
-
-        opt += `<div class="radio">
-                    <label><input type="radio" value="${item}" oninput="this.className = ''" name="que${i}">${item}</label>
-                </div>`
+        opt += `
+            <div class="radio">
+                <label><input type="radio" value="${item}"
+                        oninput="this.className = ''" name="que${i}">
+                            ${item}</label>
+            </div>`
     });
 
     return opt;

@@ -8,6 +8,7 @@ function init () {
   setup_click_resources()
   init_login()
   init_meds();
+  init_questions()
   // $('.shelters').click()
   // $("#my-profile").click()
 }
