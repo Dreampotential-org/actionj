@@ -119,7 +119,7 @@ var questions = [
     {'question': 'How old are you?',
      'answers': ['I am 25 years old or older', 'I am under the age of 25']},
     {'question': 'What best describes your current housing situation?',
-     'option': ['I need immediate shelter tonight or within the next week',
+     'answers': ['I need immediate shelter tonight or within the next week',
                 'I am currently at a shelter or some other form of temporary housing',
                 'I am currently housed but am at-risk of homelessness']},
 
