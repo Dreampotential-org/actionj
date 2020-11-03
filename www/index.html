@@ -22,6 +22,7 @@
     <script src="js/login.js"></script>
     <script src="js/gps.js"></script>
     <script src="js/video.js"></script>
+    <script src="js/meds.js"></script>
 
     <style>
         #regForm {
@@ -406,20 +407,20 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
+                            <input type="text" class="form-control" id="med_name" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="dosage" placeholder="Dosage">
                         </div>
                         <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1"> &nbsp;Read</label>
+                            <input type="checkbox" class="form-check-input" id="needMed">
+                            <label class="form-check-label" for="exampleCheck1"> &nbsp;Need</label>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-success" id='add_meds'>Add</button>
                 </div>
             </div>
 
