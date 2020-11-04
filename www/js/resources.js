@@ -7,7 +7,7 @@ function get_shelters(callback) {
         filter_results();
     }
 
-    $.get(SERVER + "sfapp2/api/get_services", function(results) {
+    $.get(SERVER + "sfapp2/api/get_services", function (results) {
         resources = results
         console.log((results))
         populate_services(results['service_types'])
@@ -18,17 +18,17 @@ function get_shelters(callback) {
 }
 
 function setup_click_resources() {
-    $("body").delegate(".switch-input", "change", function(e) {
+    $("body").delegate(".switch-input", "change", function (e) {
         $("#shelters-list").toggle()
         $("#map-shelters").toggle()
         display_map_view();
     })
-    $("body").delegate("#service_filter", "change", function(e) {
+    $("body").delegate("#service_filter", "change", function (e) {
         $("#population_filter").val("")
         filter_results()
     })
 
-    $("body").delegate("#population_filter", "change", function(e) {
+    $("body").delegate("#population_filter", "change", function (e) {
         $("#service_filter").val("")
         filter_results()
     })
@@ -53,33 +53,33 @@ function filter_results() {
 function populate_services(services) {
     console.log(services)
     $("#service_filter").append(
-        "<option value=''>Filter Service</option>"
-    )
+            "<option value=''>Filter Service</option>"
+            )
     for (var service of services) {
 
         $("#service_filter").append(
-            "<option value='" + service + "'>" +
+                "<option value='" + service + "'>" +
                 service +
-            "</option>"
-        )
+                "</option>"
+                )
     }
 }
 
 function populate_population(populations) {
     $("#population_filter").append(
-        "<option value=''>Filter Population</option>"
-    )
-    for(var population of populations) {
+            "<option value=''>Filter Population</option>"
+            )
+    for (var population of populations) {
         $("#population_filter").append(
-            "<option value='" + population + "'>" +
+                "<option value='" + population + "'>" +
                 population +
-            "</option>"
-        )
+                "</option>"
+                )
     }
 }
 
 function add_resource(resource, index) {
-    var service_filter =  $("#service_filter").val()
+    var service_filter = $("#service_filter").val()
     var population_filter = $("#population_filter").val()
 
     if (service_filter) {
@@ -95,23 +95,27 @@ function add_resource(resource, index) {
     }
 
     $("#shelters-list").append(
-        `<div class='shelter-close'>
-            <b> ${resource['title']} </b>
-            <br><br><p>${resource['description'].substring(0, 200)} ...</p>
-        <div class='box' style='display:none'>
-            <p>${resource['description']}</p>
+            `<div class="panel-group">
+    <!-- First Panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title" data-toggle="collapse" data-target="#collapse-${index}" id="${index}"
+                onclick='toggle("${index}")'>
+                ${resource['title']}
+            </h4>
+        </div>
+        <div id="collapse-${index}" class="panel-collapse collapse">
+            <div class="panel-body">
+               <p>${resource['description']}</p>
             ${resource['services']}<br>
             ${resource['other_info']}
             ${resource['address']}<br><br>
             <div style='width: 100%; height:300px;' id='map-${index}'></div>
             <br>
+            </div>
         </div>
-        <button  type='button' class='slide-toggle info' id="${index}"
-                onclick='toggle("${index}")'>
-            <span class="info-txt">Info</span>
-            <i class='fa fa-chevron-up pull-right arrow-icon'></i>
-            <i class='fa fa-chevron-down pull-right is-active arrow-icon'></i>
-        </button>`)
+    </div>
+</div>`)
 
     return true
 }
@@ -140,75 +144,75 @@ function display_map_view() {
         ],
         zoom: 10,
     });
-    map.on('load', function() {
+    map.on('load', function () {
         map.loadImage(
-            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-            function (error, image) {
-            if (error) throw error;
-            map.addImage('custom-marker', image);
-            var blob = {
-                "type": "geojson",
-                "data": {
-                    "type": "FeatureCollection",
-                    "features": [],
-                },
-            }
-            for (var resource of onscreen_resources) {
-            blob['data']['features'].push({
-                "type": "Feature",
-                "properties": {
-                    "description": "<strong>" +
-                            resource['title'] +
-                        "</strong><br>" +
-                        "" + resource['address'] + "",
-                },
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                        resource['longitude'],
-                        resource['latitude']
-                    ]
-                }
-            })
-            }
-            map.addSource("places", blob)
+                'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+                function (error, image) {
+                    if (error)
+                        throw error;
+                    map.addImage('custom-marker', image);
+                    var blob = {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": [],
+                        },
+                    }
+                    for (var resource of onscreen_resources) {
+                        blob['data']['features'].push({
+                            "type": "Feature",
+                            "properties": {
+                                "description": "<strong>" +
+                                        resource['title'] +
+                                        "</strong><br>" +
+                                        "" + resource['address'] + "",
+                            },
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [
+                                    resource['longitude'],
+                                    resource['latitude']
+                                ]
+                            }
+                        })
+                    }
+                    map.addSource("places", blob)
 
-            map.addLayer({
-                'id': 'places',
-                'type': 'symbol',
-                'source': 'places',
-                'layout': {
-                    'icon-image': 'custom-marker'
-                },
-            });
+                    map.addLayer({
+                        'id': 'places',
+                        'type': 'symbol',
+                        'source': 'places',
+                        'layout': {
+                            'icon-image': 'custom-marker'
+                        },
+                    });
+                    map.on('click', 'places', function (e) {
+                        var coordinates = e.features[0].geometry.coordinates.slice();
+                        var description = e.features[0].properties.description;
 
-            map.on('click', 'places', function (e) {
-                var coordinates = e.features[0].geometry.coordinates.slice();
-                var description = e.features[0].properties.description;
+                        // Ensure that if the map is zoomed out such that multiple
+                        // copies of the feature are visible, the popup appears
+                        // over the copy being pointed to.
+                        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                        }
 
-                // Ensure that if the map is zoomed out such that multiple
-                // copies of the feature are visible, the popup appears
-                // over the copy being pointed to.
-                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-                }
+                        new mapboxgl.Popup()
+                                .setLngLat(coordinates)
+                                .setHTML(description)
+                                .addTo(map);
+                    });
 
-                new mapboxgl.Popup()
-                    .setLngLat(coordinates)
-                    .setHTML(description)
-                    .addTo(map);
-            });
+                    // Change the cursor to a pointer when the mouse is over the places layer.
+                    map.on('mouseenter', 'places', function () {
+                        map.getCanvas().style.cursor = 'pointer';
+                    });
 
-                // Change the cursor to a pointer when the mouse is over the places layer.
-            map.on('mouseenter', 'places', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-
-            // Change it back to a pointer when it leaves.
-            map.on('mouseleave', 'places', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        })
+                    // Change it back to a pointer when it leaves.
+                    map.on('mouseleave', 'places', function () {
+                        map.getCanvas().style.cursor = '';
+                    });
+                })
     })
 }
 
@@ -226,72 +230,73 @@ function add_map_point(resource, id) {
         ],
         zoom: 10.15,
     });
-    map.on('load', function() {
+    map.on('load', function () {
         map.loadImage(
-            'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
-            function (error, image) {
-            if (error) throw error;
-            map.addImage('custom-marker', image);
-            map.addSource("places", {
-                "type": "geojson",
-                "data": {
-                    "type": "FeatureCollection",
-                    "features": [
-                        {
-                            "type": "Feature",
-                            "properties": {
-                                "description": "<strong>" +
-                                        resource['title'] +
-                                    "</strong><br>" +
-                                    "" + resource['address'] + "",
-                            },
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [
-                                    resource['longitude'],
-                                    resource['latitude']
-                                ]
-                            }
-                        }],
-                    }
+                'https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png',
+                function (error, image) {
+                    if (error)
+                        throw error;
+                    map.addImage('custom-marker', image);
+                    map.addSource("places", {
+                        "type": "geojson",
+                        "data": {
+                            "type": "FeatureCollection",
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "properties": {
+                                        "description": "<strong>" +
+                                                resource['title'] +
+                                                "</strong><br>" +
+                                                "" + resource['address'] + "",
+                                    },
+                                    "geometry": {
+                                        "type": "Point",
+                                        "coordinates": [
+                                            resource['longitude'],
+                                            resource['latitude']
+                                        ]
+                                    }
+                                }],
+                        }
+                    })
+
+                    map.addLayer({
+                        'id': 'places',
+                        'type': 'symbol',
+                        'source': 'places',
+                        'layout': {
+                            'icon-image': 'custom-marker'
+                        },
+                    });
+
+                    map.on('click', 'places', function (e) {
+                        var coordinates = e.features[0].geometry.coordinates.slice();
+                        var description = e.features[0].properties.description;
+
+                        // Ensure that if the map is zoomed out such that multiple
+                        // copies of the feature are visible, the popup appears
+                        // over the copy being pointed to.
+                        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                        }
+
+                        new mapboxgl.Popup()
+                                .setLngLat(coordinates)
+                                .setHTML(description)
+                                .addTo(map);
+                    });
+
+                    // Change the cursor to a pointer when the mouse is over the places layer.
+                    map.on('mouseenter', 'places', function () {
+                        map.getCanvas().style.cursor = 'pointer';
+                    });
+
+                    // Change it back to a pointer when it leaves.
+                    map.on('mouseleave', 'places', function () {
+                        map.getCanvas().style.cursor = '';
+                    });
                 })
-
-            map.addLayer({
-                'id': 'places',
-                'type': 'symbol',
-                'source': 'places',
-                'layout': {
-                    'icon-image': 'custom-marker'
-                },
-            });
-
-            map.on('click', 'places', function (e) {
-                var coordinates = e.features[0].geometry.coordinates.slice();
-                var description = e.features[0].properties.description;
-
-                // Ensure that if the map is zoomed out such that multiple
-                // copies of the feature are visible, the popup appears
-                // over the copy being pointed to.
-                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-                }
-
-                new mapboxgl.Popup()
-                    .setLngLat(coordinates)
-                    .setHTML(description)
-                    .addTo(map);
-            });
-
-                // Change the cursor to a pointer when the mouse is over the places layer.
-            map.on('mouseenter', 'places', function () {
-                map.getCanvas().style.cursor = 'pointer';
-            });
-
-            // Change it back to a pointer when it leaves.
-            map.on('mouseleave', 'places', function () {
-                map.getCanvas().style.cursor = '';
-            });
-        })
     })
 }
 

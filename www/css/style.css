@@ -473,7 +473,24 @@ td {
 #regForm .step.finish {
     background-color: #4CAF50;
 }
+.panel-title {
+    position: relative;
+}
 
+.panel-title::after {
+    content: "\f107";
+    color: #333;
+    top: -2px;
+    right: 0px;
+    position: absolute;
+    font-family: "FontAwesome";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.panel-title[aria-expanded="true"]::after {
+    content: "\f106";
+}
 @media only screen and (min-width: 600px) {
     .common-style {
         min-height: 160px;
