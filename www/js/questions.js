@@ -1,6 +1,8 @@
 var questions = null;
 var currentTab = 0
 
+var question_answers = {}
+
 function init_questions () {
   var html = ''
   var que = ''
@@ -8,7 +10,7 @@ function init_questions () {
   console.log(questions)
 
   questions.forEach((element, i) => {
-    que += `<div class="tab" id="tab${i}">
+    que += `<div class="tab" question_id=${element.id} id="tab${i}">
                         <h4>${element.question_text}</h4>
                         ${getOptions(element.choices, i)}
                     </div>`
@@ -66,6 +68,13 @@ function showTab (n) {
 
   if (isDisable) $('#nextBtn').attr('disabled', true)
 
+  if (n >= questions.length) {
+
+    alert("HEREEE")
+    set_user_answers()
+    // send results to backend
+    return
+  }
   var x = document.getElementsByClassName('tab')
   x[n].style.display = 'block'
   // ... and fix the Previous/Next buttons:
@@ -84,6 +93,10 @@ function showTab (n) {
 }
 
 function nextPrev (n) {
+  // populate  question_answers
+   question_answers[$("#tab" + currentTab).attr("question_id")] = (
+        $("#tab" + currentTab + " .radio input").val())
+
   // This function will figure out which tab to display
   var x = document.getElementsByClassName('tab')
   // Exit the function if any field in the current tab is invalid:
@@ -154,6 +167,41 @@ function get_questions_api() {
         // change screen for code collecton
         questions = (JSON.parse(response).questions)
         init_questions()
+    }).fail(function (err) {
+      alert("ERROR")
+    });
+
+
+}
+
+function set_user_answers() {
+    var form = new FormData();
+    form.append("question_answers", JSON.stringify(question_answers))
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "sfapp2/api/set_user_info",
+        "method": "POST",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form,
+        "headers": {
+            "Authorization": localStorage.getItem("token"),
+        },
+
+    }
+    $.ajax(settings).done(function (response) {
+        // change screen for code collecton
+        swal({
+          title: "Good job!",
+          text: "You're logged in",
+          icon: "success",
+        });
+        home()
+        /// XXXX revisit
+        //$("#login_number").hide()
+
     }).fail(function (err) {
       alert("ERROR")
     });
