@@ -95,7 +95,7 @@ function showTab (n) {
 function nextPrev (n) {
   // populate  question_answers
    question_answers[$("#tab" + currentTab).attr("question_id")] = (
-        $("#tab" + currentTab + " .radio input").val())
+        $("#tab" + currentTab + " .radio input:checked").val())
 
   // This function will figure out which tab to display
   var x = document.getElementsByClassName('tab')
