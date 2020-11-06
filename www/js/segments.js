@@ -8,4 +8,8 @@ var segments = [
 ]
 
 function display_segment(n) {
+    // XXX is is segment to display
+    // Irfan - build out code that handles rendering of each segment_type
 }
+
+// XXX next / prev button
