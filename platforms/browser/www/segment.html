@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Segment Builder</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/questions.js"></script>
+
+    <style>
+        .radio label {
+            padding-left: 25px;
+        }
+
+        .radio input[type="radio"] {
+            margin-left: -25px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class="logo" src="img/SF-Logo.png" />
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="./index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Search</a>
+                    </li>
+                    <li>
+                        <a id='logout' href="#">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container start-container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6">
+                <h3 style="color: white">Segment Builder</h1>
+            </div>
+            <div class="col-xs-6 col-sm-6" style="margin-top: 20px;margin-bottom: 10px;">
+                <select class="form-control" id="selectsegment">
+                    <option selected value="select_type">select segment type</option>
+                    <option value="speed_read">Speed Read</option>
+                    <option value="title_text">Title Text</option>
+                    <option value="question_choices">Question Choices</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="speed_read" id="speed_read" style="display: none; padding-top: 15px">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="speed_read_input" rows="7" placeholder=""></textarea>
+                        </div>
+                        <button type="button" class="btn btn-success pull-right">Save</button>
+                    </form>
+                </div>
+                <div class="speed_read" id="title_text" style="display: none; padding-top: 15px">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="title" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="speed_read_input" rows="7" placeholder=""></textarea>
+                        </div>
+                        <button type="button" class="btn btn-success pull-right">Save</button>
+                    </form>
+                </div>
+                <div class="speed_read" id="question_choices" style="display: none; padding-top: 15px">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="question" placeholder="Question">
+                        </div>
+                        <div class="form-group input_fields_wrap">
+                            <div style="margin-bottom: 5px;">
+                                <input type="text" name="mytext[]" placeholder="Choice" style="width: 90%;">
+                            </div>
+
+                            <div>
+                                <input type="text" name="mytext[]" style="width: 90%;" placeholder="Choice">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary add_field_button">
+                            <i class="fas fa-plus-circle" style="font-size: inherit;"></i> Add Choice</button>
+                        <button type="button" class="btn btn-success pull-right">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#selectsegment').on('change', function () {
+                if (this.value == 'speed_read') {
+                    $("#speed_read").show();
+                    $("#title_text").hide();
+                    $("#question_choices").hide();
+                }
+                if (this.value == 'title_text') {
+                    $("#speed_read").hide();
+                    $("#title_text").show();
+                    $("#question_choices").hide();
+                }
+                if (this.value == 'question_choices') {
+                    $("#speed_read").hide();
+                    $("#title_text").hide();
+                    $("#question_choices").show();
+                }
+                if (this.value == 'select_type') {
+                    $("#speed_read").hide();
+                    $("#title_text").hide();
+                    $("#question_choices").hide();
+                }
+            });
+        });
+        $(document).ready(function () {
+            var max_fields = 10; //maximum input boxes allowed
+            var wrapper = $(".input_fields_wrap"); //Fields wrapper
+            var add_button = $(".add_field_button"); //Add button ID
+
+            var x = 1; //initlal text box count
+            $(add_button).click(function (e) { //on add input button click
+                e.preventDefault();
+                if (x < max_fields) { //max input box allowed
+                    x++; //text box increment
+                    $(wrapper).append('<div><input type="text" name="mytext[]" style="width: 90%;" placeholder="Choice"><a href="#" class="remove_field" style="color:red;font-weight:bold;font-size:25px"> x</a></div>'); //add input box
+                }
+            });
+
+            $(wrapper).on("click", ".remove_field", function (e) { //user click on remove text
+                e.preventDefault();
+                $(this).parent('div').remove();
+                x--;
+            })
+        });
+    </script>
+
+</body>
+
+</html>
