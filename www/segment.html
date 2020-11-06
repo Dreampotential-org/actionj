@@ -1,72 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <title>Segment Builder</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-        <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-
-
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/login.js"></script>
-        <script src="js/questions.js"></script>
-
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <style>
-            .radio label {
-                padding-left: 25px;
-            }
-
-            .radio input[type="radio"] {
-                margin-left: -25px;
+            .start-container{
+                border: 1px solid lightgray;
+                padding: 25px;
             }
         </style>
 
     </head>
 
     <body>
-
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">
-                        <img class="logo" src="img/SF-Logo.png" />
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Search</a>
-                        </li>
-                        <li>
-                            <a id='logout' href="#">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
         <div class="container start-container">
             <div class="row">
                 <div class="col-xs-6 col-sm-6">
-                    <h3 style="color: white">Segment Builder</h1>
+                    <h3>Segment Builder</h3>
                 </div>
                 <div class="col-xs-6 col-sm-6" style="margin-top: 20px;margin-bottom: 10px;">
                     <select class="form-control" id="selectsegment">
