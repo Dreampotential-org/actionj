@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "SF Onboard",
+  "short_name": "SF Onboard",
+  "version": "com.sfonboard.sfonboard",
+  "description": "This is SF Onborad application.",
+  "author": "Apache Cordova Team",
+  "icons": [],
+  "start_url": "index.html"
+}
