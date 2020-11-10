@@ -60,8 +60,7 @@ function setup_click_events () {
     handle_gps_click()
   })
   $('body').delegate('#my-meds', 'click', function (e) {
-    hide_screens()
-    $('#my-meds-screen').show()
+    handle_meds_click()
   })
 
   $('body').delegate('#help', 'click', function (e) {

@@ -17,6 +17,23 @@ function init_meds() {
     }
 }
 
+function handle_meds_click() {
+    if (localStorage.getItem("token")) {
+        hide_screens()
+        $("#my-meds-screen").show()
+    }
+    else {
+        swal({
+            title: "Error",
+            text: "You must first login to your profile",
+            icon: 'error',
+        })
+        $("#my-profile").click()
+    }
+}
+
+
+
 function add_med_html(med) {
     $("#med_list").append(`
         <tr>
