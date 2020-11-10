@@ -20,33 +20,7 @@
 
     <body>
         <div class="container start-container">
-            <div class="row">
-                <div class="col-xs-6 col-sm-6">
-                    <h3>Segment Builder</h3>
-                </div>
-                <div class="col-xs-6 col-sm-6" style="margin-top: 20px;margin-bottom: 10px;">
-                    <select class="form-control" id="selectsegment">
-                        <option selected value="select_type">select segment type</option>
-                        <option value="speed_read">Speed Read</option>
-                        <option value="title_text">Title Text</option>
-                        <option value="question_choices">Question Choices</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <div id="title"></div>
-                    <div id="textarea_div"></div>
-                </div>
-            </div>
+          <!-- display segments with next/prev buttons -->
         </div>
-        <script>
-            $(document).ready(function () {
-                $('#selectsegment').on('change', function () {
-                    display_segment(this.value);
-                });
-            });
-        </script>
-
     </body>
 </html>

@@ -1,42 +1,46 @@
 var questions = [
-//    {'type': 'speed_read', 'textarea_div': 'display this text on page in div'},
-//    {'type': 'title_text', 'title': 'Here is a title in bold on page',
-//     'textarea_div': 'display this text on page in div'},
-    {'type': 'question_choices', 'title': 'Here is a title in bold on page',
+    {'id': 1, 'type': 'speed_read',
+     'textarea_div': 'display this text on page in div'},
+    {'id': 2, 'type': 'title_text', 'title': 'Here is a title in bold on page',
+     'textarea_div': 'display this text on page in div'},
+    {'id': 3, 'type': 'question_choices',
+     'title': 'Here is a title in bold on page',
      'choices': ['choice string 1 via radio button', 'two string'],
      'textarea_div': 'display this text on page in div'},
 ]
 
 
-function display_segment(n) {
-    if (n == 'speed_read') {
+function display_segment(segment) {
+    if (segment['type'] == 'speed_read') {
         document.getElementById('textarea_div').innerHTML = 'display this text on page in div';
     }
-    if (n == 'title_text') {
+    if (segment['type'] == 'title_text') {
         document.getElementById('title').innerHTML = 'display this text on page in div title';
         document.getElementById('textarea_div').innerHTML = 'display this text on page in div textarea';
     }
-    if (n == 'question_choices') {
+    if (segment['type'] == 'question_choices') {
         document.getElementById('title').innerHTML = 'display this text on page in div choice';
         document.getElementById('textarea_div').innerHTML = 'display this text on page in div choice';
-        init_questions();
+
+        display_question(segment['choices'])
     }
 }
 var currentTab = 0
 
-function init_questions() {
+function init() {
+    display_segment(questions[currentTab])
+}
+
+function display_question(segment) {
     var html = ''
     var que = ''
 
     console.log(questions)
-
-    questions.forEach((element, i) => {
-        que += `<div class="tab" question_id=${element.id} id="tab${i}">
-                        <h4>${element.question_text}</h4>
-                        ${getOptions(element.choices, i)}
-                    </div>`
-        html += `<span class="step"></span>`
-    })
+    que += `<div class="tab" segment_id=${segment.id} id="tab${i}">
+                    <h4>${segment.title}</h4>
+                    ${getOptions(segment.choices, i)}
+                </div>`
+    html += `<span class="step"></span>`
 
     que += `<div style="overflow:auto;">
                 <div style="float:right;">
@@ -150,6 +154,4 @@ function fixStepIndicator (n) {
 }
 
 
-
-// XXX next / prev button
-
+window.addEventListener('DOMContentLoaded', init, false)
