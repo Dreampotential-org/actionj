@@ -8,11 +8,13 @@ function init_meds() {
         delete_med($(this).attr("med_id"))
     })
 
-    list_meds(function(meds) {
-        for(var med of meds) {
-            add_med_html(med)
-        }
-    })
+    if (localStorage.getItem("session_id")) {
+        list_meds(function(meds) {
+            for(var med of meds) {
+                add_med_html(med)
+            }
+        })
+    }
 }
 
 function add_med_html(med) {
