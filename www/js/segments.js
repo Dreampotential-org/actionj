@@ -1,4 +1,4 @@
-var questions = [
+var segments = [
     {'id': 1, 'type': 'speed_read',
      'textarea_div': 'display this text on page in div'},
     {'id': 2, 'type': 'title_text', 'title': 'Here is a title in bold on page',
@@ -28,7 +28,7 @@ function display_segment(segment) {
 var currentTab = 0
 
 function init() {
-    display_segment(questions[currentTab])
+    display_segment(segments[currentTab])
 }
 
 function display_question(segment) {
