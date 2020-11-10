@@ -45,7 +45,7 @@ function setup_click_events () {
   $('body').delegate('#journal', 'click', function (e) {
     hide_screens()
     $('#journal-screen').show()
-    // populate_journals()
+    populate_journals()
   })
 
   $('body').delegate('.navbar-brand', 'click', function (e) {
