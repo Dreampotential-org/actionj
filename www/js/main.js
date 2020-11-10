@@ -18,6 +18,12 @@ function home () {
   $('.navbar-brand').click()
 }
 
+
+function is_logged() {
+
+
+}
+
 function hide_screens () {
   $('#journal-screen').hide()
   $('#shelters-list').hide()
@@ -27,6 +33,7 @@ function hide_screens () {
   $('#shelters-screen').hide()
   $('#help-screen').hide()
   $('#my-meds-screen').hide()
+  $('#questions-screen').hide()
 }
 
 function setup_click_events () {

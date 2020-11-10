@@ -38,6 +38,8 @@ function set_user_info() {
           icon: "success",
         });
         home()
+        hide_screens()
+        $("#questions-screen").show()
         /// XXXX revisit
         //$("#login_number").hide()
 

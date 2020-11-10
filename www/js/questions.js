@@ -69,8 +69,6 @@ function showTab (n) {
   if (isDisable) $('#nextBtn').attr('disabled', true)
 
   if (n >= questions.length) {
-
-    alert("HEREEE")
     set_user_answers()
     // send results to backend
     return
