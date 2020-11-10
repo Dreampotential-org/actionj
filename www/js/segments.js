@@ -1,11 +1,12 @@
-//var segments = [
+var questions = [
 //    {'type': 'speed_read', 'textarea_div': 'display this text on page in div'},
 //    {'type': 'title_text', 'title': 'Here is a title in bold on page',
-//        'textarea_div': 'display this text on page in div'},
-//    {'type': 'question_choices', 'title': 'Here is a title in bold on page',
-//        'choices': ['choice string 1 via radio button', 'two string'],
-//        'textarea_div': 'display this text on page in div'},
-//]
+//     'textarea_div': 'display this text on page in div'},
+    {'type': 'question_choices', 'title': 'Here is a title in bold on page',
+     'choices': ['choice string 1 via radio button', 'two string'],
+     'textarea_div': 'display this text on page in div'},
+]
+
 
 function display_segment(n) {
     if (n == 'speed_read') {
@@ -21,10 +22,7 @@ function display_segment(n) {
         init_questions();
     }
 }
-var questions = null;
 var currentTab = 0
-
-var question_answers = {}
 
 function init_questions() {
     var html = ''
@@ -138,4 +136,20 @@ function nextPrev(n) {
     // Otherwise, display the correct tab:
     showTab(currentTab)
 }
+
+function fixStepIndicator (n) {
+  // This function removes the "active" class of all steps...
+  var i
+
+  var x = document.getElementsByClassName('step')
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(' active', '')
+  }
+  // ... and adds the "active" class on the current step:
+  x[n].className += ' active'
+}
+
+
+
 // XXX next / prev button
+
