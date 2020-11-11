@@ -8,12 +8,31 @@ function init_meds() {
         delete_med($(this).attr("med_id"))
     })
 
-    list_meds(function(meds) {
-        for(var med of meds) {
-            add_med_html(med)
-        }
-    })
+    if (localStorage.getItem("session_id")) {
+        list_meds(function(meds) {
+            for(var med of meds) {
+                add_med_html(med)
+            }
+        })
+    }
 }
+
+function handle_meds_click() {
+    if (localStorage.getItem("token")) {
+        hide_screens()
+        $("#my-meds-screen").show()
+    }
+    else {
+        swal({
+            title: "Error",
+            text: "You must first login to your profile",
+            icon: 'error',
+        })
+        $("#my-profile").click()
+    }
+}
+
+
 
 function add_med_html(med) {
     $("#med_list").append(`

@@ -1,5 +1,5 @@
 var SERVER = 'https://sfapp-api.dreamstate-4-all.org/'
-// var SERVER = 'http://localhost:8000/'
+//var SERVER = 'http://localhost:8000/'
 
 function init () {
   init_mapbox()
@@ -10,12 +10,19 @@ function init () {
   init_meds();
   //init_questions()
   get_questions_api();
+  init_video_events();
   // $('.shelters').click()
   // $("#my-profile").click()
 }
 
 function home () {
   $('.navbar-brand').click()
+}
+
+
+function is_logged() {
+
+
 }
 
 function hide_screens () {
@@ -27,6 +34,7 @@ function hide_screens () {
   $('#shelters-screen').hide()
   $('#help-screen').hide()
   $('#my-meds-screen').hide()
+  $('#questions-screen').hide()
 }
 
 function setup_click_events () {
@@ -38,7 +46,7 @@ function setup_click_events () {
   $('body').delegate('#journal', 'click', function (e) {
     hide_screens()
     $('#journal-screen').show()
-    // populate_journals()
+    populate_journals()
   })
 
   $('body').delegate('.navbar-brand', 'click', function (e) {
@@ -53,8 +61,7 @@ function setup_click_events () {
     handle_gps_click()
   })
   $('body').delegate('#my-meds', 'click', function (e) {
-    hide_screens()
-    $('#my-meds-screen').show()
+    handle_meds_click()
   })
 
   $('body').delegate('#help', 'click', function (e) {
