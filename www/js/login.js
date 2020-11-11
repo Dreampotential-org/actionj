@@ -72,9 +72,9 @@ function phone_login() {
 
     }).fail(function (err) {
         swal({
-          title: "Error",
+          title: "Issue",
           text: "Invalid Phone Number",
-          icon: "error",
+          icon: "warning",
         });
     });
 }
@@ -109,10 +109,9 @@ function next_code_login() {
       }
     }).fail(function (err) {
         swal({
-          title: "Error",
+          title: "Issue",
           text: "Incorrect code Try again",
-          icon: "error",
+          icon: "warning",
         });
-
     });
 }
