@@ -68,6 +68,22 @@ function setup_gps_events() {
 
 }
 
+function handle_journal_click() {
+    if (localStorage.getItem("token")) {
+        hide_screens()
+        $('#journal-screen').show()
+        populate_journals()
+    }
+    else {
+        swal({
+            title: "Error",
+            text: "You must first login to your profile",
+            icon: 'warning',
+        })
+        $("#my-profile").click()
+    }
+}
+
 function handle_gps_click() {
     if (localStorage.getItem("token")) {
         hide_screens()
@@ -79,7 +95,7 @@ function handle_gps_click() {
         swal({
             title: "Error",
             text: "You must first login to your profile",
-            icon: 'error',
+            icon: 'warning',
         })
         $("#my-profile").click()
     }
@@ -245,7 +261,7 @@ function start_gps() {
             swal({
                 title: "GPS Issue.",
                 text: "Please allow gps permission",
-                icon: "error",
+                icon: "warning",
             });
         }
         console.log("errror no gps")
