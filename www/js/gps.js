@@ -5,6 +5,66 @@ function setup_gps_events() {
     $("body").delegate("#post_gps", "click", function(e) {
         gps_checkin()
     })
+     $("body").delegate(".video_entry", "click", function(e) {
+        var video_url = (SERVER +
+            'video/api/video-play?video_uuid=' + $(this).attr("video_id"))
+        $("#journal-overlay").html(
+            '<video controls="" autoplay="" name="media" ' +
+                'id="video" width="170" height="240">' +
+                '<source src="' + video_url + '" type="video/mp4"></video>'
+        )
+    })
+
+   $("body").delegate(".gps-entry", "click", function(e) {
+
+        $("#journal-overlay").html(
+          "<div id='gps-view' style='width:100%;height:400px;'></div>"
+        );
+        var spot = {
+          lat: parseFloat($(this).attr("lat")),
+          lng: parseFloat($(this).attr("lng"))
+        };
+        var name= '';
+        var latlng = spot;
+        var geocoder= new google.maps.Geocoder();
+
+        var panorama = new google.maps.Map(
+          document.getElementById("gps-view"),
+          {
+            center: {lat: spot.lat, lng: spot.lng},
+            zoom: 18
+          }
+        );
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+              name=results[0].formatted_address;
+              //alert(name);
+              var marker = new google.maps.Marker({
+                position: spot, 
+                map: panorama,
+                icon: 'images/map_icon.png',
+              });
+              var infowindow = new google.maps.InfoWindow({
+                content: name
+              });
+              infowindow.setContent(results[0].formatted_address);
+              infowindow.open(panorama, marker);
+              marker.addListener('click', function() {
+                infowindow.open(panorama, marker);
+              });
+
+            } else {
+              window.alert('No results found');
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+
+
+    })
+
 
 }
 
@@ -113,10 +173,23 @@ function populate_journals() {
     $("#journal-list").empty()
     get_journal_list(function(events) {
         for(var e of events) {
-            $("#journal-list").append(
-                "<div><span>" + format_date(e.created_at) + "</span> - " +
-                "<span>" + e.msg + "</span></div>"
-            )
+
+            if (e.type == 'video') {
+                var html = (
+                    '<div class="video_entry" video_id="' +
+                        e.video_uuid + '"><span>' +
+                            format_date(e.created_at) +
+                        '</span> - <a href="#">Play</a></div>'
+                )
+            } else if (e.type == 'gps') {
+                var html = (
+                    "<div class='gps-entry' lat='" + e.lat +
+                        "' lng='" + e.lng + "'><span>"
+                        + format_date(e.created_at) + "</span> - " +
+                    "<span>" + e.msg + "</span> - <a href='#'>View</a></div>"
+                )
+            }
+            $("#journal-list").append(html)
         }
     })
 }
