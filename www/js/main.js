@@ -10,6 +10,7 @@ function init () {
   init_meds();
   //init_questions()
   get_questions_api();
+  init_video_events();
   // $('.shelters').click()
   // $("#my-profile").click()
 }
