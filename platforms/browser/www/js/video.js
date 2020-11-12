@@ -45,7 +45,7 @@ function init_video_events() {
                     swal({
                       title: "Error Try Again",
                       text: "Sorry, there is an error please try again later.",
-                      icon: "error",
+                      icon: "warning",
                     });
                 }
             }
@@ -91,9 +91,9 @@ function handle_video_click() {
     }
     else {
         swal({
-            title: "Error",
+            title: "Issue",
             text: "You must first login to your profile",
-            icon: 'error',
+            icon: 'warning',
         })
         $("#my-profile").click()
     }
@@ -124,9 +124,9 @@ function api_video_checkin_android(mediaFile) {
         console.log(error);
 
         swal({
-          title: "Error Try Again",
+          title: "Issue Try Again",
           text: "Sorry, there is an error please try again later.",
-          icon: "error",
+          icon: "warning",
         });
 
         console.log("upload error source " + error.source);
