@@ -44,9 +44,7 @@ function setup_click_events () {
   })
 
   $('body').delegate('#journal', 'click', function (e) {
-    hide_screens()
-    $('#journal-screen').show()
-    populate_journals()
+    handle_journal_click()
   })
 
   $('body').delegate('.navbar-brand', 'click', function (e) {

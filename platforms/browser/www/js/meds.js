@@ -5,16 +5,31 @@ function init_meds() {
     })
 
     $("body").delegate(".med-delete", "click", function(e) {
-        delete_med($(this).attr("med_id"))
-    })
-
-    if (localStorage.getItem("session_id")) {
-        list_meds(function(meds) {
-            for(var med of meds) {
-                add_med_html(med)
+        swal({
+            title: "Remove medication?",
+            text: "Yes delete, remove this medication.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true
+        }).then(willDelete => {
+            if (willDelete) {
+                delete_med($(this).attr("med_id"))
             }
         })
+    })
+
+    if (localStorage.getItem("token")) {
+        refresh_meds()
     }
+}
+
+function refresh_meds() {
+    list_meds(function(meds) {
+        $("#med_list").empty()
+        for(var med of meds) {
+            add_med_html(med)
+        }
+    })
 }
 
 function handle_meds_click() {
@@ -26,7 +41,7 @@ function handle_meds_click() {
         swal({
             title: "Error",
             text: "You must first login to your profile",
-            icon: 'error',
+            icon: 'warning',
         })
         $("#my-profile").click()
     }
@@ -71,7 +86,7 @@ function delete_med(med_id) {
           text: "Medication Removed",
           icon: "success",
         });
-
+        refresh_meds()
     }).fail(function (err) {
       alert("ERROR")
     });
@@ -103,6 +118,8 @@ function add_meds() {
           text: "Medication Added",
           icon: "success",
         });
+        refresh_meds()
+        $(".close").click()
 
     }).fail(function (err) {
       alert("ERROR")

@@ -1,3 +1,19 @@
+iframe {
+	 width: 100%;
+	 height: 90vh;
+}
+.padding-main{
+	 padding: 15px;
+}
+video {
+	 width: 100%;
+	 height: 90vh;
+}
+img {
+	 width: 100%;
+	 height: 90vh;
+}
+
 #textarea_div, #textarea_div_text{
     text-align: center;
     padding-top: 50px;
@@ -6,4 +22,58 @@
     text-align: center;
     padding-top: 50px;
     font-weight: bold;
+}
+body{
+    background-color: #fff;
+}
+
+#segForm input.invalid {
+    background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+
+#segForm .tab {
+    display: none;
+}
+
+#segForm button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+}
+
+#segForm button:hover {
+    opacity: 0.8;
+}
+
+#segForm #prevBtn {
+    background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+
+#segForm .step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+#segForm .step.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+
+#segForm .step.finish {
+    background-color: #4CAF50;
 }
