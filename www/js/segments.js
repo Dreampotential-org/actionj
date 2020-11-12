@@ -29,8 +29,8 @@ var segments = [
   {
     id: 4,
     type: 'question_choices',
-    title: 'Here is a title in bold on page',
-    choices: ['choice string 1 via radio button', 'two string'],
+    title: 'Here is another set of questions',
+    choices: ['choice 1', 'choice 2', 'choice 3'],
     textarea_div: 'display this text on page in div'
   }
 ]
