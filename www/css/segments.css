@@ -1,3 +1,10 @@
+iframe {
+	 width: 100%;
+	 height: 90vh;
+}
+.padding-main{
+	 padding: 15px;
+}
 #textarea_div, #textarea_div_text{
     text-align: center;
     padding-top: 50px;

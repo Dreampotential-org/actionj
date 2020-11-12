@@ -1,5 +1,14 @@
 var segments = [
   {
+    id: 7,
+    title: 'Tour Clamagore in 3D',
+    type: 'html',
+    html: '<iframe frameborder="0" ' +
+            'src="https://my.matterport.com/show/?m=GAPCjiGGCZ5?autoplay=1" ' +
+            'sandbox="allow-same-origin allow-scripts allow-popups allow-forms" ' +
+            '></iframe>',
+  },
+  {
     id: 1,
     type: 'speed_read',
     textarea_div: 'display this text on page in div'
@@ -16,28 +25,19 @@ var segments = [
     title: 'Here is a title in bold on page',
     choices: ['choice string 1 via radio button', 'two string'],
     textarea_div: 'display this text on page in div'
+  },
+  {
+    id: 4,
+    type: 'question_choices',
+    title: 'Here is a title in bold on page',
+    choices: ['choice string 1 via radio button', 'two string'],
+    textarea_div: 'display this text on page in div'
   }
 ]
 
-function display_segment (segment) {
-  // if (segment['type'] == 'speed_read') {
-  //     document.getElementById('textarea_div').innerHTML = 'display this text on page in div';
-  // }
-  // if (segment['type'] == 'title_text') {
-  //     document.getElementById('title').innerHTML = 'display this text on page in div title';
-  //     document.getElementById('textarea_div').innerHTML = 'display this text on page in div textarea';
-  // }
-  // if (segment['type'] == 'question_choices') {
-  //     document.getElementById('title').innerHTML = 'display this text on page in div choice';
-  //     document.getElementById('textarea_div').innerHTML = 'display this text on page in div choice';
-  //     display_question(segment['choices'])
-  // }
-}
 var currentTab = 0
 
 function init () {
-  // display_segment(segments[currentTab])
-  // display_question(segments[currentTab])
 
   var html = ''
   var que = ''
@@ -93,23 +93,15 @@ function display_question (segment) {
 
 var answers = []
 function getOptions (i) {
-  // var opt = ''
-  // if (choices != undefined) {
-  //   choices.forEach((item, ind) => {
-  //     opt += `
-  //                   <div class="radio">
-  //                       <label><input type="radio" value="${item.id}"
-  //                               oninput="this.className = ''" name="que${i}">
-  //                                   ${item.choice_text}</label>
-  //                   </div>`
-  //   })
-  // }
-
-  // return opt
 
   var view = ''
+  if (segments[i].type == 'html') {
+    view = `<div class="form-group">
+        <div><b>${segments[i].title}<b></div>
+        ${segments[i].html}
+    </div>`
 
-  if (segments[i].type == 'speed_read') {
+  } else if (segments[i].type == 'speed_read') {
     view = `<div class="form-group">
                 <textarea class="form-control" id="speed_read_input" rows="7" placeholder="">${
   segments[i].textarea_div
@@ -161,8 +153,6 @@ function showTab (n) {
   // if (isDisable) $('#nextBtn').attr('disabled', true)
 
   if (n >= segments.length) {
-    alert('HEREEE')
-    set_user_answers()
     // send results to backend
     return
   }
