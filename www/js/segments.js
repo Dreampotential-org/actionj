@@ -48,6 +48,7 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
     title: 'Here is a title in bold on page',
     textarea_div: 'display this text on page in div'
   },
+    /*
   {
     id: 3,
     type: 'question_choices',
@@ -61,7 +62,7 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
     title: 'Here is another set of questions',
     choices: ['choice 1', 'choice 2', 'choice 3'],
     textarea_div: 'display this text on page in div'
-  }
+  } */
 ]
 
 var currentTab = 0
@@ -196,10 +197,20 @@ function showTab (n) {
   if (n == x.length - 1) {
     // document.getElementById('nextBtn').innerHTML = 'Submit'
     document.getElementById('nextBtn').style.display = 'none'
+
+    swal({
+        title: "Done",
+        text: "Lesson Completed",
+        icon: 'success',
+    })
+
+
   } else {
     document.getElementById('nextBtn').style.display = 'inline'
     document.getElementById('nextBtn').innerHTML = 'Next'
   }
+
+
   // ... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
 }
