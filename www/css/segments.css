@@ -5,6 +5,10 @@ iframe {
 .padding-main{
 	 padding: 15px;
 }
+video {
+	 width: 100%;
+	 height: 90vh;
+}
 #textarea_div, #textarea_div_text{
     text-align: center;
     padding-top: 50px;

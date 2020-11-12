@@ -14,6 +14,13 @@ var segments = [
     textarea_div: 'display this text on page in div'
   },
   {
+    id: 7,
+    title: 'Matter Video',
+    type: 'html',
+    html: "<video src='video.mp4' controls></video>",
+
+  },
+  {
     id: 2,
     type: 'title_text',
     title: 'Here is a title in bold on page',
