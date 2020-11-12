@@ -1,7 +1,7 @@
 var segments = [
   {
     id: 7,
-    title: 'Tour Clamagore in 3D',
+    title: 'Learn about the Clamagore in 3D',
     type: 'html',
     html: '<iframe frameborder="0" ' +
             'src="https://my.matterport.com/show/?m=GAPCjiGGCZ5?autoplay=1" ' +
@@ -10,8 +10,23 @@ var segments = [
   },
   {
     id: 1,
-    type: 'speed_read',
-    textarea_div: 'display this text on page in div'
+    type: 'title_text',
+    title: 'The USS Clamagore: A Diesel Powered Submarine',
+    textarea_div: `
+The USS Clamagore used diesel fuel oil to make her go! This isn't anything you would find in the kitchen- no- not that kind of oil.
+
+Let's break down what diesel fuel oil is:
+
+It is a liquid and has the basic properties of liquid matter, including taking the shape of its container.
+It is a homogeneous mixture, meaning it is made up of the same amounts of different liquids.
+These liquids come from crude oil. Crude oil is also referred to as a fossil fuel because over long periods of geologic time it formed from decayed plants and animals.
+`
+  },
+  {
+    id: 7,
+    title: 'How does Diesel Fuel Process',
+    type: 'html',
+    html: "<img src='img/oil.jpg'></img>",
   },
   {
     id: 7,
@@ -19,6 +34,13 @@ var segments = [
     type: 'html',
     html: "<video src='video.mp4' controls></video>",
 
+  },
+  {
+    id: 4,
+    type: 'question_choices',
+    title: 'What type of Matter is Diesel?',
+    choices: ['Soild', 'Liquid', 'Gas'],
+    textarea_div: 'display this text on page in div'
   },
   {
     id: 2,
