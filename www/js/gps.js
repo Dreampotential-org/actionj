@@ -6,11 +6,14 @@ function setup_gps_events () {
     gps_checkin()
   })
   $('body').delegate('.video_entry', 'click', function (e) {
+    $('#journalModal').modal('show')
+
     var video_url =
       SERVER + 'video/api/video-play?video_uuid=' + $(this).attr('video_id')
-    $('#journal-overlay').html(
+
+    $('#journal-body').html(
       '<video controls="" autoplay="" name="media" ' +
-        'id="video" width="170" height="240">' +
+        'id="video">' +
         '<source src="' +
         video_url +
         '" type="video/mp4"></video>'
@@ -18,7 +21,9 @@ function setup_gps_events () {
   })
 
   $('body').delegate('.gps-entry', 'click', function (e) {
-    $('#journal-overlay').html(
+    $('#journalModal').modal('show')
+
+    $('#journal-body').html(
       "<div id='gps-view' style='width:100%;height:400px;'></div>"
     )
     var spot = {
