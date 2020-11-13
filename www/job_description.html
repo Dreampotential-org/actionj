@@ -53,6 +53,20 @@
                             <li>Good understanding of SEO principles and ensuring that the application will adhere to them</li>
                             <li>Proficient understanding of code versioning tools, such as </li>
                         </ul>
+
+                        <h4 id="skills-and-qualifications">Upload 1 minute Video Why you would be good fit for this role.</h4>
+                        <form class="md-form">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-primary" onclick="$(this).parent().find('input[type=file]').click();">Upload Video</span>
+                                    <input name="uploaded_file" onchange="$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\|/]/).pop());" style="display: none;" type="file">
+                                </span>
+                                <span class="form-control"></span>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+                        </form>
                     </div>
                 </div>
             </div>
