@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Segment Builder</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/segments.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="js/segments_v2.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        .start-container {
-            border: 1px solid lightgray;
-            padding: 25px;
-        }
-    </style>
+    <head>
+        <title>Segment Builder</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/segments.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="js/segments_v2.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <style>
+            .start-container {
+                border: 1px solid lightgray;
+                padding: 25px;
+            }
+            .question {
+                background: lightgray;
+                padding: 10px 10px;
+                color: black;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .img img {
+                margin: 0 auto;
+                display: block;
+                height: auto;
+                max-height: 600px;
+            }
+            .explaination {
+                padding: 10px;
+                background: lightgray;
+            }
+        </style>
+        <script>
+            $(document).ready(function () {
+                $('input[type="radio"]').click(function () {
+                    var inputValue = $(this).attr("value");
+                    if (inputValue == 'Heating and cooling' || inputValue == 'Water heating' || inputValue == 'Electronics and lighting' || inputValue == 'Appliances') {
+                        $(".explaination").show();
+                    }
 
-</head>
+                });
+            });
+        </script>
+    </head>
 
-<body>
-    <div class="container start-container">
-        <!-- display segments with next/prev buttons -->
+    <body>
+        <div class="container start-container">
+            <!-- display segments with next/prev buttons -->
 
-        <div id="segForm"></div>
-    </div>
-</body>
+            <div id="segForm"></div>
+        </div>
+    </body>
 
 </html>
