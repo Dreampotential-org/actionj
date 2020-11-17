@@ -29,7 +29,8 @@ function init_questions () {
   que += `<div id="custom-indicator"
             style="text-align:center;margin-top:40px;">${html}</div>`
 
-  $('#regForm').append(que)
+  $('#regForm').html(que)
+  currentTab = 0
   showTab(currentTab)
 }
 
@@ -193,10 +194,12 @@ function set_user_answers() {
         // change screen for code collecton
         swal({
           title: "Good job!",
-          text: "You're logged in",
+          text: "Profile Complete",
           icon: "success",
         });
         home()
+        init_questions();
+
         /// XXXX revisit
         //$("#login_number").hide()
 
