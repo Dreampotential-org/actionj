@@ -52,6 +52,10 @@
         #journal-list .glyphicon {
             font-size: 20px;
         }
+
+        #journal-overlay {
+            margin-top: 10px;
+        }
     </style>
 
 </head>
@@ -156,10 +160,29 @@
             </div>
         </div>
         <div class="row" id="journal-screen" style="display: none">
-            <div id='journal-overlay'></div>
             <div class='title'>Your Journal</div>
             <div class="col-xs-12" id='journal-list'>
             </div>
+
+
+
+
+            <div class="modal fade" id="journalModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div id="journal-body" class="modal-body text-center">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
 
 
