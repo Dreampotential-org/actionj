@@ -111,7 +111,10 @@
     border-radius: 4px;
     color: white;
 }
-
+.Suggestions{
+     background: #46117f;
+    border: 1px solid #46117f;
+}
 .shelter-close {
     background: #fff;
     padding: 20px;

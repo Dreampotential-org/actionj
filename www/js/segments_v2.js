@@ -238,11 +238,10 @@ function init() {
 
     que += `<div style="overflow:auto;">
                 <div style="float:right;">
-                    <button type="button" class="btn btn-default" id="prevBtn"
+                    <button type="button" id="prevBtn"
                         onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" class="btn btn-success" id="nextBtn"
+                    <button type="button" id="nextBtn"
                         onclick="nextPrev(1)">Next</button>
-    <a href="index.html" class="btn btn-primary" id="Suggestions">Suggestions</a>
                 </div>
             </div>`
 
@@ -269,7 +268,6 @@ function display_question(segment) {
                         onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn"
                         onclick="nextPrev(1)" disabled>Next</button>
-    <button type="button" id="Suggestions">Suggestions</button>
                 </div>
             </div>`
 
@@ -380,7 +378,6 @@ function showTab(n) {
 
     } else {
         document.getElementById('nextBtn').style.display = 'inline'
-        document.getElementById('Suggestions').style.display = 'inline'
         document.getElementById('nextBtn').innerHTML = 'Next'
     }
 
