@@ -1,7 +1,12 @@
 var segments = [
+{   id: 1,
+    type: 'title',
+    title: 'Explore USS Clamagore - A Diesel Powered Submarine',
+    img: 'img/sub.jpg',
+},
   {
     id: 7,
-    title: 'Learn about the Clamagore in 3D',
+    title: 'Explore in 3D',
     type: 'html',
     html: '<iframe frameborder="0" ' +
             'src="https://my.matterport.com/show/?m=GAPCjiGGCZ5?autoplay=1" ' +
@@ -11,7 +16,7 @@ var segments = [
   {
     id: 1,
     type: 'title_text',
-    title: 'The USS Clamagore: A Diesel Powered Submarine',
+    title: 'Diesel',
     textarea_div: `
 The USS Clamagore used diesel fuel oil to make her go! This isn't anything you would find in the kitchen- no- not that kind of oil.
 
@@ -25,8 +30,8 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
   {
     id: 7,
     title: 'How does Diesel Fuel Process',
-    type: 'html',
-    html: "<img src='img/oil.jpg'></img>",
+    type: 'title',
+    img: 'img/oil.jpg',
   },
   {
     id: 7,
@@ -48,21 +53,6 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
     title: 'Here is a title in bold on page',
     textarea_div: 'display this text on page in div'
   },
-    /*
-  {
-    id: 3,
-    type: 'question_choices',
-    title: 'Here is a title in bold on page',
-    choices: ['choice string 1 via radio button', 'two string'],
-    textarea_div: 'display this text on page in div'
-  },
-  {
-    id: 4,
-    type: 'question_choices',
-    title: 'Here is another set of questions',
-    choices: ['choice 1', 'choice 2', 'choice 3'],
-    textarea_div: 'display this text on page in div'
-  } */
 ]
 
 var currentTab = 0
@@ -137,16 +127,17 @@ function getOptions (i) {
   segments[i].textarea_div
 }</textarea>
             </div>`
+  } else if (segments[i].type == 'title') {
+    view = `<div class="form-group">
+            <b>${segments[i].title}</b>
+            <div class="img"> <img src=${segments[i].img}></div>
+            </div>`
   } else if (segments[i].type == 'title_text') {
     view = `<div class="form-group">
-                <input type="text" class="form-control" id="playtitle"  placeholder="Title" value="${
-  segments[i].title
-}" readonly>
+            <h2>${segments[i].title}</h2>
             </div>
             <div class="form-group">
-                <textarea class="form-control" id="playspeed_read_input" rows="7" placeholder="" value="">${
-  segments[i].textarea_div
-}</textarea>
+            <div>${segments[i].textarea_div}</div>
             </div>`
   } else {
     view = `<h4>${segments[i].title}</h4>`
