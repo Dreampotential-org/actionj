@@ -30,7 +30,7 @@
                 height: auto;
                 max-height: 600px;
             }
-            .explaination {
+            #explaination {
                 padding: 10px;
                 background: lightgray;
             }
@@ -39,9 +39,10 @@
             $(document).ready(function () {
                 $('input[type="radio"]').click(function () {
                     var inputValue = $(this).attr("value");
-                    if (inputValue == 'Heating and cooling' || inputValue == 'Water heating' || inputValue == 'Electronics and lighting' || inputValue == 'Appliances') {
-                        $(".explaination").show();
-                    }
+                    var inputid = $(this).attr("id");
+                    if (inputid !='') {
+                        $("." + inputid).show();
+                    } 
 
                 });
             });

@@ -37,8 +37,15 @@ body{
     display: none;
 }
 
-#segForm button {
+#segForm .btn-success {
     background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+}
+#segForm .btn-primary {
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -46,7 +53,6 @@ body{
     font-family: Raleway;
     cursor: pointer;
 }
-
 #segForm button:hover {
     opacity: 0.8;
 }
