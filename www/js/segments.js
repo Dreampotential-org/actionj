@@ -57,60 +57,6 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
 
 var currentTab = 0
 
-function init () {
-
-  var html = ''
-  var que = ''
-
-  segments.forEach((element, i) => {
-    que += `<div class="tab" question_id=${element.id} id="tab${i}">
-                      ${getOptions(i)}
-                    </div>`
-    html += `<span class="step"></span>`
-  })
-
-  que += `<div style="overflow:auto;">
-                <div style="float:right;">
-                    <button type="button" id="prevBtn"
-                        onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn"
-                        onclick="nextPrev(1)">Next</button>
-                </div>
-            </div>`
-
-  que += `<div id="custom-indicator"
-            style="text-align:center;margin-top:40px;">${html}</div>`
-
-  $('#segForm').append(que)
-  showTab(currentTab)
-}
-
-function display_question (segment) {
-  var html = ''
-  var que = ''
-  // console.log(questions)
-  que += `<div class="tab" segment_id=${segment.id} id="tab${currentTab}">
-                    <h4>${segment.title}</h4>
-                    ${getOptions(segment.choices, currentTab)}
-                </div>`
-  html += `<span class="step"></span>`
-
-  que += `<div style="overflow:auto;">
-                <div style="float:right;">
-                    <button type="button" id="prevBtn"
-                        onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn"
-                        onclick="nextPrev(1)" disabled>Next</button>
-                </div>
-            </div>`
-
-  que += `<div id="custom-indicator"
-            style="text-align:center;margin-top:40px;">${html}</div>`
-
-  $('#segForm').append(que)
-  showTab(currentTab)
-}
-
 var answers = []
 function getOptions (i) {
 
@@ -239,6 +185,10 @@ function fixStepIndicator (n) {
   }
   // ... and adds the "active" class on the current step:
   x[n].className += ' active'
+}
+
+function init() {
+    load_questions();
 }
 
 window.addEventListener('DOMContentLoaded', init, false)
