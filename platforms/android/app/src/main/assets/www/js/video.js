@@ -1,3 +1,5 @@
+var UPLOAD_FILE = null
+
 function init_video_events() {
     $('#upload-vid').on('change', function(e) {
         e.preventDefault();
@@ -16,45 +18,7 @@ function init_video_events() {
 
     $('#upload_vid_form').submit(function(e) {
         e.preventDefault();
-        var data = new FormData();
-        data.append("video", GLOBAL_FILE, GLOBAL_FILE.name);
-        data.append("source", window.location.host);
-
-        var xhr = new XMLHttpRequest();
-        // xhr.withCredentials = true;
-        function updateProgress(e) {
-            if (e.lengthComputable) {
-                console.log(e.loaded)
-                console.log(e.loaded+  " / " + e.total)
-                $(".swal-title").text(parseInt(e.loaded/e.total*100) + "%")
-            }
-        }
-
-        xhr.upload.addEventListener('progress', updateProgress, false)
-        xhr.addEventListener("readystatechange", function() {
-            if (this.readyState === 4) {
-                if (this.status == 200) {
-                    swal({
-                      title: "Good job!",
-                      text: "Video submitted successfully!",
-                      icon: "success",
-                    });
-                    $("#overlay_loading").hide()
-                    $("#takeavideoModal").removeClass("is-visible")
-                } else {
-                    swal({
-                      title: "Error Try Again",
-                      text: "Sorry, there is an error please try again later.",
-                      icon: "error",
-                    });
-                }
-            }
-        });
-        $("#overlay_loading").show()
-        xhr.open("POST", SERVER + "video/api/video-upload");
-        xhr.setRequestHeader(
-            "Authorization", localStorage.getItem("token"))
-        xhr.send(data);
+        upload_video_file()
     });
 }
 
@@ -68,6 +32,7 @@ function handle_video_click() {
             for (i = 0, len = mediaFiles.length; i < len; i += 1) {
                 path = mediaFiles[i].fullPath;
                 // do something interesting with the file
+                UPLOAD_FILE = mediaFiles[i]
                 if (window.cordova.platformId == "android") {
                     api_video_checkin_android(mediaFiles[i]);
                 } else {
@@ -91,9 +56,9 @@ function handle_video_click() {
     }
     else {
         swal({
-            title: "Error",
+            title: "Issue",
             text: "You must first login to your profile",
-            icon: 'error',
+            icon: 'warning',
         })
         $("#my-profile").click()
     }
@@ -124,9 +89,9 @@ function api_video_checkin_android(mediaFile) {
         console.log(error);
 
         swal({
-          title: "Error Try Again",
+          title: "Issue Try Again",
           text: "Sorry, there is an error please try again later.",
-          icon: "error",
+          icon: "warning",
         });
 
         console.log("upload error source " + error.source);
@@ -248,3 +213,45 @@ function api_video_checkin(mediaFile) {
 }
 
 
+function upload_video_file() {
+    var data = new FormData();
+    data.append("video", GLOBAL_FILE, GLOBAL_FILE.name);
+    data.append("source", window.location.host);
+
+    var xhr = new XMLHttpRequest();
+    // xhr.withCredentials = true;
+    function updateProgress(e) {
+        if (e.lengthComputable) {
+            console.log(e.loaded)
+            console.log(e.loaded+  " / " + e.total)
+            $(".swal-title").text(parseInt(e.loaded/e.total*100) + "%")
+        }
+    }
+
+    xhr.upload.addEventListener('progress', updateProgress, false)
+    xhr.addEventListener("readystatechange", function() {
+        if (this.readyState === 4) {
+            if (this.status == 200) {
+                swal({
+                  title: "Good job!",
+                  text: "Video submitted successfully!",
+                  icon: "success",
+                });
+                $("#overlay_loading").hide()
+                $("#takeavideoModal").removeClass("is-visible")
+                GLOBAL_FILE = null;
+            } else {
+                swal({
+                  title: "Error Try Again",
+                  text: "Sorry, there is an error please try again later.",
+                  icon: "warning",
+                });
+            }
+        }
+    });
+    $("#overlay_loading").show()
+    xhr.open("POST", SERVER + "video/api/video-upload");
+    xhr.setRequestHeader(
+        "Authorization", localStorage.getItem("token"))
+    xhr.send(data);
+}

@@ -41,7 +41,7 @@ function handle_meds_click() {
         swal({
             title: "Error",
             text: "You must first login to your profile",
-            icon: 'error',
+            icon: 'warning',
         })
         $("#my-profile").click()
     }

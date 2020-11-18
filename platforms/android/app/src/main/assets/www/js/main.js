@@ -1,5 +1,5 @@
-var SERVER = 'https://sfapp-api.dreamstate-4-all.org/'
-//var SERVER = 'http://localhost:8000/'
+//var SERVER = 'https://sfapp-api.dreamstate-4-all.org/'
+var SERVER = 'http://localhost:8000/'
 
 function init () {
   init_mapbox()
@@ -20,9 +20,11 @@ function home () {
 }
 
 
-function is_logged() {
-
-
+function logged_in() {
+    if(localStorage.getItem("token")) {
+        return true
+    }
+    return false
 }
 
 function hide_screens () {
@@ -44,9 +46,7 @@ function setup_click_events () {
   })
 
   $('body').delegate('#journal', 'click', function (e) {
-    hide_screens()
-    $('#journal-screen').show()
-    populate_journals()
+    handle_journal_click()
   })
 
   $('body').delegate('.navbar-brand', 'click', function (e) {
@@ -70,8 +70,7 @@ function setup_click_events () {
   })
 
   $('body').delegate('#my-profile', 'click', function (e) {
-    hide_screens()
-    $('#screen2').show()
+    handle_my_profile()
   })
   $('body').delegate('.shelters', 'click', function (e) {
     hide_screens()

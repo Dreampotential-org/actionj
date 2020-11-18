@@ -12,6 +12,19 @@ function init_login() {
     })
 }
 
+function handle_my_profile() {
+    hide_screens()
+    $('#screen2').show()
+
+    // if user is logged in make them go through questions again
+    if (logged_in()) {
+        hide_screens()
+        $("#questions-screen").show()
+    }
+}
+
+
+
 function set_user_info() {
     var form = new FormData();
     form.append("name", $("#name").val());
@@ -72,9 +85,9 @@ function phone_login() {
 
     }).fail(function (err) {
         swal({
-          title: "Error",
+          title: "Issue",
           text: "Invalid Phone Number",
-          icon: "error",
+          icon: "warning",
         });
     });
 }
@@ -109,10 +122,9 @@ function next_code_login() {
       }
     }).fail(function (err) {
         swal({
-          title: "Error",
+          title: "Issue",
           text: "Incorrect code Try again",
-          icon: "error",
+          icon: "warning",
         });
-
     });
 }
