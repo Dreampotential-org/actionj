@@ -18,8 +18,6 @@ function load_questions() {
                         onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn"
                         onclick="nextPrev(1)">Next</button>
-    <button type="button" id="submitBtn"
-                        onclick="showmodel()" style="display:none">Submit</button>
                 </div>
             </div>`
 
@@ -43,7 +41,8 @@ function getOptions(i) {
                 <b>${segments[i].title}</b>
                 <div class="img"> <img src=${segments[i].img}></div>
                 </div>`
-    } else if (segments[i].type == 'speed_read') {
+    }
+    else if (segments[i].type == 'speed_read') {
         view = `<div class="form-group">
                 <textarea class="form-control" id="speed_read_input" rows="7" placeholder="">${
                 segments[i].textarea_div
@@ -113,12 +112,18 @@ function showTab(n) {
         document.getElementById('prevBtn').style.display = 'none'
     } else {
         document.getElementById('prevBtn').style.display = 'inline'
-        document.getElementById('submitBtn').style.display = 'none'
     }
     if (n == x.length - 1) {
         // document.getElementById('nextBtn').innerHTML = 'Submit'
         document.getElementById('nextBtn').style.display = 'none'
-        document.getElementById('submitBtn').style.display = 'inline'
+
+        swal({
+            title: "Done",
+            text: "Lesson Completed",
+            icon: 'success',
+        })
+
+
     } else {
         document.getElementById('nextBtn').style.display = 'inline'
         document.getElementById('nextBtn').innerHTML = 'Next'
@@ -128,13 +133,7 @@ function showTab(n) {
     // ... and run a function that will display the correct step indicator:
     fixStepIndicator(n)
 }
-function showmodel() {
-    swal({
-        title: "Done",
-        text: "Lesson Completed",
-        icon: 'success',
-    })
-}
+
 function nextPrev(n) {
     // populate  question_answers
     // question_answers[$('#tab' + currentTab).attr('question_id')] = $(

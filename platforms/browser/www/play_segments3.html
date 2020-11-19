@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>Energy Audit Fun</title>
+        <title>Segment Builder</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -10,8 +10,7 @@
         <link rel="stylesheet" href="css/segments.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="js/segments_v2.js"></script>
-        <script src="js/segment_builder.js"></script>
+        <script src="js/segments_v3.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <style>
             .start-container {
@@ -31,27 +30,19 @@
                 height: auto;
                 max-height: 600px;
             }
-            #explaination {
+            .explaination {
                 padding: 10px;
                 background: lightgray;
-            }
-            .container.start-container {
-                margin-top: 0px; 
-            }
-            @media only screen and (min-width: 600px) {
-                .container {
-                    max-width: 920px;
-                }
             }
         </style>
         <script>
             $(document).ready(function () {
                 $('input[type="radio"]').click(function () {
                     var inputValue = $(this).attr("value");
-                    var inputid = $(this).attr("id");
-                    if (inputid != '') {
-                        $("." + inputid).show();
+                    if (inputValue == 'Heating and cooling' || inputValue == 'Water heating' || inputValue == 'Electronics and lighting' || inputValue == 'Appliances') {
+                        $(".explaination").show();
                     }
+
                 });
             });
         </script>
