@@ -1,17 +1,4 @@
 var segments = [
-    {
-        id: 99,
-        type: 'image_text_choices_answers',
-        img: 'img/wholehouse_13543large_2.jpeg',
-        title: 'What accounts for the most energy use in American homes?',
-        choices: ['Heating and cooling',
-            'Water heating',
-            'Electronics and lighting',
-            'Appliances'],
-        answer: 'Heating and cooling',
-        answer_text: 'According to the most recent Residential Energy Consumption Survey, heating and cooling accounted for 48 percent of total energy consumption in American homes. However, this number is down from 58 percent in 1993 as a result of improved technology and products such as more energy efficient heating and cooling systems, better insulation and energy efficient windows.'
-    },
-
 {   id: 1,
     type: 'title_img',
     title: 'Explore USS Clamagore - A Diesel Powered Submarine',
