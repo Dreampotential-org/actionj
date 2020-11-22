@@ -1,6 +1,6 @@
 var segments = [
 {   id: 1,
-    type: 'title',
+    type: 'title_img',
     title: 'Explore USS Clamagore - A Diesel Powered Submarine',
     img: 'img/sub.jpg',
 },
@@ -30,7 +30,7 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
   {
     id: 7,
     title: 'How does Diesel Fuel Process',
-    type: 'title',
+    type: 'title_img',
     img: 'img/oil.jpg',
   },
   {
@@ -56,7 +56,9 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
 ]
 
 function init() {
-    load_questions();
+    if (typeof(load_question) === "function") {
+        load_questions();
+    }
 }
 
 window.addEventListener('DOMContentLoaded', init, false)

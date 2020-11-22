@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src='js/edit_segments.js'></script>
+        <script src='js/segments.js'></script>
         <style>
             .start-container{
                 border: 1px solid lightgray;
@@ -33,7 +35,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12" id='segments'>
                     <div class="speed_read" id="speed_read" style="display: none; padding-top: 15px">
                         <form>
                             <div class="form-group">
@@ -42,6 +44,7 @@
                             <button type="button" class="btn btn-success pull-right">Save</button>
                         </form>
                     </div>
+
                     <div class="speed_read" id="title_text" style="display: none; padding-top: 15px">
                         <form>
                             <div class="form-group">
@@ -53,6 +56,7 @@
                             <button type="button" class="btn btn-success pull-right">Save</button>
                         </form>
                     </div>
+
                     <div class="speed_read" id="question_choices" style="display: none; padding-top: 15px">
                         <form>
                             <div class="form-group">
