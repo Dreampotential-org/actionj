@@ -3,22 +3,24 @@ function init_edit() {
 }
 
 function load_segments() {
+    var count = 1
     for(var segment of segments) {
-        load_segment(segment)
+        load_segment(segment, count)
         console.log("LAODING")
+        count += 1
     }
 }
 
 
-function load_segment(segment) {
+function load_segment(segment, count) {
     if (segment.type == "title_img") {
-        load_title_img(segment);
+        load_title_img(segment, count);
     } else if(segment.type == 'html') {
-        load_html(segment)
+        load_html(segment, count)
     } else if(segment.type == 'title_text') {
-        load_title_text(segment)
+        load_title_text(segment, count)
     } else if(segment.type == 'question_choices') {
-        load_question_choices(segment)
+        load_question_choices(segment, count)
     }
 }
 
@@ -28,10 +30,11 @@ function load_question_choices(segments) {
 }
 
 
-function load_html(segment) {
+function load_html(segment, count) {
 
     $("#segments").append(`
         <hr>
+        <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
                 <textarea class="form-control"
@@ -41,10 +44,11 @@ function load_html(segment) {
     `)
 }
 
-function load_title_text(segment) {
+function load_title_text(segment, count) {
 
     $("#segments").append(`
         <hr>
+        <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
                 <input class="form-control" value=${segment.title}
@@ -58,10 +62,11 @@ function load_title_text(segment) {
     `)
 }
 
-function load_title_img(segment) {
+function load_title_img(segment, count) {
 
     $("#segments").append(`
         <hr>
+        <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
                 <input class="form-control" value=${segment.title}
