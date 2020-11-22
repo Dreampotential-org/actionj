@@ -35,7 +35,7 @@ function load_question_choices(segment, count) {
                     </div>`
     })
     $("#segments").append(`
-        <hr>
+        <div class="segement_box">
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
@@ -48,6 +48,7 @@ function load_question_choices(segment, count) {
                     placeholder="">${segment.textarea_div}</textarea>
             </div>
         </div>
+        </div>
     `)
 
 }
@@ -56,7 +57,7 @@ function load_question_choices(segment, count) {
 function load_html(segment, count) {
 
     $("#segments").append(`
-<hr>
+ <div class="segement_box">
 <b>Segment: ${count}</b>
 <div style="padding-top: 15px">
     <div class="form-group">
@@ -64,13 +65,14 @@ function load_html(segment, count) {
                   placeholder="html">${segment.html}</textarea>
     </div>
 </div>
+</div>
 `)
 }
 
 function load_title_text(segment, count) {
 
     $("#segments").append(`
-        <hr>
+        <div class="segement_box">
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
@@ -82,13 +84,14 @@ function load_title_text(segment, count) {
                     placeholder="">${segment.textarea_div}</textarea>
             </div>
         </div>
+        </div>
     `)
 }
 
 function load_title_img(segment, count) {
 
     $("#segments").append(`
-        <hr>
+        <div class="segement_box">
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
@@ -99,6 +102,7 @@ function load_title_img(segment, count) {
                 <input class="form-control" value=${segment.img}
                     placeholder=""></input>
             </div>
+        </div>
         </div>
     `)
 }
