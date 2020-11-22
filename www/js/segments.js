@@ -47,16 +47,10 @@ These liquids come from crude oil. Crude oil is also referred to as a fossil fue
     choices: ['Soild', 'Liquid', 'Gas'],
     textarea_div: 'display this text on page in div'
   },
-  {
-    id: 2,
-    type: 'title_text',
-    title: 'Here is a title in bold on page',
-    textarea_div: 'display this text on page in div'
-  },
 ]
 
 function init() {
-    if (typeof(load_question) === "function") {
+    if (typeof(load_questions) === "function") {
         load_questions();
     }
 }
