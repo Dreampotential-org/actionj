@@ -9,6 +9,9 @@ function load_segments() {
         console.log("LAODING")
         count += 1
     }
+
+    // made sortable
+    $( "#segments" ).sortable()
 }
 
 
