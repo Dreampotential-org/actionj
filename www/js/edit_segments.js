@@ -21,11 +21,12 @@ function load_segment(segment, count) {
         load_title_text(segment, count)
     } else if (segment.type == 'question_choices') {
         load_question_choices(segment, count)
+    } else if (segment.type == 'image_text_choices_answers') {
+        load_image_text_choices_answers(segment, count)
     }
 }
 
-function load_question_choices(segment, count) {
-// Irfan
+function load_image_text_choices_answers(segment, count) {
     var view = ''
     segment.choices.forEach(item => {
         view += `<div class="radio">
@@ -39,7 +40,35 @@ function load_question_choices(segment, count) {
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
-                <input class="form-control" value=${segment.title}
+                <input class="form-control" value="${segment.title}"
+                       placeholder="Title"></input>
+            </div>
+        ${view}
+            <div class="form-group">
+                <textarea class="form-control"
+                    placeholder="">${segment.answer_text}</textarea>
+            </div>
+        </div>
+        </div>
+    `)
+}
+
+
+function load_question_choices(segment, count) {
+    var view = ''
+    segment.choices.forEach(item => {
+        view += `<div class="radio">
+                        <label><input type="radio" value="${item}"
+                                oninput="this.className = ''" name="que">
+                                    ${item}</label>
+                    </div>`
+    })
+    $("#segments").append(`
+        <div class="segement_box">
+        <b>Segment: ${count}</b>
+        <div style="padding-top: 15px">
+            <div class="form-group">
+                <input class="form-control" value="${segment.title}"
                     placeholder="Title"></input>
             </div>
     ${view}
@@ -76,7 +105,7 @@ function load_title_text(segment, count) {
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
-                <input class="form-control" value=${segment.title}
+                <input class="form-control" value="${segment.title}"
                     placeholder="Title"></input>
             </div>
             <div class="form-group">
@@ -95,7 +124,7 @@ function load_title_img(segment, count) {
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
             <div class="form-group">
-                <input class="form-control" value=${segment.title}
+                <input class="form-control" value="${segment.title}"
                     placeholder="Title"></input>
             </div>
             <div class="form-group">
