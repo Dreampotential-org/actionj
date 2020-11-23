@@ -11,7 +11,7 @@ function load_segments() {
     }
 
     // made sortable
-    $( "#segments" ).sortable()
+    $("#segments").sortable()
 }
 
 
@@ -39,6 +39,7 @@ function load_image_text_choices_answers(segment, count) {
                     </div>`
     })
     $("#segments").append(`
+    <div class="remove_segment"><a href="#" class="remove_segment_box" style="color:red;font-weight:bold;font-size:25px"> x</a></div>
         <div class="segement_box">
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
@@ -67,6 +68,7 @@ function load_question_choices(segment, count) {
                     </div>`
     })
     $("#segments").append(`
+    <div class="remove_segment"><a href="#" class="remove_segment_box" style="color:red;font-weight:bold;font-size:25px"> x</a></div>
         <div class="segement_box">
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
@@ -89,6 +91,7 @@ function load_question_choices(segment, count) {
 function load_html(segment, count) {
 
     $("#segments").append(`
+    <div class="remove_segment"><a href="#" class="remove_segment_box" style="color:red;font-weight:bold;font-size:25px"> x</a></div>
  <div class="segement_box">
 <b>Segment: ${count}</b>
 <div style="padding-top: 15px">
@@ -104,6 +107,7 @@ function load_html(segment, count) {
 function load_title_text(segment, count) {
 
     $("#segments").append(`
+    <div class="remove_segment"><a href="#" class="remove_segment_box" style="color:red;font-weight:bold;font-size:25px"> x</a></div>
         <div class="segement_box">
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
@@ -123,6 +127,7 @@ function load_title_text(segment, count) {
 function load_title_img(segment, count) {
 
     $("#segments").append(`
+    <div class="remove_segment"><a href="#" class="remove_segment_box" style="color:red;font-weight:bold;font-size:25px"> x</a></div>
         <div class="segement_box">
         <b>Segment: ${count}</b>
         <div style="padding-top: 15px">
