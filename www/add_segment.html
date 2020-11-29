@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Segment Builder</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            .start-container{
+                border: 1px solid lightgray;
+                padding: 25px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container start-container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                    <h3>Segment Builder</h3>
+                </div>
+                <div class="col-xs-6 col-sm-6" style="margin-top: 20px;margin-bottom: 10px;">
+                    <select class="form-control " id="selectsegment">
+                        <option selected value="select_type">Select Segment Type</option>
+                        <option value="speed_read">Speed Read</option>
+                        <option value="title_text">Title Text</option>
+                        <option value="question_choices">Question Choices</option>
+                    </select>
+                    <button class="btn form-control btn-success" style="margin-top: 20px;margin-bottom: 10px; "id="add">Add</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" id="canva">
+
+                </div>
+                <div class="col-xs-12">
+                    <form id="add_form">
+                    <div class="speed_read" id="speed_read" style="display: none; padding-top: 15px">
+                        <div style="margin-top:50px">
+                            <div class="row">
+                                <h4 class="col-lg-10">Speed Read</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
+                            </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="speed_read" id="speed_read_input" rows="7" placeholder=""></textarea>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="speed_read" id="title_text" style="display: none; padding-top: 15px">
+                        <div style="margin-top:50px">
+                            <div class="row">
+                                <h4 class="col-lg-10">Title Text</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
+                            </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="title"  placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="speed_read_input" rows="7" placeholder=""></textarea>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="speed_read" id="question_choices" style="display: none; padding-top: 15px">
+                    <div style="margin-top:50px">
+                        <div class="row">
+                            <h4 class="col-lg-10">Question Choices</h4>
+                            <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="question"  placeholder="Question">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="choices" rows="7" placeholder=""></textarea>
+                        </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="form-control btn btn-primary" style="margin-top: 50px;">Save</button>
+                </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function () {
+                var quick_read_count = 0;
+                var title_text_count = 0;
+                var question_choices_count = 0;
+
+                $(document).on("click",".remove_flashcard",function(e){
+
+                    $(e.target).parent().parent().remove()
+                });
+   
+                $('#add').click(function (e) {
+
+                    if ($("#selectsegment").val() == 'speed_read')
+                    {
+                        $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
+                        $("#canva").append($("#speed_read").html())
+                        quick_read_count++;
+                    }
+                    if ($("#selectsegment").val() == 'title_text')
+                    {
+                        $("#title_text").find("textarea").attr("name","text_"+title_text_count)
+                        $("#title_text").find("input").attr("name","title_"+title_text_count)
+                        $("#canva").append($("#title_text").html())
+                        title_text_count++
+                    }
+                    if ($("#selectsegment").val() == 'question_choices')
+                    {                        
+                        $("#question_choices").find("input").attr("name","question_"+question_choices_count)
+                        $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
+                        $("#canva").append($("#question_choices").html())
+                        question_choices_count++;
+
+                    }
+                    if ($("#selectsegment").val() == 'select_type')
+                    {
+                        alert("Please select a type");
+                    }
+                });
+
+                $("#add_form").submit((e) => {
+                    e.preventDefault()
+                    // Saving Quick Reads
+
+                    for(var i = 0; i < quick_read_count; i++){
+                        quick_read_value = $('textarea[name="speed_read_'+i+'"]').val()
+                        if(quick_read_value){
+                            console.log(quick_read_value)
+
+                        }
+                    }
+
+                    //Saving Title Text
+                    for(var i = 0; i < title_text_count; i++){
+                        console.log($('input[name="title_'+i+'"]').val())
+                        console.log($('textarea[name="text_'+i+'"]').val())
+                    }
+
+                    for(var i = 0; i < question_choices_count; i++){
+                        console.log($('input[name="question_'+i+'"]').val())
+                        console.log($('textarea[name="choices_'+i+'"]').val())
+                    }
+                })
+            });
+        </script>
+
+    </body>
+</html>
