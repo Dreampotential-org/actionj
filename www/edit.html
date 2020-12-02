@@ -85,6 +85,21 @@
         </div>
         <script>
             $(document).ready(function () {
+                $.get('http://localhost:8000/courses_api/lesson/read/3',function(response) {
+                    var flashcards = response.flashcards;
+                    flashcards.forEach((flashcard) => {
+                        console.log(flashcard)
+
+                        if(flashcard.lesson_type == "quick_read"){
+                            addSpeedRead(false,flashcard.question)
+                        }
+                        if(flashcard.lesson_type == "title_text"){
+                            addTitleText()
+                        }
+                    })
+                    
+                })
+
                 var quick_read_count = 0;
                 var title_text_count = 0;
                 var question_choices_count = 0;
@@ -93,28 +108,54 @@
 
                     $(e.target).parent().parent().remove()
                 });
+
+                function addSpeedRead(isNew,value) {
+                    if(!isNew){
+                        $("#speed_read").find("textarea").html(value)
+                    }else{
+                        $("#speed_read").find("textarea").html("")
+
+                    }
+                    $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
+
+                    $("#canva").append($("#speed_read").html())
+                    quick_read_count++;
+                }
    
+                function addTitleText(isNew,title,text){
+                    if(!isNew){
+                        $("#title_text").find("input").value(title)
+                        $("#title_text").find("textarea").html(text)
+                    }else{
+                        $("#title_text").find("input").value("")
+                        $("#title_text").find("textarea").html("")
+                    }
+
+                    $("#title_text").find("textarea").attr("name","text_"+title_text_count)
+                    $("#title_text").find("input").attr("name","title_"+title_text_count)
+                    $("#canva").append($("#title_text").html())
+                    title_text_count++
+                }
+
+                function addQuestionChoices(isNew){
+                    $("#question_choices").find("input").attr("name","question_"+question_choices_count)
+                    $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
+                    $("#canva").append($("#question_choices").html())
+                    question_choices_count++;
+                }
                 $('#add').click(function (e) {
 
                     if ($("#selectsegment").val() == 'speed_read')
                     {
-                        $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
-                        $("#canva").append($("#speed_read").html())
-                        quick_read_count++;
+                        addSpeedRead(true);
                     }
                     if ($("#selectsegment").val() == 'title_text')
                     {
-                        $("#title_text").find("textarea").attr("name","text_"+title_text_count)
-                        $("#title_text").find("input").attr("name","title_"+title_text_count)
-                        $("#canva").append($("#title_text").html())
-                        title_text_count++
+                        addTitleText(true)
                     }
                     if ($("#selectsegment").val() == 'question_choices')
                     {                        
-                        $("#question_choices").find("input").attr("name","question_"+question_choices_count)
-                        $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
-                        $("#canva").append($("#question_choices").html())
-                        question_choices_count++;
+                        addQuestionChoices(true)
 
                     }
                     if ($("#selectsegment").val() == 'select_type')
@@ -125,71 +166,28 @@
 
                 $("#add_form").submit((e) => {
                     e.preventDefault()
-                    data_ = {
-                    "lesson_name":"test"
-                    }
-                    flashcards = [];
-                    var number =0;
                     // Saving Quick Reads
+
                     for(var i = 0; i < quick_read_count; i++){
                         quick_read_value = $('textarea[name="speed_read_'+i+'"]').val()
                         if(quick_read_value){
-                            temp = {
-                                "lesson_type":"quick_read",
-                                "question":quick_read_value,
-                                "position":number
-                            }
-                            flashcards.push(temp)
-                            number++
+                            console.log(quick_read_value)
+
                         }
                     }
 
                     //Saving Title Text
                     for(var i = 0; i < title_text_count; i++){
-                        var title_value =$('input[name="title_'+i+'"]').val();
-                        var text_value = $('textarea[name="text_'+i+'"]').val();
-                        temp= { 
-                            "lesson_type":"title_text",
-                            "title" : title_value,
-                            "text" : text_value,
-                            "position":number
-
-                        }
-                        flashcards.push(temp)
-
-                        number++;
+                        console.log($('input[name="title_'+i+'"]').val())
+                        console.log($('textarea[name="text_'+i+'"]').val())
                     }
 
                     for(var i = 0; i < question_choices_count; i++){
-                        var question = $('input[name="question_'+i+'"]').val()
-                        var choices=  $('textarea[name="choices_'+i+'"]').val()
-                        temp = {
-                            "lesson_type" :"question_choices",
-                            "question": question,
-                            "choices":choices,
-                            "position":number
-
-                        }
-                        flashcards.push(temp)
-                        number++;
+                        console.log($('input[name="question_'+i+'"]').val())
+                        console.log($('textarea[name="choices_'+i+'"]').val())
                     }
-
-                    data_.flashcards = flashcards
-                    console.log(data_)
-
-                    $.ajax({
-                        "url": "http://localhost:8000/courses_api/lesson/create",
-                        'data': JSON.stringify(data_),
-                        'type': 'POST',
-                        'contentType': 'application/json',
-                        'success': function (data){
-                        alert("FlashCard Created!")
-                    }
-                    })
                 })
             });
-
-
         </script>
 
     </body>
