@@ -38,6 +38,11 @@ function getOptions(i) {
         <div><b>${segments[i].title}<b></div>
         ${segments[i].html}
     </div>`
+    } else if (segments[i].type == 'title_pie_chart') {
+        view = `<div class="form-group">
+                <b>${segments[i].title}</b>
+                <div class="img">PIECHART</div>
+                </div>`
     } else if (segments[i].type == 'title_img') {
         view = `<div class="form-group">
                 <b>${segments[i].title}</b>

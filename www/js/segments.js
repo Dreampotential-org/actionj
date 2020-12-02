@@ -1,7 +1,7 @@
 var segments = [
 {   id: 1,
     type: 'title_pie_chart',
-    title: 'Explore USS Clamagore - A Diesel Powered Submarine',
+    title: 'See the data',
     data:  [{'blue': 5, 'red': 5, 'green': 7, 'yellow': 9}],
 },
 {   id: 1,
