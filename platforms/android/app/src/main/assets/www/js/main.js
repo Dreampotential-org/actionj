@@ -43,6 +43,7 @@ function setup_click_events () {
   // controls the flow of buttons clicked
   $('body').delegate('#logout', 'click', function (e) {
     localStorage.removeItem('token')
+    location.reload()
   })
 
   $('body').delegate('#journal', 'click', function (e) {
@@ -82,6 +83,32 @@ function setup_click_events () {
   $('body').delegate('.shelters-map', 'click', function (e) {
     map_shelters()
   })
+
+  $('body').delegate('#food', 'click', function (e) {
+    swal({
+      title: 'Coming Soon',
+      text: 'Please check back in a bit',
+      icon: 'success'
+    })
+  })
+
+  $('body').delegate('#work', 'click', function (e) {
+    swal({
+      title: 'Coming Soon',
+      text: 'Please check back in a bit',
+      icon: 'success'
+    })
+  })
+
+
+  $('body').delegate('#Suggestions', 'click', function (e) {
+    swal({
+      title: 'Coming Soon',
+      text: 'Please check back in a bit',
+      icon: 'success'
+    })
+  })
+
 }
 
 window.addEventListener('DOMContentLoaded', init, false)
