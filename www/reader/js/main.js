@@ -600,7 +600,7 @@
                 word = this.highlightTxt(oldArr[this.status.newIndex]);
                 wordLen = oldArr[this.status.newIndex].length;
                 arr2.push(this.status.newIndex);
-                this.status.newIndex += 1; 
+                this.status.newIndex += 1;
             }
             arr = [word, wordLen, arr2];
             return arr;
@@ -634,18 +634,18 @@
                     }
 
                     txtReader.status.currTime += 1;
-                    
+
                     // Slider Move
                     $(slider).slider( "value", sliderCounter );
                     sliderCounter += sliderStep;
 
                 } else {
-                    
+
                     // Options arrows clicked
                     if (txtReader.status.wpmInput || txtReader.status.stopAnim && txtReader.status.activeArrow) {
-                        
+
                         txtReader.status.currIndex = txtReader.status.storeIndex;
-                        
+
                         if (!txtReader.status.txtSplit[txtReader.status.currIndex + txtReader.status.chunkSize]) {
                             txtReader.status.lockplusArrow = true;
                         } else {
@@ -664,7 +664,6 @@
                         // Get words ready
                         txtReader.getWords();
                     }
-                    
                     // Replay btn
                     if (txtReader.status.currTime >= txtReader.status.timer) {
                         txtReader.replayFun();
