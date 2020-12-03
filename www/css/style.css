@@ -605,3 +605,13 @@ td {
     left: 0;
     right: 0;
 }
+.custom-legend ul{
+    list-style: none;
+}
+.custom-legend li span{
+    border-radius: 5px;
+    display: inline-block;
+    height: 10px;
+    margin-right: 10px;
+    width: 10px;
+}
