@@ -18,7 +18,7 @@ function init_video_events() {
 
     $('#upload_vid_form').submit(function(e) {
         e.preventDefault();
-        upload_video_file()
+        upload_video_file();
     });
 }
 
@@ -213,13 +213,48 @@ function api_video_checkin(mediaFile) {
 }
 
 
-function upload_video_file() {
+function upload_video_file(){
+
+    var form = new FormData();
+    form.append("file_name", GLOBAL_FILE.name);
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "video/api/generate-signed-url",
+        "method": "POST",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form,
+        "headers": {
+            "Authorization": localStorage.getItem("token")
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        response = JSON.parse(response);
+        upload_video_file_to_s3(response);
+    });
+
+}
+
+
+function upload_video_file_to_s3(signed_request) {
+    var s3_url = signed_request.s3_url;
+    console.log("S3 URL for video upload: ", signed_request, s3_url)
+
     var data = new FormData();
-    data.append("video", GLOBAL_FILE, GLOBAL_FILE.name);
-    data.append("source", window.location.host);
+    var fields = signed_request.fields
+
+    for ( var key in fields ) {
+        data.append(key, fields[key]);
+    }
+    data.append("file", GLOBAL_FILE, GLOBAL_FILE.name);
 
     var xhr = new XMLHttpRequest();
-    // xhr.withCredentials = true;
+
     function updateProgress(e) {
         if (e.lengthComputable) {
             console.log(e.loaded)
@@ -231,7 +266,7 @@ function upload_video_file() {
     xhr.upload.addEventListener('progress', updateProgress, false)
     xhr.addEventListener("readystatechange", function() {
         if (this.readyState === 4) {
-            if (this.status == 200) {
+            if (this.status == 200 || this.status == 204) {
                 swal({
                   title: "Good job!",
                   text: "Video submitted successfully!",
@@ -240,6 +275,9 @@ function upload_video_file() {
                 $("#overlay_loading").hide()
                 $("#takeavideoModal").removeClass("is-visible")
                 GLOBAL_FILE = null;
+
+                // Save Uploaded Video Details on server
+                save_video_upload(signed_request.fields['key']);
             } else {
                 swal({
                   title: "Error Try Again",
@@ -249,9 +287,42 @@ function upload_video_file() {
             }
         }
     });
-    $("#overlay_loading").show()
-    xhr.open("POST", SERVER + "video/api/video-upload");
-    xhr.setRequestHeader(
-        "Authorization", localStorage.getItem("token"))
+
+    $("#overlay_loading").show;
+
+    xhr.open("POST", signed_request["url"]);
+    xhr.setRequestHeader( 'Access-Control-Allow-Origin', '*');
+    xhr.setRequestHeader('Access-Control-Allow-Headers', '*');
+    xhr.setRequestHeader("Cache-Control", "no-cache");
+    xhr.setRequestHeader('Access-Control-Allow-Methods', 'GET, POST');
     xhr.send(data);
+
 }
+
+
+function save_video_upload(uploaded_file_url) {
+    console.log("Video Key: ", uploaded_file_url);
+
+    var form = new FormData();
+    form.append("uploaded_file_url", uploaded_file_url);
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "video/api/save-video-upload",
+        "method": "POST",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form,
+        "headers": {
+            "Authorization": localStorage.getItem("token")
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        console.log("save_video_upload request completed " ,response);
+    });
+}
+
+
