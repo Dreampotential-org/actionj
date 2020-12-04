@@ -85,8 +85,75 @@
         </div>
         <script>
             $(document).ready(function () {
-                $.get('http://localhost:8000/courses_api/lesson/read/3',function(response) {
+
+
+                var quick_read_count = 0;
+                var title_text_count = 0;
+                var question_choices_count = 0;
+
+
+                function getParam(sParam){
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                for (var i = 0; i < sURLVariables.length; i++){
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam) {
+                        return sParameterName[1];
+                    }
+                }
+            }
+
+
+            function addSpeedRead(isNew,value) {
+                    if(!isNew){
+                        $("#speed_read").find("textarea").html(value)
+                    }else{
+                        $("#speed_read").find("textarea").html("")
+                    }
+                    $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
+                    $("#canva").append($("#speed_read").html())
+                    quick_read_count++;
+                }
+   
+                function addTitleText(isNew,title,text){
+                    if(!isNew){
+                        $("#title_text").find("input[type=text]").attr("value",title)
+                        $("#title_text").find("textarea").html(text)
+
+                    }else{
+                        $("#title_text").find("input[type=text]").attr("value","")
+                        $("#title_text").find("textarea").html("")
+                    }
+                    $("#title_text").find("textarea").attr("name","text_"+title_text_count)
+                    $("#title_text").find("input[type=text]").attr("name","title_"+title_text_count)
+
+                    $("#canva").append($("#title_text").html())
+                    title_text_count++;
+                }
+
+                function addQuestionChoices(isNew,question,choices){
+
+                    if(!isNew){
+                        $("#question_choices").find("input[type=text]").attr("value",question)
+                        $("#question_choices").find("textarea").html(choices)
+                    }else{
+                        $("#question_choices").find("input[type=text]").attr("")
+                        $("#question_choices").find("textarea").html("")
+                    }
+
+                    $("#question_choices").find("input[type=text]").attr("name","question_"+question_choices_count)
+                    $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
+                    $("#canva").append($("#question_choices").html())
+                    question_choices_count++;
+                }
+
+
+
+                var lesson_id=  getParam("lesson_id");
+                $.get('http://localhost:8000/courses_api/lesson/read/'+lesson_id,function(response) {
                     var flashcards = response.flashcards;
+                    console.log(response)
+                    console.log(lesson_id)
                     flashcards.forEach((flashcard) => {
                         console.log(flashcard)
 
@@ -94,55 +161,22 @@
                             addSpeedRead(false,flashcard.question)
                         }
                         if(flashcard.lesson_type == "title_text"){
-                            addTitleText()
+                            addTitleText(false,flashcard.question,flashcard.answer)
+                        }
+                        if(flashcard.lesson_type == "question_choices"){
+                            addQuestionChoices(false,flashcard.question,flashcard.options)
                         }
                     })
                     
                 })
-
-                var quick_read_count = 0;
-                var title_text_count = 0;
-                var question_choices_count = 0;
 
                 $(document).on("click",".remove_flashcard",function(e){
 
                     $(e.target).parent().parent().remove()
                 });
 
-                function addSpeedRead(isNew,value) {
-                    if(!isNew){
-                        $("#speed_read").find("textarea").html(value)
-                    }else{
-                        $("#speed_read").find("textarea").html("")
 
-                    }
-                    $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
 
-                    $("#canva").append($("#speed_read").html())
-                    quick_read_count++;
-                }
-   
-                function addTitleText(isNew,title,text){
-                    if(!isNew){
-                        $("#title_text").find("input").value(title)
-                        $("#title_text").find("textarea").html(text)
-                    }else{
-                        $("#title_text").find("input").value("")
-                        $("#title_text").find("textarea").html("")
-                    }
-
-                    $("#title_text").find("textarea").attr("name","text_"+title_text_count)
-                    $("#title_text").find("input").attr("name","title_"+title_text_count)
-                    $("#canva").append($("#title_text").html())
-                    title_text_count++
-                }
-
-                function addQuestionChoices(isNew){
-                    $("#question_choices").find("input").attr("name","question_"+question_choices_count)
-                    $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
-                    $("#canva").append($("#question_choices").html())
-                    question_choices_count++;
-                }
                 $('#add').click(function (e) {
 
                     if ($("#selectsegment").val() == 'speed_read')
@@ -188,6 +222,9 @@
                     }
                 })
             });
+
+
+
         </script>
 
     </body>

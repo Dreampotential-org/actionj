@@ -150,8 +150,8 @@
                         var text_value = $('textarea[name="text_'+i+'"]').val();
                         temp= { 
                             "lesson_type":"title_text",
-                            "title" : title_value,
-                            "text" : text_value,
+                            "question" : title_value,
+                            "answer" : text_value,
                             "position":number
 
                         }
@@ -166,7 +166,7 @@
                         temp = {
                             "lesson_type" :"question_choices",
                             "question": question,
-                            "choices":choices,
+                            "options":choices,
                             "position":number
 
                         }
@@ -183,6 +183,13 @@
                         'type': 'POST',
                         'contentType': 'application/json',
                         'success': function (data){
+                            console.log(data.id)
+                            var currentPathName = window.location.pathname;
+                            var currentPathNameArray = currentPathName.split("/");
+                            var currentPathNamePop =currentPathNameArray.pop()
+                            var currentPathNamePush = currentPathNameArray.push("edit.html")
+                            var nextPathName =currentPathNameArray.join("/")
+                            window.location.replace(nextPathName+"?lesson_id="+data.id)    
                         alert("FlashCard Created!")
                     }
                     })
