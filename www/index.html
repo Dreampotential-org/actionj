@@ -49,10 +49,23 @@
                 border: 1px solid red;
                 background: red;
             }
-
+            .emergencysocial{
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #3f8ed0;
+                background: #3f8ed0;  
+            }
+            .emergencysocial p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
             .emergency p {
                 color: black;
                 font-size: 20px;
+                margin-top: 10px;
             }
 
             .modal-header {
@@ -62,6 +75,23 @@
 
             .close {
                 opacity: 1;
+            }
+            .aboutOnboard{
+                margin-left: -16px;
+            }
+            .helppop{
+                margin-top: 0px !important;
+            }
+            .modal-header{
+                border-bottom: none !important;
+            }
+            .modal-header .close {
+                margin-top: -20px;
+            }
+            .imagelog img {
+                width: 60px;
+                height: 100%;
+                margin-bottom: 20px;
             }
         </style>
 
@@ -421,23 +451,24 @@
             <div class="container start-container">
                 <div class="row">
                     <div class="col-xs-12" align="middle">
-                        <a data-toggle="modal" data-target="#aboutOnboard"><strong>About Onboard</strong></a>
+                        <a data-toggle="modal" data-target="#aboutOnboard"><strong class="aboutOnboard">About Onboard</strong></a>
+                        <br>
                         <br>
                         <br>
                         <!-- Modal -->
                         <div class="modal fade" id="aboutOnboard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h3 class="modal-title" id="exampleModalLabel">About Onboard</h3>
+                                    <div class="modal-header onboardpop">
+                                        <h5 class="modal-title" id="exampleModalLabel">About Onboard</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <br>
                                         Onboard is designed for people experiencing medical cris as an onramp to social services, wellness and overall improvement.                                    </div>
                                     <br><br>
+                                    <div class="imagelog" align="middle"><img src="img/SF-Logo.png"></div>
                                 </div>
                             </div>
                         </div>
@@ -466,8 +497,8 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" style="color:red;font-weight: bold">&times;</span>
+                            <button type="button" class="close helppop" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:black;font-weight: bold">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
@@ -477,13 +508,11 @@
                                         <p class="white">
                                             <a href="tel:911">911</a> Call</p>
                                         <p class="white">Emergency</p>
-                                        <br>
                                     </div>
                                     <br>
-                                    <div class="emergency">
+                                    <div class="emergencysocial">
                                         <p class="white">Social Call</p>
                                         <p class="white">Service</p>
-                                        <br>
                                     </div>
                                 </div>
                             </div>
