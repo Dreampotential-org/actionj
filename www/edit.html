@@ -143,21 +143,25 @@
                 function addQuestionChoices(isNew,id,question,choices,image){
 
                     if(!isNew){
-                        $("#question_choices").find("input[type=text]").first().attr("value",question)
+                        $("#question_choices").find("input").first().attr("value",question)
                         $("#question_choices").find("textarea").html(choices)      
                         $("#question_choices").find("input").last().attr("value",image)
 
-                        $("#question_choices").find("input[type=text]").attr("data-id",id)
+                        $("#question_choices").find("input").first().attr("data-id",id)
                         $("#question_choices").find("textarea").attr("data-id",id)
                         $("#question_choices").find("input").last().attr("data-id",id)
                         
                     }else{
-                        $("#question_choices").find("input[type=text]").attr("")
+                        $("#question_choices").find("input").first().attr("value","")
                         $("#question_choices").find("textarea").html("")
+                        $("#question_choices").find("input").last().attr("value","")
+
                     }
 
-                    $("#question_choices").find("input[type=text]").attr("name","question_"+question_choices_count)
+                    $("#question_choices").find("input").first().attr("name","question_"+question_choices_count)
                     $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
+                    $("#question_choices").find("input").last().attr("name","image_"+question_choices_count)
+
                     $("#canva").append($("#question_choices").html())
                     question_choices_count++;
                 }
@@ -267,10 +271,12 @@
 
                         var question = $('input[name="question_'+i+'"]').val()
                         var choices=  $('textarea[name="choices_'+i+'"]').val()
+                        var image=  $('input[name="image_'+i+'"]').val()
                         temp = {
                             "lesson_type" :"question_choices",
                             "question": question,
                             "options":choices,
+                            "image":image,
                             "position":number,
                             "id":id
 
