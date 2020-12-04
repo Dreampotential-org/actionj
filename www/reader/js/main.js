@@ -82,12 +82,13 @@
 
             // Set WPM input value
             wordNum.value = txtReader.status.wpm;
-
             // On type
             var x = document.getElementById("txt").value;
-
-            this.splitTxt(x);
-
+            if (x) {
+                this.splitTxt(x);
+            } else {
+                inputTxt.addEventListener('input', this.splitTxt);
+            }
             // On WPM input type
             wordNum.addEventListener('input', this.wpmInputFun);
 
