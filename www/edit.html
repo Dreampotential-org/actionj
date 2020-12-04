@@ -104,9 +104,10 @@
             }
 
 
-            function addSpeedRead(isNew,value) {
+            function addSpeedRead(isNew,id, value) {
                     if(!isNew){
                         $("#speed_read").find("textarea").html(value)
+                        $("#speed_read").find("textarea").attr("data-id",id)
                     }else{
                         $("#speed_read").find("textarea").html("")
                     }
@@ -115,10 +116,13 @@
                     quick_read_count++;
                 }
    
-                function addTitleText(isNew,title,text){
+                function addTitleText(isNew,id,title,text){
                     if(!isNew){
                         $("#title_text").find("input[type=text]").attr("value",title)
                         $("#title_text").find("textarea").html(text)
+                        $("#title_text").find("input[type=text]").attr("data-id",id)
+                        $("#title_text").find("textarea").attr("data-id",id)
+
 
                     }else{
                         $("#title_text").find("input[type=text]").attr("value","")
@@ -131,11 +135,16 @@
                     title_text_count++;
                 }
 
-                function addQuestionChoices(isNew,question,choices){
+                function addQuestionChoices(isNew,id,question,choices){
 
                     if(!isNew){
                         $("#question_choices").find("input[type=text]").attr("value",question)
-                        $("#question_choices").find("textarea").html(choices)
+                        $("#question_choices").find("textarea").html(choices)                        
+                        $("#question_choices").find("input[type=text]").attr("data-id",id)
+                        $("#question_choices").find("textarea").attr("data-id",id)
+
+
+                        
                     }else{
                         $("#question_choices").find("input[type=text]").attr("")
                         $("#question_choices").find("textarea").html("")
@@ -158,20 +167,29 @@
                         console.log(flashcard)
 
                         if(flashcard.lesson_type == "quick_read"){
-                            addSpeedRead(false,flashcard.question)
+                            
+                            addSpeedRead(false,flashcard.id,flashcard.question)
                         }
                         if(flashcard.lesson_type == "title_text"){
-                            addTitleText(false,flashcard.question,flashcard.answer)
+                            addTitleText(false,flashcard.id,flashcard.question,flashcard.answer)
                         }
                         if(flashcard.lesson_type == "question_choices"){
-                            addQuestionChoices(false,flashcard.question,flashcard.options)
+                            addQuestionChoices(false,flashcard.id,flashcard.question,flashcard.options)
                         }
                     })
                     
                 })
 
                 $(document).on("click",".remove_flashcard",function(e){
-
+                    var lesson_element_type = $(e.target).parent().parent().children().last().children().attr("name")
+                    console.log(lesson_element_type)
+                    if(lesson_element_type.startsWith("speed_read")){
+                        quick_read_count--;
+                    }else if (lesson_element_type.startsWith("text")){
+                        title_text_count--;
+                    }else if (lesson_element_type.startsWith("question")){
+                        question_choices_count--
+                    }
                     $(e.target).parent().parent().remove()
                 });
 
@@ -200,26 +218,75 @@
 
                 $("#add_form").submit((e) => {
                     e.preventDefault()
+                    data_ = {
+                    "lesson_name":"test"
+                    }
+                    flashcards = [];
+                    var number =0;
                     // Saving Quick Reads
-
                     for(var i = 0; i < quick_read_count; i++){
                         quick_read_value = $('textarea[name="speed_read_'+i+'"]').val()
+                        id = $('textarea[name="speed_read_'+i+'"]').data("id")
                         if(quick_read_value){
-                            console.log(quick_read_value)
-
+                            temp = {
+                                "lesson_type":"quick_read",
+                                "question":quick_read_value,
+                                "position":number,
+                                "id":id
+                            }
+                            flashcards.push(temp)
+                            number++
                         }
                     }
 
                     //Saving Title Text
                     for(var i = 0; i < title_text_count; i++){
-                        console.log($('input[name="title_'+i+'"]').val())
-                        console.log($('textarea[name="text_'+i+'"]').val())
+                        var id = $('input[name="title_'+i+'"]').data("id")
+                        var title_value =$('input[name="title_'+i+'"]').val();
+                        var text_value = $('textarea[name="text_'+i+'"]').val();
+                        temp= { 
+                            "lesson_type":"title_text",
+                            "question" : title_value,
+                            "answer" : text_value,
+                            "position":number,
+                            "id":id
+
+                        }
+                        flashcards.push(temp)
+                        number++;
                     }
 
                     for(var i = 0; i < question_choices_count; i++){
-                        console.log($('input[name="question_'+i+'"]').val())
-                        console.log($('textarea[name="choices_'+i+'"]').val())
+                        var id = $('input[name="question_'+i+'"]').data("id")
+
+                        var question = $('input[name="question_'+i+'"]').val()
+                        var choices=  $('textarea[name="choices_'+i+'"]').val()
+                        temp = {
+                            "lesson_type" :"question_choices",
+                            "question": question,
+                            "options":choices,
+                            "position":number,
+                            "id":id
+
+                        }
+                        flashcards.push(temp)
+                        number++;
                     }
+
+                    data_.flashcards = flashcards
+                    console.log(data_)
+
+
+                    $.ajax({
+                        "url": "http://localhost:8000/courses_api/lesson/update/"+lesson_id+"/",
+                        'data': JSON.stringify(data_),
+                        'type': 'POST',
+                        'contentType': 'application/json',
+                        'success': function (data){
+                        alert("FlashCard Updated!")
+                        location.reload()
+                    }
+                    })
                 })
             });
 
