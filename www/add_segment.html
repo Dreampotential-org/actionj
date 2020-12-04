@@ -76,6 +76,10 @@
                         <div class="form-group">
                             <textarea class="form-control" id="choices" rows="7" placeholder=""></textarea>
                         </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="image" placeholder="Image Link" />
+                        </div>
                         </div>
                     </div>
                     <button type="submit" class="form-control btn btn-primary" style="margin-top: 50px;">Save</button>
@@ -111,8 +115,9 @@
                     }
                     if ($("#selectsegment").val() == 'question_choices')
                     {                        
-                        $("#question_choices").find("input").attr("name","question_"+question_choices_count)
+                        $("#question_choices").find("input").first().attr("name","question_"+question_choices_count)
                         $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
+                        $("#question_choices").find("input").last().attr("name","image_"+question_choices_count)
                         $("#canva").append($("#question_choices").html())
                         question_choices_count++;
 
@@ -163,12 +168,13 @@
                     for(var i = 0; i < question_choices_count; i++){
                         var question = $('input[name="question_'+i+'"]').val()
                         var choices=  $('textarea[name="choices_'+i+'"]').val()
+                        var image = $('input[name="image_'+i+'"]').val()
                         temp = {
                             "lesson_type" :"question_choices",
                             "question": question,
+                            "image":image,
                             "options":choices,
                             "position":number
-
                         }
                         flashcards.push(temp)
                         number++;
@@ -176,7 +182,7 @@
 
                     data_.flashcards = flashcards
                     console.log(data_)
-
+                    
                     $.ajax({
                         "url": "http://localhost:8000/courses_api/lesson/create",
                         'data': JSON.stringify(data_),
