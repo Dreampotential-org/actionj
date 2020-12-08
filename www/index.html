@@ -125,6 +125,10 @@
                 margin-top: 0px;
                 margin-right: 0px;
             }
+            .modal-body{
+                max-height: calc(100vh - 200px);
+                overflow-y: auto;
+            }
         </style>
 
     </head>
@@ -431,6 +435,61 @@
                                 <a href='tel:44444'>Veterans</a>
                             </button>
                         </div>
+                        <br>
+                        <div class="col-sm-12" style="background: white;padding: 16px;">
+                                <table class="table table-bordered table-hover otherNum">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Addresses</th>
+                                            <th>Phone #</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td colspan="3" class="catname"> Church Addresses</td></tr>
+                                        <tr>
+                                            <td>1st Presbyterian Church</td>
+                                            <td>2490 Grove & Redwood Castro Valley x207</td>
+                                            <td><a href="tel:510.581.4063"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.4063 </a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1st United Methodist Hayward</td>
+                                            <td>1183 B Street (at 2nd), Hayward</td>
+                                            <td><a href="tel:510.581.2266"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.2266</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -525,7 +584,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="helpmod" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -547,79 +606,10 @@
                                         <p class="white">Service</p>
                                     </div>
                                     <br>
-                                    <div class="emergencyother" data-toggle="modal" data-target="#otherNumbers" style="cursor: pointer;">
-                                        <p class="white">Other</p>
-                                        <p class="white">Numbers</p>
+                                    <div class="col-xs-12" align="middle" >
+                                        <a onclick='showPhoneDirectory()'><strong class="aboutOnboard">Help phone directory</strong></a>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal fade" id="otherNumbers" role="dialog" aria-labelledby="otherNumbers" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close helppop" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" style="color:black;font-weight: bold">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <table class="table table-bordered table-hover otherNum">
-                                        <thead>
-                                            <tr>
-                                                <th>Category</th>
-                                                <th>Addresses</th>
-                                                <th>Phone #</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr><td colspan="3" class="catname"> Church Addresses</td></tr>
-                                            <tr>
-                                                <td>1st Presbyterian Church</td>
-                                                <td>2490 Grove & Redwood Castro Valley x207</td>
-                                                <td><a href="tel:510.581.4063"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.4063 </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>1st United Methodist Hayward</td>
-                                                <td>1183 B Street (at 2nd), Hayward</td>
-                                                <td><a href="tel:510.581.2266"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.2266</a></td>
-                                            </tr>
-<!--                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
-                                            </tr>-->
-                                        </tbody>
-                                    </table>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -629,11 +619,22 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script type="text/javascript">
-                                function showmainPage() {
-                                    $('#index_page').show();
-                                    $('#index_land').hide();
-                                    document.body.style.backgroundColor = "gray";
-                                }
+                                            function showmainPage() {
+                                                $('#index_page').show();
+                                                $('#index_land').hide();
+                                                document.body.style.backgroundColor = "gray";
+                                            }
+                                            function showPhoneDirectory() {
+                                                $('#index_page').show();
+                                                $('#index_land').hide();
+                                                $('body').removeClass('modal-open');
+                                                $('.modal-backdrop').remove();
+                                                $('#help-screen').show();
+                                                $('#screen1').hide();
+                                                document.body.style.backgroundColor = "gray";
+
+                                            }
+
 
         </script>
     </body>
