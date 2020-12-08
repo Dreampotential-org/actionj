@@ -223,6 +223,7 @@ function upload_video_file(){
         "crossDomain": true,
         "url": SERVER + "video/api/generate-signed-url",
         "method": "POST",
+        "type": "POST",
         "processData": false,
         "contentType": false,
         "mimeType": "multipart/form-data",
