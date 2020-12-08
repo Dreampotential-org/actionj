@@ -67,7 +67,19 @@
                 font-size: 20px;
                 margin-top: 10px;
             }
-
+            .emergencyother {
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #3fd05e;
+                background: #3fd05e;
+            }
+            .emergencyother p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
             .modal-header {
                 padding: 15px;
                 border-bottom: 1px solid red;
@@ -97,6 +109,21 @@
                 font-size: 24px;
                 margin-top: -16px;
                 margin-right: 5px;
+            }
+            .otherNum th{
+                color: black !important;
+            }
+            .otherNum td {
+                color: black !important;
+            }
+            .catname{
+                font-weight: bold;
+                text-decoration: underline;
+            }
+            .phone-icon-other{
+                font-size: 14px;
+                margin-top: 0px;
+                margin-right: 0px;
             }
         </style>
 
@@ -519,6 +546,80 @@
                                         <p class="white">Social Call</p>
                                         <p class="white">Service</p>
                                     </div>
+                                    <br>
+                                    <div class="emergencyother" data-toggle="modal" data-target="#otherNumbers" style="cursor: pointer;">
+                                        <p class="white">Other</p>
+                                        <p class="white">Numbers</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="otherNumbers" role="dialog" aria-labelledby="otherNumbers" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close helppop" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:black;font-weight: bold">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-bordered table-hover otherNum">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Addresses</th>
+                                                <th>Phone #</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td colspan="3" class="catname"> Church Addresses</td></tr>
+                                            <tr>
+                                                <td>1st Presbyterian Church</td>
+                                                <td>2490 Grove & Redwood Castro Valley x207</td>
+                                                <td><a href="tel:510.581.4063"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.4063 </a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>1st United Methodist Hayward</td>
+                                                <td>1183 B Street (at 2nd), Hayward</td>
+                                                <td><a href="tel:510.581.2266"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.2266</a></td>
+                                            </tr>
+<!--                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="tel:"><span class="glyphicon glyphicon-earphone phone-icon-other"></span>  </a></td>
+                                            </tr>-->
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
