@@ -15,6 +15,7 @@
         <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+        <link href='https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css' rel='stylesheet' />
 
 
         <script src="js/bootstrap.min.js"></script>
@@ -27,6 +28,9 @@
         <script src="js/questions.js"></script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWJ2UbLhFeu3jVgd4ZwWMMNyGl4Kqx7V4"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
 
 
         <style>
@@ -67,7 +71,19 @@
                 font-size: 20px;
                 margin-top: 10px;
             }
-
+            .emergencyother {
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #3fd05e;
+                background: #3fd05e;
+            }
+            .emergencyother p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
             .modal-header {
                 padding: 15px;
                 border-bottom: 1px solid red;
@@ -97,6 +113,21 @@
                 font-size: 24px;
                 margin-top: -16px;
                 margin-right: 5px;
+            }
+            .otherNum th{
+                color: black !important;
+            }
+            .otherNum td {
+                color: black !important;
+            }
+            .catname{
+                font-weight: bold;
+                text-decoration: underline;
+            }
+            .phone-icon-other{
+                font-size: 14px;
+                margin-top: 0px;
+                margin-right: 0px;
             }
         </style>
 
@@ -404,6 +435,420 @@
                                 <a href='tel:44444'>Veterans</a>
                             </button>
                         </div>
+                        <br>
+                        <div class="col-sm-12" style="background: white;padding: 16px;">
+                            <table id="example" class="table table-striped table-bordered table-responsive otherNum" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Addresses</th>
+                                        <th>Phone #</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname"> Church Addresses</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st Presbyterian Church</td>
+                                        <td>2490 Grove & Redwood Castro Valley x207</td>
+                                        <td><a href="tel:510.581.4063"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.4063 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st United Methodist Hayward</td>
+                                        <td>1183 B Street (at 2nd), Hayward</td>
+                                        <td><a href="tel:510.581.2266"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.2266</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st United Methodist San Leandro</td>
+                                        <td>1600 Bancroft Ave San Leandro</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3 Crosses</td>
+                                        <td>20600 John Drive, Castro Valley</td>
+                                        <td><a href="tel:510.537.4690"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.537.4690</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>22824 Second Street, Hayward</td>
+                                        <td>All Saints Catholic Church</td>
+                                        <td><a href="tel:510.582.2570"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.582.2570</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bridge of Faith</td>
+                                        <td>27343 Whitman St, Hayward</td>
+                                        <td><a href="tel:510.886.7551"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.886.7551</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Church of the Nazarene</td>
+                                        <td>26221 Gading Road, Hayward</td>
+                                        <td><a href="tel:510.732.0777"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.732.0777</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Community of Grace</td>
+                                        <td>380 Elmhurst Street, Hayward</td>
+                                        <td><a href="tel:510.783.8062"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.783.8062</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eden United Church of Christ</td>
+                                        <td>21455 Birch St. #1, Hayward</td>
+                                        <td><a href="tel:510.582.9533"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.582.9533</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>El Shaddai</td>
+                                        <td>565 East Lewelling Boulevard, San Lorenzo</td>
+                                        <td><a href="tel:510.481.5200"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.481.5200</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Faith Lutheran Church of CV</td>
+                                        <td>20080 Redwood Rd, Castro Valley</td>
+                                        <td><a href="tel:510.582.0818"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.582.0818</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Glad Tidings White House</td>
+                                        <td>27751 Tyrell Ave, Hayward</td>
+                                        <td><a href="tel:510.783.9377"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.783.9377</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Good Shepherd Lutheran</td>
+                                        <td>166 Harder Rd Hayward</td>
+                                        <td><a href="tel:510.782.0872"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.782.0872</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hayward Senior Cener</td>
+                                        <td>22325 North 3rd Street, Hayward</td>
+                                        <td><a href="tel:510.881.6766"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.881.6766</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>New Hope Church</td>
+                                        <td>22110 Montgomery St & Sunset Hayward</td>
+                                        <td><a href="tel:510.537.6230"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.537.6230</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>New Life Christian Church</td>
+                                        <td>1265 B St, Hayward</td>
+                                        <td><a href="tel:510.889.1304"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.889.1304</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Our Lady of Grace </td>
+                                        <td>3433 Somerset Ave Castro Valley</td>
+                                        <td><a href="tel:510.537.0806"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.537.0806</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Our Lady of the Rosary</td>
+                                        <td>703 C St. Union City</td>
+                                        <td><a href="tel:510.471.2609"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.471.2609</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Palma Ceia Baptist Church</td>
+                                        <td>28605 Ruus Rd Hayward</td>
+                                        <td><a href="tel:510.786.2866"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.786.2866</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Redwood Chapel</td>
+                                        <td>19300 Redwood Road, Castro Valley</td>
+                                        <td><a href="tel:510.886.6300"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.886.6300</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>St Clement Church</td>
+                                        <td>750 Calhoun Street/Mission Bl, Hayward</td>
+                                        <td><a href="tel:510 582 7282"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510 582 7282</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Medical, Dental, Etc</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2nd Chance Recovery Ctr</td>
+                                        <td>107 Jackson St Hwd  www.secondchanceinc.com</td>
+                                        <td><a href="tel:510-886-8696"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510-886-8696</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashland Free Clinic</td>
+                                        <td>Medical Adults Sat. 8-11a / Children Wed 6-8p</td>
+                                        <td><a href="tel:510.407.2362"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.407.2362</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Birthright of San Lorenzo: for Pregnant Women</td>
+                                        <td>1048 Grant Ave Slz</td>
+                                        <td><a href="tel:510.481.9677"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.481.9677</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Davis Street Family Resource Ctr</td>
+                                        <td>3081 Teagarden San Leandro M-Th8a-8p Fri</td>
+                                        <td><a href="tel:510.347.4620"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.347.4620</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dental Clinic: at Davis St.</td>
+                                        <td>Call To be PreScreened for Apptoinment M-F 8a-4p </td>
+                                        <td><a href="tel:510.347.4620"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.347.4620</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eden Hospital</td>
+                                        <td>20103 Lake Chabot Rd Castro Valley</td>
+                                        <td><a href="tel:510.537.1234"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.537.1234</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Firehouse Clinic/Tiburcio Vasquez Healthcare Ctr</td>
+                                        <td>28300 Huntwood Ave Hwd</td>
+                                        <td><a href="tel:510.398.7474"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.398.7474</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Healthcare for the Homeless Medical Referral</td>
+                                        <td>See frontside/Days Time Location</td>
+                                        <td><a href="tel:510.532.1930"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.532.1930</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatitis A Vaccination Sites</td>
+                                        <td><a href="www.achch.org">www.achch.org</a></td>
+                                        <td><a href="tel:510-598-6310"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510-598-6310</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>HIV/AIDS Service Info</td>
+                                        <td>AHIP 877 424.3746 / 510.53702600 HIV Testing Sites</td>
+                                        <td><a href="tel:800.367.2437"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 800.367.2437</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>“NEW* Progressive Urgent Care/Accepts Medi-Cal</td>
+                                        <td>22101 Redwood Rd Castro Valley</td>
+                                        <td><a href="tel:510-605-5330"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510-605-5330</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>St Rose Hospital</td>
+                                        <td>Urgent Care 27200 Calaroga Ave Hayward</td>
+                                        <td><a href="tel:510.264.4046"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.264.4046</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tri Cities HealthCare</td>
+                                        <td>1999 Mowry Bl Ste F Fremont</td>
+                                        <td><a href="tel:510.713.6690"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.713.6690</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Job Opportunities/V/olunteer Opportunities/Case Management </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Command Center</td>
+                                        <td>22449 Foothill Bl Hayward M-F 6a-6p www.commandonline.com</td>
+                                        <td><a href="tel:510.583.9300"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.583.9300</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Downtown Streets Team</td>
+                                        <td>Tues 12:30-1:30 New Hope Church: 22110 Montgomery & Sunset</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eden Area Job Center & Rubicon</td>
+                                        <td>24100 Amador Street, 3rd Floor Hayward </td>
+                                        <td><a href="tel:510.670.5700"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.670.5700</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Supportive Services. Service Providers. Wellness & Drop In Centers</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CRIL</td>
+                                        <td>439 A Street, Hayward  www.crilhayward.org</td>
+                                        <td><a href="tel:510.881.5743"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.881.5743</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>HEDCO Weiness Center</td>
+                                        <td>590 B St Hwd www.bayareacs.org</td>
+                                        <td><a href="tel:510.247.8235"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.247.8235</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Salvation Army</td>
+                                        <td>430 A St Hwd www.salvationarmyusa.org</td>
+                                        <td><a href="tel:510.581.6444"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.581.6444</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>San Leandro Boys/Girls Club</td>
+                                        <td>401 Marina Blvd San Leandro</td>
+                                        <td><a href="tel:510.483.6468"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.483.6468</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>South Hayward Parish/New Bridges Outreach Ctr</td>
+                                        <td>27287 Patrick Ave Hayward</td>
+                                        <td><a href="tel:510.785.3663"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.785.3663</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Housing Info.Resources </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DIAL 2-1-1</td>
+                                        <td>for Shelter Referral & Services</td>
+                                        <td><a href="tel:888.886.9660"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 888.886.9660</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>BACS HEDCO Housing Education Classes</td>
+                                        <td>Wed 10:30a -12 noon</td>
+                                        <td><a href="tel:510.247.8235"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.247.8235</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CRIL Housing Workshop</td>
+                                        <td>Mon 2pm Call ahead to register</td>
+                                        <td><a href="tel:510.881.5743"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.881.5743</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Shelters/Transitional Housing & Sober Living Building Futures</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Building Futures</td>
+                                        <td>San Leandro Shelter Women w/ Children</td>
+                                        <td><a href="tel:211"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 211</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>City Team Ministries</td>
+                                        <td>722 Washngton St Oakland Men</td>
+                                        <td><a href="tel:510.452.3758"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.452.3758</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>East Oakland Community Project</td>
+                                        <td>7515 International Bl Oakland Men</td>
+                                        <td><a href="tel:211"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 211</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Family Emergency Shelter</td>
+                                        <td>Hayward Families with Children</td>
+                                        <td><a href="tel:211"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 211</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Magnolia House</td>
+                                        <td>Hayward Pregnant Women </td>
+                                        <td><a href="tel:510.487.2910"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.487.2910</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Second Chance, Inc.</td>
+                                        <td>Fremont Single Adults 18+</td>
+                                        <td><a href="tel:211"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 211</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shepherd's Gate</td>
+                                        <td>Livermore 1 yr Commitment Women w/ Children</td>
+                                        <td><a href="tel:925.487.4147"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 925.487.4147</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sunrise Village</td>
+                                        <td>588 Brown Rd Fremont Single Adults & Families</td>
+                                        <td><a href="tel:211"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 211</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ASH House Sober Living</td>
+                                        <td>Ash St. Hayward Men</td>
+                                        <td><a href="tel:510.754.0620"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.754.0620</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Into The Solution, Inc.</td>
+                                        <td>Transitional Housing SSI Required Women</td>
+                                        <td><a href="tel:510.672.7869"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.672.7869</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lifehouse Sober Living</td>
+                                        <td>Hayward Men, Women Women w/ Children</td>
+                                        <td><a href="tel:510.999.7901"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.999.7901</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Off the Streets Ministry</td>
+                                        <td>High Street Oakland Men</td>
+                                        <td><a href="tel:510.688.2366"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.688.2366</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tranquility House Alternatives</td>
+                                        <td>San Leandro Men, Women</td>
+                                        <td><a href="tel:510.987.6232"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.987.6232</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Victory Outreach</td>
+                                        <td>South Hayward 1 year Commitment  Men</td>
+                                        <td><a href="tel:510.783.1022"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.783.1022</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Domestic Violence/Battered Women</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DV National Hotline</td>
+                                        <td></td>
+                                        <td><a href="tel:800.799.7233"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 800.799.7233</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Building Futures</td>
+                                        <td>Women w/ Children DV</td>
+                                        <td><a href="tel:866.282.9688"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 866.282.9688</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ruby's Place-Emergency Shelter</td>
+                                        <td>Human Traffiking & DV</td>
+                                        <td><a href="tel:888.339.7233"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 888.339.7233</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SAVE</td>
+                                        <td>1900 Mowry Ave #201 Fremont  24hr Hotline DV</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">VETERANS</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Operation Dignity</td>
+                                        <td>3850 San Pablo Ave Emeryville</td>
+                                        <td><a href="tel:510.287.8465"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.287.8465</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Swords to Plowshares</td>
+                                        <td>2719 Telegraph Ave Oakland</td>
+                                        <td><a href="tel:510.844.7500"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.844.7500</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veterens CRISIS LINE</td>
+                                        <td></td>
+                                        <td><a href="tel:800.273.8255"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 800.273.8255</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Homeless Vets Hotline</td>
+                                        <td></td>
+                                        <td><a href="tel:800.838.4357"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 800.838.4357</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Legal Services</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bay Area Legal Aid</td>
+                                        <td>1735 Telegraph, Oakland Mon-Fri 9 5</td>
+                                        <td><a href="tel:510.663.4744"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.663.4744</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>East Bay Law Center</td>
+                                        <td>2921 Adeline St Berkeley M-F 9-5</td>
+                                        <td><a href="tel:510.548.4040"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.548.4040</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Homeless Action Center</td>
+                                        <td>1432 Franklin St Oakland</td>
+                                        <td><a href="tel:510.836.3260"><span class="glyphicon glyphicon-earphone phone-icon-other"></span> 510.836.3260</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Self-Help Center ©Hall of Justice Bldg: 24405 Amador St Dpt 501 8:30am-12pm M-Th</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -498,7 +943,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="helpmod" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -519,6 +964,11 @@
                                         <p class="white">Social Call</p>
                                         <p class="white">Service</p>
                                     </div>
+                                    <br>
+                                    <div class="col-xs-12" align="middle" >
+                                        <a onclick='showPhoneDirectory()'><strong class="aboutOnboard">Help phone directory</strong></a>
+                                    </div>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -528,11 +978,32 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
         <script type="text/javascript">
-                                function showmainPage() {
-                                    $('#index_page').show();
-                                    $('#index_land').hide();
-                                    document.body.style.backgroundColor = "gray";
-                                }
+                                            $('#example').dataTable({
+                                                "order": [],
+                                                "columnDefs": [{
+                                                        "targets": 'no-sort',
+                                                        "orderable": false,
+                                                    }]
+                                            });
+                                            $(document).ready(function () {
+                                                $('#example').DataTable();
+                                            });
+                                            function showmainPage() {
+                                                $('#index_page').show();
+                                                $('#index_land').hide();
+                                                document.body.style.backgroundColor = "gray";
+                                            }
+                                            function showPhoneDirectory() {
+                                                $('#index_page').show();
+                                                $('#index_land').hide();
+                                                $('body').removeClass('modal-open');
+                                                $('.modal-backdrop').remove();
+                                                $('#help-screen').show();
+                                                $('#screen1').hide();
+                                                document.body.style.backgroundColor = "gray";
+
+                                            }
+
 
         </script>
     </body>
