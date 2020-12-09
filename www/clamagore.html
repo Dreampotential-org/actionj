@@ -5,19 +5,11 @@
     <title>USS Clamagore</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script> -->
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 
     <style>
         /* Add a gray background color and some padding to the footer */
@@ -25,6 +17,15 @@
         section:nth-child(odd) {
             background-color: #f5f5f5;
             padding: 20px 0;
+        }
+
+        section:last-child {
+            margin-bottom: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            min-height: 500px;
         }
 
         .well {
@@ -191,6 +192,85 @@
         </div>
 
     </section>
+
+    <section style="margin-bottom: 20px;">
+        <div class="container">
+            <h1>Explore Content in 3D Virtual Reality</h1>
+            <iframe frameborder="0" src="https://my.matterport.com/show/?m=GAPCjiGGCZ5?autoplay=1" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+        </div>
+    </section>
+
+    <section style="margin-bottom: 20px;">
+        <div class="container">
+            <h1>
+                <img style="height: 50px; margin-right: 10px;" src="img/clicker-logo.png">Next Generation iClicker built into Conference room</h1>
+            <img style="width: 100%" src="img/iClicker.png" />
+        </div>
+    </section>
+
+    <section style="margin-bottom: 20px;">
+        <div class="container">
+            <h1>Poll the audience and see results in real time</h1>
+            <canvas id="canvas"></canvas>
+            <div id="legend" class="custom-legend"></div>
+        </div>
+    </section>
+
+    <script>
+
+        $(document).ready(function () {
+
+            var ctx = document.getElementById("canvas");
+
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['red', 'white', 'green', 'yellow'],
+                    datasets: [{
+                        data: [25, 15, 17, 75],
+                        backgroundColor: ['#f73378', "#9c27b0", "#ee99fc", "#3d5afe"],
+                    }]
+                },
+                options: {
+                    legend: {
+                        display: false,
+                        position: 'bottom',
+                        labels: {
+                            fontColor: '#000',
+                            //boxWidth:50,
+                            fontSize: 14
+                            //fontSize:'26px'
+                            //fontWeight:700
+                        }
+                    },
+                    legendCallback: function (chart) {
+                        var text = [];
+                        text.push('<ul class="0-legend">');
+                        var ds = chart.data.datasets[0];
+                        var sum = ds.data.reduce(function add(a, b) { return a + b; }, 0);
+                        for (var i = 0; i < ds.data.length; i++) {
+                            text.push('<li>');
+                            var perc = Math.round(100 * ds.data[i] / sum, 0);
+                            text.push('<span style="background-color:' + ds.backgroundColor[i] + '">' + '</span>' + chart.data.labels[i]);
+                            text.push('</li>');
+                        }
+                        text.push('</ul>');
+                        return text.join("");
+                    },
+                    elements: {
+                        arc: {
+                            borderWidth: 0
+                        }
+                    }
+                }
+            });
+
+
+            $(`#legend`).html(myPieChart.generateLegend());
+
+        });
+
+    </script>
 
 </body>
 
