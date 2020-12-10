@@ -86,3 +86,35 @@
     background-color: #ffff99;
 }
 </style>
+
+<script>
+  $(document).ready(function () {
+        
+    function getParam(sParam){
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++){
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) {
+            return sParameterName[1];
+        }
+    }
+    }
+    var lesson_id=  getParam("lesson_id");
+                $.get('http://localhost:8000/courses_api/lesson/read/'+lesson_id,function(response) {
+                    var flashcards = response.flashcards;
+                    flashcards.forEach((flashcard) => {
+                        console.log(flashcard)
+
+                        if(flashcard.lesson_type == "quick_read"){
+                            
+                        }
+                        if(flashcard.lesson_type == "title_text"){
+                        }
+                        if(flashcard.lesson_type == "question_choices"){
+                        }
+                    })
+
+                });
+});
+</script>

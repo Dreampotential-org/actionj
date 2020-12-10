@@ -28,6 +28,8 @@
                         <option value="speed_read">Speed Read</option>
                         <option value="title_text">Title Text</option>
                         <option value="question_choices">Question Choices</option>
+                        <option value="iframe_link">Iframe Link</option>
+                        <option value="video_file">Video File</option>
                     </select>
                     <button class="btn form-control btn-success" style="margin-top: 20px;margin-bottom: 10px; "id="add">Add</button>
                 </div>
@@ -83,6 +85,41 @@
 
                         </div>
                     </div>
+
+
+                    <div class="speed_read" id="video_file" style="display: none; padding-top: 15px">
+                        <div style="margin-top:50px">
+                            <div class="row">
+                                <h4 class="col-lg-10">Video File</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="question"  placeholder="Title">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="video" placeholder="Video Link" />
+                            </div>
+                            </div>
+                    </div>
+
+                    <div class="speed_read" id="iframe_link" style="display: none; padding-top: 15px">
+                        <div style="margin-top:50px">
+                            <div class="row">
+                                <h4 class="col-lg-10">Iframe Link</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="question"  placeholder="Question">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="iframe" placeholder="IFrame Link" />
+                            </div>
+                            </div>
+                    </div>
+
+
                     <button type="submit" class="form-control btn btn-primary" style="margin-top: 50px;">Save</button>
                 </form>
                 </div>
@@ -95,7 +132,8 @@
                 var quick_read_count = 0;
                 var title_text_count = 0;
                 var question_choices_count = 0;
-
+                var video_file_count = 0;
+                var iframe_count = 0;
 
                 function getParam(sParam){
                 var sPageURL = window.location.search.substring(1);
@@ -165,14 +203,55 @@
                     $("#canva").append($("#question_choices").html())
                     question_choices_count++;
                 }
+                
+                function addVideoFile(isNew,id,question,choices,image){
+
+                    if(!isNew){
+                        $("#video_file").find("input").first().attr("value",question)
+                        $("#video_file").find("input").last().attr("value",image)
+
+                        $("#video_file").find("input").first().attr("data-id",id)
+                        $("#video_file").find("input").last().attr("data-id",id)
+                        
+                    }else{
+                        $("#video_file").find("input").first().attr("value","")
+                        $("#video_file").find("input").last().attr("value","")
+
+                    }
+
+                    $("#video_file").find("input").first().attr("name","question_"+video_file_count)
+                    $("#video_file").find("input").last().attr("name","image_"+video_file_count)
+
+                    $("#canva").append($("#video_file").html())
+                    video_file_count++;
+                    }
 
 
+                    function addIframeLink(isNew,id,question,choices,image){
+
+                        if(!isNew){
+                            $("#iframe_link").find("input").first().attr("value",question)
+                            $("#iframe_link").find("input").last().attr("value",image)
+
+                            $("#iframe_link").find("input").first().attr("data-id",id)
+                            $("#iframe_link").find("input").last().attr("data-id",id)
+                            
+                        }else{
+                            $("#iframe_link").find("input").first().attr("value","")
+                            $("#iframe_link").find("input").last().attr("value","")
+
+                        }
+
+                        $("#iframe_link").find("input").first().attr("name","question_"+iframe_count)
+                        $("#iframe_link").find("input").last().attr("name","image_"+iframe_count)
+
+                        $("#canva").append($("#iframe_link").html())
+                        iframe_count++;
+                        }
 
                 var lesson_id=  getParam("lesson_id");
                 $.get('http://localhost:8000/courses_api/lesson/read/'+lesson_id,function(response) {
                     var flashcards = response.flashcards;
-                    console.log(response)
-                    console.log(lesson_id)
                     flashcards.forEach((flashcard) => {
                         console.log(flashcard)
 
@@ -186,6 +265,15 @@
                         if(flashcard.lesson_type == "question_choices"){
                             addQuestionChoices(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
                         }
+
+                        if(flashcard.lesson_type == "video_file"){
+                            addVideoFile(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
+                        }
+
+                        if(flashcard.lesson_type == "iframe_link"){
+                            addIframeLink(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
+                        }
+
                     })
                     
                 })
@@ -199,7 +287,12 @@
                         title_text_count--;
                     }else if (lesson_element_type.startsWith("question")){
                         question_choices_count--
+                    }else if (lesson_element_type.startsWith("link")){
+                        iframe_count--
+                    }else if (lesson_element_type.startsWith("video")){
+                        video_file_count--
                     }
+                    console.log(lesson_element_type)
                     $(e.target).parent().parent().remove()
                 });
 
