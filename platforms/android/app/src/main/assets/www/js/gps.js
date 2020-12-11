@@ -8,8 +8,7 @@ function setup_gps_events () {
   $('body').delegate('.video_entry', 'click', function (e) {
     $('#journalModal').modal('show')
 
-    var video_url =
-      SERVER + 'video/api/video-play?video_uuid=' + $(this).attr('video_id')
+    var video_url = $(this).attr('video_url');
 
     $('#journal-body').html(
       '<video controls="" autoplay="" name="media" ' +
@@ -186,8 +185,8 @@ function populate_journals () {
     for (var e of events) {
       if (e.type == 'video') {
         var html =
-          '<div class="video_entry" video_id="' +
-          e.video_uuid +
+          '<div class="video_entry" video_url="' +
+          e.video_url +
           '"><a href="#"><span class="glyphicon glyphicon-facetime-video"></span></a><span>' +
           format_date(e.created_at) +
           '</span></div>'
