@@ -132,6 +132,99 @@
             td {
                 word-break: break-all;
             }
+
+            ul {list-style-type: none;}
+
+            .month {
+                padding: 16px 20px;
+                width: 100%;
+                background: #1abc9c;
+                text-align: center;
+            }
+
+            .month ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .month ul li {
+                color: white;
+                font-size: 20px;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }
+
+            .month .prev {
+                float: left;
+                padding-top: 10px;
+            }
+
+            .month .next {
+                float: right;
+                padding-top: 10px;
+            }
+
+            .weekdays {
+                margin: 0;
+                padding: 10px 0;
+                background-color: #ddd;
+                width: 1000px;
+            }
+
+            .weekdays li {
+                display: inline-block;
+                width: auto;
+                padding: 15px 33px;
+                color: #666;
+                text-align: center;
+            }
+
+            .days {
+                padding: 10px 0;
+                background: #eee;
+                margin: 0;
+                width: 1000px;
+            }
+
+            .days li {
+                list-style-type: none;
+                display: inline-block;
+                width: 13.6%;
+                text-align: center;
+                margin-bottom: 5px;
+                font-size:12px;
+                color: #777;
+            }
+
+            .days li .active {
+                padding: 5px;
+                background: #1abc9c;
+                color: white !important
+            }
+
+            /* Add media queries for smaller screens */
+            @media screen and (max-width:720px) {
+                .weekdays li, .days li {width: auto;
+                                        padding: 15px 33px;}
+            }
+
+            @media screen and (max-width: 420px) {
+                .weekdays li, .days li {width: auto;
+                                        padding: 15px 33px;}
+                .days li .active {padding: 2px;}
+            }
+
+            @media screen and (max-width: 290px) {
+                .weekdays li, .days li {width: auto;
+                                        padding: 15px 33px;}
+            }
+            div.scrollmenu {
+                overflow: auto;
+                white-space: nowrap;
+            }
+            div.scrollmenu ul li {
+                display: inline-block;
+            }
         </style>
 
     </head>
@@ -268,6 +361,43 @@
                                 <span class="glyphicon glyphicon-certificate"></span>
                                 <p>Suggestions</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style calendar" id="calendar">
+                            <div>
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                <p>Events</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="week-calendar" style="display: none">
+                    <div class="col-xs-12">
+                        <div class="month">      
+                            <h2 style="text-align:center">Events</h2>
+                        </div>
+                        <div class="scrollmenu">
+                            <ul class="weekdays">
+                                <li>Sunday</li>
+                                <li>Monday</li>
+                                <li>Tuesday</li>
+                                <li>Wednesday</li>
+                                <li>Thursday</li>
+                                <li>Friday</li>
+                                <li>Saturday</li>
+
+                            </ul>
+
+                            <ul class="days">  
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                                <li>6</li>
+                                <li>7</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
