@@ -141,89 +141,16 @@
                 background: #1abc9c;
                 text-align: center;
             }
-
-            .month ul {
-                margin: 0;
-                padding: 0;
+            .event-table th{
+                background: #ddd;
+                color: black;
             }
-
-            .month ul li {
-                color: white;
-                font-size: 20px;
-                text-transform: uppercase;
-                letter-spacing: 3px;
-            }
-
-            .month .prev {
-                float: left;
-                padding-top: 10px;
-            }
-
-            .month .next {
-                float: right;
-                padding-top: 10px;
-            }
-
-            .weekdays {
-                margin: 0;
-                padding: 10px 0;
-                background-color: #ddd;
-                width: 1000px;
-            }
-
-            .weekdays li {
-                display: inline-block;
-                width: auto;
-                padding: 15px 33px;
-                color: #666;
-                text-align: center;
-            }
-
-            .days {
-                padding: 10px 0;
-                background: #eee;
-                margin: 0;
-                width: 1000px;
-            }
-
-            .days li {
-                list-style-type: none;
-                display: inline-block;
-                width: 13.6%;
-                text-align: center;
-                margin-bottom: 5px;
-                font-size:12px;
-                color: #777;
-            }
-
-            .days li .active {
-                padding: 5px;
-                background: #1abc9c;
-                color: white !important
-            }
-
-            /* Add media queries for smaller screens */
-            @media screen and (max-width:720px) {
-                .weekdays li, .days li {width: auto;
-                                        padding: 15px 33px;}
-            }
-
-            @media screen and (max-width: 420px) {
-                .weekdays li, .days li {width: auto;
-                                        padding: 15px 33px;}
-                .days li .active {padding: 2px;}
-            }
-
-            @media screen and (max-width: 290px) {
-                .weekdays li, .days li {width: auto;
-                                        padding: 15px 33px;}
-            }
-            div.scrollmenu {
-                overflow: auto;
-                white-space: nowrap;
-            }
-            div.scrollmenu ul li {
-                display: inline-block;
+            .event-table td{
+                background: white;
+                border: 1px solid #ddd;
+                color: black;
+                white-space: -moz-pre-space;
+                text-align: left;
             }
         </style>
 
@@ -377,28 +304,58 @@
                         <div class="month">      
                             <h2 style="text-align:center">Events</h2>
                         </div>
-                        <div class="scrollmenu">
-                            <ul class="weekdays">
-                                <li>Sunday</li>
-                                <li>Monday</li>
-                                <li>Tuesday</li>
-                                <li>Wednesday</li>
-                                <li>Thursday</li>
-                                <li>Friday</li>
-                                <li>Saturday</li>
-
-                            </ul>
-
-                            <ul class="days">  
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>5</li>
-                                <li>6</li>
-                                <li>7</li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <table class="table table-responsive table-bordered event-table">
+                            <thead>
+                                <tr>
+                                    <th>Sunday</th>
+                                    <th>Monday</th>
+                                    <th>Tuesday</th>
+                                    <th>Wednesday</th>
+                                    <th>Thursday</th>
+                                    <th>Friday</th>
+                                    <th>Saturday</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Info & Resource GRID  Services for May 2019</td>
+                                    <td>Welcome May <br>We've beta Waiting tor You!</td>
+                                    <td>TACO TuesDAY</td>
+                                    <td></td>
+                                    <td colspan="2"><strong>*Please Call Ahead for Availability of Services:</strong><br><strong>*Holidays May Affect Services #’s are Used on Back</strong></td>
+                                    <td>Lots To Do In May Of Saturdays</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3 Crosses Church</strong><br><strong> 7am-Breakfast </strong><br>Clothing  when available Service 8am, 9:30,11:30am</td>
+                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                    <td>KHCG: Clean & Green<br>May 25/Southgate Comm Ctr<br>26780 ChiplayAve<br>8am - 11:30am <br>call to register 510-881-7745<br>www.hayward-ca.gov/KHCG</td>
+                                </tr>
+                                <tr>
+                                    <td>1st Presbyterian Church<br>Breakfast 7:30-8:30am<br>Please Do Not Arrive Earlier </td>
+                                    <td>New Bridges<br>Outreach Center<br><strong>60+ senior Lunch $3.75</strong><br>12-1pm<br>Provided by Spectrum</td>
+                                    <td>1st United Methodist<br><strong>9-9:30am Breakfast</strong><br>Bag lunch / Clothes<br>•Referral to Healthcare<br>2nd & 4th Tuesdays</td>
+                                    <td>El Shaddai Ministries<br>SHOWERS 9:30-11:00<br>Hot Soup 9:30 - 12 noon<br>(•Referral to Healthcare<br>3rd Wednesday Only)</td>
+                                    <td><strong>1st Presbyterian Church</strong><br>>»»NEW LOCATION<<<<<<br><strong>9-11am Health Services</strong><br>HOPE Van w/ Abode Srvcs</td>
+                                    <td>Palma Ceia Baptist Church<br><strong>lunch 12-1pm</strong></td>
+                                    <td>3 Crosses Church<br>SHOWERS 9am-12noon<br>Hot Meal 11am<br>Clothing & Hair Cuts</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Church Of Nazarene</strong><br><strong>Hot Breakfast 9am</strong></td>
+                                    <td>CRIL HOUSING WORKSHOP<br>for People with Disabilities<br><strong>Monday’s 2-4pm</strong><br>Call to REGISTER 510-881-5743<strong>arrive by 1:40</strong><br>www.crilhayward.org</td>
+                                    <td><strong>Downtown Streets Team</strong><br>Weekly Success Meeting 12:30- 1:30pm<br><strong>New Meeting Location</strong><br>New Hope Church<br>2211C Montgomery & Sunset www.streetsteam.org<br>Work Experience Program Case Mgmt / Job Coach<br> "Ending Homelessness Through Dignity of Work" Sign Up Today!!!</td>
+                                    <td>HEDCO Wellness Ctr<br>Housing Education 10:30-12 </td>
+                                    <td><strong>Bridge of Faith</strong><br>9am Doors Open<br><strong>12 Noon Meals of Love lunch</strong><br>Groceries given after lunch</td>
+                                    <td>Hayward Senior Center<br>22325 N. 3rd St<br>NO ENTRY after 12:15!!<br>12:30 - 1:30pm<br>Bag Lunch distribution<br>*Seniors 60+ only*</td>
+                                    <td>3 Crosses Church<br>Food Pantry 9am *Bring ID<br>2nd & 4th Saturday's</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div class="row" id="map-check" style="display: none">
