@@ -1,3 +1,6 @@
 *.sw?
 /HTML5Application/nbproject/private/
 /sfapp/nbproject/private/
+
+.idea
+.idea/*
