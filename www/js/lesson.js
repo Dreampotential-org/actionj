@@ -98,7 +98,7 @@ $("#add_form").submit((e) => {
     console.log(data_)
     
     $.ajax({
-        "url": SERVER +"courses_api/lesson/create",
+        "url": SERVER +"/courses_api/lesson/create",
         'data': JSON.stringify(data_),
         'type': 'POST',
         'contentType': 'application/json',
@@ -416,7 +416,7 @@ $("#edit_form").submit((e) => {
 
 
     $.ajax({
-        "url": "http://localhost:8000/courses_api/lesson/update/"+lesson_id+"/",
+        "url": SERVER+"/courses_api/lesson/update/"+lesson_id+"/",
         'data': JSON.stringify(data_),
         'type': 'POST',
         'contentType': 'application/json',
