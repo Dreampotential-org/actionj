@@ -3,9 +3,9 @@ var title_text_count = 0;
 var question_choices_count = 0;
 var video_file_count = 0;
 var iframe_link_count = 0
-//var SERVER = "http://localhost:8000";
-var SERVER ='https://sfapp-api.dreamstate-4-all.org';
-
+//var API_SERVER = "http://localhost:8000";
+var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
+var SERVER = 'https://sfapp.dreamstate-4-all.org';
 $("#add_form").submit((e) => {
     e.preventDefault()
     data_ = {
@@ -98,7 +98,7 @@ $("#add_form").submit((e) => {
     console.log(data_)
     
     $.ajax({
-        "url": SERVER +"/courses_api/lesson/create",
+        "url": API_SERVER +"/courses_api/lesson/create",
         'data': JSON.stringify(data_),
         'type': 'POST',
         'contentType': 'application/json',
@@ -234,7 +234,7 @@ function addIframeLink(isNew,id,question,choices,image){
 
     var lesson_id=  getParam("lesson_id");
     if(lesson_id){
-        $.get(SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
+        $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
             $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
             var flashcards = response.flashcards;
             flashcards.forEach((flashcard) => {
@@ -287,7 +287,7 @@ $(document).on("click",".remove_flashcard",function(e){
 
 
 /*
-$.get(SERVER+'/courses_api/lesson/all',function (response) {
+$.get(API_SERVER+'/courses_api/lesson/all',function (response) {
     console.log(response.data);
 })
 */
@@ -416,7 +416,7 @@ $("#edit_form").submit((e) => {
 
 
     $.ajax({
-        "url": SERVER+"/courses_api/lesson/update/"+lesson_id+"/",
+        "url": API_SERVER+"/courses_api/lesson/update/"+lesson_id+"/",
         'data': JSON.stringify(data_),
         'type': 'POST',
         'contentType': 'application/json',
