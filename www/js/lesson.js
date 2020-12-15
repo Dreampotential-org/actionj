@@ -3,7 +3,8 @@ var title_text_count = 0;
 var question_choices_count = 0;
 var video_file_count = 0;
 var iframe_link_count = 0
-var SERVER = "http://localhost:8000";
+//var SERVER = "http://localhost:8000";
+var SERVER ='https://sfapp-api.dreamstate-4-all.org/';
 
 $("#add_form").submit((e) => {
     e.preventDefault()
