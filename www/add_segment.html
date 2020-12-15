@@ -75,13 +75,17 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" id="question"  placeholder="Question">
                             </div>
-                            <div class="form-group">
-                                <textarea class="form-control" id="choices" rows="7" placeholder=""></textarea>
+                            <div class="form-group" id="choices">
+                                <div>
+                                    <input type="text" class="form-control" rows="7" placeholder="Choices"><button onclick="$(this).parent().remove()">Remove Choice</button>
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <input type="text" class="form-control" id="image" placeholder="Image Link" />
                             </div>
+                            <button>Add Choice</button>
+
                             </div>
                     </div>
 
@@ -101,7 +105,7 @@
                             </div>
                     </div>
 
-                    <div class="speed_read" id="iframe_link" style="display: none; padding-top: 15px">
+                    <div class="speed_read" id="iframe_link" style="display: none; ping-top: 15px">
                         <div style="margin-top:50px">
                             <div class="row">
                                 <h4 class="col-lg-10">Iframe Link</h4>
@@ -122,184 +126,6 @@
                 </div>
             </div>
         </div>
-        <script>
-            $(document).ready(function () {
-                var quick_read_count = 0;
-                var title_text_count = 0;
-                var question_choices_count = 0;
-                var video_file_count = 0;
-                var iframe_link_count = 0;
-
-
-                $(document).on("click",".remove_flashcard",function(e){
-                    var lesson_element_type = $(e.target).parent().parent().children().last().children().attr("name")
-                    console.log(lesson_element_type)
-                    if(lesson_element_type.startsWith("speed_read")){
-                        quick_read_count--;
-                    }else if (lesson_element_type.startsWith("text")){
-                        title_text_count--;
-                    }else if (lesson_element_type.startsWith("question")){
-                        question_choices_count--
-                    }else if (lesson_element_type.startsWith("video")){
-                        video_file_count--
-                    }else if (lesson_element_type.startsWith("link")){
-                        iframe_link_count--
-                    }
-                    $(e.target).parent().parent().remove()
-                });
-   
-                $('#add').click(function (e) {
-
-                    if ($("#selectsegment").val() == 'speed_read')
-                    {
-                        $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
-                        $("#canva").append($("#speed_read").html())
-                        quick_read_count++;
-                    }
-                    if ($("#selectsegment").val() == 'title_text')
-                    {
-                        $("#title_text").find("textarea").attr("name","text_"+title_text_count)
-                        $("#title_text").find("input").attr("name","title_"+title_text_count)
-                        $("#canva").append($("#title_text").html())
-                        title_text_count++
-                    }
-                    if ($("#selectsegment").val() == 'question_choices')
-                    {                        
-                        $("#question_choices").find("input").first().attr("name","question_"+question_choices_count)
-                        $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
-                        $("#question_choices").find("input").last().attr("name","image_"+question_choices_count)
-                        $("#canva").append($("#question_choices").html())
-                        question_choices_count++;
-
-                    }
-
-                    if ($("#selectsegment").val() == 'video_file')
-                    {                        
-                        $("#video_file").find("input").first().attr("name","question_"+question_choices_count)
-                        $("#video_file").find("input").last().attr("name","video_"+question_choices_count)
-                        $("#canva").append($("#video_file").html())
-                        video_file_count++;
-
-                    }
-
-                    if ($("#selectsegment").val() == 'iframe_link')
-                    {                        
-                        $("#iframe_link").find("input").first().attr("name","question_"+question_choices_count)
-                        $("#iframe_link").find("input").last().attr("name","link_"+question_choices_count)
-                        $("#canva").append($("#iframe_link").html())
-                        iframe_link_count++;
-
-                    }
-
-                    if ($("#selectsegment").val() == 'select_type')
-                    {
-                        alert("Please select a type");
-                    }
-                });
-
-                $("#add_form").submit((e) => {
-                    e.preventDefault()
-                    data_ = {
-                    "lesson_name":"test"
-                    }
-                    flashcards = [];
-                    var number =0;
-                    // Saving Quick Reads
-                    for(var i = 0; i < quick_read_count; i++){
-                        quick_read_value = $('textarea[name="speed_read_'+i+'"]').val()
-                        if(quick_read_value){
-                            temp = {
-                                "lesson_type":"quick_read",
-                                "question":quick_read_value,
-                                "position":number
-                            }
-                            flashcards.push(temp)
-                            number++
-                        }
-                    }
-
-                    //Saving Title Text
-                    for(var i = 0; i < title_text_count; i++){
-                        var title_value =$('input[name="title_'+i+'"]').val();
-                        var text_value = $('textarea[name="text_'+i+'"]').val();
-                        temp= { 
-                            "lesson_type":"title_text",
-                            "question" : title_value,
-                            "answer" : text_value,
-                            "position":number
-
-                        }
-                        flashcards.push(temp)
-
-                        number++;
-                    }
-
-                    for(var i = 0; i < question_choices_count; i++){
-                        var question = $('input[name="question_'+i+'"]').val()
-                        var choices=  $('textarea[name="choices_'+i+'"]').val()
-                        var image = $('input[name="image_'+i+'"]').val()
-                        temp = {
-                            "lesson_type" :"question_choices",
-                            "question": question,
-                            "image":image,
-                            "options":choices,
-                            "position":number
-                        }
-                        flashcards.push(temp)
-                        number++;
-                    }
-
-                    for(var i = 0; i < video_file_count; i++){
-                        var question = $('input[name="question_'+i+'"]').val()
-                        var video = $('input[name="video_'+i+'"]').val()
-                        temp = {
-                            "lesson_type" :"video_file",
-                            "question": question,
-                            "image":video,
-                            "options":choices,
-                            "position":number
-                        }
-                        flashcards.push(temp)
-                        number++;
-                    }
-
-                    for(var i = 0; i < iframe_link_count; i++){
-                        var question = $('input[name="question_'+i+'"]').val()
-                        var link = $('input[name="link_'+i+'"]').val()
-                        temp = {
-                            "lesson_type" :"iframe_link",
-                            "question": question,
-                            "image":link,
-                            "options":choices,
-                            "position":number
-                        }
-                        flashcards.push(temp)
-                        number++;
-                    }
-                    data_.flashcards = flashcards
-                    console.log(data_)
-                    
-                    $.ajax({
-                        "url": "http://localhost:8000/courses_api/lesson/create",
-                        'data': JSON.stringify(data_),
-                        'type': 'POST',
-                        'contentType': 'application/json',
-                        'success': function (data){
-                            console.log(data.id)
-                            var currentPathName = window.location.pathname;
-                            var currentPathNameArray = currentPathName.split("/");
-                            var currentPathNamePop =currentPathNameArray.pop()
-                            var currentPathNamePush = currentPathNameArray.push("edit.html")
-                            var nextPathName =currentPathNameArray.join("/")
-                            window.location.replace(nextPathName+"?lesson_id="+data.id)    
-                        alert("FlashCard Created!")
-                    }
-                    })
-                })
-            });
-
-
-        </script>
-
+        <script src="js/lesson.js"></script>
     </body>
 </html>
