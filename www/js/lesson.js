@@ -233,35 +233,37 @@ function addIframeLink(isNew,id,question,choices,image){
     }
 
     var lesson_id=  getParam("lesson_id");
-
-    $.get(SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
-        $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
-        var flashcards = response.flashcards;
-        flashcards.forEach((flashcard) => {
-            console.log(flashcard)
-
-            if(flashcard.lesson_type == "quick_read"){
-                
-                addSpeedRead(false,flashcard.id,flashcard.question)
-            }
-            if(flashcard.lesson_type == "title_text"){
-                addTitleText(false,flashcard.id,flashcard.question,flashcard.answer)
-            }
-            if(flashcard.lesson_type == "question_choices"){
-                addQuestionChoices(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
-            }
-
-            if(flashcard.lesson_type == "video_file"){
-                addVideoFile(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
-            }
-
-            if(flashcard.lesson_type == "iframe_link"){
-                addIframeLink(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
-            }
-
+    if(lesson_id){
+        $.get(SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
+            $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
+            var flashcards = response.flashcards;
+            flashcards.forEach((flashcard) => {
+                console.log(flashcard)
+    
+                if(flashcard.lesson_type == "quick_read"){
+                    
+                    addSpeedRead(false,flashcard.id,flashcard.question)
+                }
+                if(flashcard.lesson_type == "title_text"){
+                    addTitleText(false,flashcard.id,flashcard.question,flashcard.answer)
+                }
+                if(flashcard.lesson_type == "question_choices"){
+                    addQuestionChoices(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
+                }
+    
+                if(flashcard.lesson_type == "video_file"){
+                    addVideoFile(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
+                }
+    
+                if(flashcard.lesson_type == "iframe_link"){
+                    addIframeLink(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
+                }
+    
+            })
+            
         })
-        
-    })
+    }
+
 
 
 $(document).on("click",".remove_flashcard",function(e){
