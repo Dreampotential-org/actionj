@@ -66,7 +66,7 @@
     }
     }
     var lesson_id=  getParam("lesson_id");
-                $.get(SERVER+'courses_api/lesson/read/'+lesson_id,function(response) {
+                $.get(SERVER+'/courses_api/lesson/read/'+lesson_id,function(response) {
                     var flashcards = response.flashcards;
                     console.log(flashcards)
                     var i = 0;
