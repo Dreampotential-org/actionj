@@ -4,6 +4,7 @@ var question_choices_count = 0;
 var video_file_count = 0;
 var iframe_link_count = 0
 //var API_SERVER = "http://localhost:8000";
+
 var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
 var SERVER = 'https://sfapp.dreamstate-4-all.org';
 $("#add_form").submit((e) => {
@@ -115,9 +116,13 @@ $("#add_form").submit((e) => {
     })
 })
 
-function addChoices(id){
+function addChoices(id,value){
+    if(!value){
+        value = ""
+    }
     var next_id = $("#choices_"+id).children().last().data("id") + 1
-    $("#choices_"+id).append('<div><input type="text" class="form-control" data-id="'+next_id+'"rows="7" placeholder="Choices"><button onclick="$(this).parent().remove()">Remove Choice</button></div>')
+    console.log(id)
+    $("#choices_"+id).append('<div><input type="text" class="form-control" data-id="'+next_id+'"rows="7" placeholder="Choices" value="'+value+'"><button onclick="$(this).parent().remove()">Remove Choice</button></div>')
 }
 
 function getParam(sParam){
@@ -164,24 +169,30 @@ function addTitleText(isNew,id,title,text){
 
 function addQuestionChoices(isNew,id,question,choices,image){
 
+    $("#question_choices").find("input").first().attr("name","question_"+question_choices_count)
+    $("#question_choices").find("#choices").attr("id","choices_"+question_choices_count)
+    $("#question_choices").find("input").last().attr("name","image_"+question_choices_count)
+    $("#question_choices").find("button").attr("onclick","addChoices("+question_choices_count+")");
+
     if(!isNew){
         $("#question_choices").find("input").first().attr("value",question)
-        $("#question_choices").find("textarea").html(choices)      
         $("#question_choices").find("input").last().attr("value",image)
 
         $("#question_choices").find("input").first().attr("data-id",id)
-        $("#question_choices").find("textarea").attr("data-id",id)
         $("#question_choices").find("input").last().attr("data-id",id)
-        
+        $("#choices_"+question_choices_count).find('input').remove();
+        choices.split(",").forEach(function(choice){
+            console.log(choice)
+            addChoices(question_choices_count,choice)
+        })
+
     }else{
         $("#question_choices").find("input").first().attr("value","")
-        $("#question_choices").find("textarea").html("")
+        $("#question_choices").find("text").html("")
         $("#question_choices").find("input").last().attr("value","")
     }
 
-    $("#question_choices").find("input").first().attr("name","question_"+question_choices_count)
-    $("#question_choices").find("textarea").attr("name","choices_"+question_choices_count)
-    $("#question_choices").find("input").last().attr("name","image_"+question_choices_count)
+
 
     $("#sortable").append($("#question_choices").html())
     question_choices_count++;
@@ -366,8 +377,19 @@ $("#edit_form").submit((e) => {
         var id = $('input[name="question_'+i+'"]').data("id")
 
         var question = $('input[name="question_'+i+'"]').val()
-        var choices=  $('textarea[name="choices_'+i+'"]').val()
         var image=  $('input[name="image_'+i+'"]').val()
+
+
+        var choices_array = $('#choices_'+i+' :input').map(function() {
+            var type = $(this).prop("type");
+
+            if(type =="text"){
+                return($(this).val())
+            }
+        })
+        
+        var choices = choices_array.toArray().join(",")
+        
         temp = {
             "lesson_type" :"question_choices",
             "question": question,
