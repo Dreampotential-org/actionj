@@ -244,6 +244,10 @@ function addIframeLink(isNew,id,question,choices,image){
     }
 
     var lesson_id=  getParam("lesson_id");
+    if(!lesson_id){
+        alert("No Lesson Selected\nRedirecting to add.html. Please Select a lesson to open this page")
+        
+    }
     if(lesson_id){
         $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
             $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
@@ -389,7 +393,7 @@ $("#edit_form").submit((e) => {
         })
         
         var choices = choices_array.toArray().join(",")
-        
+
         temp = {
             "lesson_type" :"question_choices",
             "question": question,
