@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <style>
             .start-container{
                 border: 1px solid lightgray;
@@ -22,8 +21,6 @@
             <div class="row">
                 <div class="col-xs-6 col-sm-6">
                     <h3>Segment Builder</h3>
-                    <hr>
-                    <p>Select Course</p>
                     <select class="form-control" id="select_lesson">
                         
                     </select>
@@ -41,17 +38,17 @@
                     <button class="btn form-control btn-success" style="margin-top: 20px;margin-bottom: 10px; "id="add">Add</button>
                 </div>
             </div>
-            <div class="row" >
+            <div class="row">
                 <div class="col-xs-12" id="sortable">
 
                 </div>
                 <div class="col-xs-12">
-                    <form id="edit_form">
+                    <form id="lesson_form">
                     <div class="speed_read" id="speed_read" style="display: none; padding-top: 15px">
-                        <div class="ui-sortable-handle" style="margin-top:50px; padding:20px; border-radius:10px; border:1px; border-color:#888; border-style:solid;">
+                        <div style="margin-top:50px">
                             <div class="row">
-                                <h4 class="col-xs-7 col-lg-7">Speed Read</h4>
-                                <span class="remove_flashcard col-xs-5 col-lg-5" style="text-align: right;margin-top: 10px;font-size: 18px;color: red;font-weight: bold;"> X </span>
+                                <h4 class="col-lg-10">Speed Read</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
                             </div>
 
                         <div class="form-group">
@@ -60,21 +57,21 @@
                     </div>
                     </div>
                     <div class="speed_read" id="title_text" style="display: none; padding-top: 15px">
-                        <div style="margin-top:50px; padding:20px; border-radius:10px; border:1px; border-color:#888; border-style:solid;">
+                        <div style="margin-top:50px">
                             <div class="row">
-                                <h4 class="col-xs-7 col-lg-7">Title Text</h4>
-                                <span class="remove_flashcard col-xs-5 col-lg-5" style="text-align: right;margin-top: 10px;font-size: 18px;color: red;font-weight: bold;"> X </span>
+                                <h4 class="col-lg-10">Title Text</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
                             </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="title"  placeholder="Title">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="speed_read_input" rows="7" placeholder=""></textarea>
+                            <textarea class="form-control" id="text" rows="7" placeholder=""></textarea>
                         </div>
                         </div>
                     </div>
                     <div class="speed_read" id="question_choices" style="display: none; padding-top: 15px">
-                         <div style="margin-top:50px">
+                        <div style="margin-top:50px">
                             <div class="row">
                                 <h4 class="col-lg-10">Question Choices</h4>
                                 <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
@@ -87,6 +84,7 @@
                                     <input type="text" class="form-control" rows="7" placeholder="Choices"><button onclick="$(this).parent().remove()">Remove Choice</button>
                                 </div>
                             </div>
+
                             <div class="form-group">
                                 <input type="text" class="form-control" id="image" placeholder="Image Link" />
                             </div>
@@ -95,31 +93,30 @@
                             </div>
                     </div>
 
-
                     <div class="speed_read" id="video_file" style="display: none; padding-top: 15px">
-                        <div style="margin-top:50px; padding:20px; border-radius:10px; border:1px; border-color:#888; border-style:solid;">
+                        <div style="margin-top:50px">
                             <div class="row">
-                                <h4 class="col-xs-7 col-lg-7">Video File</h4>
-                                <span class="remove_flashcard col-xs-5 col-lg-5" style="text-align: right;margin-top: 10px;font-size: 18px;color: red;font-weight: bold;"> X </span>
+                                <h4 class="col-lg-10">Video File</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="question"  placeholder="Title">
+                                <input type="text" class="form-control" id="video_title"  placeholder="Title">
                             </div>
 
                             <div class="form-group">
-                                <input type="file" class="form-control" id="video"/>
+                                <input type="text" class="form-control" id="video" placeholder="Video Link" />
                             </div>
                             </div>
                     </div>
 
-                    <div class="speed_read" id="iframe_link" style="display: none; padding-top: 15px">
-                        <div style="margin-top:50px; padding:20px; border-radius:10px; border:1px; border-color:#888; border-style:solid;">
+                    <div class="speed_read" id="iframe_link" style="display: none; ping-top: 15px">
+                        <div style="margin-top:50px">
                             <div class="row">
-                                <h4 class="col-xs-7 col-lg-7">Iframe Link</h4>
-                               <span class="remove_flashcard col-xs-5 col-lg-5" style="text-align: right;margin-top: 10px;font-size: 18px;color: red;font-weight: bold;"> X </span>
+                                <h4 class="col-lg-10">Iframe Link</h4>
+                                <button class="remove_flashcard btn btn-danger col-lg-1"> Remove</button>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="question"  placeholder="Question">
+                                <input type="text" class="form-control" id="title_iframe"  placeholder="Title">
                             </div>
 
                             <div class="form-group">
@@ -128,20 +125,11 @@
                             </div>
                     </div>
 
-
                     <button type="submit" class="form-control btn btn-primary" style="margin-top: 50px;">Save</button>
                 </form>
                 </div>
             </div>
         </div>
         <script src="js/lesson.js"></script>
-        <script>
-            $(document).ready(function () {
-
-                $( "#sortable" ).sortable();
-
-            });
-        </script>
-
     </body>
 </html>
