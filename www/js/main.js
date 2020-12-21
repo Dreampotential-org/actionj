@@ -157,7 +157,6 @@ function setup_click_events () {
     })
   })
   
-  
   $('body').delegate('#Suggestions', 'click', function (e) {
     swal({
       title: 'Coming Soon',
