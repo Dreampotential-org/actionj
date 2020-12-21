@@ -122,6 +122,11 @@
     background: #46117f;
     border: 1px solid #46117f;
 }
+
+.pdf-sign{
+    background: #098504;
+    border: 1px solid #098504;
+}
 .shelter-close {
     background: #fff;
     padding: 20px;
