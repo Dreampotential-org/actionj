@@ -2,13 +2,19 @@ var quick_read_count = 0;
 var title_text_count = 0;
 var question_choices_count = 0;
 var video_file_count = 0;
-var iframe_link_count = 0
+var iframe_link_count = 0;
+var question_text_count = 0;
 var MODE;
 //var API_SERVER = "http://localhost:8000";
 
 var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
 var SERVER = 'https://sfapp.dreamstate-4-all.org';
 var lesson_id=  getParam("lesson_id");
+
+function selectLesson(){
+    var thelesson_id = $("#select_lesson :selected").val()
+    window.location.replace(SERVER+"/lesson.html?lesson_id="+thelesson_id)
+}
 
 function addChoices(id,value){
     if(!value){
@@ -114,7 +120,6 @@ function addVideoFile(isNew,id,question,choices,image){
     video_file_count++;
     }
 
-
 function addIframeLink(isNew,id,question,choices,image){
 
     if(!isNew){
@@ -137,18 +142,50 @@ function addIframeLink(isNew,id,question,choices,image){
     iframe_link_count++;
     }
 
+function addQuestionText(isNew,id,question){
+
+    if(!isNew){
+        $("#question_text").find("textarea").first().attr("value",question)
+
+        $("#question_text").find("textarea").last().attr("data-id",id)
+        
+    }else{
+        $("#question_text").find("textarea").first().attr("value","")
+
+    }
+
+    $("#question_text").find("textarea").first().attr("name","question_"+iframe_link_count)
+
+    $("#sortable").append($("#question_text").html())
+    question_text_count++;
+
+}
+$(document).ready(function() {
+
+
+
 if(lesson_id){
     MODE = "UPDATE";
 }else{
     MODE = "CREATE";
 }
 
+$.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
+    var lessons = response;
+    lessons.forEach((lesson) => {
+        var lesson_id = lesson.id
+        var lesson_name = lesson.lesson_name
+        $("#select_lesson").append("<option value='"+lesson_id+"'>"+lesson_name+"</option>")
+    })
+})
+
 if(MODE =="UPDATE"){
+    console.log("update")
     $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
         $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
+        $("#lesson_name").val(response.lesson_name)
         var flashcards = response.flashcards;
         flashcards.forEach((flashcard) => {
-            console.log(flashcard)
 
             if(flashcard.lesson_type == "quick_read"){
                 
@@ -169,6 +206,9 @@ if(MODE =="UPDATE"){
                 addIframeLink(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
             }
 
+            if(flashcard.lesson_type == "question_text"){
+                addQuestionText(false,flashcard.id,flashcard.question)
+            }
         })
         
     })
@@ -176,8 +216,9 @@ if(MODE =="UPDATE"){
 
 $("#lesson_form").submit((e) => {
     e.preventDefault()
+    var lesson_name = $("#lesson_name").val()
     data_ = {
-    "lesson_name":"test"
+    "lesson_name":lesson_name
     }
     flashcards = [];
     var number =0;
@@ -295,9 +336,6 @@ $("#lesson_form").submit((e) => {
     }
 })
 
-
-
-
 $(document).on("click",".remove_flashcard",function(e){
     var lesson_element_type = $(e.target).parent().parent().children().last().children().attr("name")
     //console.log(lesson_element_type)
@@ -316,12 +354,6 @@ $(document).on("click",".remove_flashcard",function(e){
     $(e.target).parent().parent().remove()
 });
 
-
-
-
-$.get(API_SERVER+'/courses_api/lesson/all',function (response) {
-    console.log(response.data);
-})
 
 
 $('#add').click(function (e) {
@@ -349,15 +381,18 @@ $('#add').click(function (e) {
         addIframeLink(true)
 
     }
+    if ($("#selectsegment").val() == 'question_text')
+    {                        
+        addQuestionText(true)
+
+    }
     if ($("#selectsegment").val() == 'select_type')
     {
         alert("Please select a type");
     }
 });
 
-
-
-
+    });
 /*
 $("#edit_form").submit((e) => {
     e.preventDefault()
