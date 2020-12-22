@@ -50,8 +50,8 @@
 </style>
 
 <script>
-  //var SERVER = "http://localhost:8000/";
-  var SERVER ='https://sfapp-api.dreamstate-4-all.org'
+  var SERVER = "http://localhost:8000";
+  //var SERVER ='https://sfapp-api.dreamstate-4-all.org'
 
   $(document).ready(function () {
         
@@ -93,8 +93,7 @@
                             $("#flashcard_"+i).prepend('<center><img src="https://media.istockphoto.com/photos/contact-details-picture-id174081040" alt="Chania" style="height:300px;border:5px;border-style:solid;border-color:black"></center>')
                           }
                           flashcard.options.split(",").forEach(function (valu) { 
-                            $("#theSlide").find('ul').append("<li>"+valu+"</li>")
-
+                            $("#theSlide").find('ul').append("<input type='radio' value='valu' name='choices_'"+i+">"+valu+"<br>")
                           })
 
                         }
@@ -106,6 +105,10 @@
 
                         if(flashcard.lesson_type == "video_file"){
                           $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><video controls> <source src= "'+flashcard.image+'"></video></div></div>')
+                        }
+                        if(flashcard.lesson_type=="question_text"){
+                          $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea class="form-control" placeholder="Enter you answer here"></textarea></div></div>')
+
                         }
                         i++;
                     })

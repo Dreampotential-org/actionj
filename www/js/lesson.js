@@ -154,7 +154,7 @@ function addQuestionText(isNew,id,question){
         $("#question_text").find("textarea").first().html("")
     }
 
-    $("#question_text").find("textarea").first().attr("name","question_text_"+iframe_link_count)
+    $("#question_text").find("textarea").first().attr("name","question_text_"+question_text_count)
 
     $("#sortable").append($("#question_text").html())
     question_text_count++;
