@@ -5,10 +5,11 @@ var video_file_count = 0;
 var iframe_link_count = 0;
 var question_text_count = 0;
 var MODE;
-//var API_SERVER = "http://localhost:8000";
+var API_SERVER = "http://localhost:8000";
 
-var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
+//var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
 var SERVER = 'https://sfapp.dreamstate-4-all.org';
+
 var lesson_id=  getParam("lesson_id");
 
 function selectLesson(){
@@ -145,16 +146,15 @@ function addIframeLink(isNew,id,question,choices,image){
 function addQuestionText(isNew,id,question){
 
     if(!isNew){
-        $("#question_text").find("textarea").first().attr("value",question)
+        $("#question_text").find("textarea").first().html(question)
 
         $("#question_text").find("textarea").last().attr("data-id",id)
         
     }else{
-        $("#question_text").find("textarea").first().attr("value","")
-
+        $("#question_text").find("textarea").first().html("")
     }
 
-    $("#question_text").find("textarea").first().attr("name","question_"+iframe_link_count)
+    $("#question_text").find("textarea").first().attr("name","question_text_"+iframe_link_count)
 
     $("#sortable").append($("#question_text").html())
     question_text_count++;
@@ -169,7 +169,7 @@ if(lesson_id){
 }else{
     MODE = "CREATE";
 }
-
+/*
 $.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
     var lessons = response;
     lessons.forEach((lesson) => {
@@ -178,7 +178,7 @@ $.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
         $("#select_lesson").append("<option value='"+lesson_id+"'>"+lesson_name+"</option>")
     })
 })
-
+*/
 if(MODE =="UPDATE"){
     console.log("update")
     $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
@@ -205,7 +205,6 @@ if(MODE =="UPDATE"){
             if(flashcard.lesson_type == "iframe_link"){
                 addIframeLink(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
             }
-
             if(flashcard.lesson_type == "question_text"){
                 addQuestionText(false,flashcard.id,flashcard.question)
             }
@@ -304,6 +303,17 @@ $("#lesson_form").submit((e) => {
         number++;
     }
 
+    for(var i = 0; i < question_text_count; i++){
+        var question = $('textarea[name="question_text_'+i+'"]').val()
+        temp = {
+            "lesson_type" :"question_text",
+            "question": question,
+            "position":number
+        }
+        flashcards.push(temp)
+        number++;
+    }
+
     data_.flashcards = flashcards
     console.log(data_)
     
@@ -349,6 +359,8 @@ $(document).on("click",".remove_flashcard",function(e){
         iframe_link_count--
     }else if (lesson_element_type.startsWith("video")){
         video_file_count--
+    }else if (lesson_element_type.startsWith("question_text")){
+        question_text_count--
     }
     //console.log(lesson_element_type)
     $(e.target).parent().parent().remove()
