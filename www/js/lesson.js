@@ -5,9 +5,9 @@ var video_file_count = 0;
 var iframe_link_count = 0;
 var question_text_count = 0;
 var MODE;
-var API_SERVER = "http://localhost:8000";
+//var API_SERVER = "http://localhost:8000";
 
-//var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
+var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
 var SERVER = 'https://sfapp.dreamstate-4-all.org';
 
 var lesson_id=  getParam("lesson_id");
