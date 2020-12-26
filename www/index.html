@@ -1,581 +1,568 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>SF Social Service</title>
-    <base href="http://localhost/sfapp/www/">
-    <meta charset="utf-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0 ,height=device-height, viewport-fit=cover'>
-    
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    
-    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
-    <link href='https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css' rel='stylesheet' />
-    
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>  
-    
-    
-    <script src="js/main.js" type="module"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/resources.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/gps.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/meds.js"></script>
-    <script src="js/questions.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWJ2UbLhFeu3jVgd4ZwWMMNyGl4Kqx7V4"></script>
-    
-    <style>
-        .container.start-container {
-            margin-top: 50px;
-        }
-        
-        .onboard {
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-        
-        .emergency {
-            padding: 30px 28px;
-            border-radius: 15px;
-            font-weight: bold;
-            text-align: center;
-            border: 1px solid red;
-            background: red;
-        }
-        .emergencysocial{
-            padding: 30px 28px;
-            border-radius: 15px;
-            font-weight: bold;
-            text-align: center;
-            border: 1px solid #3f8ed0;
-            background: #3f8ed0;  
-        }
-        .emergencysocial p {
-            color: black;
-            font-size: 20px;
-            margin-top: 10px;
-        }
-        .emergency p {
-            color: black;
-            font-size: 20px;
-            margin-top: 10px;
-        }
-        .emergencyother {
-            padding: 30px 28px;
-            border-radius: 15px;
-            font-weight: bold;
-            text-align: center;
-            border: 1px solid #3fd05e;
-            background: #3fd05e;
-        }
-        .emergencyother p {
-            color: black;
-            font-size: 20px;
-            margin-top: 10px;
-        }
-        .modal-header {
-            padding: 15px;
-            border-bottom: 1px solid red;
-        }
-        
-        .close {
-            opacity: 1;
-        }
-        .aboutOnboard{
-            margin-left: -16px;
-        }
-        .helppop{
-            margin-top: 0px !important;
-        }
-        .modal-header{
-            border-bottom: none !important;
-        }
-        .modal-header .close {
-            margin-top: -20px;
-        }
-        .imagelog img {
-            width: 60px;
-            height: 100%;
-            margin-bottom: 20px;
-        }
-        .glyphicon-earphone {
-            font-size: 24px;
-            margin-top: -16px;
-            margin-right: 5px;
-        }
-        .otherNum th{
-            color: black !important;
-        }
-        .otherNum td {
-            color: black !important;
-        }
-        .catname{
-            font-weight: bold;
-            text-decoration: underline;
-        }
-        .phone-icon-other{
-            font-size: 14px;
-            margin-top: 0px;
-            margin-right: 0px;
-        }
-        td {
-            word-break: break-all;
-        }
-        
-        ul {list-style-type: none;}
-        
-        .month {
-            padding: 16px 20px;
-            width: 100%;
-            background: #1abc9c;
-            text-align: center;
-        }
-        .event-table th{
-            background: #ddd;
-            color: black;
-        }
-        .event-table td{
-            background: white;
-            color: black;
-            white-space: pre-wrap !important;
-            text-align: left;
-            word-break: keep-all;
-        }
-    </style>
-    
-</head>
+    <head>
+        <title>SF Social Service</title>
+        <meta charset="utf-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0 ,height=device-height, viewport-fit=cover'>
 
-<body style="background: white;">
-    <div id="sfapp-root" hidden></div>
-    <div id="index_page" style="display: none">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+        <link href='https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css' rel='stylesheet' />
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/resources.js"></script>
+        <script src="js/login.js"></script>
+        <script src="js/gps.js"></script>
+        <script src="js/video.js"></script>
+        <script src="js/meds.js"></script>
+        <script src="js/questions.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWJ2UbLhFeu3jVgd4ZwWMMNyGl4Kqx7V4"></script>
+
         <style>
-            .radio label {
-                padding-left: 25px;
+            .container.start-container {
+                margin-top: 50px;
             }
-            
-            .radio input[type="radio"] {
-                margin-left: -25px;
-            }
-            
-            #journal-list div {
-                padding: 7px 14px;
-                display: flex;
-                align-items: center;
-                background-color: #ffffff;
-                margin: 7px;
-                border-radius: 7px;
-            }
-            
-            #journal-list a {
-                padding-right: 7px;
-            }
-            
-            #journal-list .glyphicon {
+
+            .onboard {
+                text-align: center;
                 font-size: 20px;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            .emergency {
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid red;
+                background: red;
+            }
+            .emergencysocial{
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #3f8ed0;
+                background: #3f8ed0;  
+            }
+            .emergencysocial p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            .emergency p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            .emergencyother {
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #3fd05e;
+                background: #3fd05e;
+            }
+            .emergencyother p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            .modal-header {
+                padding: 15px;
+                border-bottom: 1px solid red;
+            }
+
+            .close {
+                opacity: 1;
+            }
+            .aboutOnboard{
+                margin-left: -16px;
+            }
+            .helppop{
+                margin-top: 0px !important;
+            }
+            .modal-header{
+                border-bottom: none !important;
+            }
+            .modal-header .close {
+                margin-top: -20px;
+            }
+            .imagelog img {
+                width: 60px;
+                height: 100%;
+                margin-bottom: 20px;
+            }
+            .glyphicon-earphone {
+                font-size: 24px;
+                margin-top: -16px;
+                margin-right: 5px;
+            }
+            .otherNum th{
+                color: black !important;
+            }
+            .otherNum td {
+                color: black !important;
+            }
+            .catname{
+                font-weight: bold;
+                text-decoration: underline;
+            }
+            .phone-icon-other{
+                font-size: 14px;
+                margin-top: 0px;
+                margin-right: 0px;
+            }
+            td {
+                word-break: break-all;
+            }
+
+            ul {list-style-type: none;}
+
+            .month {
+                padding: 16px 20px;
+                width: 100%;
+                background: #1abc9c;
+                text-align: center;
+            }
+            .event-table th{
+                background: #ddd;
+                color: black;
+            }
+            .event-table td{
+                background: white;
+                color: black;
+                white-space: pre-wrap !important;
+                text-align: left;
+                word-break: keep-all;
             }
         </style>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">
-                        <img class="logo" src="img/SF-Logo.png" />
-                    </a>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a id='logout' href="#">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <br>
-        <br>
-        <br>
-        <div class="container start-container" id="root">
-            <div class="row" id="screen1">
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style my-profile" id="my-profile">
-                        <div>
-                            <span class="glyphicon glyphicon-user"></span>
-                            <p>My Profile</p>
-                        </div>
+
+    </head>
+
+    <body style="background: white;">
+        <div id="index_page" style="display: none">
+            <style>
+                .radio label {
+                    padding-left: 25px;
+                }
+
+                .radio input[type="radio"] {
+                    margin-left: -25px;
+                }
+
+                #journal-list div {
+                    padding: 7px 14px;
+                    display: flex;
+                    align-items: center;
+                    background-color: #ffffff;
+                    margin: 7px;
+                    border-radius: 7px;
+                }
+
+                #journal-list a {
+                    padding-right: 7px;
+                }
+
+                #journal-list .glyphicon {
+                    font-size: 20px;
+                }
+            </style>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img class="logo" src="img/SF-Logo.png" />
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a id='logout' href="#">Logout</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style my-meds" id="my-meds">
-                        <div>
-                            <i class="fas fa-capsules"></i>
-                            <p>My Med</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style gps-check">
-                        <div>
-                            <span class="glyphicon glyphicon-map-marker"></span>
-                            <p>GPS Journal</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style video-check">
-                        <div>
-                            <span class="glyphicon glyphicon-facetime-video"></span>
-                            <p>Video Journal</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style shelters" id="shelters">
-                        <div>
-                            <span class="glyphicon glyphicon-home"></span>
-                            <p>Shelters</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style help" id="help">
-                        <div>
-                            <span class="glyphicon glyphicon-earphone"></span>
-                            <p>Help</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style journal" id="journal">
-                        <div>
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                            <p>Journal Entries</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style food" id="food">
-                        <div>
-                            <i class='fa fa-hamburger'></i>
-                            <p>Food</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style work" id="work">
-                        <div>
-                            <span class="glyphicon glyphicon-briefcase"></span>
-                            <p>Work</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style Suggestions" id="Suggestions">
-                        <div>
-                            <span class="glyphicon glyphicon-certificate"></span>
-                            <p>Suggestions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style calendar" id="calendar">
-                        <div>
-                            <span class="glyphicon glyphicon-calendar"></span>
-                            <p>Events</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="week-calendar" style="display: none">
-                <div class="col-xs-12">
-                    <div class="month">      
-                        <h2 style="text-align:center">Events</h2>
-                    </div>
-                </div>
-                <div class="col-xs-12">
-                    <div class="table-responsive">   
-                        <table class="table table-bordered event-table">
-                            <thead>
-                                <tr>
-                                    <th>Sunday</th>
-                                    <th>Monday</th>
-                                    <th>Tuesday</th>
-                                    <th>Wednesday</th>
-                                    <th>Thursday</th>
-                                    <th>Friday</th>
-                                    <th>Saturday</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Info & Resource GRID  Services for May 2019</td>
-                                    <td>Welcome May <br>We've beta Waiting tor You!</td>
-                                    <td>TACO TuesDAY</td>
-                                    <td></td>
-                                    <td colspan="2"><strong>*Please Call Ahead for Availability of Services:</strong><br><strong>*Holidays May Affect Services #’s are Used on Back</strong></td>
-                                    <td>Lots To Do In May Of Saturdays</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>3 Crosses Church</strong><br><strong> 7am-Breakfast </strong><br>Clothing  when available Service 8am, 9:30,11:30am</td>
-                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
-                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
-                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
-                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
-                                    <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
-                                    <td>KHCG: Clean & Green<br>May 25/Southgate Comm Ctr<br>26780 ChiplayAve<br>8am - 11:30am <br>call to register 510-881-7745<br>www.hayward-ca.gov/KHCG</td>
-                                </tr>
-                                <tr>
-                                    <td>1st Presbyterian Church<br>Breakfast 7:30-8:30am<br>Please Do Not Arrive Earlier </td>
-                                    <td>New Bridges<br>Outreach Center<br><strong>60+ senior Lunch $3.75</strong><br>12-1pm<br>Provided by Spectrum</td>
-                                    <td>1st United Methodist<br><strong>9-9:30am Breakfast</strong><br>Bag lunch / Clothes<br>•Referral to Healthcare<br>2nd & 4th Tuesdays</td>
-                                    <td>El Shaddai Ministries<br>SHOWERS 9:30-11:00<br>Hot Soup 9:30 - 12 noon<br>(•Referral to Healthcare<br>3rd Wednesday Only)</td>
-                                    <td><strong>1st Presbyterian Church</strong><br>>»»NEW LOCATION<<<<<<br><strong>9-11am Health Services</strong><br>HOPE Van w/ Abode Srvcs</td>
-                                    <td>Palma Ceia Baptist Church<br><strong>lunch 12-1pm</strong></td>
-                                    <td>3 Crosses Church<br>SHOWERS 9am-12noon<br>Hot Meal 11am<br>Clothing & Hair Cuts</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Church Of Nazarene</strong><br><strong>Hot Breakfast 9am</strong></td>
-                                    <td>CRIL HOUSING WORKSHOP<br>for People with Disabilities<br><strong>Monday’s 2-4pm</strong><br>Call to REGISTER 510-881-5743<strong>arrive by 1:40</strong><br>www.crilhayward.org</td>
-                                    <td><strong>Downtown Streets Team</strong><br>Weekly Success Meeting 12:30- 1:30pm<br><strong>New Meeting Location</strong><br>New Hope Church<br>2211C Montgomery & Sunset www.streetsteam.org<br>Work Experience Program Case Mgmt / Job Coach<br> "Ending Homelessness Through Dignity of Work" Sign Up Today!!!</td>
-                                    <td>HEDCO Wellness Ctr<br>Housing Education 10:30-12 </td>
-                                    <td><strong>Bridge of Faith</strong><br>9am Doors Open<br><strong>12 Noon Meals of Love lunch</strong><br>Groceries given after lunch</td>
-                                    <td>Hayward Senior Center<br>22325 N. 3rd St<br>NO ENTRY after 12:15!!<br>12:30 - 1:30pm<br>Bag Lunch distribution<br>*Seniors 60+ only*</td>
-                                    <td>3 Crosses Church<br>Food Pantry 9am *Bring ID<br>2nd & 4th Saturday's</td>
-                                </tr>
-                                <tr>
-                                    <td>San Leandro Boys&Girls Club<br>’April Showers" Ministry<br>1st, 3rd, 5th Sundays<br><strong>SHOWERS 11a-1pm</strong> <br>Breakfast, Bag lunch to go<br>Clothes, Toiletries <br>ask @ Laundry Day!</td>
-                                    <td>Glad Tidings White House<br><strong>Food items & Bread</strong><br>11:30-1:30</td>
-                                    <td>Glad Tidings White House<br><strong>Food items & Bread</strong><br>11:30-1:30</td>
-                                    <td>Community of Grace<br><strong>Food Pantry 1 lam-noon</strong><br>Closed the 5th Wed</td>
-                                    <td><strong>New Hope Fellowship<br>MEDICAL Team w/ Nurse<br>2nd Thursday 9:30am-2pm<br>Call for Appt (510)253-7525 </strong></td>
-                                    <td>Senior Lunch</td>
-                                    <td><strong>Hayward Farmers Market</strong><br>22550 Watkins & B Street<br>9am-1pm</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1st Presbyterian Church</strong><br>"Chance of Showers”<br>SHOWER Ministry 4-6pm <br>2nd & 4th Sundays<br><strong>Lunch</strong>, Toiletries, Clothes<br>ask @ Laundry Day!</td>
-                                    <td>Salvation Army<br><strong>Sack Lunch 12:30-2pm</strong></td>
-                                    <td>Salvation Army<br><strong>Sack Lunch 12:30-2pm</strong></td>
-                                    <td><strong>Generations Project 12-4p<br>at 1st United Methodist</strong><br>w/Tri Cities Health</td>
-                                    <td><strong>Good Shepherd Lutheran<br>Food Pantry & Groceries</strong>Thursday 10-12pm <br>'Believe in yourself<br>A Little Bit More'</td>
-                                    <td>MAY YOUR CHOICES LECT YOUR HOPES,NOT YOUR FEARS.</td>
-                                    <td>St Vincent de Paul<br>All Saints Catholic Church<br><strong>Call for appt. 581-3642<br>10:00-11:30 am</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Salvation Army<br><strong>Dinner @ 4:15 pm</strong><br>NO ENTRY after 4:45!!</td>
-                                    <td>Salvation Army<br><strong>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm</td>
-                                    <td>Salvation Army<br><strong>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm</td>
-                                    <td><strong>St Vincent de Paul<br>All Saints Catholic Church</strong><br>Call for appt. 581-3642<br>1:00-2:30 pm</td>
-                                    <td><strong>Glad Tidings White House<br>Food items & Bread</strong><br>11:30-1:30</td>
-                                    <td><strong>Glad Tidings White House<br>Food items & Bread</strong><br>11:30-1:30</td>
-                                    <td><strong>Glad Tidings White House<br>Food items & Bread</strong><br>11:30-1:30</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Mother's Day is May 12th</strong></td>
-                                    <td><strong>St Vincent de Paul</strong><br>All Saints Catholic Church<strong>Call for appt. 581-3642<br>6:30pm-8pm</strong></td>
-                                    <td>Salvation Army<strong>Senior Lunch Bunch<br>Ages 50+ 11-1pm<br>2nd & 4th Tues Only!!</strong></td>
-                                    <td>Glad Tidings White House<br><strong>Food items & Bread</strong><br>11:30-1:30</td>
-                                    <td><strong>Salvation Army<br>Sack Lunch 12:30-2pm</strong></td>
-                                    <td><strong>Salvation Army<br>Sack Lunch 12:30-2pm</strong></td>
-                                    <td><strong>St Clement Church<br>Lunch Meal with Friends<br>McCallum Hall 11:30-1pm</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Monday May 27th</td>
-                                    <td><strong>South Hayward Parish <br>New Bridges Outreach Ctr<br>Food Pantry 2:30-5:00 pm</strong></td>
-                                    <td>Salvation Army<br><strong>Sack Lunch 12:30-2pm</strong></td>
-                                    <td><strong>Salvation Army<br>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm</td>
-                                    <td>Every Day May Not be Good<br>but,There 's Something<br>Good in Even Day</td>
-                                    <td>MAY THE FOURTH<br>DO OR DO NOT,THERE IS NO TRY"<br>-JODA</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong>EMERGENCY CALL 911<br>HPD Non-Emergency 510-293 7000 <br>Information & Referrals Dial 2-1-1<br>Veterans Crisis Hotline 800-273-8255 <br>Transgender Suicide Hotline 877-565-8860 <br>Suicide Prevention/Crisis Support Hotline 800-309-2131</strong><br>GRID Provided By Task Force to End Hunger & Homelessness In Hayward (5/2019kb)</td>
-                                    <td><strong>New Hope:</strong> Feed My Sheep<br>777 B Street City Hall<strong>1st, 3rd & 4th Tuesdays<br>www.hayward-ca.gov<br>7:00 PM</strong></td>
-                                    <td>Salvation Army<br><strong>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm </td>
-                                    <td><strong>Palma Ceia Baptist ChurchCommunity Lunch<br></strong>12:00-1:00pm </td>
-                                    <td><strong>Palma Ceia Baptist ChurchCommunity Lunch<br></strong>12:00-1:00pm </td>
-                                    <td>MAY THE FOURTH<br>DO OR DO NOT,THERE IS NO TRY"<br>-JODA</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"> Homeless? Want Shelter? Want Housing?call 211<br><strong>New program > CES : Coordinated Entry System</strong></td>
-                                    <td>Treat everyone with politeness<br>even those who are rude to you<br>not because they are not nice<br>but because YOU are nice.</td>
-                                    <td>Salvation Army<br><strong>USDA FOOD Distribution</strong>12:00-2:00p<br><strong>3rd Wednesday Only !!</strong></td>
-                                    <td colspan="2">"Try To Be A Rainbow In SomeOne Elses Clouds"</td>
-                                    <td>MAY THE FOURTH<br>DO OR DO NOT,THERE IS NO TRY"<br>-JODA</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><strong>Pro Screen Intake & Referral for Assessment</strong></td>
-                                    <td></td>
-                                    <td><strong>South Hayward Parish<br>New Bridges Outreach Ctr<br>Food Pantry 1:30:5:00pm</strong></td>
-                                    <td><strong>South Hayward Parish<br>New Bridges Outreach Ctr<br>Food Pantry 2:30:5:00am</strong></td>
-                                    <td><strong>South Hayward Parish<br>New Bridges Outreach Ctr<br>Food Pantry 2:30:5:00am</strong></td>
-                                    <td><strong>May 4th /37th Annual<br>CInco De Maye 2019</strong><br>Main Street 10am-5pm<br><strong>Download Hayward</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>EUCC:Eden United Church<br><strong>Food Pantry 1:30-4:30pm</strong><br>2nd & 4th Wed ONLY!!</td>
-                                    <td><strong>New life Church</strong><br>5-6pm Bible Study<strong>6pm Food Pantry/Grocery</strong></td>
-                                    <td><strong>Our lady of the Rosaiy Dinner 6pm</strong></td>
-                                    <td><strong> May 11th/ 10:00:00 am Rowell Ranch Rodeo Parade Castro Valley Blvd</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Our Lady of Grace<br><strong>4pm Sandwiches/Pantry</strong></td>
-                                    <td>Faith lutheren Church<br><strong>Food Pantry 7-8 pm</strong></td>
-                                    <td><strong>"Don't Let Your Struggle Become Your Identity</strong></td>
-                                    <td>May 18th /1pm-7pm<strong>Latin Jazz Festival<br>B Street & Main</strong></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><strong>Generations Project 7pm</strong><br>at New Bridges Outreach Ctr<br><strong>Medical referrals , HIV</strong></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><strong>May 18th</strong><br>ARMED FORCES DAY<br>Thank~You  All Who Serve</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td><strong>Downtown Hayward<br>SHOWER Ministry 6p-7:30<br>New Life Church 1265 B St</strong>PLEASE DO NOT ARRIVE BEFORE 5:50 pm!!!!!!!!</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-                    <div class="common-style pdf-sign" id="pdf_sign">
-                        <i class="fa fa-file-pdf-o"></i>
-                        <p>PDF Sign</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="map-check" style="display: none">
-                <div class="col-xs-12">
-                    <h1> GPS Check-In</h1>
-                    <div>
-                        <textarea class="form-control" rows="10" name="note"></textarea>
-                        <br>
-                        <button id='post_gps' type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="row" id="journal-screen" style="display: none">
-                <div class='title'>Your Journal</div>
-                <div class="col-xs-12" id='journal-list'>
-                </div>
-                <div class="modal fade" id="journalModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered-custom" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+            </nav>
+            <br>
+            <br>
+            <br>
+            <div class="container start-container">
+                <div class="row" id="screen1">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style my-profile" id="my-profile">
+                            <div>
+                                <span class="glyphicon glyphicon-user"></span>
+                                <p>My Profile</p>
                             </div>
-                            <div id="journal-body" class="modal-body text-center">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style my-meds" id="my-meds">
+                            <div>
+                                <i class="fas fa-capsules"></i>
+                                <p>My Med</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style gps-check">
+                            <div>
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <p>GPS Journal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style video-check">
+                            <div>
+                                <span class="glyphicon glyphicon-facetime-video"></span>
+                                <p>Video Journal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style shelters" id="shelters">
+                            <div>
+                                <span class="glyphicon glyphicon-home"></span>
+                                <p>Shelters</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style help" id="help">
+                            <div>
+                                <span class="glyphicon glyphicon-earphone"></span>
+                                <p>Help</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style journal" id="journal">
+                            <div>
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <p>Journal Entries</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style food" id="food">
+                            <div>
+                                <i class='fa fa-hamburger'></i>
+                                <p>Food</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style work" id="work">
+                            <div>
+                                <span class="glyphicon glyphicon-briefcase"></span>
+                                <p>Work</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style Suggestions" id="Suggestions">
+                            <div>
+                                <span class="glyphicon glyphicon-certificate"></span>
+                                <p>Suggestions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style calendar" id="calendar">
+                            <div>
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                <p>Events</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            
-            <div class="row" id="questions-screen" style="display: none">
-                <div class='title'>Your Profile</div>
-                <div class="col-xs-12" id='questions-list'>
-                    <form id="regForm"></form>
-                </div>
-            </div>
-            <div class="row" id="shelters-screen" style="display: none">
-                <div class='title'>Shelters</div>
-                <div class='filter-row'>
-                    <div class="col-xs-4 col-sm-4" style="display: grid; padding-right: 0px;padding-left: 10px;">
-                        <select id='population_filter'></select>
-                    </div>
-                    <div class="col-xs-4 col-sm-4" style="display: grid; padding-right: 0px;padding-left: 10px;">
-                        <select id='service_filter'></select>
-                        <!--Make so all fit on same line with toggle map view UI -->
-                    </div>
-                    <div class="col-xs-4 col-sm-4" style="display: grid; padding-right: 0px;padding-left: 10px;">
-                        <span class="map-togle">Map</span>
-                        <div class="anil_nepal">
-                            <label class="switch switch-left-right">
-                                <input class="switch-input" type="checkbox">
-                                <span class="switch-label" data-on="On" data-off="Off"></span>
-                                <span class="switch-handle"></span>
-                            </label>
+                <div class="row" id="week-calendar" style="display: none">
+                    <div class="col-xs-12">
+                        <div class="month">      
+                            <h2 style="text-align:center">Events</h2>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-12" id='shelters-list'>
-                </div>
-                <div class="col-xs-12" id='map-shelters' style='display:none;'>
-                    <div id='map-shelters-view' style='width:100%; height: 75vh;'></div>
-                </div>
-            </div>
-            <div class="row" id="screen2" style="display: none">
-                <div class="col-xs-12">
-                    <h1> Profile</h1>
-                    <div>
-                        <div class="input-group name-input" style='display:none'>
-                            <span class="input-group-addon">
-                                <i class="fas fa-user" aria-hidden="true"></i>
-                            </span>
-                            <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                    <div class="col-xs-12">
+                        <div class="table-responsive">   
+                            <table class="table table-bordered event-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sunday</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Info & Resource GRID  Services for May 2019</td>
+                                        <td>Welcome May <br>We've beta Waiting tor You!</td>
+                                        <td>TACO TuesDAY</td>
+                                        <td></td>
+                                        <td colspan="2"><strong>*Please Call Ahead for Availability of Services:</strong><br><strong>*Holidays May Affect Services #’s are Used on Back</strong></td>
+                                        <td>Lots To Do In May Of Saturdays</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3 Crosses Church</strong><br><strong> 7am-Breakfast </strong><br>Clothing  when available Service 8am, 9:30,11:30am</td>
+                                        <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                        <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                        <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                        <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                        <td>HEDCO Wellness Ctr<br>Breakfast 9-10am  <br>*Must Partake in Program</td>
+                                        <td>KHCG: Clean & Green<br>May 25/Southgate Comm Ctr<br>26780 ChiplayAve<br>8am - 11:30am <br>call to register 510-881-7745<br>www.hayward-ca.gov/KHCG</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st Presbyterian Church<br>Breakfast 7:30-8:30am<br>Please Do Not Arrive Earlier </td>
+                                        <td>New Bridges<br>Outreach Center<br><strong>60+ senior Lunch $3.75</strong><br>12-1pm<br>Provided by Spectrum</td>
+                                        <td>1st United Methodist<br><strong>9-9:30am Breakfast</strong><br>Bag lunch / Clothes<br>•Referral to Healthcare<br>2nd & 4th Tuesdays</td>
+                                        <td>El Shaddai Ministries<br>SHOWERS 9:30-11:00<br>Hot Soup 9:30 - 12 noon<br>(•Referral to Healthcare<br>3rd Wednesday Only)</td>
+                                        <td><strong>1st Presbyterian Church</strong><br>>»»NEW LOCATION<<<<<<br><strong>9-11am Health Services</strong><br>HOPE Van w/ Abode Srvcs</td>
+                                        <td>Palma Ceia Baptist Church<br><strong>lunch 12-1pm</strong></td>
+                                        <td>3 Crosses Church<br>SHOWERS 9am-12noon<br>Hot Meal 11am<br>Clothing & Hair Cuts</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Church Of Nazarene</strong><br><strong>Hot Breakfast 9am</strong></td>
+                                        <td>CRIL HOUSING WORKSHOP<br>for People with Disabilities<br><strong>Monday’s 2-4pm</strong><br>Call to REGISTER 510-881-5743<strong>arrive by 1:40</strong><br>www.crilhayward.org</td>
+                                        <td><strong>Downtown Streets Team</strong><br>Weekly Success Meeting 12:30- 1:30pm<br><strong>New Meeting Location</strong><br>New Hope Church<br>2211C Montgomery & Sunset www.streetsteam.org<br>Work Experience Program Case Mgmt / Job Coach<br> "Ending Homelessness Through Dignity of Work" Sign Up Today!!!</td>
+                                        <td>HEDCO Wellness Ctr<br>Housing Education 10:30-12 </td>
+                                        <td><strong>Bridge of Faith</strong><br>9am Doors Open<br><strong>12 Noon Meals of Love lunch</strong><br>Groceries given after lunch</td>
+                                        <td>Hayward Senior Center<br>22325 N. 3rd St<br>NO ENTRY after 12:15!!<br>12:30 - 1:30pm<br>Bag Lunch distribution<br>*Seniors 60+ only*</td>
+                                        <td>3 Crosses Church<br>Food Pantry 9am *Bring ID<br>2nd & 4th Saturday's</td>
+                                    </tr>
+                                    <tr>
+                                        <td>San Leandro Boys&Girls Club<br>’April Showers" Ministry<br>1st, 3rd, 5th Sundays<br><strong>SHOWERS 11a-1pm</strong> <br>Breakfast, Bag lunch to go<br>Clothes, Toiletries <br>ask @ Laundry Day!</td>
+                                        <td>Glad Tidings White House<br><strong>Food items & Bread</strong><br>11:30-1:30</td>
+                                        <td>Glad Tidings White House<br><strong>Food items & Bread</strong><br>11:30-1:30</td>
+                                        <td>Community of Grace<br><strong>Food Pantry 1 lam-noon</strong><br>Closed the 5th Wed</td>
+                                        <td><strong>New Hope Fellowship<br>MEDICAL Team w/ Nurse<br>2nd Thursday 9:30am-2pm<br>Call for Appt (510)253-7525 </strong></td>
+                                        <td>Senior Lunch</td>
+                                        <td><strong>Hayward Farmers Market</strong><br>22550 Watkins & B Street<br>9am-1pm</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1st Presbyterian Church</strong><br>"Chance of Showers”<br>SHOWER Ministry 4-6pm <br>2nd & 4th Sundays<br><strong>Lunch</strong>, Toiletries, Clothes<br>ask @ Laundry Day!</td>
+                                        <td>Salvation Army<br><strong>Sack Lunch 12:30-2pm</strong></td>
+                                        <td>Salvation Army<br><strong>Sack Lunch 12:30-2pm</strong></td>
+                                        <td><strong>Generations Project 12-4p<br>at 1st United Methodist</strong><br>w/Tri Cities Health</td>
+                                        <td><strong>Good Shepherd Lutheran<br>Food Pantry & Groceries</strong>Thursday 10-12pm <br>'Believe in yourself<br>A Little Bit More'</td>
+                                        <td>MAY YOUR CHOICES LECT YOUR HOPES,NOT YOUR FEARS.</td>
+                                        <td>St Vincent de Paul<br>All Saints Catholic Church<br><strong>Call for appt. 581-3642<br>10:00-11:30 am</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Salvation Army<br><strong>Dinner @ 4:15 pm</strong><br>NO ENTRY after 4:45!!</td>
+                                        <td>Salvation Army<br><strong>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm</td>
+                                        <td>Salvation Army<br><strong>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm</td>
+                                        <td><strong>St Vincent de Paul<br>All Saints Catholic Church</strong><br>Call for appt. 581-3642<br>1:00-2:30 pm</td>
+                                        <td><strong>Glad Tidings White House<br>Food items & Bread</strong><br>11:30-1:30</td>
+                                        <td><strong>Glad Tidings White House<br>Food items & Bread</strong><br>11:30-1:30</td>
+                                        <td><strong>Glad Tidings White House<br>Food items & Bread</strong><br>11:30-1:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Mother's Day is May 12th</strong></td>
+                                        <td><strong>St Vincent de Paul</strong><br>All Saints Catholic Church<strong>Call for appt. 581-3642<br>6:30pm-8pm</strong></td>
+                                        <td>Salvation Army<strong>Senior Lunch Bunch<br>Ages 50+ 11-1pm<br>2nd & 4th Tues Only!!</strong></td>
+                                        <td>Glad Tidings White House<br><strong>Food items & Bread</strong><br>11:30-1:30</td>
+                                        <td><strong>Salvation Army<br>Sack Lunch 12:30-2pm</strong></td>
+                                        <td><strong>Salvation Army<br>Sack Lunch 12:30-2pm</strong></td>
+                                        <td><strong>St Clement Church<br>Lunch Meal with Friends<br>McCallum Hall 11:30-1pm</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Monday May 27th</td>
+                                        <td><strong>South Hayward Parish <br>New Bridges Outreach Ctr<br>Food Pantry 2:30-5:00 pm</strong></td>
+                                        <td>Salvation Army<br><strong>Sack Lunch 12:30-2pm</strong></td>
+                                        <td><strong>Salvation Army<br>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm</td>
+                                        <td>Every Day May Not be Good<br>but,There 's Something<br>Good in Even Day</td>
+                                        <td>MAY THE FOURTH<br>DO OR DO NOT,THERE IS NO TRY"<br>-JODA</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><strong>EMERGENCY CALL 911<br>HPD Non-Emergency 510-293 7000 <br>Information & Referrals Dial 2-1-1<br>Veterans Crisis Hotline 800-273-8255 <br>Transgender Suicide Hotline 877-565-8860 <br>Suicide Prevention/Crisis Support Hotline 800-309-2131</strong><br>GRID Provided By Task Force to End Hunger & Homelessness In Hayward (5/2019kb)</td>
+                                        <td><strong>New Hope:</strong> Feed My Sheep<br>777 B Street City Hall<strong>1st, 3rd & 4th Tuesdays<br>www.hayward-ca.gov<br>7:00 PM</strong></td>
+                                        <td>Salvation Army<br><strong>Food Pantry & Bread Rack</strong><br>10-11:45 & 1-3 pm </td>
+                                        <td><strong>Palma Ceia Baptist ChurchCommunity Lunch<br></strong>12:00-1:00pm </td>
+                                        <td><strong>Palma Ceia Baptist ChurchCommunity Lunch<br></strong>12:00-1:00pm </td>
+                                        <td>MAY THE FOURTH<br>DO OR DO NOT,THERE IS NO TRY"<br>-JODA</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"> Homeless? Want Shelter? Want Housing?call 211<br><strong>New program > CES : Coordinated Entry System</strong></td>
+                                        <td>Treat everyone with politeness<br>even those who are rude to you<br>not because they are not nice<br>but because YOU are nice.</td>
+                                        <td>Salvation Army<br><strong>USDA FOOD Distribution</strong>12:00-2:00p<br><strong>3rd Wednesday Only !!</strong></td>
+                                        <td colspan="2">"Try To Be A Rainbow In SomeOne Elses Clouds"</td>
+                                        <td>MAY THE FOURTH<br>DO OR DO NOT,THERE IS NO TRY"<br>-JODA</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><strong>Pro Screen Intake & Referral for Assessment</strong></td>
+                                        <td></td>
+                                        <td><strong>South Hayward Parish<br>New Bridges Outreach Ctr<br>Food Pantry 1:30:5:00pm</strong></td>
+                                        <td><strong>South Hayward Parish<br>New Bridges Outreach Ctr<br>Food Pantry 2:30:5:00am</strong></td>
+                                        <td><strong>South Hayward Parish<br>New Bridges Outreach Ctr<br>Food Pantry 2:30:5:00am</strong></td>
+                                        <td><strong>May 4th /37th Annual<br>CInco De Maye 2019</strong><br>Main Street 10am-5pm<br><strong>Download Hayward</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>EUCC:Eden United Church<br><strong>Food Pantry 1:30-4:30pm</strong><br>2nd & 4th Wed ONLY!!</td>
+                                        <td><strong>New life Church</strong><br>5-6pm Bible Study<strong>6pm Food Pantry/Grocery</strong></td>
+                                        <td><strong>Our lady of the Rosaiy Dinner 6pm</strong></td>
+                                        <td><strong> May 11th/ 10:00:00 am Rowell Ranch Rodeo Parade Castro Valley Blvd</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Our Lady of Grace<br><strong>4pm Sandwiches/Pantry</strong></td>
+                                        <td>Faith lutheren Church<br><strong>Food Pantry 7-8 pm</strong></td>
+                                        <td><strong>"Don't Let Your Struggle Become Your Identity</strong></td>
+                                        <td>May 18th /1pm-7pm<strong>Latin Jazz Festival<br>B Street & Main</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Generations Project 7pm</strong><br>at New Bridges Outreach Ctr<br><strong>Medical referrals , HIV</strong></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>May 18th</strong><br>ARMED FORCES DAY<br>Thank~You  All Who Serve</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><strong>Downtown Hayward<br>SHOWER Ministry 6p-7:30<br>New Life Church 1265 B St</strong>PLEASE DO NOT ARRIVE BEFORE 5:50 pm!!!!!!!!</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <br>
-                        <div class="input-group phone-code-input" style='display:none;'>
-                            <span class="input-group-addon">
-                                <i class="fa" aria-hidden="true"></i>
-                            </span>
-                            <input id="phone-code" type="tel" class="form-control" name="phone-code" placeholder="Text Code">
-                        </div>
-                        <div class="input-group phone-input">
-                            <span class="input-group-addon">
-                                <i class="fas fa-phone" style="font-size: 19px;" aria-hidden="true"></i>
-                            </span>
-                            <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" name="phone" placeholder="Phone Number">
-                        </div>
-                        <!--
+                    </div>
+                </div>
+                <div class="row" id="map-check" style="display: none">
+                    <div class="col-xs-12">
+                        <h1> GPS Check-In</h1>
+                        <div>
+                            <textarea class="form-control" rows="10" name="note"></textarea>
                             <br>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
-                                <input id="phone" type="text" class="form-control" name="age" placeholder="Age">
+                            <button id='post_gps' type="button" class="btn btn-primary btn-lg btn-block">Submit</button>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="journal-screen" style="display: none">
+                    <div class='title'>Your Journal</div>
+                    <div class="col-xs-12" id='journal-list'>
+                    </div>
+                    <div class="modal fade" id="journalModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered-custom" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div id="journal-body" class="modal-body text-center">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row" id="questions-screen" style="display: none">
+                    <div class='title'>Your Profile</div>
+                    <div class="col-xs-12" id='questions-list'>
+                        <form id="regForm"></form>
+                    </div>
+                </div>
+                <div class="row" id="shelters-screen" style="display: none">
+                    <div class='title'>Shelters</div>
+                    <div class='filter-row'>
+                        <div class="col-xs-4 col-sm-4" style="display: grid; padding-right: 0px;padding-left: 10px;">
+                            <select id='population_filter'></select>
+                        </div>
+                        <div class="col-xs-4 col-sm-4" style="display: grid; padding-right: 0px;padding-left: 10px;">
+                            <select id='service_filter'></select>
+                            <!--Make so all fit on same line with toggle map view UI -->
+                        </div>
+                        <div class="col-xs-4 col-sm-4" style="display: grid; padding-right: 0px;padding-left: 10px;">
+                            <span class="map-togle">Map</span>
+                            <div class="anil_nepal">
+                                <label class="switch switch-left-right">
+                                    <input class="switch-input" type="checkbox">
+                                    <span class="switch-label" data-on="On" data-off="Off"></span>
+                                    <span class="switch-handle"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" id='shelters-list'>
+                    </div>
+                    <div class="col-xs-12" id='map-shelters' style='display:none;'>
+                        <div id='map-shelters-view' style='width:100%; height: 75vh;'></div>
+                    </div>
+                </div>
+                <div class="row" id="screen2" style="display: none">
+                    <div class="col-xs-12">
+                        <h1> Profile</h1>
+                        <div>
+                            <div class="input-group name-input" style='display:none'>
+                                <span class="input-group-addon">
+                                    <i class="fas fa-user" aria-hidden="true"></i>
+                                </span>
+                                <input id="name" type="text" class="form-control" name="name" placeholder="Name">
                             </div>
                             <br>
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
-                                <input id="phone" type="text" class="form-control" name="ethnicity" placeholder="Ethnicity">
-                            </div>-->
+                            <div class="input-group phone-code-input" style='display:none;'>
+                                <span class="input-group-addon">
+                                    <i class="fa" aria-hidden="true"></i>
+                                </span>
+                                <input id="phone-code" type="tel" class="form-control" name="phone-code" placeholder="Text Code">
+                            </div>
+                            <div class="input-group phone-input">
+                                <span class="input-group-addon">
+                                    <i class="fas fa-phone" style="font-size: 19px;" aria-hidden="true"></i>
+                                </span>
+                                <input id="phone" type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" class="form-control" name="phone" placeholder="Phone Number">
+                            </div>
+                            <!--
+                                                    <br>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                                                        <input id="phone" type="text" class="form-control" name="age" placeholder="Age">
+                                                    </div>
+                                                    <br>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                                                        <input id="phone" type="text" class="form-control" name="ethnicity" placeholder="Ethnicity">
+                                                    </div>-->
                             <br>
                             <button id="login_number" type="button" class="btn btn-primary btn-lg btn-block">Next</button>
                             <br>
@@ -1064,7 +1051,7 @@
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-                    
+
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header">
@@ -1080,9 +1067,9 @@
                                     <input type="text" class="form-control" id="dosage" placeholder="Dosage">
                                 </div>
                                 <!--<div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="needMed">
-                                    <label class="form-check-label" for="exampleCheck1"> &nbsp;Need</label>
-                                </div>-->
+                                                <input type="checkbox" class="form-check-input" id="needMed">
+                                                <label class="form-check-label" for="exampleCheck1"> &nbsp;Need</label>
+                                            </div>-->
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -1090,18 +1077,18 @@
                             <button type="button" class="btn btn-success" id='add_meds'>Add</button>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <!-- <script>
-                $(document).ready(function () {
-                    alert("document ready");
-                    $("input[type=radio]").change(function () {
-                        alert($(this).val());
-                    });
-                });
-            </script> -->
-            
+                                $(document).ready(function () {
+                                    alert("document ready");
+                                    $("input[type=radio]").change(function () {
+                                        alert($(this).val());
+                                    });
+                                });
+                            </script> -->
+
             <form id='upload_vid_form' method='post' enctype="multipart/form-data">
                 <input type="file" accept="video/*" id='upload-vid' capture="environment" style='display:none;' />
             </form>
@@ -1109,7 +1096,7 @@
         <div id="index_land">
             <div class="container start-container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="middle">
+                    <div class="col-xs-12" align="middle">
                         <a data-toggle="modal" data-target="#aboutOnboard"><strong class="aboutOnboard">About Onboard</strong></a>
                         <br>
                         <br>
@@ -1126,95 +1113,95 @@
                                     </div>
                                     <div class="modal-body">
                                         Onboard is designed for people experiencing medical cris as an onramp to social services, wellness and overall improvement.                                    </div>
-                                        <br><br>
-                                        <div class="imagelog" align="middle"><img src="img/SF-Logo.png"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="common-style help" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;">
-                                <span class="glyphicon glyphicon-earphone"></span>
-                                <p>Help Now</p>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <p>
-                                <br>
-                            </p>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <p class="onboard">
-                                <a onclick="showmainPage();">Onboard</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="helpmod" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close helppop" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true" style="color:black;font-weight: bold">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="emergency">
-                                            <p class="white">
-                                                <a href="tel:911">911</a> Call</p>
-                                                <p class="white">Emergency</p>
-                                            </div>
-                                            <br>
-                                            <div class="emergencysocial">
-                                                <p class="white">Social Call</p>
-                                                <p class="white">Service</p>
-                                            </div>
-                                            <br>
-                                            <div class="col-xs-12" align="middle" >
-                                                <a onclick='showPhoneDirectory()'><strong class="aboutOnboard">Help phone directory</strong></a>
-                                            </div>
-                                            <br>
-                                        </div>
-                                    </div>
+                                    <br><br>
+                                    <div class="imagelog" align="middle"><img src="img/SF-Logo.png"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-                <script type="text/javascript">
-                    $('#example').dataTable({
-                        "order": [],
-                        "columnDefs": [{
-                            "targets": 'no-sort',
-                            "orderable": false,
-                        }]
-                    });
-                    $(document).ready(function () {
-                        $('#example').DataTable();
-                    });
-                    function showmainPage() {
-                        $('#index_page').show();
-                        $('#index_land').hide();
-                        document.body.style.backgroundColor = "gray";
-                    }
-                    function showPhoneDirectory() {
-                        $('#index_page').show();
-                        $('#index_land').hide();
-                        $('body').removeClass('modal-open');
-                        $('.modal-backdrop').remove();
-                        $('#help-screen').show();
-                        $('#screen1').hide();
-                        document.body.style.backgroundColor = "gray";
-                        
-                    }
-                    
-                    
-                </script>
-            </body>
-            
-            </html>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="common-style help" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;">
+                            <span class="glyphicon glyphicon-earphone"></span>
+                            <p>Help Now</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            <br>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12s">
+                        <p class="onboard">
+                            <a onclick="showmainPage();">Onboard</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="helpmod" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close helppop" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:black;font-weight: bold">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="emergency">
+                                        <p class="white">
+                                            <a href="tel:911">911</a> Call</p>
+                                        <p class="white">Emergency</p>
+                                    </div>
+                                    <br>
+                                    <div class="emergencysocial">
+                                        <p class="white">Social Call</p>
+                                        <p class="white">Service</p>
+                                    </div>
+                                    <br>
+                                    <div class="col-xs-12" align="middle" >
+                                        <a onclick='showPhoneDirectory()'><strong class="aboutOnboard">Help phone directory</strong></a>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script type="text/javascript">
+                                            $('#example').dataTable({
+                                                "order": [],
+                                                "columnDefs": [{
+                                                        "targets": 'no-sort',
+                                                        "orderable": false,
+                                                    }]
+                                            });
+                                            $(document).ready(function () {
+                                                $('#example').DataTable();
+                                            });
+                                            function showmainPage() {
+                                                $('#index_page').show();
+                                                $('#index_land').hide();
+                                                document.body.style.backgroundColor = "gray";
+                                            }
+                                            function showPhoneDirectory() {
+                                                $('#index_page').show();
+                                                $('#index_land').hide();
+                                                $('body').removeClass('modal-open');
+                                                $('.modal-backdrop').remove();
+                                                $('#help-screen').show();
+                                                $('#screen1').hide();
+                                                document.body.style.backgroundColor = "gray";
+
+                                            }
+
+
+        </script>
+    </body>
+
+</html>
