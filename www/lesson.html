@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <style>
             .start-container{
                 border: 1px solid lightgray;
@@ -102,7 +103,10 @@
                                 </div>
                                 <button>Add Choice</button>
                                 <div class="form-group">
+                                    <hr>
+                                    <input type="button" id="upload-img-btn" onclick="handleImageUpload()" value="Upload Image"/>
                                     <input type="text" class="form-control" id="image" placeholder="Image Link" />
+                                    <div id="output"></div>
                                 </div>
 
                             </div>
@@ -145,6 +149,11 @@
                 </div>
             </div>
         </div>
+
+        <form id="imageUploadForm" enctype="multipart/form-data" name="imageUploadForm" >
+            <input type="file" name="imageUpload"  id="imageUpload" style='display:none;' onchange="handleImageSelect(this)" required/>
+        </form>
+
         <script src="js/lesson.js"></script>
     </body>
 </html>
