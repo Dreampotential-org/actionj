@@ -115,12 +115,30 @@ function handleImageSelect(e){
         GLOBAL_FILE = file;
         console.log("Submitting form", file.name);
 //        $("#imageUploadForm").submit();
-        uploadImage();
+        uploadFile('image');
     }
 }
 
 
-function uploadImage() {
+function handleVideoUpload() {
+        // prompt for video upload
+        $("#videoUpload").click();
+}
+
+//handleVideoSelect(this.value)
+function handleVideoSelect(e){
+    console.log("Selecting file", e, e.files[0]);
+    var file = e.files[0];
+    if(file){
+        GLOBAL_FILE = file;
+        console.log("Submitting form", file.name);
+//        $("#imageUploadForm").submit();
+        uploadFile('video');
+    }
+}
+
+
+function uploadFile(fileType) {
         console.log("Submitted");
 
         swal({
@@ -160,12 +178,17 @@ function uploadImage() {
 
             response = JSON.parse(response);
             console.log(response);
-            file_url = response['file_url']
+            const file_url = response['file_url']
             console.log(file_url);
 
-            displayImage(file_url);
+            if(fileType == 'image'){
+                displayImage(file_url);
+                $('#image').attr("value", file_url)
+            } else if(fileType == 'video'){
+                displayVideo(file_url);
+                $('#video').attr("value", file_url)
+            }
 
-            $('#image').attr("value", file_url)
         }).fail(function (response) {
             swal({
                   title: "Error!",
@@ -185,6 +208,15 @@ function displayImage(file_url){
     $("#upload-img-btn").attr("value","Upload new Image");
 }
 
+function displayVideo(file_url){
+    var strTYPE="video/mp4";
+    $("#videoplayer").html('<source src="'+file_url+'" type="'+strTYPE+'"></source>' );
+    $('#video-output').css('display','block');
+    // Change button text
+    $("#upload-vid-btn").attr("value","Upload new Video");
+}
+
+
 function addVideoFile(isNew,id,question,choices,image){
 
     if(!isNew){
@@ -193,7 +225,10 @@ function addVideoFile(isNew,id,question,choices,image){
 
         $("#video_file").find("input").first().attr("data-id",id)
         $("#video_file").find("input").last().attr("data-id",id)
-        
+
+        // Display Video
+        displayVideo(image);
+
     }else{
         $("#video_file").find("input").first().attr("value","")
         $("#video_file").find("input").last().attr("value","")
