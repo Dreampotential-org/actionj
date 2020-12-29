@@ -87,6 +87,9 @@ function addQuestionChoices(isNew,id,question,choices,image){
             addChoices(question_choices_count,choice)
         })
 
+        // Display image
+        displayImage(image);
+
     }else{
         $("#question_choices").find("input").first().attr("value","")
         $("#question_choices").find("text").html("")
@@ -97,6 +100,89 @@ function addQuestionChoices(isNew,id,question,choices,image){
 
     $("#sortable").append($("#question_choices").html())
     question_choices_count++;
+}
+
+function handleImageUpload() {
+        // prompt for video upload
+        $("#imageUpload").click();
+}
+
+//handleImageSelect(this.value)
+function handleImageSelect(e){
+    console.log("Selecting file", e, e.files[0]);
+    var file = e.files[0];
+    if(file){
+        GLOBAL_FILE = file;
+        console.log("Submitting form", file.name);
+//        $("#imageUploadForm").submit();
+        uploadImage();
+    }
+}
+
+
+function uploadImage() {
+        console.log("Submitted");
+
+        swal({
+            title: "0%",
+            text: "File uploading please wait.",
+            icon: "info",
+            buttons: false,
+            closeOnEsc: false,
+            closeOnClickOutside: false,
+        });
+
+        var form = new FormData();
+        form.append("file", GLOBAL_FILE);
+
+        var settings = {
+            "async": true,
+//            "crossDomain": true,
+            "url": API_SERVER + '/s3_uploader/upload',
+            "method": "POST",
+            "type": "POST",
+            "processData": false,
+            "contentType": false,
+            "mimeType": "multipart/form-data",
+            "data": form,
+            "headers": {
+                "Authorization": localStorage.getItem("token")
+            }
+        };
+
+        console.log(settings);
+        $.ajax(settings).done(function (response) {
+            swal({
+                  title: "Good job!",
+                  text: "File uploaded successfully!",
+                  icon: "success",
+            });
+
+            response = JSON.parse(response);
+            console.log(response);
+            file_url = response['file_url']
+            console.log(file_url);
+
+            displayImage(file_url);
+
+            $('#image').attr("value", file_url)
+        }).fail(function (response) {
+            swal({
+                  title: "Error!",
+                  text: "File upload failed!",
+                  icon: "warning",
+            });
+        });
+}
+
+function displayImage(file_url){
+    // Clear existing image
+    $("#output").html("");
+    var img = $('<img>');
+    img.attr('src', file_url);
+    img.appendTo('#output');
+    // Change button text
+    $("#upload-img-btn").attr("value","Upload new Image");
 }
 
 function addVideoFile(isNew,id,question,choices,image){
