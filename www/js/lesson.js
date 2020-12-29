@@ -263,7 +263,7 @@ function addIframeLink(isNew,id,question,choices,image){
     $("#sortable").append($("#iframe_link").html())
     iframe_link_count++;
     }
-
+ 
 function addQuestionText(isNew,id,question){
 
     if(!isNew){
@@ -526,6 +526,7 @@ $('#add').click(function (e) {
 });
 
     });
+
 /*
 $("#edit_form").submit((e) => {
     e.preventDefault()
