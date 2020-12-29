@@ -47,7 +47,6 @@
             color: #234C8B;
         }
     </style>
-
 </head>
 
 <body>
@@ -62,43 +61,124 @@
     </header>
     <div class="main-div container">
 
-        <form class="form-div" method="post" action="">
-
+        <form class="">
             <div class="form-group text-center">
                 <img src="img/university.png" />
             </div>
 
-            <div class="form-group">
-                <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                </div>
-            </div>
-            <div class="form-group">
-                <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                </div>
-            </div>
-            <div class="form-group">
-                <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" name="password" id="pwd" placeholder="Password">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10 text-center">
-                    <button type="submit" class="btn btn-success btn-custom">Submit</button>
-                    <p class="have-act">Have an account?
-                        <span>Log In</span>
-                    </p>
+            <div class="mainContainer" style="text-align: -webkit-center;">
+                <div class="card-body customCard">
+                    <h4 class="card-title">Hello, Meet sfApp</h4>
+                    <!-- <p class="card-text">Your Interactive Accountability Manager</p> -->
                 </div>
             </div>
 
+            <div class="action-btns">
+                <div class="row">
+                    <div class="column btn1">
+                        <button class=" dark" id="signup">I AM NEW</button>
+                    </div>
+                    <div class="column btn2">
+                        <button class=" dark" id="signin">SIGN IN</button>
+                    </div>
+
+                </div>
+            
         </form>
-
     </div>
 
+    <div class="modal" id="signinModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper modal-transition " style="background: url(img/popup_login.jpg)">
+            <div class="modal-body modal_background">
+                <div class="modal-content">
+                    <div class='close' style="text-align: end;">
+                        <i class="fa fa-times closeIcon" aria-hidden="true"></i>
+                    </div>
+                   
+                    <form class="form-div" method="post" action="">
+
+                        <div class="form-group text-center">
+                            <img src="img/university.png" />
+                        </div>
+                        <h3 class="locAuthTitle textCenter" style="color:black">LOGIN</h3>
+                        <div class="form-group">
+                            <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" id="pwd" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10 text-center">
+                                <button type="submit" class="btn btn-success btn-custom">Submit</button>
+                                <p class="have-act">Don't have an account?
+                                    <span id="signinLink">SIGN UP</span>
+                                </p>
+                            </div>
+                        </div>
+            
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="signupModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper modal-transition" style="background: url(img/popup_login.jpg)">
+
+            <div class="modal-body">
+                <div class="modal-content">
+                    <div class='close' style="text-align: end;">
+                        <i class="fa fa-times closeIcon" aria-hidden="true"></i>
+                    </div>
+                    <form class="form-div" method="post" action="">
+
+                        <div class="form-group text-center">
+                            <img src="img/university.png" />
+                        </div>
+            
+                        <h3 class="locAuthTitle textCenter" style="color:black">SIGN UP</h3>
+
+                        <div class="form-group">
+                            <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
+                            <div class="col-sm-10">
+                                <input type="password" class="form-control" name="password" id="pwd" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10 text-center">
+                                <button type="submit" class="btn btn-success btn-custom">Submit</button>
+                                <p class="have-act">Have an account?
+                                    <span id="signupLink">Log In</span>
+                                </p>
+                            </div>
+                        </div>
+            
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         $(document).ready(function () {
             $("form").on("submit", function (ev) {
@@ -137,9 +217,37 @@
                     }
                 });
             });
+
+    
         });
 
+        $('#signupLink').on('click', function (e) {
+        e.preventDefault()
+        $('#signupModal').removeClass('is-visible')
+        $('#signinModal').addClass('is-visible')
+         })
 
+        $('#signinLink').on('click', function (e) {
+        e.preventDefault()
+        $('#signinModal').removeClass('is-visible')
+        $('#signupModal').addClass('is-visible')
+         })
+
+        $('#signup').on('click', function (e) {
+        e.preventDefault()
+        $('#signupModal').addClass('is-visible')
+         })
+
+         $('.close').on('click',function (e){   
+             e.preventDefault()
+             $('#signupModal').removeClass('is-visible')
+             $('#signinModal').removeClass('is-visible')
+         })
+
+         $('#signin').on('click', function (e) {
+         e.preventDefault()
+         $('#signinModal').addClass('is-visible')                                        
+        })
 
         function signup_api(params) {
 
