@@ -113,20 +113,24 @@
                             </div>
                             
                         </div>
-                    </div>
-                    
-                    <div class="speed_read" id="video_file" style="display: none; padding-top: 15px">
-                        <div style="margin-top:50px; padding:20px; border-radius:10px; border:1px; border-color:#888; border-style:solid;">
-                            <div class="row">
-                                <h4 class="col-xs-10 col-lg-10">Video File</h4>
-                                <a class="remove_flashcard col-xs-2 col-lg-1" style="color:red;font-weight:bold;font-size:25px"> X </a>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="video_title"  placeholder="Title">
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="video" placeholder="Video Link" />
+                        <div class="speed_read" id="video_file" style="display: none; padding-top: 15px">
+                            <div style="margin-top:50px">
+                                <div class="row">
+                                    <h4 class="col-xs-10 col-lg-10">Video File</h4>
+                                    <a class="remove_flashcard col-xs-2 col-lg-1" style="color:red;font-weight:bold;font-size:25px"> X </a>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="video_title"  placeholder="Title">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="button" id="upload-vid-btn" onclick="handleVideoUpload()" value="Upload Video"/>
+                                    <input type="text" class="form-control" id="video" placeholder="Video Link" />
+                                </div>
+                                <div id="video-output" style="display: none">
+                                    <video  id="videoplayer" controls preload="none" width="480" height="360">
+                                    </video>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -157,12 +161,16 @@
                 </form>
             </div>
         </div>
-    </div>
-    
-    <form id="imageUploadForm" enctype="multipart/form-data" name="imageUploadForm" >
-        <input type="file" name="imageUpload"  id="imageUpload" style='display:none;' onchange="handleImageSelect(this)" required/>
-    </form>
-    
+
+        <form id="imageUploadForm" enctype="multipart/form-data" name="imageUploadForm" >
+            <input type="file" name="imageUpload"  id="imageUpload" style='display:none;' onchange="handleImageSelect(this)" required/>
+        </form>
+
+        <form id="videoUploadForm" enctype="multipart/form-data" name="videoUploadForm" >
+            <input type="file" name="videoUpload"  id="videoUpload" style='display:none;' onchange="handleVideoSelect(this)" required/>
+        </form>
+
+        
     <script src="js/lesson.js"></script> 
     <div id="sign-modal"></div>
 
