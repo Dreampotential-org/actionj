@@ -25,6 +25,7 @@ function init_meds() {
 
 function refresh_meds() {
     list_meds(function(meds) {
+        console.log(meds)
         $("#med_list").empty()
         for(var med of meds) {
             add_med_html(med)

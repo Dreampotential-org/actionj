@@ -165,6 +165,7 @@ function get_questions_api() {
     $.ajax(settings).done(function (response) {
         // change screen for code collecton
         questions = (JSON.parse(response).questions)
+        console.log(questions)
         init_questions()
     }).fail(function (err) {
       alert("ERROR")
