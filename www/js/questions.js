@@ -8,6 +8,9 @@ function init_questions () {
   var que = ''
 
   console.log(questions)
+  if (!(questions)) {
+    return
+  }
 
   questions.forEach((element, i) => {
     que += `<div class="tab" question_id=${element.id} id="tab${i}">
