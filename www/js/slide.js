@@ -1,5 +1,5 @@
-//var SERVER = "http://localhost:8000";
 var SERVER ='https://sfapp-api.dreamstate-4-all.org'
+// var SERVER = "http://localhost:8000";
 
 function nextSlide(){
     var type = $("div.active").children().attr("class");
@@ -27,9 +27,25 @@ function getParam(sParam){
   }
 }
 
+function get_session() {
+    var session_id = localStorage.getItem("session_id")
+    if (session_id) {
+        console.log("Already have session_id " + session_id)
+        return
+    }
+    console.log("Generate new session")
+    $.get(SERVER + '/courses_api/session/get', function(resp) {
+        console.log(resp)
+        localStorage.setItem("session_id", resp.session_id)
+    })
+}
+
 function init() {
-    var lesson_id =  getParam("lesson_id");
+    var lesson_id = getParam("lesson_id");
     $.get(SERVER+'/courses_api/lesson/read/'+lesson_id,function(response) {
+        get_session();
+
+        console.log(response)
         var flashcards = response.flashcards;
         console.log(flashcards)
         var i = 0;
