@@ -11,7 +11,9 @@ function updateProgressBar(){
 }
 
 function nextSlide(){
-    current_slide++
+    if(current_slide <total_slides){
+        current_slide++
+    }
     updateProgressBar()
     var type = $("div.active").children().attr("class");
     if(type == "question_choices"){
@@ -21,7 +23,10 @@ function nextSlide(){
 }
 
 function prevSlide(){
-    current_slide--;
+    if(current_slide >0){
+        current_slide--;
+
+    }
     updateProgressBar()
     console.log(current_slide)
 
@@ -65,7 +70,7 @@ function init() {
         $("#progress").html(current_slide+ " out of "+ total_slides)
         var flashcards = response.flashcards;
         console.log(flashcards)
-        
+
         flashcards.sort(function(a,b){
             keyA = a.position;
             keyB = b.position;
@@ -122,6 +127,8 @@ function init() {
             }
             i++;
         })
+        $("#theSlide").append('<div class="item"><div alt="quick_read" style="height:500px"><h1>Completed <img height="30px" src="https://www.clipartmax.com/png/full/301-3011315_icon-check-green-tick-transparent-background.png"></h1></div></div>')
+
     })
 }
 
