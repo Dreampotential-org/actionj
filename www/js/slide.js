@@ -65,6 +65,14 @@ function init() {
         $("#progress").html(current_slide+ " out of "+ total_slides)
         var flashcards = response.flashcards;
         console.log(flashcards)
+        
+        flashcards.sort(function(a,b){
+            keyA = a.position;
+            keyB = b.position;
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+        })
         var i = 0;
         var className="item";
         // XXX refactor code below into smaller processing chunk

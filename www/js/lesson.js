@@ -4,7 +4,9 @@ var question_choices_count = 0;
 var video_file_count = 0;
 var iframe_link_count = 0;
 var question_text_count = 0;
+var sortArray = [];
 var MODE;
+var pos = 0;
 //var API_SERVER = "http://localhost:8000";
 
 var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
@@ -37,20 +39,35 @@ function getParam(sParam){
     }
 }
 
-function addSpeedRead(isNew,id, value) {
+function sortablePositionFunction(isNew,posU){
+    if(!isNew){
+        $("#sortable").children().last().attr("data-position",posU)
+    }else{
+        $("#sortable").children().last().attr("data-position",pos)
+        pos++;
+    }
+}
+
+function addSpeedRead(isNew,id, value,posU) {
     //console.log(quick_read_count)
-        if(!isNew){
+    if(!isNew){
             $("#speed_read").find("textarea").html(value)
             $("#speed_read").find("textarea").attr("data-id",id)
+
         }else{
             $("#speed_read").find("textarea").html("")
+
+
         }
         $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
         $("#sortable").append($("#speed_read").html())
+
+        sortablePositionFunction(isNew,posU);
         quick_read_count++;
+
     }
 
-function addTitleText(isNew,id,title,text){
+function addTitleText(isNew,id,title,text,posU){
     if(!isNew){
         $("#title_text").find("input[type=text]").attr("value",title)
         $("#title_text").find("textarea").html(text)
@@ -65,10 +82,12 @@ function addTitleText(isNew,id,title,text){
     $("#title_text").find("input[type=text]").attr("name","title_"+title_text_count)
 
     $("#sortable").append($("#title_text").html())
+    sortablePositionFunction(isNew,posU);
+
     title_text_count++;
 }
 
-function addQuestionChoices(isNew,id,question,choices,image){
+function addQuestionChoices(isNew,id,question,choices,image,posU){
 
     $("#question_choices").find("input").first().attr("name","question_"+question_choices_count)
     $("#question_choices").find("#choices").attr("id","choices_"+question_choices_count)
@@ -100,6 +119,8 @@ function addQuestionChoices(isNew,id,question,choices,image){
 
     $("#sortable").append($("#question_choices").html())
     question_choices_count++;
+    sortablePositionFunction(isNew,posU);
+
 }
 
 function handleImageUpload() {
@@ -217,7 +238,7 @@ function displayVideo(file_url){
 }
 
 
-function addVideoFile(isNew,id,question,choices,image){
+function addVideoFile(isNew,id,question,choices,image,posU){
 
     if(!isNew){
         $("#video_file").find("input").first().attr("value",question)
@@ -240,9 +261,11 @@ function addVideoFile(isNew,id,question,choices,image){
 
     $("#sortable").append($("#video_file").html())
     video_file_count++;
+    sortablePositionFunction(isNew,posU);
+
     }
 
-function addIframeLink(isNew,id,question,choices,image){
+function addIframeLink(isNew,id,question,choices,image,posU){
 
     if(!isNew){
         $("#iframe_link").find("input").first().attr("value",question)
@@ -262,9 +285,12 @@ function addIframeLink(isNew,id,question,choices,image){
 
     $("#sortable").append($("#iframe_link").html())
     iframe_link_count++;
+    sortablePositionFunction(isNew,posU);
+
     }
  
-function addQuestionText(isNew,id,question){
+function addQuestionText(isNew,id,question,posU){
+    console.log("Question Text Added")
 
     if(!isNew){
         $("#question_text").find("textarea").first().html(question)
@@ -278,81 +304,32 @@ function addQuestionText(isNew,id,question){
     $("#question_text").find("textarea").first().attr("name","question_text_"+question_text_count)
 
     $("#sortable").append($("#question_text").html())
+
     question_text_count++;
-
-}
-$(document).ready(function() {
-
-
-
-if(lesson_id){
-    MODE = "UPDATE";
-}else{
-    MODE = "CREATE";
-}
-/*
-$.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
-    var lessons = response;
-    lessons.forEach((lesson) => {
-        var lesson_id = lesson.id
-        var lesson_name = lesson.lesson_name
-        $("#select_lesson").append("<option value='"+lesson_id+"'>"+lesson_name+"</option>")
-    })
-})
-*/
-if(MODE =="UPDATE"){
-    console.log("update")
-    $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
-        $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
-        $("#lesson_name").val(response.lesson_name)
-        var flashcards = response.flashcards;
-        flashcards.forEach((flashcard) => {
-
-            if(flashcard.lesson_type == "quick_read"){
-                
-                addSpeedRead(false,flashcard.id,flashcard.question)
-            }
-            if(flashcard.lesson_type == "title_text"){
-                addTitleText(false,flashcard.id,flashcard.question,flashcard.answer)
-            }
-            if(flashcard.lesson_type == "question_choices"){
-                addQuestionChoices(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
-            }
-
-            if(flashcard.lesson_type == "video_file"){
-                addVideoFile(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
-            }
-
-            if(flashcard.lesson_type == "iframe_link"){
-                addIframeLink(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image)
-            }
-            if(flashcard.lesson_type == "question_text"){
-                addQuestionText(false,flashcard.id,flashcard.question)
-            }
-        })
-        
-    })
+    sortablePositionFunction(isNew,posU);
 }
 
-$("#lesson_form").submit((e) => {
-    e.preventDefault()
+
+function sendUpdates(){
     var lesson_name = $("#lesson_name").val()
     data_ = {
     "lesson_name":lesson_name
     }
     flashcards = [];
-    var number =0;
+    var position_me = 0;
     // Saving Quick Reads
     for(var i = 0; i < quick_read_count; i++){
         quick_read_value = $('textarea[name="speed_read_'+i+'"]').val()
+        position_me =$('textarea[name="speed_read_'+i+'"]').parent().parent().data("position")
+        console.log(position_me)
+
         if(quick_read_value){
             temp = {
                 "lesson_type":"quick_read",
                 "question":quick_read_value,
-                "position":number
+                "position":position_me
             }
             flashcards.push(temp)
-            number++
         }
     }
 
@@ -360,16 +337,17 @@ $("#lesson_form").submit((e) => {
     for(var i = 0; i < title_text_count; i++){
         var title_value =$('input[name="title_'+i+'"]').val();
         var text_value = $('textarea[name="text_'+i+'"]').val();
+
+        position_me =$('input[name="title_'+i+'"]').parent().parent().data("position")
+
         temp= { 
             "lesson_type":"title_text",
             "question" : title_value,
             "answer" : text_value,
-            "position":number
+            "position":position_me
 
         }
         flashcards.push(temp)
-
-        number++;
     }
 
     for(var i = 0; i < question_choices_count; i++){
@@ -382,6 +360,9 @@ $("#lesson_form").submit((e) => {
                 return($(this).val())
             }
         })
+
+        position_me =$('input[name="question_'+i+'"]').parent().parent().data("position")
+
         
         var choices = choices_array.toArray().join(",")
         var image = $('input[name="image_'+i+'"]').val()
@@ -390,55 +371,58 @@ $("#lesson_form").submit((e) => {
             "question": question,
             "image":image,
             "options":choices,
-            "position":number
+            "position":position_me
         }
         flashcards.push(temp)
-        number++;
     }
 
     for(var i = 0; i < video_file_count; i++){
         var question = $('input[name="question_'+i+'"]').val()
         var video = $('input[name="video_'+i+'"]').val()
+        position_me =$('input[name="question_'+i+'"]').parent().parent().data("position")
+
         temp = {
             "lesson_type" :"video_file",
             "question": question,
             "image":video,
             "options":choices,
-            "position":number
+            "position":position_me
         }
         flashcards.push(temp)
-        number++;
     }
 
     for(var i = 0; i < iframe_link_count; i++){
         var question = $('input[name="question_'+i+'"]').val()
+        position_me =$('input[name="question_'+i+'"]').parent().parent().data("position")
+
         var link = $('input[name="link_'+i+'"]').val()
         temp = {
             "lesson_type" :"iframe_link",
             "question": question,
             "image":link,
             "options":choices,
-            "position":number
+            "position":position_me
         }
         flashcards.push(temp)
-        number++;
     }
 
     for(var i = 0; i < question_text_count; i++){
         var question = $('textarea[name="question_text_'+i+'"]').val()
+        position_me =$('textarea[name="question_text_'+i+'"]').parent().parent().data("position")
+
         temp = {
             "lesson_type" :"question_text",
             "question": question,
-            "position":number
+            "position":position_me
         }
         flashcards.push(temp)
-        number++;
     }
 
     data_.flashcards = flashcards
     console.log(data_)
     
     if(MODE=="CREATE"){
+     
         $.ajax({
             "url": API_SERVER +"/courses_api/lesson/create",
             'data': JSON.stringify(data_),
@@ -461,15 +445,88 @@ $("#lesson_form").submit((e) => {
             'contentType': 'application/json',
             'success': function (data){
             alert("FlashCard Updated!")
-            location.reload()
         }
         })
     }
+}
+
+
+$(document).ready(function() {
+
+
+if(lesson_id){
+    MODE = "UPDATE";
+}else{
+    MODE = "CREATE";
+}
+/*
+$.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
+    var lessons = response;
+    lessons.forEach((lesson) => {
+        var lesson_id = lesson.id
+        var lesson_name = lesson.lesson_name
+        $("#select_lesson").append("<option value='"+lesson_id+"'>"+lesson_name+"</option>")
+    })
+})
+*/
+
+if(MODE =="UPDATE"){
+    $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
+        $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
+        $("#lesson_name").val(response.lesson_name)
+        var flashcards = response.flashcards;
+
+        flashcards.sort(function(a,b){
+            keyA = a.position;
+            keyB = b.position;
+            if (keyA < keyB) return -1;
+            if (keyA > keyB) return 1;
+            return 0;
+        })
+        flashcards.forEach((flashcard) => {
+            
+            if(pos < flashcard.position){
+                pos = flashcard.position +1
+            }
+
+            if(flashcard.lesson_type == "quick_read"){
+                
+                addSpeedRead(false,flashcard.id,flashcard.question,flashcard.position)
+            }
+            if(flashcard.lesson_type == "title_text"){
+                addTitleText(false,flashcard.id,flashcard.question,flashcard.answer,flashcard.position)
+            }
+            if(flashcard.lesson_type == "question_choices"){
+                addQuestionChoices(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image,flashcard.position)
+            }
+
+            if(flashcard.lesson_type == "video_file"){
+                addVideoFile(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image,flashcard.position)
+            }
+
+            if(flashcard.lesson_type == "iframe_link"){
+                addIframeLink(false,flashcard.id,flashcard.question,flashcard.options,flashcard.image,flashcard.position)
+            }
+            if(flashcard.lesson_type == "question_text"){
+                console.log("Question Text Added")
+
+                addQuestionText(false,flashcard.id,flashcard.question,flashcard.position)
+            }
+        })
+        
+    })
+}
+
+$("#lesson_form").submit((e) => {
+    e.preventDefault()
+    console.log(sortArray)
+    sendUpdates()
 })
 
 $(document).on("click",".remove_flashcard",function(e){
     var lesson_element_type = $(e.target).parent().parent().children().last().children().attr("name")
     //console.log(lesson_element_type)
+    pos--;
     if(lesson_element_type.startsWith("speed_read")){
         quick_read_count--;
     }else if (lesson_element_type.startsWith("text")){
@@ -527,110 +584,3 @@ $('#add').click(function (e) {
 
     });
 
-/*
-$("#edit_form").submit((e) => {
-    e.preventDefault()
-    data_ = {
-    "lesson_name":"test"
-    }
-    flashcards = [];
-    var number =0;
-    // Saving Quick Reads
-    for(var i = 0; i < quick_read_count; i++){
-        quick_read_value = $('textarea[name="speed_read_'+i+'"]').val()
-        id = $('textarea[name="speed_read_'+i+'"]').data("id")
-        if(quick_read_value){
-            temp = {
-                "lesson_type":"quick_read",
-                "question":quick_read_value,
-                "position":number,
-                "id":id
-            }
-            flashcards.push(temp)
-            number++
-        }
-    }
-
-    //Saving Title Text
-    for(var i = 0; i < title_text_count; i++){
-        var id = $('input[name="title_'+i+'"]').data("id")
-        var title_value =$('input[name="title_'+i+'"]').val();
-        var text_value = $('textarea[name="text_'+i+'"]').val();
-        temp= { 
-            "lesson_type":"title_text",
-            "question" : title_value,
-            "answer" : text_value,
-            "position":number,
-            "id":id
-
-        }
-        flashcards.push(temp)
-        number++;
-    }
-
-    for(var i = 0; i < question_choices_count; i++){
-        var id = $('input[name="question_'+i+'"]').data("id")
-
-        var question = $('input[name="question_'+i+'"]').val()
-        var image=  $('input[name="image_'+i+'"]').val()
-
-
-        var choices_array = $('#choices_'+i+' :input').map(function() {
-            var type = $(this).prop("type");
-
-            if(type =="text"){
-                return($(this).val())
-            }
-        })
-        
-        var choices = choices_array.toArray().join(",")
-
-        temp = {
-            "lesson_type" :"question_choices",
-            "question": question,
-            "options":choices,
-            "image":image,
-            "position":number,
-            "id":id
-
-        }
-        flashcards.push(temp)
-        number++;
-    }
-
-
-    for(var i = 0; i < video_file_count; i++){
-        var question = $('input[name="question_'+i+'"]').val()
-        var video = $('input[name="video_'+i+'"]').val()
-        temp = {
-            "lesson_type" :"video_file",
-            "question": question,
-            "image":video,
-            "options":choices,
-            "position":number
-        }
-        flashcards.push(temp)
-        number++;
-    }
-
-    for(var i = 0; i < iframe_link_count; i++){
-        var question = $('input[name="question_'+i+'"]').val()
-        var link = $('input[name="link_'+i+'"]').val()
-        temp = {
-            "lesson_type" :"iframe_link",
-            "question": question,
-            "image":link,
-            "options":choices,
-            "position":number
-        }
-        flashcards.push(temp)
-        number++;
-    }
-
-
-    data_.flashcards = flashcards
-    console.log(data_)
-
-
-})
-*/

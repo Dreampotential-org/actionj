@@ -191,8 +191,18 @@
     </script>
    <script>
     $(document).ready(function () {
+        $( "#sortable" ).sortable({
+            stop: sortEventHandler
+        });
 
-        $( "#sortable" ).sortable();
+        function sortEventHandler(){
+            var i = 0 ;
+            var childrenList  = $("#sortable").children();
+            childrenList.each(function(e) { 
+                $(this).attr("data-position",i)
+                i++;
+            })
+        }
 
     });
 </script>
