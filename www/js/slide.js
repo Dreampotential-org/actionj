@@ -1,12 +1,15 @@
 
 
     function nextSlide(){
+
+        console.log($('.item').length)
         var type = $("div.active").children().attr("class");
-        if(type == "question_choices"){
+        if(type == "question_choices" || type == "question_text"){
             console.log("SEnding a reuest")
         }
 
         $('#myCarousel').carousel('next');
+
     }
 
     function prevSlide(){
@@ -31,6 +34,12 @@
           }
       }
       }
+
+      $.get('http://localhost:8000/courses_api/session/get',function(response){
+          session_id = response.session_id;
+          localStorage.setItem("session_id", session_id)
+      })
+
       var lesson_id=  getParam("lesson_id");
         $.get(SERVER+'/courses_api/lesson/read/'+lesson_id,function(response) {
             var flashcards = response.flashcards;
