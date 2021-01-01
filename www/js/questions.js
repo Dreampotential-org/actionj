@@ -8,6 +8,9 @@ function init_questions () {
   var que = ''
 
   console.log(questions)
+  if (!(questions)) {
+    return
+  }
 
   questions.forEach((element, i) => {
     que += `<div class="tab" question_id=${element.id} id="tab${i}">
@@ -70,7 +73,7 @@ function showTab (n) {
   if (isDisable) $('#nextBtn').attr('disabled', true)
 
   if (n >= questions.length) {
-    set_user_answers()
+    //set_user_answers()
     // send results to backend
     return
   }
@@ -165,6 +168,7 @@ function get_questions_api() {
     $.ajax(settings).done(function (response) {
         // change screen for code collecton
         questions = (JSON.parse(response).questions)
+        console.log(questions)
         init_questions()
     }).fail(function (err) {
       alert("ERROR")
