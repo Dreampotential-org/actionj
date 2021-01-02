@@ -520,7 +520,7 @@ if(MODE =="UPDATE"){
         })
         
 
-    $.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
+    $.get(API_SERVER+'/courses_api/lesson/all',function (response) {
         var lessons = response;
         lessons.forEach((lesson) => {
             var lesson_id = lesson.id
