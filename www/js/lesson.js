@@ -16,7 +16,7 @@ var lesson_id=  getParam("lesson_id");
 
 function selectLesson(){
     var thelesson_id = $("#select_lesson :selected").val()
-    window.location.replace(SERVER+"/lesson.html?lesson_id="+thelesson_id)
+    window.location.replace(SERVER+"lesson.html?lesson_id="+thelesson_id)
 }
 
 function addChoices(id,value){
