@@ -477,8 +477,9 @@ if(lesson_id){
 
 if(MODE =="UPDATE"){
     $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
-        $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
-        $("#lesson_responses").attr("href",SERVER+"/lesson_responses.html?lesson_id="+lesson_id)
+
+        $("#lesson_slide").attr("href",SERVER+"slide.html?lesson_id="+lesson_id)
+        $("#lesson_responses").attr("href",SERVER+"lesson_responses.html?lesson_id="+lesson_id)
 
         $("#lesson_name").val(response.lesson_name)
         var flashcards = response.flashcards;
