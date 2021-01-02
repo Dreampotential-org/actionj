@@ -1,5 +1,5 @@
 var SERVER ='https://sfapp-api.dreamstate-4-all.org'
-// var SERVER = "http://localhost:8000";
+//var SERVER = "http://localhost:8000";
 
 var current_slide = 0;
 var total_slides = 0;
@@ -26,7 +26,8 @@ function nextSlide(){
     updateProgressBar()
     var type = $("div.active").children().attr("class");
     if(type == "question_choices"){
-        answer = $("input[name= choices_"+(current_slide-1)).val()
+        answer = $("input[name= choices_"+(current_slide-1)+"]:checked").val()
+        console.log(answer)
     }else if(type == "question_text"){
         answer = $("textarea[name= textarea_"+(current_slide-1)).val()
     }
@@ -95,6 +96,8 @@ function init() {
     $("#progress-section").hide();
 
     var lesson_id = getParam("lesson_id");
+
+
     $.get(SERVER+'/courses_api/lesson/read/'+lesson_id,function(response) {
         get_session();
         total_slides = response.flashcards.length;
@@ -163,6 +166,24 @@ function init() {
         })
         $("#theSlide").append('<div class="item"><div alt="quick_read" style="height:500px"><h1>Completed <img height="30px" src="https://www.clipartmax.com/png/full/301-3011315_icon-check-green-tick-transparent-background.png"></h1></div></div>')
 
+        console.log("yo")
+        $.get(SERVER+'/courses_api/lesson/response/get/'+lesson_id+'/'+localStorage.getItem("session_id"),function(response){
+            response.forEach(function(rf){
+                loaded_flashcards.forEach(function(f,i){
+                    if(rf.flashcard == f.id){
+                        console.log(f)
+                        
+                        if(f.lesson_type == 'question_text'){
+                            $("textarea[name=textarea_"+i).val(rf.answer)
+                        }
+                        if(f.lesson_type == 'question_choices'){
+                            $("input[name=choices_"+i+"][value="+rf.answer+"]").attr("checked",true)
+                        }
+                    }
+
+                })
+            })
+        })
     })
 }
 
