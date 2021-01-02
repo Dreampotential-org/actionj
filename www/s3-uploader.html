@@ -49,6 +49,18 @@ $(document).ready(function(){
         var form = new FormData(this);
 
         var settings = {
+            "xhr": function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        //Do something with upload progress here
+                        console.log("percentComplete:", percentComplete);
+                       $(".swal-title").text(parseInt(percentComplete*100) + "%")
+                    }
+               }, false);
+               return xhr;
+            },
             "async": true,
             "crossDomain": true,
             "url": SERVER + 's3_uploader/upload',
