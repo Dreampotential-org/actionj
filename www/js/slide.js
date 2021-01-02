@@ -5,6 +5,8 @@ var current_slide = 0;
 var total_slides = 0;
 var loaded_flashcards = null;
 var pct=0
+var completed = false
+
 function updateProgressBar(){
     pct = (current_slide/total_slides)  * 100
     $('.progress-bar').css("width",pct+"%")
@@ -13,20 +15,33 @@ function updateProgressBar(){
 }
 
 function nextSlide(){
+    var answer;
     if(current_slide <total_slides){
         current_slide++
+        completed=false;
+    }else{
+        completed = true;
     }
+
     updateProgressBar()
     var type = $("div.active").children().attr("class");
-    var current_flashcard = loaded_flashcards[current_slide]
+    if(type == "question_choices"){
+        answer = $("input[name= choices_"+(current_slide-1)).val()
+    }else if(type == "question_text"){
+        answer = $("textarea[name= textarea_"+(current_slide-1)).val()
+    }
+    
+    if(!completed){
+     
+    var current_flashcard = loaded_flashcards[current_slide-1]
     var flashcard_id = current_flashcard.id
     
     var data_ = {
         "flashcard":flashcard_id,
         "session_id":localStorage.getItem("session_id"),
-        "answer":"test_answer"
+        "answer":answer
         }
-
+        console.log(data_)
     $.ajax({
         "url": SERVER +"/courses_api/flashcard/response/",
         'data': JSON.stringify(data_),
@@ -35,11 +50,9 @@ function nextSlide(){
         'success': function (data){
         alert("FlashCard Response Sent")
     }
-    })
-    
-    if(type == "question_choices"){
-        console.log("SEnding a reuest")
+    })   
     }
+    
     $('#myCarousel').carousel('next');
 }
 
@@ -129,7 +142,7 @@ function init() {
                 $("#flashcard_"+i).prepend('<center><img src="'+flashcard.image+'" alt="Chania" style="height:300px;border:5px;border-style:solid;border-color:black"></center>')
             }
             flashcard.options.split(",").forEach(function (valu) { 
-                $("#theSlide").find('ul').append("<input type='radio' value='valu' name='choices_'"+i+"> "+valu+"<br>")
+                $("#theSlide").find('ul').append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
             })
 
             }
@@ -143,7 +156,7 @@ function init() {
             $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><video controls> <source src= "'+flashcard.image+'"></video></div></div>')
             }
             if(flashcard.lesson_type=="question_text"){
-            $("#theSlide").append('<div class="'+className+'"><div class="question_text"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea class="form-control" placeholder="Enter you answer here"></textarea></div></div></div>')
+            $("#theSlide").append('<div class="'+className+'"><div class="question_text"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea name ="textarea_'+i+'" class="form-control" placeholder="Enter you answer here"></textarea></div></div></div>')
 
             }
             i++;
