@@ -154,8 +154,20 @@ function uploadFile(fileType) {
         form.append("file", GLOBAL_FILE);
 
         var settings = {
+            "xhr": function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        //Do something with upload progress here
+                        console.log("percentComplete:", percentComplete);
+                       $(".swal-title").text(parseInt(percentComplete*100) + "%")
+                    }
+               }, false);
+               return xhr;
+            },
             "async": true,
-//            "crossDomain": true,
+            "crossDomain": true,
             "url": API_SERVER + '/s3_uploader/upload',
             "method": "POST",
             "type": "POST",
@@ -212,8 +224,10 @@ function displayVideo(file_url){
     var strTYPE="video/mp4";
     $("#videoplayer").html('<source src="'+file_url+'" type="'+strTYPE+'"></source>' );
     $('#video-output').css('display','block');
+    $("#videoplayer")[0].load();
+
     // Change button text
-    $("#upload-vid-btn").attr("value","Upload new Video");
+    $("#upload-vid-btn").attr("value", "Upload new Video");
 }
 
 
