@@ -1,7 +1,9 @@
 var SERVER ='https://sfapp-api.dreamstate-4-all.org'
 // var SERVER = "http://localhost:8000";
+
 var current_slide = 0;
 var total_slides = 0;
+var loaded_flashcards = null;
 var pct=0
 function updateProgressBar(){
     pct = (current_slide/total_slides)  * 100
@@ -16,6 +18,25 @@ function nextSlide(){
     }
     updateProgressBar()
     var type = $("div.active").children().attr("class");
+    var current_flashcard = loaded_flashcards[current_slide]
+    var flashcard_id = current_flashcard.id
+    
+    var data_ = {
+        "flashcard":flashcard_id,
+        "session_id":localStorage.getItem("session_id"),
+        "answer":"test_answer"
+        }
+
+    $.ajax({
+        "url": SERVER +"/courses_api/flashcard/response/",
+        'data': JSON.stringify(data_),
+        'type': 'POST',
+        'contentType': 'application/json',
+        'success': function (data){
+        alert("FlashCard Response Sent")
+    }
+    })
+    
     if(type == "question_choices"){
         console.log("SEnding a reuest")
     }
@@ -25,11 +46,9 @@ function nextSlide(){
 function prevSlide(){
     if(current_slide >0){
         current_slide--;
-
     }
     updateProgressBar()
     console.log(current_slide)
-
     $('#myCarousel').carousel('prev');
     var type = $("div.active").children().attr("class");
     console.log(type)
@@ -78,6 +97,8 @@ function init() {
             if (keyA > keyB) return 1;
             return 0;
         })
+
+        loaded_flashcards = flashcards;
         var i = 0;
         var className="item";
         // XXX refactor code below into smaller processing chunk
