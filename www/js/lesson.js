@@ -473,16 +473,7 @@ if(lesson_id){
 }else{
     MODE = "CREATE";
 }
-/*
-$.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
-    var lessons = response;
-    lessons.forEach((lesson) => {
-        var lesson_id = lesson.id
-        var lesson_name = lesson.lesson_name
-        $("#select_lesson").append("<option value='"+lesson_id+"'>"+lesson_name+"</option>")
-    })
-})
-*/
+
 
 if(MODE =="UPDATE"){
     $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
@@ -528,6 +519,16 @@ if(MODE =="UPDATE"){
             }
         })
         
+
+    $.get(API_SERVER+'/courses_api/lesson/read/all',function (response) {
+        var lessons = response;
+        lessons.forEach((lesson) => {
+            var lesson_id = lesson.id
+            var lesson_name = lesson.lesson_name
+            $("#select_lesson").append("<option value='"+lesson_id+"'>"+lesson_name+"</option>")
+        })
+    })
+
     })
 }
 
