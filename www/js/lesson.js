@@ -16,7 +16,7 @@ var lesson_id=  getParam("lesson_id");
 
 function selectLesson(){
     var thelesson_id = $("#select_lesson :selected").val()
-    window.location.replace(SERVER+"lesson.html?lesson_id="+thelesson_id)
+    window.location.href =SERVER+"/lesson.html?lesson_id="+thelesson_id
 }
 
 function addChoices(id,value){
@@ -478,6 +478,8 @@ if(lesson_id){
 if(MODE =="UPDATE"){
     $.get(API_SERVER+'/courses_api/lesson/read/'+lesson_id+'/',function(response) {
         $("#lesson_slide").attr("href",SERVER+"/slide.html?lesson_id="+lesson_id)
+        $("#lesson_responses").attr("href",SERVER+"/lesson_responses.html?lesson_id="+lesson_id)
+
         $("#lesson_name").val(response.lesson_name)
         var flashcards = response.flashcards;
 
