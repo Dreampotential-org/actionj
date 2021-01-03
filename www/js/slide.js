@@ -71,8 +71,8 @@ function prevSlide(){
 function getParam(sParam){
   var sPageURL = window.location.search.substring(1);
   var sURLVariables = sPageURL.split('&');
-  for (var i = 0; i < sURLVariables.length; i++){
-      var sParameterName = sURLVariables[i].split('=');
+  for (var p = 0; p < sURLVariables.length; p++){
+      var sParameterName = sURLVariables[p].split('=');
       if (sParameterName[0] == sParam) {
           return sParameterName[1];
       }
