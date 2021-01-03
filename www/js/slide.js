@@ -169,8 +169,8 @@ function init() {
         $.get(SERVER+'/courses_api/lesson/response/get/'+lesson_id+'/'+localStorage.getItem("session_id"),function(response){
             response.forEach(function(rf){
                 loaded_flashcards.forEach(function(f,i){
-                    if(rf.flashcard == f.id){
-                        console.log(f)
+                    if(rf.flashcard[0].id == f.id){
+                        console.log(rf.answer)
                         
                         if(f.lesson_type == 'question_text'){
                             $("textarea[name=textarea_"+i).val(rf.answer)
