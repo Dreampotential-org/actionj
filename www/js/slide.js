@@ -1,6 +1,6 @@
 var SERVER ='https://sfapp-api.dreamstate-4-all.org'
 //var SERVER = "http://localhost:8000";
-
+var answer = ""
 var current_slide = 0;
 var total_slides = 0;
 var loaded_flashcards = null;
@@ -15,7 +15,6 @@ function updateProgressBar(){
 }
 
 function nextSlide(){
-    var answer;
     if(current_slide <total_slides){
         current_slide++
         completed=false;
@@ -42,7 +41,7 @@ function nextSlide(){
         "session_id":localStorage.getItem("session_id"),
         "answer":answer
         }
-        console.log(data_)
+        console.log("data: "+answer)
     $.ajax({
         "url": SERVER +"/courses_api/flashcard/response/",
         'data': JSON.stringify(data_),
@@ -71,8 +70,8 @@ function prevSlide(){
 function getParam(sParam){
   var sPageURL = window.location.search.substring(1);
   var sURLVariables = sPageURL.split('&');
-  for (var i = 0; i < sURLVariables.length; i++){
-      var sParameterName = sURLVariables[i].split('=');
+  for (var p = 0; p < sURLVariables.length; p++){
+      var sParameterName = sURLVariables[p].split('=');
       if (sParameterName[0] == sParam) {
           return sParameterName[1];
       }
