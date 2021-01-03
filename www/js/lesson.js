@@ -351,16 +351,16 @@ function addQuestionText(isNew,id,question,posU){
 
 function addSignaturePad(isNew,id,sign_data,posU){
     if(!isNew){
-        $("#sing_b64").find("input").first().val(sign_data)
-        $("#sing_b64").find("input").last().attr("data-id",id)        
-        $("#sing_b64").find("button").last().html("Redraw Signature")        
-        $("#sing_b64").find("img").last().attr("src", sign_data)        
-        $("#sing_b64").find("img").last().attr("hidden", false)        
+        $("#sign_b64").find("input").first().val(sign_data)
+        $("#sign_b64").find("input").last().attr("data-id",id)        
+        // $("#sign_b64").find("button").last().html("Redraw Signature")        
+        $("#sign_b64").find("img").last().attr("src", sign_data)        
+        $("#sign_b64").find("img").last().attr("hidden", false)        
     }else{
         
     }
     
-    $("#sing_b64").find("input").first().attr("name","input_signature"+sign_count);
+    $("#sign_b64").find("input").first().attr("name","input_signature"+sign_count);
     
     $("#sortable").append($("#sign_b64").html())
     
