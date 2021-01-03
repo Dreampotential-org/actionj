@@ -1,6 +1,6 @@
 var SERVER ='https://sfapp-api.dreamstate-4-all.org'
 //var SERVER = "http://localhost:8000";
-
+var answer = ""
 var current_slide = 0;
 var total_slides = 0;
 var loaded_flashcards = null;
@@ -15,7 +15,6 @@ function updateProgressBar(){
 }
 
 function nextSlide(){
-    var answer;
     if(current_slide <total_slides){
         current_slide++
         completed=false;
