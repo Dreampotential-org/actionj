@@ -41,7 +41,7 @@ function nextSlide(){
         "session_id":localStorage.getItem("session_id"),
         "answer":answer
         }
-        console.log(data_)
+        console.log("data: "+answer)
     $.ajax({
         "url": SERVER +"/courses_api/flashcard/response/",
         'data': JSON.stringify(data_),
