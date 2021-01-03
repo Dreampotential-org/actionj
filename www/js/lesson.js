@@ -60,7 +60,7 @@ function addSpeedRead(isNew,id, value,posU) {
     }
     $("#speed_read").find("textarea").attr("name","speed_read_"+quick_read_count)
     $("#sortable").append($("#speed_read").html())
-    
+    $("#sortable").children().last().attr("id",null)
     sortablePositionFunction(isNew,posU);
     quick_read_count++;
     
