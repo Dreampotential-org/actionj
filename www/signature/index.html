@@ -68,9 +68,10 @@
                     },                
                 }                
                 
-                $.ajax(settings).done(function (response) { 
-                    const res = JSON.parse(response);                   
-                    window.currentSignature = {id: res.sign_id,data: res.sign_data};
+                // $.ajax(settings).done(function (response) { 
+                //     const res = JSON.parse(response);                   
+                    // window.currentSignature = {id: res.sign_id,data: res.sign_data};
+                    window.currentSignature = {data: signData};
                     const evt = new Event("signatureSubmitted", {"bubbles":true, "cancelable":false});
                     document.dispatchEvent(evt);
                     swal({
@@ -88,9 +89,9 @@
                             }
                         }
                     });         
-                }).fail(function (err) {                    
-                    alert("ERROR")
-                });
+                // }).fail(function (err) {                    
+                //     alert("ERROR")
+                // });
             });
             
             $('#clear-sign').on('click', function () {
