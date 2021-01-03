@@ -23,6 +23,9 @@ function nextSlide(){
     }
 
     updateProgressBar()
+
+    
+    if(!completed){
     var type = $("div.active").children().attr("class");
     if(type == "question_choices"){
         answer = $("input[name= choices_"+(current_slide-1)+"]:checked").val()
@@ -30,9 +33,6 @@ function nextSlide(){
     }else if(type == "question_text"){
         answer = $("textarea[name= textarea_"+(current_slide-1)).val()
     }
-    
-    if(!completed){
-     
     var current_flashcard = loaded_flashcards[current_slide-1]
     var flashcard_id = current_flashcard.id
     
@@ -63,8 +63,6 @@ function prevSlide(){
     updateProgressBar()
     console.log(current_slide)
     $('#myCarousel').carousel('prev');
-    var type = $("div.active").children().attr("class");
-    console.log(type)
 }
 
 function getParam(sParam){
