@@ -605,7 +605,6 @@ $(document).ready(function () {
 
         $(document).on("click", ".remove_flashcard", function (e) {
             if (confirm("Are you sure you want to delete")) {
-
                 var lesson_element_type = $(e.target).parent().parent().children().last().children().attr("name")
                 //console.log(lesson_element_type)
                 pos--;
