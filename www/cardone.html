@@ -3,15 +3,20 @@
 
 <head>
     <title>SF App</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <style>
         body {
@@ -46,278 +51,327 @@
         .have-act span {
             color: #234C8B;
         }
+
+
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 
 <body>
-    <header>
-        <div class="mainContainer" style="position: relative">
-            <nav class="toggleBar">
-                <span class="bar bar1"></span>
-                <span class="bar bar2"></span>
-                <span class="bar bar3"></span>
-            </nav>
+
+<header>
+    <div class="mainContainer" style="position: relative">
+        <nav class="toggleBar">
+            <span class="bar bar1"></span>
+            <span class="bar bar2"></span>
+            <span class="bar bar3"></span>
+        </nav>
+    </div>
+</header>
+
+
+<div class="main-div container-fluid" id="landing-page">
+
+    <form class="">
+        <div class="form-group text-center">
+            <img alt="Logo" src="img/university.png" style="width: 130px; height: 130px;">
         </div>
+
+        <div class="mainContainer" style="text-align: -webkit-center;">
+            <div class="card-body customCard">
+                <h4 class="card-title">Hello, Meet sfApp</h4>
+                <!-- <p class="card-text">Your Interactive Accountability Manager</p> -->
+            </div>
+        </div>
+
+        <div class="action-btns">
+            <div class="row">
+                <div class="column btn1">
+                    <button class="btn btn-info btn-md" id="signup">I AM NEW</button>
+                </div>
+
+                <div class="column btn2">
+                    <button class="btn btn-info btn-md" id="signin">SIGN IN</button>
+                </div>
+
+
+                <div class="column btn3">
+                    <button class="btn btn-info btn-md" id="passwordreset">RESET PASSWORD</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div id="dashboard" style="display: none">
+
+    <header class="site-header" style="background-color: #e2e2e2;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img alt="Logo" src="img/university.png" style="width: 130px; height: 130px;">
+                </div>
+                <div class="col-md-6 mt-4 text-center">
+                    <h2>Cardone University</h2>
+                    <h5>University Slogan here!</h5>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Hello Aaron!</a></li>
+                    <li>
+                        <button id="logoutBtn" type="button" class="btn btn-default btn-sm"><span
+                                class="glyphicon glyphicon-log-out"></span> Log out
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
-    <div class="main-div container">
 
-        <form class="">
-            <div class="form-group text-center">
-                <img src="img/university.png" />
-            </div>
 
-            <div class="mainContainer" style="text-align: -webkit-center;">
-                <div class="card-body customCard">
-                    <h4 class="card-title">Hello, Meet sfApp</h4>
-                    <!-- <p class="card-text">Your Interactive Accountability Manager</p> -->
-                </div>
-            </div>
-
-            <div class="action-btns">
-                <div class="row">
-                    <div class="column btn1">
-                        <button class=" dark" id="signup">I AM NEW</button>
-                    </div>
-                    <div class="column btn2">
-                        <button class=" dark" id="signin">SIGN IN</button>
-                    </div>
-
-                </div>
-            
-        </form>
+    <div class="container">
+        <h3>Right Aligned Navbar</h3>
+        <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
     </div>
 
-    <div class="modal" id="signinModal">
+
+</div>
+
+
+<div class="modal" id="signinModal">
+    <div class="modal-dialog">
         <div class="modal-overlay"></div>
         <div class="modal-wrapper modal-transition " style="background: url(img/popup_login.jpg)">
-            <div class="modal-body modal_background">
-                <div class="modal-content">
+            <div class="modal-content">
+
+                <div class="modal-header">
                     <div class='close' style="text-align: end;">
                         <i class="fa fa-times closeIcon" aria-hidden="true"></i>
                     </div>
-                   
-                    <form class="form-div" method="post" action="">
 
-                        <div class="form-group text-center">
-                            <img src="img/university.png" />
-                        </div>
+                    <div class="form-group text-center">
+                        <img alt="Logo" src="img/university.png" style="width: 130px; height: 130px;">
+                    </div>
+
+                </div>
+
+                <div class="modal-body" style="overflow: auto;">
+
+                    <form class="form-div" method="post" action="" id="signInForm">
+
                         <h3 class="locAuthTitle textCenter" style="color:black">LOGIN</h3>
                         <div class="form-group">
-                            <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                <input type="email" class="form-control" name="username" id="username"
+                                       placeholder="Email">
                             </div>
-                        </div>
-                        <div class="form-group">
                             <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" name="password" id="pwd" placeholder="Password">
+                                <input type="password" class="form-control" name="password" id="pwd"
+                                       placeholder="Password">
                             </div>
-                        </div>
-                        <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10 text-center">
-                                <button type="submit" class="btn btn-success btn-custom">Submit</button>
-                                <p class="have-act">Don't have an account?
-                                    <span id="signinLink">SIGN UP</span>
-                                </p>
+                                <button type="submit" class="btn btn-success btn-custom">Login</button>
                             </div>
                         </div>
-            
+
                     </form>
+
                 </div>
-                
+                <div class="modal-footer">
+                    <p class="have-act">Don't have an account?
+                        <strong><span id="signupLink">SIGN UP</span></strong>
+                    </p>
+                    <p class="have-act">Forgot password?
+                        <strong><span id="passwordResetLink">Reset here</span></strong>
+                    </p>
+                </div>
+
             </div>
         </div>
     </div>
+</div>
 
-    <div class="modal" id="signupModal">
-        <div class="modal-overlay"></div>
-        <div class="modal-wrapper modal-transition" style="background: url(img/popup_login.jpg)">
+<div class="modal" id="signupModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-wrapper modal-transition" style="background: url(img/popup_login.jpg)">
 
-            <div class="modal-body">
-                <div class="modal-content">
-                    <div class='close' style="text-align: end;">
-                        <i class="fa fa-times closeIcon" aria-hidden="true"></i>
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div class='close' style="text-align: end;">
+                    <i class="fa fa-times closeIcon" aria-hidden="true"></i>
+                </div>
+
+                <div class="form-group text-center">
+                    <img alt="Logo" src="img/university.png" style="width: 130px; height: 130px;">
+                </div>
+
+            </div>
+
+            <div class="modal-body" style="overflow: auto;">
+                <form class="form-div" method="post" action="" id="signUpForm">
+
+                    <h3 class="locAuthTitle textCenter" style="color:black">SIGN UP</h3>
+
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="name">
+                        </div>
+
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email" id="signup-email" placeholder="Email">
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="password" id="signup-pwd"
+                                   placeholder="Password">
+                        </div>
+
+                        <div class="col-sm-offset-2 col-sm-10 text-center">
+                            <button type="submit" class="btn btn-success btn-custom">Sign Up</button>
+                        </div>
                     </div>
-                    <form class="form-div" method="post" action="">
 
-                        <div class="form-group text-center">
-                            <img src="img/university.png" />
-                        </div>
-            
-                        <h3 class="locAuthTitle textCenter" style="color:black">SIGN UP</h3>
+                </form>
 
-                        <div class="form-group">
-                            <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" name="password" id="pwd" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10 text-center">
-                                <button type="submit" class="btn btn-success btn-custom">Submit</button>
-                                <p class="have-act">Have an account?
-                                    <span id="signupLink">Log In</span>
-                                </p>
-                            </div>
-                        </div>
-            
-                    </form>
+            </div>
+            <div class="modal-footer">
+                <p class="have-act">Have an account?
+                    <strong><span class="signinLink">Log In</span></strong>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="passwordResetModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-wrapper modal-transition" style="background: url(img/popup_login.jpg)">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class='close' style="text-align: end;">
+                    <i class="fa fa-times closeIcon" aria-hidden="true"></i>
                 </div>
+
+                <div class="form-group text-center">
+                    <img alt="Logo" src="img/university.png" style="width: 130px; height: 130px;">
+                </div>
+
+            </div>
+
+            <div class="modal-body" style="overflow: auto;">
+
+                <form class="form-div" method="post" action="" id="passwordResetForm">
+
+                    <h3 class="locAuthTitle textCenter" style="color:black">Password Reset</h3>
+
+                    <div class="form-group">
+                        <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 text-center">
+                            <button type="submit" class="btn btn-success btn-custom">Reset Password</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p class="have-act">
+                    <span class="signinLink"><strong>Log In</strong></span> here!
+                </p>
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $("form").on("submit", function (ev) {
-                ev.preventDefault();
-
-                $.ajax({
-                    url: "https://prod-api.useiam.net/api/create-user/",
-                    type: "post",
-                    data: $(this).serialize(),
-                    success: function (response) {
-                        // Whatever you want to do after the form is successfully submitted
-                        console.log(response);
-                        var msg = response.message
-                        if (msg) {
-                            swal({
-                                title: msg,
-                                text: '',
-                                icon: 'error'
-                            })
-                            return
-                        }
-
-                        swal({
-                            title: 'Sign up successfully.',
-                            text: "",
-                            icon: 'success'
-                        })
-
-                    },
-                    error: function () {
-                        swal({
-                            title: 'Error',
-                            text: '',
-                            icon: 'error'
-                        })
-                    }
-                });
-            });
-
-    
-        });
-
-        $('#signupLink').on('click', function (e) {
-        e.preventDefault()
-        $('#signupModal').removeClass('is-visible')
-        $('#signinModal').addClass('is-visible')
-         })
-
-        $('#signinLink').on('click', function (e) {
-        e.preventDefault()
-        $('#signinModal').removeClass('is-visible')
-        $('#signupModal').addClass('is-visible')
-         })
-
-        $('#signup').on('click', function (e) {
-        e.preventDefault()
-        $('#signupModal').addClass('is-visible')
-         })
-
-         $('.close').on('click',function (e){   
-             e.preventDefault()
-             $('#signupModal').removeClass('is-visible')
-             $('#signinModal').removeClass('is-visible')
-         })
-
-         $('#signin').on('click', function (e) {
-         e.preventDefault()
-         $('#signinModal').addClass('is-visible')                                        
-        })
-
-        function signup_api(params) {
-
-            var form = new FormData()
-            form.append('name', params.name)
-            form.append('email', params.email)
-            form.append('password', params.password)
-
-            var settings = {
-                async: true,
-                crossDomain: true,
-                url: 'https://prod-api.useiam.net/api/create-user/',
-                method: 'POST',
-                processData: false,
-                contentType: false,
-                mimeType: 'multipart/form-data',
-                data: form
-            }
-
-            $.ajax(settings)
-                .done(function (response) {
-                    $('#signupModal #nextBtn').removeClass('running')
-                    var msg = JSON.parse(response).message
-                    if (msg && msg == 'User already exists') {
-                        swal({
-                            title: 'Email already exists',
-                            text: '',
-                            icon: 'error'
-                        })
-                        return
-                    }
-                    localStorage.setItem('session_id', JSON.parse(response).token)
-                    // show toggle bar
-                    $('.toggleBar').show()
-                    console.log('user logged in')
-                    // after successful login or signup show dashboard contents
-                    showATab('dashboard')
-                    // close modals
-                    closeAllModals()
-                    $('.moto').show()
-
-                    swal({
-                        title: 'Good job!',
-                        text: "You're logged in",
-                        icon: 'success'
-                    })
-
-                    get_profile_info(function (msg) {
-                        // show_set_monitor();
-                    })
-
-                    // $("#proTip").addClass("is-visible");
-                })
-                .fail(function (err) {
-                    console.log(err)
-                    $('#signupModal #nextBtn').removeClass('running')
-                    console.log(err)
-                    swal({
-                        title: 'Error',
-                        text: 'Invalid email or password',
-                        icon: 'error'
-                    })
-                })
-        }
+</div>
 
 
+<div class="modal" id="passwordResetConfirmModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-wrapper modal-transition" style="background: url(img/popup_login.jpg)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class='close' style="text-align: end;">
+                    <i class="fa fa-times closeIcon" aria-hidden="true"></i>
+                </div>
+
+                <div class="form-group text-center">
+                    <img alt="Logo" src="img/university.png" style="width: 130px; height: 130px;">
+                </div>
+
+            </div>
+
+            <div class="modal-body" style="overflow: auto;">
+
+                <form class="form-div" method="post" action="" id="passwordResetConfirmForm">
+
+                    <h3 class="locAuthTitle textCenter" style="color:black">Enter New Password</h3>
+
+                    <div class="form-group">
+                        <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
+                        <div class="col-sm-10">
+                            <input type="hidden" class="form-control" name="token" id="res-token"
+                                   placeholder="Toekn" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" name="password" id="res-pwd"
+                                   placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
+                        <div class="col-sm-10">
+                            <!-- <input type="password" class="form-control" name="confirm-password" id="confirm-pwd" placeholder="Confirm Password" required>-->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10 text-center">
+                            <button type="submit" class="btn btn-success btn-custom">Change Password</button>
+
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p class="have-act">
+                    <span class="signinLink"><strong>Log In</strong></span> here!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-
-    </script>
+<script src="js/email_login.js"></script>
 
 </body>
 
