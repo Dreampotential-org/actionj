@@ -23,8 +23,8 @@
     <body>
         <div class="container start-container">
             <div class="row">
-                <div class="col-xs-12 col-sm-12" align="right"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                        <span style="font-size: 25px;" class="glyphicon glyphicon-wrench"></span></button></div>
+                <div class="col-xs-12 col-sm-12" align="right"><a href="settings.html" class="btn btn-primary">
+                        <span style="font-size: 25px;" class="glyphicon glyphicon-wrench"></span></a></div>
                 <div class="col-xs-6 col-sm-6">
                     <h3>Segment Builder</h3>
                     <select class="form-control" id="select_lesson" onchange="selectLesson()" >
@@ -187,26 +187,6 @@
         <form id="videoUploadForm" enctype="multipart/form-data" name="videoUploadForm" >
             <input type="file" name="videoUpload"  id="videoUpload" style='display:none;' onchange="handleVideoSelect(this)" required/>
         </form>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">  </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-<!--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>-->
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <script src="js/lesson.js"></script> 
         <div id="sign-modal"></div>
