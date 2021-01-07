@@ -5,21 +5,23 @@ var signature = ""
 var current_slide = 0;
 var total_slides = 0;
 var loaded_flashcards = null;
-var pct=0
+var pct = 0
 var completed = false
 
-function updateProgressBar(){
-    pct = (current_slide/total_slides)  * 100
-    $('.progress-bar').css("width",pct+"%")
-    $('.progress-bar').attr("aria-valuenow",pct)
-    $("#progress").html(current_slide+ " out of "+ total_slides)
+function updateProgressBar() {
+    pct = (current_slide / total_slides) * 100
+    $('.progress-bar').css("width", pct + "%")
+    $('.progress-bar').attr("aria-valuenow", pct)
+    $("#progress").html(current_slide + " out of " + total_slides)
 }
 
+function nextSlide() {
+    if (current_slide < total_slides) {
 function nextSlide(){
     if(current_slide <total_slides){
         current_slide++
-        completed=false;
-    }else{
+        completed = false;
+    } else {
         completed = true;
     }
     
@@ -28,8 +30,8 @@ function nextSlide(){
     
     if(!completed){
     var type = $("div.active").children().attr("class");
-    if(type == "question_choices"){
-        answer = $("input[name= choices_"+(current_slide-1)+"]:checked").val()
+    if (type == "question_choices") {
+        answer = $("input[name= choices_" + (current_slide - 1) + "]:checked").val()
         console.log(answer)
     }else if(type == "question_text"){
         answer = $("textarea[name= textarea_"+(current_slide-1)+"]").val()
@@ -61,18 +63,38 @@ function nextSlide(){
             }
         })   
     }
-    
+
     $('#myCarousel').carousel('next');
+    var flashcard_id = current_flashcard.id;
+    var sessionId = localStorage.getItem("session_id");
+    var ip_address = "172.0.0.1";
+    var user_device = "self device"
+    da_ = {
+        "session_id": localStorage.getItem("session_id"),
+        "ip_address": ip_address,
+        "user_device": user_device
+    }
+    console.log(da_)
+    $.ajax({
+        "url": SERVER + 'courses_api/session/event/' + flashcard_id + '/' + sessionId + '/',
+        "data": JSON.stringify(da_),
+        "type": 'POST',
+        "contentType": 'application/json',
+        "success": function (da_) {
+            console.log("Session event duration")
+        }
+    })
 }
 
-function prevSlide(){
-    if(current_slide >0){
+function prevSlide() {
+    if (current_slide > 0) {
         current_slide--;
     }
     updateProgressBar()
     console.log(current_slide)
     $('#myCarousel').carousel('prev');
 }
+
 
 function getParam(sParam){
     var sPageURL = window.location.search.substring(1);
@@ -92,7 +114,7 @@ function get_session() {
         return
     }
     console.log("Generate new session")
-    $.get(SERVER + '/courses_api/session/get', function(resp) {
+    $.get(SERVER + '/courses_api/session/get', function (resp) {
         console.log(resp)
         localStorage.setItem("session_id", resp.session_id)
     })
@@ -102,14 +124,15 @@ function init() {
     $("#progress-section").hide();
     
     var lesson_id = getParam("lesson_id");
-    
-    
-    $.get(SERVER+'/courses_api/lesson/read/'+lesson_id,function(response) {
+
+    $.get(SERVER + '/courses_api/lesson/read/' + lesson_id, function (response) {
+
         get_session();
         let sign_flashcard = {lesson_type: 'input_signature'}
         response.flashcards.push(sign_flashcard)
         total_slides = response.flashcards.length;
         $("#progress-section").show();
+
         $("#progress").html(current_slide+ " out of "+ total_slides)
         var flashcards = response.flashcards;        
         console.log(flashcards)
@@ -124,12 +147,12 @@ function init() {
         
         loaded_flashcards = flashcards;
         var i = 0;
-        var className="item";
+        var className = "item";
         // XXX refactor code below into smaller processing chunk
         flashcards.forEach((flashcard) => {
-            if(i == 0) {
+            if (i == 0) {
                 className = "item active"
-            }else{
+            } else {
                 className = "item"
             }
             
@@ -195,8 +218,8 @@ function init() {
                         if(f.lesson_type == 'question_text'){
                             $("textarea[name=textarea_"+i).val(rf.answer)
                         }
-                        if(f.lesson_type == 'question_choices'){
-                            $("input[name=choices_"+i+"][value="+rf.answer+"]").attr("checked",true)
+                        if (f.lesson_type == 'question_choices') {
+                            $("input[name=choices_" + i + "][value=" + rf.answer + "]").attr("checked", true)
                         }
                     }
                     signature = rf.signature

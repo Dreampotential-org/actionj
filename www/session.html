@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Session</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+  <br>
+  <table class="table">
+      <thead>
+          <tr>
+              <th>Session</th>
+              <th>name</th>
+              <th>start time</th>
+              <th>end time</th>
+              <th>duration</th>
+          </tr>
+      </thead>
+      <tbody id="tableSession">     
+
+      </tbody>
+  </table>
+</div>
+</html>
+
+<script>
+$(document).ready(function () {
+    jQuery.support.cors = true;
+    // var SERVER ='https://sfapp-api.dreamstate-4-all.org'
+    var SERVER = "http://localhost:8000";
+
+    $.ajax({
+        'url': SERVER + '/courses_api/session/event/',
+        'type': 'GET',
+        'contentType': 'application/json',
+        'data': "{}",
+        'success': function (data) {
+            var trHTML = '';
+            $.each(data, function(i, item) {
+                trHTML += '<tr><td>' + data.user_session[i] + '</td><td>' + 
+                        data.user_device[i] + '</td><td>' + data.start_time[i] + '</td><td>' + 
+                        data.end_time[i] + '</td><td>' + data.view_duration[i] + '</td><tr>';
+            });
+            $('#tableSession').append   (trHTML);
+        },
+        error: function(msg) {
+            console.log(msg.responseText);
+        }
+    })
+})
+</script>
