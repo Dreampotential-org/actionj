@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Setting</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>  
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+        <style>
+            .start-container{
+                border: 1px solid lightgray;
+                padding: 25px;
+            }
+            .material-switch > input[type="checkbox"] {
+                display: none;   
+            }
+
+            .material-switch > label {
+                cursor: pointer;
+                height: 0px;
+                position: relative; 
+                width: 40px;  
+            }
+
+            .material-switch > label::before {
+                background: rgb(0, 0, 0);
+                box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+                border-radius: 8px;
+                content: '';
+                height: 16px;
+                margin-top: -8px;
+                position:absolute;
+                opacity: 0.3;
+                transition: all 0.4s ease-in-out;
+                width: 40px;
+            }
+            .material-switch > label::after {
+                background: rgb(255, 255, 255);
+                border-radius: 16px;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+                content: '';
+                height: 24px;
+                left: -4px;
+                margin-top: -8px;
+                position: absolute;
+                top: -4px;
+                transition: all 0.3s ease-in-out;
+                width: 24px;
+            }
+            .material-switch > input[type="checkbox"]:checked + label::before {
+                background: inherit;
+                opacity: 0.5;
+            }
+            .material-switch > input[type="checkbox"]:checked + label::after {
+                background: inherit;
+                left: 20px;
+            }
+        </style>
+
+    </head>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <br>
+            <div class="col-xs-12"><a href="./">Back Home</a></div>
+        </div>
+        <div class="row">
+            <br>
+            <div class="col-xs-12">
+                <img src="img/clicker-logo.png" style="width: 60px;">
+                <h3>Heading Text</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                    Add Text
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <h2>Data</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>URL</th>
+                    <th>Switch</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="glyphicon glyphicon-link"></span> www.example.com</td>
+                    <td><div class="material-switch">
+                            <input id="someSwitchOptionSuccess" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionSuccess" class="label-success"></label>
+                        </div></td>
+                    <td><button type="button" class="btn btn-primary">View </button> &nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-primary">Edit </button></td>
+                </tr>
+                <tr>
+                    <td><span class="glyphicon glyphicon-link"></span> www.example.com</td>
+                    <td><div class="material-switch">
+                            <input id="someSwitchOptionSuccess1" name="someSwitchOption002" type="checkbox"/>
+                            <label for="someSwitchOptionSuccess" class="label-success"></label>
+                        </div></td>
+                    <td><button type="button" class="btn btn-primary">View </button> &nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-primary">Edit </button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <h2 class="modal-title" id="exampleModalLabel">Add a Text</h2>
+                        </div>
+                        <div class="col-xs-3">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h3>Endpoint</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> We'll send your text to this URL</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter URL">
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

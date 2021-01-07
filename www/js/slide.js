@@ -1,6 +1,6 @@
-// var SERVER ='https://sfapp-api.dreamstate-4-all.org'
-var SERVER = "http://localhost:8000";
-
+var SERVER ='https://sfapp-api.dreamstate-4-all.org'
+//var SERVER = "http://localhost:8000";
+var answer = ""
 var current_slide = 0;
 var total_slides = 0;
 var loaded_flashcards = null;
@@ -15,8 +15,9 @@ function updateProgressBar() {
 }
 
 function nextSlide() {
-    var answer;
     if (current_slide < total_slides) {
+function nextSlide(){
+    if(current_slide <total_slides){
         current_slide++
         completed = false;
     } else {
@@ -24,6 +25,9 @@ function nextSlide() {
     }
 
     updateProgressBar()
+
+    
+    if(!completed){
     var type = $("div.active").children().attr("class");
     if (type == "question_choices") {
         answer = $("input[name= choices_" + (current_slide - 1) + "]:checked").val()
@@ -83,19 +87,18 @@ function prevSlide() {
     updateProgressBar()
     console.log(current_slide)
     $('#myCarousel').carousel('prev');
-    var type = $("div.active").children().attr("class");
-    console.log(type)
 }
 
-function getParam(sParam) {
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) {
-            return sParameterName[1];
-        }
-    }
+
+function getParam(sParam){
+  var sPageURL = window.location.search.substring(1);
+  var sURLVariables = sPageURL.split('&');
+  for (var p = 0; p < sURLVariables.length; p++){
+      var sParameterName = sURLVariables[p].split('=');
+      if (sParameterName[0] == sParam) {
+          return sParameterName[1];
+      }
+  }
 }
 
 function get_session() {
