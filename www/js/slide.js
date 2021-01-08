@@ -35,7 +35,7 @@ function nextSlide(){
         answer = $("textarea[name= textarea_"+(current_slide-1)+"]").val()
     }else if(type=='signature'){
         console.log("This is signature")
-        signature = $("input[name= input_signature_"+(current_slide-1)+"]").val()
+        answer = $("input[name= input_signature_"+(current_slide-1)+"]").val()
     }
     
 
@@ -58,7 +58,6 @@ function nextSlide(){
         "flashcard":flashcard_id,
         "session_id":localStorage.getItem("session_id"),
         "answer":answer?answer:"",
-        "signature":signature
     }
 
 
