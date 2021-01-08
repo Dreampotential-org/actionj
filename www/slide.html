@@ -39,8 +39,8 @@
 	<script>
 			$('#sign-modal').load("signature/index.html");
 			function signLesson(event, imgId, signInput) {
-				if ($('#sign-modal')) {
-					$('#sign-modal').modal('show');
+				if ($('#signature')) {
+					$('#signature').modal('show');
 				}
 				document.addEventListener('signatureSubmitted', function (e) {
 					$('#' + signInput).val(window.currentSignature.data);
