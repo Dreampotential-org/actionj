@@ -20,6 +20,20 @@ function selectLesson() {
     window.location.href = SERVER + "/lesson.html?lesson_id=" + thelesson_id
 }
 
+function getAllLessons(){
+
+    $.get(API_SERVER + '/courses_api/lesson/all', function (response) {
+        var lessons = response;
+        lessons.forEach((lesson) => {
+            var lesson_id = lesson.id
+            var lesson_name = lesson.lesson_name
+            $("#select_lesson").append("<option value='" + lesson_id + "'>" + lesson_name + "</option>")
+        })
+    })
+
+
+
+}
 function addChoices(id, value) {
     if (!value) {
         value = ""
@@ -57,8 +71,6 @@ function addSpeedRead(isNew, id, value, posU) {
 
     } else {
         $("#speed_read").find("textarea").html("")
-
-
     }
     $("#speed_read").find("textarea").attr("name", "speed_read_" + quick_read_count)
     $("#sortable").append($("#speed_read").html())
@@ -141,7 +153,6 @@ function handleImageSelect(e) {
     }
 }
 
-
 function handleVideoUpload() {
     // prompt for video upload
     $("#videoUpload").click();
@@ -158,7 +169,6 @@ function handleVideoSelect(e) {
         uploadFile('video');
     }
 }
-
 
 function uploadFile(fileType) {
     console.log("Submitted");
@@ -279,7 +289,6 @@ function displayVideo(file_url) {
     $("#upload-vid-btn").attr("value", "Upload new Video");
 }
 
-
 function addVideoFile(isNew, id, question, choices, image, posU) {
 
     if (!isNew) {
@@ -362,7 +371,7 @@ function addSignaturePad(isNew, id, sign_data, posU) {
 
     }
 
-    $("#sign_b64").find("input").first().attr("name", "input_signature" + sign_count);
+    $("#sign_b64").find("input").first().attr("name", "input_signature_" + sign_count);
 
     $("#sortable").append($("#sign_b64").html())
 
@@ -478,6 +487,15 @@ function sendUpdates() {
         flashcards.push(temp)
     }
 
+    for (var i = 0; i < sign_count; i++) {
+        position_me = $('input[name="input_signature_' + i + '"]').parent().parent().data("position")
+
+        temp = {
+            "lesson_type": "signature",
+            "position": position_me
+        }
+        flashcards.push(temp)
+    }
     data_.flashcards = flashcards
     console.log(data_)
 
@@ -513,7 +531,6 @@ function sendUpdates() {
 
 $(document).ready(function () {
 
-
     if (lesson_id) {
         MODE = "UPDATE";
     } else {
@@ -521,32 +538,11 @@ $(document).ready(function () {
     }
 
 
-    if (MODE == "UPDATE") {
-        $.get(API_SERVER + '/courses_api/lesson/read/' + lesson_id + '/', function (response) {
-
-            $("#lesson_slide").attr("href", "/slide.html?lesson_id=" + lesson_id)
-            $("#lesson_responses").attr("href", "/lesson_responses.html?lesson_id=" + lesson_id)
-
-            $("#lesson_name").val(response.lesson_name)
-            var flashcards = response.flashcards;
-
-            flashcards.sort(function (a, b) {
-                keyA = a.position;
-                keyB = b.position;
-                if (keyA < keyB)
-                    return -1;
-                if (keyA > keyB)
-                    return 1;
-                return 0;
-            })
-        })
-
         if (MODE == "UPDATE") {
             $.get(API_SERVER + '/courses_api/lesson/read/' + lesson_id + '/', function (response) {
                 $("#lesson_slide").attr("href", SERVER + "/slide.html?lesson_id=" + lesson_id)
                 $("#lesson_name").val(response.lesson_name)
                 var flashcards = response.flashcards;
-
                 flashcards.sort(function (a, b) {
                     keyA = a.position;
                     keyB = b.position;
@@ -556,6 +552,7 @@ $(document).ready(function () {
                         return 1;
                     return 0;
                 })
+
                 flashcards.forEach((flashcard) => {
 
                     if (pos < flashcard.position) {
@@ -585,18 +582,14 @@ $(document).ready(function () {
 
                         addQuestionText(false, flashcard.id, flashcard.question, flashcard.position)
                     }
-                    addSignaturePad(false, flashcard.id, null, flashcard.position + 1);
+                    if(flashcard.lesson_type == "signature"){
+                        addSignaturePad(false, flashcard.id, null, flashcard.position + 1);
+                    }
                 })
-
-                $.get(API_SERVER + '/courses_api/lesson/all', function (response) {
-                    var lessons = response;
-                    lessons.forEach((lesson) => {
-                        var lesson_id = lesson.id
-                        var lesson_name = lesson.lesson_name
-                        $("#select_lesson").append("<option value='" + lesson_id + "'>" + lesson_name + "</option>")
-                    })
-                })
+                getAllLessons();
             })
+        }else{
+            getAllLessons();
         }
 
         $("#lesson_form").submit((e) => {
@@ -634,7 +627,6 @@ $(document).ready(function () {
 
 
         $('#add').click(function (e) {
-
             if ($("#selectsegment").val() == 'speed_read')
             {
                 addSpeedRead(true);
@@ -673,6 +665,6 @@ $(document).ready(function () {
                 alert("Please select a type");
             }
         })
-    }
+    
 })
 

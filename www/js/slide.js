@@ -15,8 +15,6 @@ function updateProgressBar() {
     $("#progress").html(current_slide + " out of " + total_slides)
 }
 
-function nextSlide() {
-    if (current_slide < total_slides) {
 function nextSlide(){
     if(current_slide <total_slides){
         current_slide++
@@ -26,7 +24,6 @@ function nextSlide(){
     }
     
     updateProgressBar()
-
     
     if(!completed){
     var type = $("div.active").children().attr("class");
@@ -35,9 +32,11 @@ function nextSlide(){
         console.log(answer)
     }else if(type == "question_text"){
         answer = $("textarea[name= textarea_"+(current_slide-1)+"]").val()
-    }else if(type=='input_signature'){
+    }else if(type=='signature'){
         signature = $("input[name= input_signature_"+(current_slide-1)+"]").val()
     }
+
+    /*
     if(!completed){
         
         var current_flashcard = loaded_flashcards[current_slide-1]
@@ -63,8 +62,11 @@ function nextSlide(){
             }
         })   
     }
+    */
 
     $('#myCarousel').carousel('next');
+    var current_flashcard = loaded_flashcards[current_slide-1]
+    current_flashcard = current_flashcard.id?current_flashcard:loaded_flashcards[current_slide-2]
     var flashcard_id = current_flashcard.id;
     var sessionId = localStorage.getItem("session_id");
     var ip_address = "172.0.0.1";
@@ -85,6 +87,7 @@ function nextSlide(){
         }
     })
 }
+}
 
 function prevSlide() {
     if (current_slide > 0) {
@@ -94,7 +97,6 @@ function prevSlide() {
     console.log(current_slide)
     $('#myCarousel').carousel('prev');
 }
-
 
 function getParam(sParam){
     var sPageURL = window.location.search.substring(1);
@@ -135,7 +137,7 @@ function init() {
 
         $("#progress").html(current_slide+ " out of "+ total_slides)
         var flashcards = response.flashcards;        
-        console.log(flashcards)
+        //console.log(flashcards)
         
         flashcards.sort(function(a,b){
             keyA = a.position;
@@ -155,11 +157,11 @@ function init() {
             } else {
                 className = "item"
             }
-            
             $("#carousel-indicators").append('<li data-target="#myCarousel" data-slide-to="'+i+'" class="active"></li>')
             if(flashcard.lesson_type == "quick_read"){
                 $("#prevButton").attr("data-type","quick_read");
                 $("#nextButton").attr("data-type","quick_read");
+
                 $("#theSlide").append('<div class="'+className+'"><div alt="quick_read" style="height:500px"><h1>'+flashcard.question+'</h1></div></div>')
             }
             if(flashcard.lesson_type == "title_text"){
@@ -194,8 +196,8 @@ function init() {
                 $("#theSlide").append('<div class="'+className+'"><div class="question_text"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea name ="textarea_'+i+'" class="form-control" placeholder="Enter you answer here"></textarea></div></div></div>')
                 
             }
-            if(flashcard.lesson_type=="input_signature"){
-                
+            if(flashcard.lesson_type=="signature"){
+                console.log("Adding Signature")
                 $("#theSlide").append(`
                 <div class="${className}" id="flashcard_${i}">
                 <div class="input_signature">
@@ -207,6 +209,7 @@ function init() {
             }
             i++;
         })
+
         $("#theSlide").append('<div class="item"><div alt="quick_read" style="height:500px"><h1>Completed <img height="30px" src="https://www.clipartmax.com/png/full/301-3011315_icon-check-green-tick-transparent-background.png"></h1></div></div>')
         
         $.get(SERVER+'/courses_api/lesson/response/get/'+lesson_id+'/'+localStorage.getItem("session_id"),function(response){
