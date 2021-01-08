@@ -7,7 +7,7 @@ var total_slides = 0;
 var loaded_flashcards = null;
 var pct = 0
 var completed = false
-
+var signature = [];
 function updateProgressBar() {
     pct = (current_slide / total_slides) * 100
     $('.progress-bar').css("width", pct + "%")
@@ -202,7 +202,7 @@ function init() {
                 <div class="${className}" id="flashcard_${i}">
                 <div class="input_signature">
                 <input type="text" hidden name="input_signature_${i}" id="signInput"> 
-                <button class="btn btn-primary" type="button" onclick="signLesson(event, 'slide_signature', 'signInput')"> Click To Sign</button>
+                <button class="btn btn-primary" type="button" onclick="signLesson(event,'slide_signature', 'signInput')"> Click To Sign</button>
                 <img id="slide_signature" hidden src="">
                 </div>
                 </div>`) 
@@ -236,6 +236,20 @@ function init() {
             })
         })
     })
+}
+
+$('#sign-modal').load("signature/index.html");
+function signLesson(event, imgId, signInput) {
+    if ($('#signature')) {
+        $('#signature').modal('show');
+    }
+    document.addEventListener('signatureSubmitted', function (e) {
+        $('#' + signInput).val(window.currentSignature.data);
+        $('#' + imgId).attr('src', window.currentSignature.data);
+        $('#' + imgId).removeAttr('hidden');
+        event.target.innerHTML = 'Redraw Signature';
+        // window.currentSignature = undefined;
+    });
 }
 
 window.addEventListener('DOMContentLoaded', init, false)
