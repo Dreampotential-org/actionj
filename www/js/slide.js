@@ -1,5 +1,5 @@
-var SERVER ='https://sfapp-api.dreamstate-4-all.org'
-// var SERVER = "http://localhost:8000";
+var THE_SERVER ="https://sfapp-api.dreamstate-4-all.org"
+// var THE_SERVER = "http://localhost:8000";
 var answer = ""
 var signature = ""
 var current_slide = 0;
@@ -17,8 +17,12 @@ function updateProgressBar() {
 
 function updateSign(data_,event,imgId,signInput){
     $('#' + signInput).val(data_);
-    $('#' + imgId).attr('src', data_);
+    console.log("updating sign :"+imgId)
+    console.log("with: "+ data_)
+    $('#' + imgId).attr("src", data_);
+    console.log("yo"+data_+$('#' + imgId).attr("src"))
     $('#' + imgId).removeAttr('hidden');
+
     if(event){
         event.target.innerHTML = 'Redraw Signature';
     }
@@ -81,13 +85,13 @@ function nextSlide(){
     console.log(data_)
 
     $.ajax({
-        "url": SERVER +"/courses_api/flashcard/response/",
+        "url": THE_SERVER +"/courses_api/flashcard/response/",
         'data': JSON.stringify(data_),
         'type': 'POST',
         'contentType': 'application/json',
         'success': function (data){
             $.ajax({
-                "url": SERVER + 'courses_api/session/event/' + flashcard_id + '/' + sessionId + '/',
+                "url": THE_SERVER + 'courses_api/session/event/' + flashcard_id + '/' + sessionId + '/',
                 "data": JSON.stringify(da_),
                 "type": 'POST',
                 "contentType": 'application/json',
@@ -130,10 +134,10 @@ function get_session() {
     var session_id = localStorage.getItem("session_id")
     if (session_id) {
         console.log("Already have session_id " + session_id)
-        return
+        return session_id
     }
     console.log("Generate new session")
-    $.get(SERVER + '/courses_api/session/get', function (resp) {
+    $.get(THE_SERVER + '/courses_api/session/get', function (resp) {
         console.log(resp)
         localStorage.setItem("session_id", resp.session_id)
     })
@@ -144,7 +148,7 @@ function init() {
     
     var lesson_id = getParam("lesson_id");
 
-    $.get(SERVER + '/courses_api/lesson/read/' + lesson_id, function (response) {
+    $.get(THE_SERVER + '/courses_api/lesson/read/' + lesson_id, function (response) {
 
         get_session();
         let sign_flashcard = {lesson_type: 'input_signature'}
@@ -214,23 +218,21 @@ function init() {
                 
             }
             if(flashcard.lesson_type=="signature"){
-                console.log("Adding Signature")
                 $("#theSlide").append(`
                 <div class="${className}" id="flashcard_${i}">
                 <div alt="signature">
                 <input type="text" hidden name="input_signature_${i}" id="signInput"> 
                 <button class="btn btn-primary" type="button" onclick="signLesson(event,'slide_signature', 'signInput')"> Click To Sign</button>
-                <img id="slide_signature" hidden src="">
+                <img id="slide_signature" hidden >
                 </div>
                 </div>`) 
-                updateSign(flashcard.answer,null,'slide_signature', 'signInput')
             }
             i++;
         })
 
         $("#theSlide").append('<div class="item"><div alt="quick_read" style="height:500px"><h1>Completed <img height="30px" src="https://www.clipartmax.com/png/full/301-3011315_icon-check-green-tick-transparent-background.png"></h1></div></div>')
         
-        $.get(SERVER+'/courses_api/lesson/response/get/'+lesson_id+'/'+localStorage.getItem("session_id"),function(response){
+        $.get(THE_SERVER+'/courses_api/lesson/response/get/'+lesson_id+'/'+localStorage.getItem("session_id"),function(response){
             response.forEach(function(rf){
                 loaded_flashcards.forEach(function(f,i){
                     if(rf.flashcard[0].id == f.id){
@@ -242,11 +244,12 @@ function init() {
                         if (f.lesson_type == 'question_choices') {
                             $("input[name=choices_" + i + "][value=" + rf.answer + "]").attr("checked", true)
                         }
+
+
                     }
-                    signature = rf.signature
-                    $("input[name=input_signature_"+i+"]").val(rf.signature)
-                    $("#slide_signature").attr("src",rf.signature)
-                    if(rf.signature){
+                    $("input[name=input_signature_"+i+"]").val(rf.answer)
+                    $("#slide_signature").attr("src",rf.answer)
+                    if(rf.answer){
                         $("#slide_signature").attr("hidden",false)                     
                         $('.input_signature').children('button')[0].innerText = 'Redraw Signature'
                     }                                         
