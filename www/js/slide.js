@@ -15,6 +15,23 @@ function updateProgressBar() {
     $("#progress").html(current_slide + " out of " + total_slides)
 }
 
+function updateSign(data_,event=null){
+    $('#' + signInput).val(data_);
+    $('#' + imgId).attr('src', data_);
+    $('#' + imgId).removeAttr('hidden');
+    if(event){
+        event.target.innerHTML = 'Redraw Signature';
+    }
+}
+function signLesson(event, imgId, signInput) {
+    if ($('#signature')) {
+        $('#signature').modal('show');
+    }
+    document.addEventListener('signatureSubmitted', function (e) {
+        updateSign(window.currentSignature.data,event);
+    });
+}
+
 function nextSlide(){
     if(current_slide <total_slides){
         current_slide++
@@ -206,6 +223,7 @@ function init() {
                 <img id="slide_signature" hidden src="">
                 </div>
                 </div>`) 
+                updateSign(flashcard.answer)
             }
             i++;
         })
@@ -239,17 +257,6 @@ function init() {
 }
 
 $('#sign-modal').load("signature/index.html");
-function signLesson(event, imgId, signInput) {
-    if ($('#signature')) {
-        $('#signature').modal('show');
-    }
-    document.addEventListener('signatureSubmitted', function (e) {
-        $('#' + signInput).val(window.currentSignature.data);
-        $('#' + imgId).attr('src', window.currentSignature.data);
-        $('#' + imgId).removeAttr('hidden');
-        event.target.innerHTML = 'Redraw Signature';
-        // window.currentSignature = undefined;
-    });
-}
+
 
 window.addEventListener('DOMContentLoaded', init, false)
