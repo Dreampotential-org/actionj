@@ -34,9 +34,22 @@
 		</div>
 	</div>
 	
-	<div id="signature"></div>
+	<div id="sign-modal"></div>
+
 	<script>
-		$('#signature').load("signature/index.html");
+			$('#sign-modal').load("signature/index.html");
+			function signLesson(event, imgId, signInput) {
+				if ($('#signature')) {
+					$('#signature').modal('show');
+				}
+				document.addEventListener('signatureSubmitted', function (e) {
+					$('#' + signInput).val(window.currentSignature.data);
+					$('#' + imgId).attr('src', window.currentSignature.data);
+					$('#' + imgId).removeAttr('hidden');
+					event.target.innerHTML = 'Redraw Signature';
+					// window.currentSignature = undefined;
+				});
+			}
 	</script>
 	
 	<script src="js/slide.js"></script>

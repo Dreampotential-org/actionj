@@ -239,8 +239,8 @@ function init() {
 }
 
 function signLesson(event, imgId, signInput){
-    if($('#signature')){
-        $('#signature').modal('show'); 
+    if($('#sign-modal')){
+        $('#sign-modal').modal('show'); 
     }
     document.addEventListener('signatureSubmitted', function(e){
         $('#'+signInput).val(window.currentSignature.data);
