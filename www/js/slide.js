@@ -26,43 +26,18 @@ function nextSlide(){
     updateProgressBar()
     
     if(!completed){
-    var type = $("div.active").children().attr("class");
+    var type = $("div.active").children().attr("alt");
+    console.log(type)
     if (type == "question_choices") {
         answer = $("input[name= choices_" + (current_slide - 1) + "]:checked").val()
         console.log(answer)
     }else if(type == "question_text"){
         answer = $("textarea[name= textarea_"+(current_slide-1)+"]").val()
     }else if(type=='signature'){
+        console.log("This is signature")
         signature = $("input[name= input_signature_"+(current_slide-1)+"]").val()
     }
-
-    /*
-    if(!completed){
-        
-        var current_flashcard = loaded_flashcards[current_slide-1]
-        var current_flashcard = current_flashcard.id?current_flashcard:loaded_flashcards[current_slide-2]
-        var flashcard_id = current_flashcard.id
-        var data_ = {
-            "flashcard":flashcard_id,
-            "session_id":localStorage.getItem("session_id"),
-            "answer":answer?answer:"",
-            "signature":signature
-        }
-        console.log("data: "+answer)
-        $.ajax({
-            "url": SERVER +"/courses_api/flashcard/response/",
-            'data': JSON.stringify(data_),
-            'type': 'POST',
-            'contentType': 'application/json',
-            'success': function (data){
-                alert("FlashCard Response Sent")
-            },
-            'error': function(res){
-                // alert(JSON.stringify(res))
-            }
-        })   
-    }
-    */
+    
 
     $('#myCarousel').carousel('next');
     var current_flashcard = loaded_flashcards[current_slide-1]
@@ -76,16 +51,42 @@ function nextSlide(){
         "ip_address": ip_address,
         "user_device": user_device
     }
-    console.log(da_)
+
+
+
+    var data_ = {
+        "flashcard":flashcard_id,
+        "session_id":localStorage.getItem("session_id"),
+        "answer":answer?answer:"",
+        "signature":signature
+    }
+
+
+    console.log(data_)
+
     $.ajax({
-        "url": SERVER + 'courses_api/session/event/' + flashcard_id + '/' + sessionId + '/',
-        "data": JSON.stringify(da_),
-        "type": 'POST',
-        "contentType": 'application/json',
-        "success": function (da_) {
-            console.log("Session event duration")
+        "url": SERVER +"/courses_api/flashcard/response/",
+        'data': JSON.stringify(data_),
+        'type': 'POST',
+        'contentType': 'application/json',
+        'success': function (data){
+            $.ajax({
+                "url": SERVER + 'courses_api/session/event/' + flashcard_id + '/' + sessionId + '/',
+                "data": JSON.stringify(da_),
+                "type": 'POST',
+                "contentType": 'application/json',
+                "success": function (da_) {
+                    console.log("Session event duration")
+        
+                }
+            })
+            alert("FlashCard Response Sent")
+        },
+        'error': function(res){
+            // alert(JSON.stringify(res))
         }
-    })
+    })   
+
 }
 }
 
@@ -200,7 +201,7 @@ function init() {
                 console.log("Adding Signature")
                 $("#theSlide").append(`
                 <div class="${className}" id="flashcard_${i}">
-                <div class="input_signature">
+                <div alt="signature">
                 <input type="text" hidden name="input_signature_${i}" id="signInput"> 
                 <button class="btn btn-primary" type="button" onclick="signLesson(event,'slide_signature', 'signInput')"> Click To Sign</button>
                 <img id="slide_signature" hidden src="">
