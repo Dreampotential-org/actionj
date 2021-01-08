@@ -153,7 +153,7 @@ function init() {
 
 
             if(flashcard.lesson_type == "video_file"){
-            $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><video controls> <source src= "'+flashcard.image+'"></video></div></div>')
+            $("#theSlide").append('<div class="'+className+'"><div alt="title_text"><h1> '+flashcard.question+'</h1><video controls style="width: 100%;max-height: 100%;"> <source src= "'+flashcard.image+'"></video></div></div>')
             }
             if(flashcard.lesson_type=="question_text"){
             $("#theSlide").append('<div class="'+className+'"><div class="question_text"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea name ="textarea_'+i+'" class="form-control" placeholder="Enter you answer here"></textarea></div></div></div>')
