@@ -202,7 +202,7 @@ function init() {
                 <div class="${className}" id="flashcard_${i}">
                 <div class="input_signature">
                 <input type="text" hidden name="input_signature_${i}" id="signInput"> 
-                <button class="btn btn-primary" type="button" onclick="signLesson(event,'slide_signature', 'signInput')"> Click To Sign</button>
+                <button class="btn btn-primary" type="button" onclick="signLesson(event, 'slide_signature', 'signInput')"> Click To Sign</button>
                 <img id="slide_signature" hidden src="">
                 </div>
                 </div>`) 
@@ -236,19 +236,6 @@ function init() {
             })
         })
     })
-}
-
-function signLesson(event, imgId, signInput){
-    if($('#sign-modal')){
-        $('#sign-modal').modal('show'); 
-    }
-    document.addEventListener('signatureSubmitted', function(e){
-        $('#'+signInput).val(window.currentSignature.data);
-        $('#'+imgId).attr('src',window.currentSignature.data); 
-        $('#'+imgId).removeAttr('hidden'); 
-        event.target.innerHTML ='Redraw Signature';
-        // window.currentSignature = undefined;
-    });            
 }
 
 window.addEventListener('DOMContentLoaded', init, false)
