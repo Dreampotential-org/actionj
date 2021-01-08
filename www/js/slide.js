@@ -15,7 +15,7 @@ function updateProgressBar() {
     $("#progress").html(current_slide + " out of " + total_slides)
 }
 
-function updateSign(data_,event=null){
+function updateSign(data_,event,imgId,signInput){
     $('#' + signInput).val(data_);
     $('#' + imgId).attr('src', data_);
     $('#' + imgId).removeAttr('hidden');
@@ -28,7 +28,7 @@ function signLesson(event, imgId, signInput) {
         $('#signature').modal('show');
     }
     document.addEventListener('signatureSubmitted', function (e) {
-        updateSign(window.currentSignature.data,event);
+        updateSign(window.currentSignature.data,event,imgId,signInput);
     });
 }
 
@@ -223,7 +223,7 @@ function init() {
                 <img id="slide_signature" hidden src="">
                 </div>
                 </div>`) 
-                updateSign(flashcard.answer)
+                updateSign(flashcard.answer,null,'slide_signature', 'signInput')
             }
             i++;
         })
