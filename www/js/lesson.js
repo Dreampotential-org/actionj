@@ -26,7 +26,8 @@ function getAllLessons(){
         lessons.forEach((lesson) => {
             var lesson_id = lesson.id
             var lesson_name = lesson.lesson_name
-            $("#select_lesson").append("<option value='" + lesson_id + "'>" + lesson_name + "</option>")
+            $("#select_lesson").append("<option value='" + lesson_id + "'>"
+                + lesson_name + "</option>")
         })
     })
 
@@ -71,7 +72,8 @@ function addSpeedRead(isNew, id, value, posU) {
     } else {
         $("#speed_read").find("textarea").html("")
     }
-    $("#speed_read").find("textarea").attr("name", "speed_read_" + quick_read_count)
+    $("#speed_read").find("textarea").attr("name",
+                                           "speed_read_" + quick_read_count)
     $("#sortable").append($("#speed_read").html())
     $("#sortable").children().last().attr("id", null)
     sortablePositionFunction(isNew, posU);
@@ -91,8 +93,8 @@ function addTitleText(isNew, id, title, text, posU) {
         $("#title_text").find("textarea").html("")
     }
     $("#title_text").find("textarea").attr("name", "text_" + title_text_count)
-    $("#title_text").find("input[type=text]").attr("name", "title_" + title_text_count)
-
+    $("#title_text").find("input[type=text]").attr(
+        "name", "title_" + title_text_count)
     $("#sortable").append($("#title_text").html())
     sortablePositionFunction(isNew, posU);
 
@@ -101,10 +103,14 @@ function addTitleText(isNew, id, title, text, posU) {
 
 function addQuestionChoices(isNew, id, question, choices, image, posU) {
 
-    $("#question_choices").find("input").first().attr("name", "question_" + question_choices_count)
-    $("#question_choices").find("#choices").attr("id", "choices_" + question_choices_count)
-    $("#question_choices").find("input").last().attr("name", "image_" + question_choices_count)
-    $("#question_choices").find("button").attr("onclick", "addChoices(" + question_choices_count + ")");
+    $("#question_choices").find("input").first().attr(
+        "name", "question_" + question_choices_count)
+    $("#question_choices").find("#choices").attr(
+        "id", "choices_" + question_choices_count)
+    $("#question_choices").find("input").last().attr(
+        "name", "image_" + question_choices_count)
+    $("#question_choices").find("button").attr(
+        "onclick", "addChoices(" + question_choices_count + ")");
 
     if (!isNew) {
         $("#question_choices").find("input").first().attr("value", question)
@@ -216,9 +222,9 @@ function uploadFile(fileType) {
                 xhr.upload.addEventListener("progress", function (evt) {
                     if (evt.lengthComputable) {
                         var percentComplete = evt.loaded / evt.total;
-                        //Do something with upload progress here
                         console.log("percentComplete:", percentComplete);
-                        $(".swal-title").text(parseInt(percentComplete * 100) + "%")
+                        $(".swal-title").text(
+                            parseInt(percentComplete * 100) + "%")
                     }
                 }, false);
                 return xhr;
@@ -280,7 +286,8 @@ function displayImage(file_url) {
 
 function displayVideo(file_url) {
     var strTYPE = "video/mp4";
-    $("#videoplayer").html('<source src="' + file_url + '" type="' + strTYPE + '"></source>');
+    $("#videoplayer").html(
+        '<source src="' + file_url + '" type="' + strTYPE + '"></source>');
     $('#video-output').css('display', 'block');
     $("#videoplayer")[0].load();
 
@@ -306,9 +313,10 @@ function addVideoFile(isNew, id, question, choices, image, posU) {
 
     }
 
-    $("#video_file").find("input").first().attr("name", "question_" + video_file_count)
-    $("#video_file").find("input").last().attr("name", "video_" + video_file_count)
-
+    $("#video_file").find("input").first().attr(
+        "name", "question_" + video_file_count)
+    $("#video_file").find("input").last().attr(
+        "name", "video_" + video_file_count)
     $("#sortable").append($("#video_file").html())
     video_file_count++;
     sortablePositionFunction(isNew, posU);
@@ -327,11 +335,12 @@ function addIframeLink(isNew, id, question, choices, image, posU) {
     } else {
         $("#iframe_link").find("input").first().attr("value", "")
         $("#iframe_link").find("input").last().attr("value", "")
-
     }
 
-    $("#iframe_link").find("input").first().attr("name", "question_" + iframe_link_count)
-    $("#iframe_link").find("input").last().attr("name", "link_" + iframe_link_count)
+    $("#iframe_link").find("input").first().attr(
+        "name", "question_" + iframe_link_count)
+    $("#iframe_link").find("input").last().attr(
+        "name", "link_" + iframe_link_count)
 
     $("#sortable").append($("#iframe_link").html())
     iframe_link_count++;
@@ -351,8 +360,8 @@ function addQuestionText(isNew, id, question, posU) {
         $("#question_text").find("textarea").first().html("")
     }
 
-    $("#question_text").find("textarea").first().attr("name", "question_text_" + question_text_count)
-
+    $("#question_text").find("textarea").first().attr(
+        "name", "question_text_" + question_text_count)
     $("#sortable").append($("#question_text").html())
 
     question_text_count++;
@@ -363,14 +372,15 @@ function addSignaturePad(isNew, id, sign_data, posU) {
     if (!isNew) {
         $("#sign_b64").find("input").first().val(sign_data)
         $("#sign_b64").find("input").last().attr("data-id", id)
-        // $("#sign_b64").find("button").last().html("Redraw Signature")        
+        // $("#sign_b64").find("button").last().html("Redraw Signature")
         $("#sign_b64").find("img").last().attr("src", sign_data)
         $("#sign_b64").find("img").last().attr("hidden", false)
     } else {
 
     }
 
-    $("#sign_b64").find("input").first().attr("name", "input_signature_" + sign_count);
+    $("#sign_b64").find("input").first().attr(
+        "name", "input_signature_" + sign_count);
 
     $("#sortable").append($("#sign_b64").html())
 
@@ -535,10 +545,9 @@ $(document).ready(function () {
     } else {
         MODE = "CREATE";
     }
-
-
         if (MODE == "UPDATE") {
-            $.get(API_SERVER + '/courses_api/lesson/read/' + lesson_id + '/', function (response) {
+            $.get(API_SERVER + '/courses_api/lesson/read/' + lesson_id +
+                  '/', function (response) {
                 $("#lesson_responses").attr(
                     "href", "/lesson_responses.html?lesson_id=" + lesson_id)
                 $("#lesson_slide").attr(
@@ -563,34 +572,45 @@ $(document).ready(function () {
 
                     if (flashcard.lesson_type == "quick_read") {
 
-                        addSpeedRead(false, flashcard.id, flashcard.question, flashcard.position)
+                        addSpeedRead(false, flashcard.id, flashcard.question,
+                                     flashcard.position)
                     }
                     if (flashcard.lesson_type == "title_text") {
-                        addTitleText(false, flashcard.id, flashcard.question, flashcard.answer, flashcard.position)
+                        addTitleText(false, flashcard.id, flashcard.question,
+                                     flashcard.answer, flashcard.position)
                     }
                     if (flashcard.lesson_type == "question_choices") {
-                        addQuestionChoices(false, flashcard.id, flashcard.question, flashcard.options, flashcard.image, flashcard.position)
+                        addQuestionChoices(false, flashcard.id,
+                                           flashcard.question,
+                                           flashcard.options, flashcard.image,
+                                           flashcard.position)
                     }
 
                     if (flashcard.lesson_type == "video_file") {
-                        addVideoFile(false, flashcard.id, flashcard.question, flashcard.options, flashcard.image, flashcard.position)
+                        addVideoFile(false, flashcard.id, flashcard.question,
+                                     flashcard.options, flashcard.image,
+                                     flashcard.position)
                     }
 
                     if (flashcard.lesson_type == "iframe_link") {
-                        addIframeLink(false, flashcard.id, flashcard.question, flashcard.options, flashcard.image, flashcard.position)
+                        addIframeLink(false, flashcard.id, flashcard.question,
+                                      flashcard.options, flashcard.image,
+                                      flashcard.position)
                     }
                     if (flashcard.lesson_type == "question_text") {
                         console.log("Question Text Added")
 
-                        addQuestionText(false, flashcard.id, flashcard.question, flashcard.position)
+                        addQuestionText(false, flashcard.id, flashcard.question,
+                                        flashcard.position)
                     }
                     if(flashcard.lesson_type == "signature"){
-                        addSignaturePad(false, flashcard.id, null, flashcard.position + 1);
+                        addSignaturePad(false, flashcard.id, null,
+                                        flashcard.position + 1);
                     }
                 })
                 getAllLessons();
             })
-        }else{
+        } else {
             getAllLessons();
         }
 
@@ -667,6 +687,4 @@ $(document).ready(function () {
                 alert("Please select a type");
             }
         })
-    
 })
-
