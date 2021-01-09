@@ -10,14 +10,13 @@ var MODE;
 var pos = 0;
 
 var API_SERVER ='https://sfapp-api.dreamstate-4-all.org';
-var SERVER = 'https://sfapp.dreamstate-4-all.org';
 //var API_SERVER ='http://localhost:8000';
 
 var lesson_id = getParam("lesson_id");
 
 function selectLesson() {
     var thelesson_id = $("#select_lesson :selected").val()
-    window.location.href = SERVER + "/lesson.html?lesson_id=" + thelesson_id
+    window.location.href = "/lesson.html?lesson_id=" + thelesson_id
 }
 
 function getAllLessons(){
@@ -540,7 +539,8 @@ $(document).ready(function () {
 
         if (MODE == "UPDATE") {
             $.get(API_SERVER + '/courses_api/lesson/read/' + lesson_id + '/', function (response) {
-                $("#lesson_slide").attr("href", SERVER + "/slide.html?lesson_id=" + lesson_id)
+                $("#lesson_slide").attr(
+                    "href", "/slide.html?lesson_id=" + lesson_id)
                 $("#lesson_name").val(response.lesson_name)
                 var flashcards = response.flashcards;
                 flashcards.sort(function (a, b) {
