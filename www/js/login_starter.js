@@ -34,6 +34,7 @@ $(document).ready(function () {
       type: "post",
       data: $(this).serialize(),
       success: function (response) {
+        debugger;
         // Whatever you want to do after the form is successfully submitted
         console.log(response);
         localStorage.setItem("user-token", response.token);
@@ -46,7 +47,7 @@ $(document).ready(function () {
           timer: 1000,
         });
 
-        displayPage("dashboard");
+        //displayPage("dashboard");
       },
       error: function () {
         swal({
@@ -59,7 +60,6 @@ $(document).ready(function () {
   });
 
   $("#loginForm").on("submit", function (ev) {
-    debugger;
     ev.preventDefault();
     swal({
       title: "Signing In!",
@@ -77,14 +77,16 @@ $(document).ready(function () {
         localStorage.setItem("user-token", response.token);
 
         swal({
-          title: "Welcome " + response.user.name + "!",
+          // title: "Welcome " + response.user.name + "!",
+          title: "Welcome !",
           text: "You are logged in.",
           icon: "success",
           buttons: false,
-          timer: 1000,
+          timer: 3000,
         });
 
-        displayPage("dashboard");
+        //displayPage("dashboard");
+        window.location.replace("students_list.html");
       },
       error: function () {
         swal({
