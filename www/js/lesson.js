@@ -2,6 +2,7 @@ var quick_read_count = 0;
 var title_text_count = 0;
 var question_choices_count = 0;
 var video_file_count = 0;
+var image_file_count = 0;
 var iframe_link_count = 0;
 var question_text_count = 0;
 var sign_count = 0;
@@ -31,15 +32,12 @@ function getAllLessons(){
         })
     })
 
-
-
 }
 function addChoices(id, value) {
     if (!value) {
         value = ""
     }
     var next_id = $("#choices_" + id).children().last().data("id") + 1
-    //console.log(id)
     $("#choices_" + id).append('<div><input type="text" class="form-control" data-id="' + next_id + '"rows="7" placeholder="Choices" value="' + value + '"><button onclick="$(this).parent().remove()">Remove Choice</button></div>')
 }
 
@@ -314,7 +312,7 @@ function addVideoFile(isNew, id, question, choices, image, posU) {
     }
 
     $("#video_file").find("input").first().attr(
-        "name", "question_" + video_file_count)
+        "name", "video_question_" + video_file_count)
     $("#video_file").find("input").last().attr(
         "name", "video_" + video_file_count)
     $("#sortable").append($("#video_file").html())
@@ -388,6 +386,34 @@ function addSignaturePad(isNew, id, sign_data, posU) {
     sortablePositionFunction(isNew, posU);
 }
 
+function addImageFile(isNew,id,question,image,posU){
+
+    if (!isNew) {
+        $("#image_file").find("input").first().attr("value", question)
+        $("#image_file").find("input").last().attr("value", image)
+
+        $("#image_file").find("input").first().attr("data-id", id)
+        $("#image_file").find("input").last().attr("data-id", id)
+
+        // Display Video
+        displayImage(image);
+
+    } else {
+        $("#image_file").find("input").first().attr("value", "")
+        $("#image_file").find("input").last().attr("value", "")
+
+    }
+
+    $("#image_file").find("input").first().attr(
+        "name", "image_question" + image_file_count)
+    $("#image_file").find("input").last().attr(
+        "name", "image_" + image_file_count)
+    $("#sortable").append($("#image_file").html())
+    image_file_count++;
+    sortablePositionFunction(isNew, posU);
+
+}
+
 function sendUpdates() {
     var lesson_name = $("#lesson_name").val()
     data_ = {
@@ -455,9 +481,9 @@ function sendUpdates() {
     }
 
     for (var i = 0; i < video_file_count; i++) {
-        var question = $('input[name="question_' + i + '"]').val()
+        var question = $('input[name="video_question_' + i + '"]').val()
         var video = $('input[name="video_' + i + '"]').val()
-        position_me = $('input[name="question_' + i + '"]').parent().parent().data("position")
+        position_me = $('input[name="video_question_' + i + '"]').parent().parent().data("position")
 
         temp = {
             "lesson_type": "video_file",
@@ -505,6 +531,22 @@ function sendUpdates() {
         }
         flashcards.push(temp)
     }
+
+    for (var i = 0; i < image_file_count; i++) {
+        var question = $('input[name="image_question' + i + '"]').val()
+        var video = $('input[name="image_' + i + '"]').val()
+        position_me = $('input[name="image_question' + i + '"]').parent().parent().data("position")
+
+        temp = {
+            "lesson_type": "image_file",
+            "question": question,
+            "image": video,
+            "options": choices,
+            "position": position_me
+        }
+        flashcards.push(temp)
+    }
+
     data_.flashcards = flashcards
     console.log(data_)
 
@@ -592,6 +634,13 @@ $(document).ready(function () {
                                      flashcard.position)
                     }
 
+
+                    if (flashcard.lesson_type == "image_file") {
+                        addImageFile(false, flashcard.id, flashcard.question,
+                                     flashcard.options, flashcard.image,
+                                     flashcard.position)
+                    }
+
                     if (flashcard.lesson_type == "iframe_link") {
                         addIframeLink(false, flashcard.id, flashcard.question,
                                       flashcard.options, flashcard.image,
@@ -635,7 +684,9 @@ $(document).ready(function () {
                     iframe_link_count--
                 } else if (lesson_element_type.startsWith("video")) {
                     video_file_count--
-                } else if (lesson_element_type.startsWith("question_text")) {
+                } else if (lesson_element_type.startsWith("image")) {
+                    image_file_count--
+                }else if (lesson_element_type.startsWith("question_text")) {
                     question_text_count--
                 } else if (lesson_element_type.startsWith("sign_b64")) {
                     sign_count--
@@ -665,6 +716,12 @@ $(document).ready(function () {
             if ($("#selectsegment").val() == 'video_file')
             {
                 addVideoFile(true)
+
+            }
+
+            if ($("#selectsegment").val() == 'image_file')
+            {
+                addImageFile(true)
 
             }
             if ($("#selectsegment").val() == 'iframe_link')
