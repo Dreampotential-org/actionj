@@ -5,6 +5,7 @@ var video_file_count = 0;
 var image_file_count = 0;
 var iframe_link_count = 0;
 var question_text_count = 0;
+var title_input_count =0;
 var sign_count = 0;
 var sortArray = [];
 var MODE;
@@ -97,6 +98,26 @@ function addTitleText(isNew, id, title, text, posU) {
     sortablePositionFunction(isNew, posU);
 
     title_text_count++;
+}
+
+function addTitleInput(isNew, id, title, text, posU) {
+    if (!isNew) {
+        $("#title_input").find("input[type=text]").attr("value", title)
+        $("#title_input").find("textarea").html(text)
+        $("#title_input").find("input[type=text]").attr("data-id", id)
+        $("#title_input").find("textarea").attr("data-id", id)
+
+    } else {
+        $("#title_input").find("input[type=text]").attr("value", "")
+        $("#title_input").find("textarea").html("")
+    }
+    $("#title_input").find("textarea").attr("name", "title_input_text_" + title_text_count)
+    $("#title_input").find("input[type=text]").attr(
+        "name", "title_input_title_" + title_text_count)
+    $("#sortable").append($("#title_input").html())
+    sortablePositionFunction(isNew, posU);
+
+    title_input_count++;
 }
 
 function addQuestionChoices(isNew, id, question, choices, image, posU) {
@@ -454,6 +475,23 @@ function sendUpdates() {
         flashcards.push(temp)
     }
 
+
+    for (var i = 0; i < title_input_count; i++) {
+        var title_value = $('input[name="title_input_title_' + i + '"]').val();
+        var text_value = $('textarea[name="title_input_text_' + i + '"]').val();
+
+        position_me = $('input[name="title_input_title_' + i + '"]').parent().parent().data("position")
+
+        temp = {
+            "lesson_type": "title_input",
+            "question": title_value,
+            "answer": text_value,
+            "position": position_me
+
+        }
+        flashcards.push(temp)
+    }
+
     for (var i = 0; i < question_choices_count; i++) {
         var question = $('input[name="question_' + i + '"]').val()
 
@@ -617,8 +655,14 @@ $(document).ready(function () {
                         addSpeedRead(false, flashcard.id, flashcard.question,
                                      flashcard.position)
                     }
+
                     if (flashcard.lesson_type == "title_text") {
                         addTitleText(false, flashcard.id, flashcard.question,
+                                     flashcard.answer, flashcard.position)
+                    }
+
+                    if (flashcard.lesson_type == "title_input") {
+                        addTitleInput(false, flashcard.id, flashcard.question,
                                      flashcard.answer, flashcard.position)
                     }
                     if (flashcard.lesson_type == "question_choices") {
@@ -708,6 +752,12 @@ $(document).ready(function () {
             {
                 addTitleText(true)
             }
+
+            if ($("#selectsegment").val() == 'title_input')
+            {
+                addTitleInput(true)
+            }
+
             if ($("#selectsegment").val() == 'question_choices')
             {
                 addQuestionChoices(true)
