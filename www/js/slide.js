@@ -16,6 +16,7 @@ function updateProgressBar() {
 }
 
 function updateSign(data_,event,imgId,signInput){
+    console.log("yo")
     $('#' + signInput).val(data_);
     console.log("updating sign :"+imgId)
     console.log("with: "+ data_)
@@ -27,10 +28,12 @@ function updateSign(data_,event,imgId,signInput){
         event.target.innerHTML = 'Redraw Signature';
     }
 }
+
 function signLesson(event, imgId, signInput) {
     if ($('#signature')) {
         $('#signature').modal('show');
     }
+    
     document.addEventListener('signatureSubmitted', function (e) {
         updateSign(window.currentSignature.data,event,imgId,signInput);
     });
@@ -91,7 +94,7 @@ function nextSlide(){
         'contentType': 'application/json',
         'success': function (data){
             $.ajax({
-                "url": API_SERVER + 'courses_api/session/event/' + flashcard_id + '/' + sessionId + '/',
+                "url": API_SERVER + '/courses_api/session/event/' + flashcard_id + '/' + sessionId + '/',
                 "data": JSON.stringify(da_),
                 "type": 'POST',
                 "contentType": 'application/json',
@@ -144,6 +147,8 @@ function get_session() {
 }
 
 function init() {
+    $('#sign-modal').load("signature/index.html");
+
     $("#progress-section").hide();
     var lesson_id = getParam("lesson_id");
 
@@ -250,7 +255,6 @@ function init() {
     })
 }
 
-$('#sign-modal').load("signature/index.html");
 
 
 window.addEventListener('DOMContentLoaded', init, false)
