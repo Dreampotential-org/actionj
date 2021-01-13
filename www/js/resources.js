@@ -1,20 +1,37 @@
 var resources = null;
 var onscreen_resources = [];
 mapboxgl.accessToken = 'pk.eyJ1IjoiYWFyb25vcm9zZW4iLCJhIjoiY2owdWFoOGgxMDJ2NDMzcWpqb3NocHBtYiJ9.APRb6iQE07MsewU1g2gWWA';
+
 function get_shelters(callback) {
 
     if (resources != null) {
         filter_results();
     }
 
-    $.get(SERVER + "sfapp2/api/get_services", function (results) {
-        resources = results
-        console.log((results))
-        populate_services(results['service_types'])
-        populate_population(results['population_types'])
+    console.log("VEFORE")
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "sfapp2/api/get_services",
+        "method": "GET",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+    }
+    $.ajax(settings).done(function (respons) {
+        console.log(respons)
+        var respons = JSON.parse(respons)
+        resources = respons
+        console.log((respons))
+        populate_services(respons['service_types'])
+        populate_population(respons['population_types'])
         filter_results();
 
+    }).fail(function (err) {
+      alert("ERROR")
     });
+
 }
 
 function setup_click_resources() {
@@ -47,7 +64,6 @@ function filter_results() {
         }
     }
     display_map_view();
-
 }
 
 function populate_services(services) {

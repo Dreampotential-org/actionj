@@ -45,11 +45,12 @@ function set_user_info() {
     }
     $.ajax(settings).done(function (response) {
         // change screen for code collecton
+        /*
         swal({
           title: "Good job!",
           text: "You're logged in",
           icon: "success",
-        });
+        }); */
         home()
         hide_screens()
         $("#questions-screen").show()

@@ -1,5 +1,5 @@
 var SERVER = 'https://sfapp-api.dreamstate-4-all.org/'
-//var SERVER = 'http://localhost:8000/'
+// var SERVER = 'http://localhost:8000/'
 
 function init() {
     init_mapbox()
@@ -11,8 +11,8 @@ function init() {
     init_questions()
     get_questions_api();
     init_video_events();
-    // $('.shelters').click()
-    // $("#my-profile").click()
+    //$('.shelters').click()
+    //$("#my-profile").click()
 }
 
 function home() {
