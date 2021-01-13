@@ -16,7 +16,10 @@ var lesson_id = getParam("lesson_id");
 
 function selectLesson() {
   var thelesson_id = $("#select_lesson :selected").val();
-  window.location.href = "/lesson.html?lesson_id=" + thelesson_id;
+  //   window.location.href = "/lesson.html?lesson_id=" + thelesson_id;
+  window.location.href =
+    // "https://sfapp.dreamstate-4-all.org" +
+    "/lesson-v2.html?lesson_id=" + thelesson_id;
 }
 
 function getAllLessons() {
@@ -31,6 +34,7 @@ function getAllLessons() {
     });
   });
 }
+
 function addChoices(id, value) {
   if (!value) {
     value = "";

@@ -33,66 +33,202 @@
   </head>
 
   <body>
-    <div class="login-form">
+    <div class="login-main">
+      <div class="login-form">
         <div class="">
-
-            <div class="form-group text-center">
-                <img
-                  alt="Logo"
-                  src="img/university.png"
-                  style="width: 130px; height: 130px"
-                />
-              </div>
-            </div>
-    
-            <div class="modal-body" style="overflow: auto">
-              <form class="form-div" method="post" action="" id="loginForm">
-                <h3 class="locAuthTitle textCenter" style="color: black">
-                  LOGIN
-                </h3>
-                <div class="form-group">
-                  <div class="col-sm-10 singup-input">
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="username"
-                      id="username"
-                      placeholder="Email"
-                    />
-                  </div>
-                  <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
-                  <div class="col-sm-10 singup-input">
-                    <input
-                      type="password"
-                      class="form-control"
-                      name="password"
-                      id="pwd"
-                      placeholder="Password"
-                    />
-                  </div>
-                  <div class="col-sm-offset-2 col-sm-10 text-center signup-button">
-                    <button type="submit" class="btn btn-success btn-custom login-button">
-                      Login
-                    </button>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <p class="have-act sign-in-link">
-                Don't have an account?
-                <strong><span id="signupLink">SIGN UP</span></strong>
-              </p>
-              <p class="have-act sign-in-link">
-                Forgot password?
-                <strong><span id="passwordResetLink">Reset here</span></strong>
-              </p>
-            </div>
+          <div class="form-group text-center">
+            <img
+              alt="Logo"
+              src="img/university.png"
+              style="width: 130px; height: 130px"
+            />
           </div>
         </div>
-    
+
+        <div class="modal-body" style="overflow: auto">
+          <form class="form-div" method="post" action="" id="loginForm">
+            <h3 class="locAuthTitle textCenter" style="color: black">LOGIN</h3>
+            <div class="form-group">
+              <div class="col-sm-10 singup-input">
+                <input
+                  type="email"
+                  class="form-control"
+                  name="username"
+                  id="username"
+                  placeholder="Email"
+                />
+              </div>
+              <!-- <label class="control-label col-sm-2" for="pwd">Password:</label> -->
+              <div class="col-sm-10 singup-input">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="pwd"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="col-sm-offset-2 col-sm-10 text-center signup-button">
+                <button
+                  type="submit"
+                  class="btn btn-success btn-custom login-button"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p class="have-act sign-in-link">
+            Don't have an account?
+            <strong><span id="signupLink">SIGN UP</span></strong>
+          </p>
+          <p class="have-act sign-in-link">
+            Forgot password?
+            <strong><span id="passwordResetLink">Reset here</span></strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="signupModal">
+      <div class="modal-overlay"></div>
+      <div
+        class="modal-wrapper modal-transition signup-transition"
+        style="background: url(img/popup_login.jpg)"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="close signup-close" style="text-align: end">
+              <i class="fa fa-times closeIcon" aria-hidden="true"></i>
+            </div>
+
+            <div class="form-group text-center">
+              <img
+                alt="Logo"
+                src="img/university.png"
+                style="width: 130px; height: 130px"
+              />
+            </div>
           </div>
 
+          <div class="modal-body" style="overflow: auto">
+            <form class="form-div" method="post" action="" id="signUpForm">
+              <h3 class="locAuthTitle textCenter" style="color: black">
+                SIGN UP
+              </h3>
+
+              <div class="form-group">
+                <div class="col-sm-10 singup-input">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="name"
+                    id="name"
+                    placeholder="name"
+                  />
+                </div>
+
+                <div class="col-sm-10 singup-input">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="signup-email"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="col-sm-10 singup-input">
+                  <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    id="signup-pwd"
+                    placeholder="Password"
+                  />
+                </div>
+
+                <div
+                  class="col-sm-offset-2 col-sm-10 text-center signup-button"
+                >
+                  <button type="submit" class="btn btn-success btn-custom">
+                    Sign Up
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p class="have-act sign-in-link">
+              Have an account?
+              <strong><span class="signinLink">Log In</span></strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="passwordResetModal">
+      <div class="modal-overlay"></div>
+      <div
+        class="modal-wrapper modal-transition"
+        style="background: url(img/popup_login.jpg)"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="close signup-close" style="text-align: end">
+              <i class="fa fa-times closeIcon" aria-hidden="true"></i>
+            </div>
+
+            <div class="form-group text-center">
+              <img
+                alt="Logo"
+                src="img/university.png"
+                style="width: 130px; height: 130px"
+              />
+            </div>
+          </div>
+
+          <div class="modal-body" style="overflow: auto">
+            <form
+              class="form-div"
+              method="post"
+              action=""
+              id="passwordResetForm"
+            >
+              <h3 class="locAuthTitle textCenter" style="color: black">
+                Password Reset
+              </h3>
+
+              <div class="form-group">
+                <!-- <label class="control-label col-sm-2" for="email">Email:</label> -->
+                <div class="col-sm-10 singup-input">
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10 text-center">
+                  <button type="submit" class="btn btn-success btn-custom">
+                    Reset Password
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p class="have-act sign-in-link">
+              <span class="signinLink"><strong>Log In</strong></span> here!
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
