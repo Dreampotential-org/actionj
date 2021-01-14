@@ -55,8 +55,10 @@ function nextSlide(){
     if (type == "question_choices") {
         answer = $("input[name= choices_" + (current_slide - 1) + "]:checked").val()
         console.log(answer)
-    }else if(type == "question_text"){
+    }else if(type == "title_textarea"){
         answer = $("textarea[name= textarea_"+(current_slide-1)+"]").val()
+    }else if(type == "title_input"){
+        answer = $("input[name= title_input_"+(current_slide-1)+"]").val()
     }else if(type=='signature'){
         console.log("This is signature")
         answer = $("input[name= input_signature_"+(current_slide-1)+"]").val()
@@ -213,8 +215,11 @@ function init() {
                 $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><video controls> <source src= "'+flashcard.image+'"></video></div></div>')
 
             }
-            if(flashcard.lesson_type == "question_text"){
-                $("#theSlide").append('<div class="'+className+'"><div class="question_text"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea name ="textarea_'+i+'" class="form-control" placeholder="Enter you answer here"></textarea></div></div></div>')
+            if(flashcard.lesson_type == "title_textarea"){
+                $("#theSlide").append('<div class="'+className+'"><div class="title_textarea"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea name ="textarea_'+i+'" class="form-control" placeholder="Enter you answer here"></textarea></div></div></div>')
+            }
+            if(flashcard.lesson_type == "title_input"){
+                $("#theSlide").append('<div class="'+className+'"><div class="title_input"><div alt="title_input" style="height:500px"><h1> '+flashcard.question+'</h1><input name ="title_input_'+i+'" class="form-control" placeholder="Enter you answer here"></div></div></div>')
             }
             if(flashcard.lesson_type == "signature") {
                 $("#theSlide").append(`
@@ -235,8 +240,11 @@ function init() {
                 loaded_flashcards.forEach(function(f,i){
                     if(rf.flashcard[0].id == f.id){
                         console.log(rf.answer)
-                        if(f.lesson_type == 'question_text'){
+                        if(f.lesson_type == 'title_textarea'){
                             $("textarea[name=textarea_"+i).val(rf.answer)
+                        }
+                        if(f.lesson_type == 'title_input'){
+                            $("input[name=title_input_"+i).val(rf.answer)
                         }
                         if (f.lesson_type == 'question_choices') {
                             $("input[name=choices_" + i + "][value=" + rf.answer + "]").attr("checked", true)

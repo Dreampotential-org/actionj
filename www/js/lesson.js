@@ -4,7 +4,7 @@ var question_choices_count = 0;
 var video_file_count = 0;
 var image_file_count = 0;
 var iframe_link_count = 0;
-var question_text_count = 0;
+var title_textarea_count = 0;
 var title_input_count =0;
 var sign_count = 0;
 var sortArray = [];
@@ -102,18 +102,14 @@ function addTitleText(isNew, id, title, text, posU) {
 
 function addTitleInput(isNew, id, title, text, posU) {
     if (!isNew) {
-        $("#title_input").find("input[type=text]").attr("value", title)
-        $("#title_input").find("textarea").html(text)
-        $("#title_input").find("input[type=text]").attr("data-id", id)
-        $("#title_input").find("textarea").attr("data-id", id)
+        $("#title_input").find("textarea").attr("value", title)
+        $("#title_input").find("teaxtarea").attr("data-id", id)
 
     } else {
-        $("#title_input").find("input[type=text]").attr("value", "")
         $("#title_input").find("textarea").html("")
     }
-    $("#title_input").find("textarea").attr("name", "title_input_text_" + title_text_count)
-    $("#title_input").find("input[type=text]").attr(
-        "name", "title_input_title_" + title_text_count)
+    $("#title_input").find("textarea").attr(
+        "name", "title_input_textarea" + title_input_count)
     $("#sortable").append($("#title_input").html())
     sortablePositionFunction(isNew, posU);
 
@@ -367,23 +363,23 @@ function addIframeLink(isNew, id, question, choices, image, posU) {
 
 }
 
-function addQuestionText(isNew, id, question, posU) {
+function addTitleTextarea(isNew, id, question, posU) {
     console.log("Question Text Added")
 
     if (!isNew) {
-        $("#question_text").find("textarea").first().html(question)
+        $("#title_textarea").find("textarea").first().html(question)
 
-        $("#question_text").find("textarea").last().attr("data-id", id)
+        $("#title_textarea").find("textarea").last().attr("data-id", id)
 
     } else {
-        $("#question_text").find("textarea").first().html("")
+        $("#title_textarea").find("textarea").first().html("")
     }
 
-    $("#question_text").find("textarea").first().attr(
-        "name", "question_text_" + question_text_count)
-    $("#sortable").append($("#question_text").html())
+    $("#title_textarea").find("textarea").first().attr(
+        "name", "title_textarea_" + title_textarea_count)
+    $("#sortable").append($("#title_textarea").html())
 
-    question_text_count++;
+    title_textarea_count++;
     sortablePositionFunction(isNew, posU);
 }
 
@@ -477,15 +473,13 @@ function sendUpdates() {
 
 
     for (var i = 0; i < title_input_count; i++) {
-        var title_value = $('input[name="title_input_title_' + i + '"]').val();
-        var text_value = $('textarea[name="title_input_text_' + i + '"]').val();
+        var title_value = $('textarea[name="title_input_textarea' + i + '"]').val();
 
-        position_me = $('input[name="title_input_title_' + i + '"]').parent().parent().data("position")
+        position_me = $('textarea[name="title_input_textarea' + i + '"]').parent().parent().data("position")
 
         temp = {
             "lesson_type": "title_input",
             "question": title_value,
-            "answer": text_value,
             "position": position_me
 
         }
@@ -548,12 +542,12 @@ function sendUpdates() {
         flashcards.push(temp)
     }
 
-    for (var i = 0; i < question_text_count; i++) {
-        var question = $('textarea[name="question_text_' + i + '"]').val()
-        position_me = $('textarea[name="question_text_' + i + '"]').parent().parent().data("position")
+    for (var i = 0; i < title_textarea_count; i++) {
+        var question = $('textarea[name="title_textarea_' + i + '"]').val()
+        position_me = $('textarea[name="title_textarea_' + i + '"]').parent().parent().data("position")
 
         temp = {
-            "lesson_type": "question_text",
+            "lesson_type": "title_textarea",
             "question": question,
             "position": position_me
         }
@@ -690,10 +684,10 @@ $(document).ready(function () {
                                       flashcard.options, flashcard.image,
                                       flashcard.position)
                     }
-                    if (flashcard.lesson_type == "question_text") {
+                    if (flashcard.lesson_type == "title_textarea") {
                         console.log("Question Text Added")
 
-                        addQuestionText(false, flashcard.id, flashcard.question,
+                        addTitleTextarea(false, flashcard.id, flashcard.question,
                                         flashcard.position)
                     }
                     if(flashcard.lesson_type == "signature"){
@@ -730,13 +724,16 @@ $(document).ready(function () {
                     video_file_count--
                 } else if (lesson_element_type.startsWith("image")) {
                     image_file_count--
-                }else if (lesson_element_type.startsWith("question_text")) {
-                    question_text_count--
+                }else if (lesson_element_type.startsWith("title_textarea")) {
+                    title_textarea_count--
+                }else if (lesson_element_type.startsWith("title_input")) {
+                    title_input_count--
                 } else if (lesson_element_type.startsWith("sign_b64")) {
                     sign_count--
                 }
                 //console.log(lesson_element_type)
                 $(e.target).parent().parent().remove()
+                sortablePositionFunction();
             } else {
 
             }
@@ -779,9 +776,9 @@ $(document).ready(function () {
                 addIframeLink(true)
 
             }
-            if ($("#selectsegment").val() == 'question_text')
+            if ($("#selectsegment").val() == 'title_textarea')
             {
-                addQuestionText(true)
+                addTitleTextarea(true)
 
             }
             if ($("#selectsegment").val() == 'sign_b64')
