@@ -89,7 +89,8 @@ function delete_med(med_id) {
         });
         refresh_meds()
     }).fail(function (err) {
-      alert("ERROR")
+        console.log(err)
+      //alert("ERROR")
     });
 }
 
@@ -123,7 +124,8 @@ function add_meds() {
         $(".close").click()
 
     }).fail(function (err) {
-      alert("ERROR")
+        console.log(err)
+      //alert("ERROR")
     });
 }
 
@@ -145,6 +147,7 @@ function list_meds(callback) {
         // change screen for code collecton
         callback(JSON.parse(response).meds)
     }).fail(function (err) {
-      alert("ERROR")
+        console.log(err)
+      //alert("ERROR")
     });
 }
