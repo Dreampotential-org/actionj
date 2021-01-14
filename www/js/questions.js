@@ -72,9 +72,9 @@ function showTab (n) {
 
   if (isDisable) $('#nextBtn').attr('disabled', true)
 
-  if (n >= questions.length) {
-    //set_user_answers()
+  if (n >= questions.length -1) {
     // send results to backend
+    set_user_answers()
     return
   }
   var x = document.getElementsByClassName('tab')
@@ -110,7 +110,7 @@ function nextPrev (n) {
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:
-    // return false;
+    return false;
   }
   // Otherwise, display the correct tab:
   showTab(currentTab)
@@ -143,15 +143,14 @@ function validateForm () {
 }
 
 function fixStepIndicator (n) {
-  // This function removes the "active" class of all steps...
-  var i
-
-  var x = document.getElementsByClassName('step')
-  for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.replace(' active', '')
-  }
-  // ... and adds the "active" class on the current step:
-  x[n].className += ' active'
+    // This function removes the "active" class of all steps...
+    var i
+    var x = document.getElementsByClassName('step')
+    for (i = 0; i < x.length; i++) {
+        x[i].className = x[i].className.replace(' active', '')
+    }
+    // ... and adds the "active" class on the current step:
+    x[n].className += ' active'
 }
 
 
@@ -173,8 +172,6 @@ function get_questions_api() {
     }).fail(function (err) {
       alert("ERROR")
     });
-
-
 }
 
 function set_user_answers() {
@@ -210,6 +207,4 @@ function set_user_answers() {
     }).fail(function (err) {
       alert("ERROR")
     });
-
-
 }

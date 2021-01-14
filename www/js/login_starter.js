@@ -17,6 +17,11 @@ function getParam(sParam) {
   }
 }
 
+function hideModals() {
+  $("#passwordResetModal").removeClass("is-visible");
+  $("#signupModal").removeClass("is-visible");
+}
+
 $(document).ready(function () {
   let MODE = "WELCOME_PAGE";
 
@@ -26,9 +31,30 @@ $(document).ready(function () {
     MODE = "HOME_PAGE";
   }
 
-  $("#signUpForm").on("submit", function (ev) {
-    ev.preventDefault();
+  $(".signupLink").on("click", function (e) {
+    hideModals();
+    $("#signupModal").addClass("is-visible");
+  });
 
+  $(".signinLink").on("click", function (e) {
+    hideModals();
+  });
+
+  $("#signupLink").on("click", function (e) {
+    $("#signupModal").addClass("is-visible");
+  });
+
+  $("#passwordResetLink").on("click", function (e) {
+    $("#passwordResetModal").addClass("is-visible");
+  });
+
+  $(".signup-close").on("click", function (e) {
+    hideModals();
+  });
+
+  $("#signUpForm").on("submit", function (ev) {
+    debugger;
+    ev.preventDefault();
     $.ajax({
       url: SERVER + "s3_uploader/user/register",
       type: "post",
@@ -48,6 +74,7 @@ $(document).ready(function () {
         });
 
         //displayPage("dashboard");
+        hideModals();
       },
       error: function () {
         swal({
@@ -92,6 +119,36 @@ $(document).ready(function () {
         swal({
           title: "Error",
           text: "",
+          icon: "error",
+        });
+      },
+    });
+  });
+
+  $("#passwordResetForm").on("submit", function (ev) {
+    ev.preventDefault();
+
+    $.ajax({
+      url: SERVER + "s3_uploader/user/password_reset/",
+      type: "post",
+      data: $(this).serialize(),
+      success: function (response) {
+        // Whatever you want to do after the form is successfully submitted
+        console.log(response);
+
+        swal({
+          title: "Success!",
+          text: "Please check your email for password reset link.",
+          icon: "success",
+        });
+
+        hideModals();
+      },
+      error: function (message) {
+        console.log("Error message:", message);
+        swal({
+          title: "Error",
+          text: message,
           icon: "error",
         });
       },
