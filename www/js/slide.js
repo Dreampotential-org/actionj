@@ -213,8 +213,12 @@ function init() {
             }
             if(flashcard.lesson_type == "video_file"){
                 $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><video controls> <source src= "'+flashcard.image+'"></video></div></div>')
-
             }
+
+            if(flashcard.lesson_type == "image_file"){
+                $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><img src= "'+flashcard.image+'"></div></div>')
+            }
+
             if(flashcard.lesson_type == "title_textarea"){
                 $("#theSlide").append('<div class="'+className+'"><div class="title_textarea"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><textarea name ="textarea_'+i+'" class="form-control" placeholder="Enter you answer here"></textarea></div></div></div>')
             }
