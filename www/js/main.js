@@ -16,7 +16,13 @@ function init() {
 }
 
 function home() {
+    // trigger back event
     $('.navbar-brand').click()
+
+    $("#index_page").hide()
+    $("#index_land").show()
+    document.body.style.backgroundColor = "white";
+
 }
 
 
@@ -54,6 +60,13 @@ function setup_click_events() {
     $('body').delegate('.navbar-brand', 'click', function (e) {
         hide_screens()
         $('#screen1').show()
+        $("#index_page").hide()
+        $("#index_land").show()
+        document.body.style.backgroundColor = "white";
+
+
+
+
     })
     $('body').delegate('.video-check', 'click', function (e) {
         handle_video_click()
