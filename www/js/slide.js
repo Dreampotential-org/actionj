@@ -50,7 +50,7 @@ function nextSlide(){
     updateProgressBar()
     
     if(!completed){
-    var type = $("div.active").children().attr("alt");
+    var type = $("div.active").children().children().attr("alt");
     console.log(type)
     if (type == "question_choices") {
         answer = $("input[name= choices_" + (current_slide - 1) + "]:checked").val()
@@ -59,6 +59,7 @@ function nextSlide(){
         answer = $("textarea[name= textarea_"+(current_slide-1)+"]").val()
     }else if(type == "title_input"){
         answer = $("input[name= title_input_"+(current_slide-1)+"]").val()
+        console.log("title inpt")
     }else if(type=='signature'){
         console.log("This is signature")
         answer = $("input[name= input_signature_"+(current_slide-1)+"]").val()
