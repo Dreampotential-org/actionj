@@ -628,8 +628,12 @@ td {
 .add-new-meds {
   transform: translate(-50%, -50%);
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   width: 100%;
   background-size: 100%;
+}
+
+.modal-header .close {
+  margin-top: 0 !important;
 }
