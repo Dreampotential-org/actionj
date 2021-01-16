@@ -775,8 +775,8 @@ h3.locAuthTitle.textCenter {
   text-align: center;
 }
 
-.col-sm-10.singup-input {
-  padding: 10px 0px;
+.col-sm-12.singup-input {
+  padding: 15px 0px;
 }
 
 .modal-wrapper.modal-transition.signup-transition {
@@ -804,6 +804,15 @@ p.have-act.sign-in-link {
   transform: translate(-50%, -50%);
   position: absolute;
   top: 50%;
+  left: 50%;
+  width: 100%;
+  background-size: 100%;
+}
+
+.add-new-meds {
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 40%;
   left: 50%;
   width: 100%;
   background-size: 100%;
