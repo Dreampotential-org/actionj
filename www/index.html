@@ -171,12 +171,8 @@
         text-align: left;
         word-break: keep-all;
       }
-    </style>
-  </head>
 
-  <body style="background: white">
-    <div id="index_page" style="display: none">
-      <style>
+      
         .radio label {
           padding-left: 25px;
         }
@@ -184,6 +180,29 @@
         .radio input[type="radio"] {
           margin-left: -25px;
         }
+            .month {
+                padding: 16px 20px;
+                width: 100%;
+                background: #1abc9c;
+                text-align: center;
+            }
+            .event-table th{
+                background: #ddd;
+                color: black;
+            }
+            .event-table td{
+                background: white;
+                color: black;
+                white-space: pre-wrap !important;
+                text-align: left;
+                word-break: keep-all;
+            }
+            .compaseEmail th{
+                color: black !important;
+            }
+            .compaseEmail td{
+                color: black !important;
+            }
 
         #journal-list div {
           padding: 7px 14px;
@@ -201,7 +220,11 @@
         #journal-list .glyphicon {
           font-size: 20px;
         }
-      </style>
+    </style>
+  </head>
+
+  <body style="background: white">
+    <div id="index_page" style="display: none">
       <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           <div class="navbar-header">
@@ -2002,64 +2025,151 @@
                                 });
                             </script> -->
 
-      <form id="upload_vid_form" method="post" enctype="multipart/form-data">
-        <input
-          type="file"
-          accept="video/*"
-          id="upload-vid"
-          capture="environment"
-          style="display: none"
-        />
-      </form>
-    </div>
-    <div id="index_land">
-      <div class="container start-container">
-        <div class="row">
-          <div class="col-xs-12" align="middle">
-            <a data-toggle="modal" data-target="#aboutOnboard"
-              ><strong class="aboutOnboard">About A.R.T.</strong></a
-            >
-            <br />
-            <br />
-            <br />
-            <!-- Modal -->
-            <div
-              class="modal fade"
-              id="aboutOnboard"
-              tabindex="-1"
-              role="dialog"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header onboardpop">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      Action Resource Team
-                    </h5>
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    Action Resource Team (A.R.T.) is onramp to social services,
-                    wellness and your self service concierge.
-                  </div>
-                  <br /><br />
-                  <div class="imagelog" align="middle">
-                    <img src="img/SF-Logo.png" />
-                  </div>
+            <form id='upload_vid_form' method='post' enctype="multipart/form-data">
+                <input type="file" accept="video/*" id='upload-vid' capture="environment" style='display:none;' />
+            </form>
+        </div>
+        <div id="index_land">
+            <div class="container start-container">
+                <div class="row">
+                    <div class="col-xs-12" align="middle">
+                        <a data-toggle="modal" data-target="#aboutOnboard"><strong class="aboutOnboard">About A.R.T.</strong></a>
+                        <br>
+                        <br>
+                        <br>
+                        <!-- Modal -->
+                        <div class="modal fade" id="aboutOnboard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header onboardpop">
+                                        <h5 class="modal-title" id="exampleModalLabel">Action Resource Team</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Action Resource Team (A.R.T.) is onramp to social services, wellness and your self service concierge.</div>
+                                    <br><br>
+                                    <div class="imagelog" align="middle"><img src="img/SF-Logo.png"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="common-style help" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;">
+                            <span class="glyphicon glyphicon-earphone"></span>
+                            <p>Help Now</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            <br>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12s">
+                        <p class="onboard">
+                            <a onclick="showmainPage();">.A.R.T. Interface</a>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            <br>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" align="middle">
+                        <p class="onboard"> <a data-toggle="modal" data-target="#composeEmail"><strong class="composeEmail">Email</strong></a></p>
+                        <br>
+                        <br>
+                        <!-- Modal -->
+                        <div class="modal fade" id="composeEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header onboardpop">
+                                        <h3 class="modal-title" id="exampleModalLabel">Compose</h3>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal">
+                                            Add
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-bordered compaseEmail">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Subject</th>
+                                                    <th scope="col">Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Irfan</td>
+                                                    <td>test</td>
+                                                    <td>2021-01-15</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Irfan</td>
+                                                    <td>test</td>
+                                                    <td>2021-01-15</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <br><br>
+                                    <div class="imagelog" align="middle"><img src="img/SF-Logo.png"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Compase Email Form Modal Start-->
+                        <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <br>
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="form-group row">
+                                                <label for="staticEmail" class="col-sm-2 col-form-label">To: </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="staticEmail">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="from" class="col-sm-2 col-form-label">From: </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="inputPassword" placeholder="From">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="from" class="col-sm-2 col-form-label">Message: </label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" id="message" placeholder="Message.."></textarea>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="btn btn-primary">Send</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Compase Email Form Modal End-->
+                    </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div
               class="common-style help"
@@ -2081,7 +2191,7 @@
               <a onclick="showmainPage();">.A.R.T. Interface</a>
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
       <div
         class="modal fade"
