@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="css/onboard.css" />
         <link
             href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-            rel="stylesheet"/>
+            rel="stylesheet"
+            />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -170,60 +171,37 @@
                 text-align: left;
                 word-break: keep-all;
             }
-
-
-            .radio label {
-                padding-left: 25px;
-            }
-
-            .radio input[type="radio"] {
-                margin-left: -25px;
-            }
-            .month {
-                padding: 16px 20px;
-                width: 100%;
-                background: #1abc9c;
-                text-align: center;
-            }
-            .event-table th{
-                background: #ddd;
-                color: black;
-            }
-            .event-table td{
-                background: white;
-                color: black;
-                white-space: pre-wrap !important;
-                text-align: left;
-                word-break: keep-all;
-            }
-            .compaseEmail th{
-                color: black !important;
-            }
-            .compaseEmail td{
-                color: black !important;
-            }
-
-            #journal-list div {
-                padding: 7px 14px;
-                display: flex;
-                align-items: center;
-                background-color: #ffffff;
-                margin: 7px;
-                border-radius: 7px;
-            }
-
-            #journal-list a {
-                padding-right: 7px;
-            }
-
-            #journal-list .glyphicon {
-                font-size: 20px;
-            }
         </style>
     </head>
 
     <body style="background: white">
         <div id="index_page" style="display: none">
+            <style>
+                .radio label {
+                    padding-left: 25px;
+                }
+
+                .radio input[type="radio"] {
+                    margin-left: -25px;
+                }
+
+                #journal-list div {
+                    padding: 7px 14px;
+                    display: flex;
+                    align-items: center;
+                    background-color: #ffffff;
+                    margin: 7px;
+                    border-radius: 7px;
+                }
+
+                #journal-list a {
+                    padding-right: 7px;
+                }
+
+                #journal-list .glyphicon {
+                    font-size: 20px;
+                }
+            </style>
             <nav class="navbar navbar-inverse navbar-fixed-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -2024,32 +2002,58 @@
                                       });
                                   </script> -->
 
-            <form id='upload_vid_form' method='post' enctype="multipart/form-data">
-                <input type="file" accept="video/*" id='upload-vid' capture="environment" style='display:none;' />
+            <form id="upload_vid_form" method="post" enctype="multipart/form-data">
+                <input
+                    type="file"
+                    accept="video/*"
+                    id="upload-vid"
+                    capture="environment"
+                    style="display: none"
+                    />
             </form>
         </div>
         <div id="index_land">
             <div class="container start-container">
                 <div class="row">
                     <div class="col-xs-12" align="middle">
-                        <a data-toggle="modal" data-target="#aboutOnboard"><strong class="aboutOnboard">About A.R.T.</strong></a>
-                        <br>
-                        <br>
-                        <br>
+                        <a data-toggle="modal" data-target="#aboutOnboard"
+                           ><strong class="aboutOnboard">About A.R.T.</strong></a
+                        >
+                        <br />
+                        <br />
+                        <br />
                         <!-- Modal -->
-                        <div class="modal fade" id="aboutOnboard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div
+                            class="modal fade"
+                            id="aboutOnboard"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                            >
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header onboardpop">
-                                        <h5 class="modal-title" id="exampleModalLabel">Action Resource Team</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Action Resource Team
+                                        </h5>
+                                        <button
+                                            type="button"
+                                            class="close"
+                                            data-dismiss="modal"
+                                            aria-label="Close"
+                                            >
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        Action Resource Team (A.R.T.) is onramp to social services, wellness and your self service concierge.</div>
-                                    <br><br>
-                                    <div class="imagelog" align="middle"><img src="img/SF-Logo.png"></div>
+                                        Action Resource Team (A.R.T.) is onramp to social services,
+                                        wellness and your self service concierge.
+                                    </div>
+                                    <br /><br />
+                                    <div class="imagelog" align="middle">
+                                        <img src="img/SF-Logo.png" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2057,14 +2061,19 @@
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="common-style help" data-toggle="modal" data-target="#exampleModal" style="cursor: pointer;">
+                        <div
+                            class="common-style help"
+                            data-toggle="modal"
+                            data-target="#exampleModal"
+                            style="cursor: pointer"
+                            >
                             <span class="glyphicon glyphicon-earphone"></span>
                             <p>Help Now</p>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <p>
-                            <br>
+                            <br />
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12s">
@@ -2077,220 +2086,88 @@
                             <br>
                         </p>
                     </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p class="onboard"> <a href="email.html"><strong class="composeEmail">Email</strong></a></p>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12" align="middle">
-                        <p class="onboard"> <a data-toggle="modal" data-target="#composeEmail"><strong class="composeEmail">Email</strong></a></p>
-                        <br>
-                        <br>
-                        <!-- Modal -->
-                        <div class="modal fade" id="composeEmail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header onboardpop">
-                                        <h3 class="modal-title" id="exampleModalLabel">Compose</h3>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal">
-                                            Add
-                                        </button>
+            </div>
+            <div
+                class="modal fade"
+                id="exampleModal"
+                role="dialog"
+                aria-labelledby="helpmod"
+                aria-hidden="true"
+                >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button
+                                type="button"
+                                class="close helppop"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                                >
+                                <span aria-hidden="true" style="color: black; font-weight: bold"
+                                      >&times;</span
+                                >
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="emergency">
+                                        <p class="white"><a href="tel:911">911</a> Call</p>
+                                        <p class="white">Emergency</p>
                                     </div>
-                                    <div class="modal-body">
-                                        <table id="example" class="table table-bordered compaseEmail">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">Name</th>
-                                                    <th scope="col">Subject</th>
-                                                    <th scope="col">Email</th>
-                                                    <th scope="col">Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Irfan</td>
-                                                    <td>test</td>
-                                                    <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
-                                                    <td>2021-01-15</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Irfan</td>
-                                                    <td>test</td>
-                                                    <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
-                                                    <td>2021-01-15</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <br />
+                                    <div class="emergencysocial">
+                                        <p class="white">Social Call</p>
+                                        <p class="white">Service</p>
                                     </div>
-                                    <br><br>
-                                    <div class="imagelog" align="middle"><img src="img/SF-Logo.png"></div>
+                                    <br />
+                                    <div class="col-xs-12" align="middle">
+                                        <a onclick="showPhoneDirectory()"
+                                           ><strong class="aboutOnboard"
+                                                 >Services Directory</strong
+                                            ></a
+                                        >
+                                    </div>
+                                    <br />
                                 </div>
                             </div>
                         </div>
-                        <!--Email body start======-->
-                        <!-- Modal -->
-                        <div class="modal fade" id="checkEmail" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Email Details</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--End email content========-->
-                        <!-- Compase Email Form Modal Start-->
-                        <div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <br>
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form>
-                                            <div class="form-group row">
-                                                <label for="staticEmail" class="col-sm-2 col-form-label">To: </label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="staticEmail">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="from" class="col-sm-2 col-form-label">From: </label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="inputPassword" placeholder="From">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="from" class="col-sm-2 col-form-label">Message: </label>
-                                                <div class="col-sm-10">
-                                                    <textarea class="form-control" id="message" placeholder="Message.."></textarea>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="btn btn-primary">Send</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Compase Email Form Modal End-->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<!-- <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div
-      class="common-style help"
-      data-toggle="modal"
-      data-target="#exampleModal"
-      style="cursor: pointer"
-    >
-      <span class="glyphicon glyphicon-earphone"></span>
-      <p>Help Now</p>
-    </div>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <p>
-      <br />
-    </p>
-  </div>
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12s">
-    <p class="onboard">
-      <a onclick="showmainPage();">.A.R.T. Interface</a>
-    </p>
-  </div>
-</div> -->
-</div>
-<div
-    class="modal fade"
-    id="exampleModal"
-    role="dialog"
-    aria-labelledby="helpmod"
-    aria-hidden="true"
-    >
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button
-                    type="button"
-                    class="close helppop"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                    >
-                    <span aria-hidden="true" style="color: black; font-weight: bold"
-                          >&times;</span
-                    >
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="emergency">
-                            <p class="white"><a href="tel:911">911</a> Call</p>
-                            <p class="white">Emergency</p>
-                        </div>
-                        <br />
-                        <div class="emergencysocial">
-                            <p class="white">Social Call</p>
-                            <p class="white">Service</p>
-                        </div>
-                        <br />
-                        <div class="col-xs-12" align="middle">
-                            <a onclick="showPhoneDirectory()"
-                               ><strong class="aboutOnboard"
-                                     >Services Directory</strong
-                                ></a
-                            >
-                        </div>
-                        <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-<script type="text/javascript">
-                                $("#example").dataTable({
-                                    order: [],
-                                    columnDefs: [
-                                        {
-                                            targets: "no-sort",
-                                            orderable: false,
-                                        },
-                                    ],
-                                });
-                                $(document).ready(function () {
-                                    $("#example").DataTable();
-                                });
-                                function showmainPage() {
-                                    $("#index_page").show();
-                                    $("#index_land").hide();
-                                    document.body.style.backgroundColor = "gray";
-                                }
-                                function showPhoneDirectory() {
-                                    $("#index_page").show();
-                                    $("#index_land").hide();
-                                    $("body").removeClass("modal-open");
-                                    $(".modal-backdrop").remove();
-                                    $("#help-screen").show();
-                                    $("#screen1").hide();
-                                    document.body.style.backgroundColor = "gray";
-                                }
-</script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script type="text/javascript">
+                                            $("#example").dataTable({
+                                                order: [],
+                                                columnDefs: [
+                                                    {
+                                                        targets: "no-sort",
+                                                        orderable: false,
+                                                    },
+                                                ],
+                                            });
+                                            $(document).ready(function () {
+                                                $("#example").DataTable();
+                                            });
+                                            function showmainPage() {
+                                                $("#index_page").show();
+                                                $("#index_land").hide();
+                                                document.body.style.backgroundColor = "gray";
+                                            }
+                                            function showPhoneDirectory() {
+                                                $("#index_page").show();
+                                                $("#index_land").hide();
+                                                $("body").removeClass("modal-open");
+                                                $(".modal-backdrop").remove();
+                                                $("#help-screen").show();
+                                                $("#screen1").hide();
+                                                document.body.style.backgroundColor = "gray";
+                                            }
+        </script>
+    </body>
 </html>
