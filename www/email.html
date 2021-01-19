@@ -43,55 +43,60 @@
     <body>
 
         <div class="container">
-            <h2>Campose</h2>
-            <div class="col-xs-12" align="middle">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emailModal">
-                    Add
+            <h2>Inbox</h2>
+            <div class="col-xs-12">
+                <span class="col-xs-6"><a href="index.html">Back to Home</a></span>
+                <button type="button" class="col-xs-6 btn btn-primary" data-toggle="modal" data-target="#emailModal">
+                    compose
                 </button>
+                <br>
+                <br>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <table id="example" class="table table-striped table-bordered" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Subject</th>
-                                    <th>Email</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Reply</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
-                                    <td>2011/04/25</td>
-                                    <td>Read</td>
-                                    <td><a data-toggle="modal" data-target="#addReply">Add Reply</a></td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
-                                    <td>2011/07/25</td>
-                                    <td>Unread</td>
-                                    <td><a data-toggle="modal" data-target="#addReply">Add Reply</a></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Subject</th>
-                                    <th>Email</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Reply</th>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <div class="table-responsive">
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Subject</th>
+                                        <th>Email</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Reply</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
+                                        <td>2011/04/25</td>
+                                        <td>Read</td>
+                                        <td><a data-toggle="modal" data-target="#addReply">Add Reply</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>Accountant</td>
+                                        <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
+                                        <td>2011/07/25</td>
+                                        <td>Unread</td>
+                                        <td><a data-toggle="modal" data-target="#addReply">Add Reply</a></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Subject</th>
+                                        <th>Email</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Reply</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
