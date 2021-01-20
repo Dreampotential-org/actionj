@@ -1,66 +1,28 @@
-button.btn.btn-success.btn-custom.login-button {
-  margin: 20px;
-}
-
-.table_students {
-  background: lightslategray;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 95% !important;
-  margin: 10px;
-}
-
-td,
-th {
-  border: 1px solid #dddddd;
-  /* text-align: left; */
-  padding: 8px !important;
-}
-
-p {
-  margin-left: 10px !important;
-  text-shadow: 7 0 BLACK;
+.list-of-students {
+  padding: 20px 0px;
   font-weight: 600;
+  font-size: 22px;
 }
 
-.modal-content {
-  /* width: 90%; */
-  /* align-content: center; */
-  margin: 20px;
+#userModal {
+  background: rgba(0, 0, 0, 0.64);
 }
 
-p.logout {
-  padding: 10px 25px 0px 0px;
-  text-align: right;
+.modal-dialog {
+  top: 10%;
 }
 
-th {
-  color: black;
-  text-align: center !important;
+.h2,
+h2 {
+  font-size: 22px;
+  padding-top: 20px;
 }
 
-td {
-  color: black;
-  text-align: center;
+.btn-primary {
+  background-color: #88c3e6 !important;
+  border-color: #64b3e6 !important;
 }
 
-.add-students {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.modal-content {
-  margin: 0 !important;
-}
-
-.modal-header .close {
-  margin-top: 5px !important;
-}
-
-.add-button {
-  padding-top: 10px;
+.table-div {
+  overflow-x: auto;
 }
