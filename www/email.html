@@ -55,51 +55,69 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="table-responsive">
-                            <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Subject</th>
-                                        <th>Email</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Reply</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
-                                        <td>2011/04/25</td>
-                                        <td>Read</td>
-                                        <td><a data-toggle="modal" data-target="#addReply">Add Reply</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td><a data-toggle="modal" data-target="#checkEmail">example@gmail.com</a></td>
-                                        <td>2011/07/25</td>
-                                        <td>Unread</td>
-                                        <td><a data-toggle="modal" data-target="#addReply">Add Reply</a></td>
-                                    </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Subject</th>
-                                        <th>Email</th>
-                                        <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Reply</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                        <div class="col-xs-2"><span class="title-circle0">F</span></div>
+                        <div class="col-xs-8"><span class="unread-title">Fitbit</br>Your recipe for 2021 success</span><br><span class="email-preview">New year, clean slate -- let's do this!</span></div>
+                        <div class="col-xs-2"><span class="email-time">1:05 PM</span></div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2"><span class="title-circle1">F</span></div>
+                        <div class="col-xs-8"><span class="unread-title">Fitbit</br>Your recipe for 2021 success</span><br><span class="email-preview">New year, clean slate -- let's do this!</span></div>
+                        <div class="col-xs-2"><span class="email-time">1:05 PM</span></div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2"><span class="title-circle2">F</span></div>
+                        <div class="col-xs-8"><span class="unread-title">Fitbit</br>Your recipe for 2021 success</span><br><span class="email-preview">New year, clean slate -- let's do this!</span></div>
+                        <div class="col-xs-2"><span class="email-time">1:05 PM</span></div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-2"><span class="title-circle3">F</span></div>
+                        <div class="col-xs-8"><span class="unread-title">Fitbit</br>Your recipe for 2021 success</span><br><span class="email-preview">New year, clean slate -- let's do this!</span></div>
+                        <div class="col-xs-2"><span class="email-time">1:05 PM</span></div>
                     </div>
                 </div>
             </div>
+            <style>
+                .title-circle0{
+                    background: #e4b9b9;
+                    color: white;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+                .title-circle1{
+                    background: #007bff;
+                    color: white;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+                .title-circle2{
+                    background: #DE2C00;
+                    color: white;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+                .title-circle3{
+                    background: #fc5e5d;
+                    color: white;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+                .unread-title{
+                    color: black;
+                    font-weight: bold;
+                }
+                .email-time{
+                    color: black;
+                    font-weight: bold;
+                }
+                .read-title{
+                    color: lightgray;
+                    font-weight: normal;
+                }
+                .email-preview{
+                    color: lightgray;
+                    font-weight: normal;
+                }
+            </style>
             <div class="modal fade" id="checkEmail" role="dialog">
                 <div class="modal-dialog">
 
