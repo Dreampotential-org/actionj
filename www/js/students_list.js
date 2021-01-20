@@ -4,9 +4,9 @@ var SERVER = "https://sfapp-api.dreamstate-4-all.org/";
 var userToken = localStorage.getItem("user-token");
 console.log("USER TOKEN ==> ", userToken);
 
-if (userToken == null) {
-  window.location.replace("login_starter.html");
-}
+// if (userToken == null) {
+//   window.location.replace("login_starter.html");
+// }
 
 $(document).ready(function () {
   $(".logout").on("click", function (e) {
