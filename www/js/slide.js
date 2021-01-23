@@ -8,6 +8,7 @@ var loaded_flashcards = null;
 var pct = 0
 var completed = false
 var signature = [];
+var phone_verification_status =false;
 function updateProgressBar() {
     pct = (current_slide / total_slides) * 100
     $('.progress-bar').css("width", pct + "%")
@@ -245,7 +246,8 @@ function init() {
                         <div alt="verify_phone">
                             <input type="text" hidden name="verify_phone_${i}" id="verifyPhone">
                             <button class="btn btn-primary" type="button" onclick="verifyPhone(event)"> Click To Verify Phone Number</button>
-                        </div>
+                            <p id="phone_verification_status">${phone_verification_status? "verified" : "not verified"}</p>
+                            </div>
                     </div>
                 `);
             }
@@ -289,11 +291,10 @@ function verifyPhone(event){
         $('#verify_phone').modal('show');
     }
     
-    /*
-    document.addEventListener('signatureSubmitted', function (e) {
-        updateSign(window.currentSignature.data,event,imgId,signInput);
+    document.addEventListener('phoneVerified', function (e) {
+        $('#verify_phone').modal('hide');
+        phone_verification_status = true
     });
-    */
 }
 
 window.addEventListener('DOMContentLoaded', init, false)

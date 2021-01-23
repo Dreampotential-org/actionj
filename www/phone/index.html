@@ -69,10 +69,6 @@
                         }
                     })   
                 }
-
-                
-            const evt = new Event("phoneVerified", {"bubbles":true, "cancelable":false});
-            document.dispatchEvent(evt);
                 verification_process()
             });
 
@@ -98,17 +94,15 @@
                         'contentType': 'application/json',
                         'success': function (data){
                             alert("Code Verified")
+                            const evt = new Event("phoneVerified", {"bubbles":true, "cancelable":false});
+                            document.dispatchEvent(evt);
+
                         },
                         'error': function(res){
                             alert("Code didn't match");
                         }
                     })   
                 }
-
-                
-            const evt = new Event("phoneVerified", {"bubbles":true, "cancelable":false});
-            document.dispatchEvent(evt);
-                verification_process()
             });
 
         });
