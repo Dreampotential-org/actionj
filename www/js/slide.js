@@ -151,6 +151,7 @@ function get_session() {
 
 function init() {
     $('#sign-modal').load("signature/index.html");
+    $("#verify-phone-modal").load('phone/index.html');
 
     $("#progress-section").hide();
     var lesson_id = getParam("lesson_id");
@@ -236,8 +237,22 @@ function init() {
                 </div>
                 </div>`)
             }
+            if(flashcard.lesson_type =="verify_phone"){
+                console.log("adding verify phone")
+
+                $("#theSlide").append(`
+                    <duv class="${className}" id="flascard_${i}" id="verify_phone">
+                        <div alt="verify_phone">
+                            <input type="text" hidden name="verify_phone_${i}" id="verifyPhone">
+                            <button class="btn btn-primary" type="button" onclick="verifyPhone(event)"> Click To Verify Phone Number</button>
+                        </div>
+                    </div>
+                `);
+            }
+
             i++;
         })
+
 
         $("#theSlide").append('<div class="item"><div alt="quick_read" style="height:500px"><h1>Completed <img height="30px" src="https://www.clipartmax.com/png/full/301-3011315_icon-check-green-tick-transparent-background.png"></h1></div></div>')
         $.get(API_SERVER+'/courses_api/lesson/response/get/'+lesson_id+'/'+localStorage.getItem("session_id"),function(response) {
@@ -269,5 +284,16 @@ function init() {
 }
 
 
+function verifyPhone(event){
+    if ($('#verify_phone')) {
+        $('#verify_phone').modal('show');
+    }
+    
+    /*
+    document.addEventListener('signatureSubmitted', function (e) {
+        updateSign(window.currentSignature.data,event,imgId,signInput);
+    });
+    */
+}
 
 window.addEventListener('DOMContentLoaded', init, false)

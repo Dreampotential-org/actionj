@@ -4,7 +4,7 @@ var question_choices_count = 0;
 var video_file_count = 0;
 var image_file_count = 0;
 var iframe_link_count = 0;
-
+var verify_phone_count =0;
 var title_textarea_count = 0;
 var title_input_count =0;
 
@@ -454,6 +454,21 @@ function addImageFile(isNew, id, question, image, posU) {
 	sortablePositionFunction(isNew, posU);
 }
 
+function addVerifyPhone(isNew,id,question,image,posU){
+    if (!isNew) {
+
+    } else {
+        $("#title_textarea").find("textarea").first().html("")
+    }
+
+    $("#verify_phone").find("input").first().attr(
+        "name", "verify_phone_" + verify_phone_count)
+    $("#sortable").append($("#verify_phone").html())
+
+    verify_phone_count++;
+    sortablePositionFunction(isNew, posU);
+}
+
 function sendUpdates() {
     var lesson_name = $("#lesson_name").val()
     data_ = {
@@ -602,6 +617,19 @@ function sendUpdates() {
         flashcards.push(temp)
     }
 
+    for (var i = 0; i < verify_phone_count; i++) {
+        position_me = $('input[name="verify_phone_' + i + '"]').parent().parent().data("position")
+
+        temp = {
+            "lesson_type": "verify_phone",
+            "question": question,
+            "image": video,
+            "options": choices,
+            "position": position_me
+        }
+        flashcards.push(temp)
+    }
+
     data_.flashcards = flashcards
     console.log(data_)
 
@@ -720,6 +748,11 @@ $(document).ready(function () {
                         addSignaturePad(false, flashcard.id, null,
                                         flashcard.position + 1);
                     }
+
+                    if(flashcard.lesson_type == "verify_phone"){
+                        addVerifyPhone(false, flashcard.id, null,
+                                        flashcard.position + 1);
+                    }
                 })
                 getAllLessons();
             })
@@ -810,6 +843,11 @@ $(document).ready(function () {
             if ($("#selectsegment").val() == 'sign_b64')
             {
                 addSignaturePad(true)
+
+            }
+            if ($("#selectsegment").val() == 'verify_phone')
+            {
+                addVerifyPhone(true)
 
             }
             if ($("#selectsegment").val() == 'select_type')
