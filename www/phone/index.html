@@ -31,8 +31,9 @@
     </div>
     <script> 
         window.SERVER = 'http://localhost:8000'
-        window.API_SERVER = 'http://localhost:8001'
+        window.API_SERVER = 'https://sfapp-api.dreamstate-4-all.org'
         var phone_number = '';
+        var code ='';
         function verification_process(){
             $("#code_block").show()
             $("#submit-code").show()
@@ -49,8 +50,9 @@
                 if (phone_number == '') {
                     return alert("Please provide your number first");
                 }else{
+                    
                     var data_ ={
-                        "phone_number":phone_number.length,
+                        "phone_number":phone_number,
                         "session_id":localStorage.session_id
                     }
 
@@ -75,6 +77,39 @@
             });
 
 
+            $('#submit-code').on('click', function () {
+                phone_number = $("#phone_number").val();
+                code = $("#2fa_code").val();
+
+                console.log(phone_number)
+                if (phone_number == '') {
+                    return alert("Please provide your number first");
+                }else{
+                    
+                    var data_ ={
+                        "phone_number":phone_number,
+                        "code_2fa":code
+                    }
+
+                    $.ajax({
+                        "url": API_SERVER +"/courses_api/verify/phone",
+                        'data': JSON.stringify(data_),
+                        'type': 'POST',
+                        'contentType': 'application/json',
+                        'success': function (data){
+                            alert("Code Verified")
+                        },
+                        'error': function(res){
+                            alert("Code didn't match");
+                        }
+                    })   
+                }
+
+                
+            const evt = new Event("phoneVerified", {"bubbles":true, "cancelable":false});
+            document.dispatchEvent(evt);
+                verification_process()
+            });
 
         });
 
