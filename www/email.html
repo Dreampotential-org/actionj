@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="robots" content="noindex, nofollow">
 
-        <title>Responsive Mail Inbox and Compose - Bootsnipp.com</title>
+        <title>Mail Inbox and Compose</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <style type="text/css">
@@ -368,20 +368,11 @@
                             <div class="col-xs-6">
                                 <ul class="inbox-nav inbox-divider">
                                     <li class="active">
-                                        <a href="#"><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">2</span></a>
+                                        <a href="email.html"><i class="fa fa-inbox"></i> Inbox <span class="label label-danger pull-right">2</span></a>
 
                                     </li>
                                 </ul>
                             </div>
-                            <!--                            <div class="col-xs-12">
-                                                            <form action="#" class="pull-right position">
-                                                                <div class="input-append">
-                                                                    <input type="text" class="sr-input" placeholder="Search Mail">
-                                                                    <button class="btn sr-btn" type="button"><i class="fa fa-search"></i></button>
-                                                                </div>
-                                                            </form>
-                                                        </div>-->
-                            <!-- Modal -->
                             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -490,15 +481,16 @@
                                 </li>
                             </ul>
                         </div>
-                        <table class="table table-inbox table-hover">
+                        <!--Inbox prview code start ================-->
+                        <table class="table table-inbox table-hover" id="inboxPreview">
                             <tbody>
                                 <tr class="unread">
                                     <td class="inbox-small-cells">
                                         <input type="checkbox" class="mail-checkbox">
                                     </td>
                                     <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                    <td class="view-message  dont-show">PHPClass</td>
-                                    <td class="view-message ">Added a new class: Login Class Fast Site</td>
+                                    <td class="view-message  dont-show" onclick="showPreviewMsg()">PHPClass</td>
+                                    <td class="view-message" onclick="showPreviewMsg()">Added a new class: Login Class Fast Site</td>
                                     <td class="view-message  inbox-small-cells"><i class="fa fa-paperclip"></i></td>
                                     <td class="view-message  text-right">9:27 AM</td>
                                 </tr>
@@ -507,8 +499,8 @@
                                         <input type="checkbox" class="mail-checkbox">
                                     </td>
                                     <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                    <td class="view-message dont-show">Google Webmaster </td>
-                                    <td class="view-message">Improve the search presence of WebSite</td>
+                                    <td class="view-message dont-show" onclick="showPreviewMsg()">Google Webmaster </td>
+                                    <td class="view-message" onclick="showPreviewMsg()">Improve the search presence of WebSite</td>
                                     <td class="view-message inbox-small-cells"></td>
                                     <td class="view-message text-right">March 15</td>
                                 </tr>
@@ -517,8 +509,8 @@
                                         <input type="checkbox" class="mail-checkbox">
                                     </td>
                                     <td class="inbox-small-cells"><i class="fa fa-star"></i></td>
-                                    <td class="view-message dont-show">JW Player</td>
-                                    <td class="view-message">Last Chance: Upgrade to Pro for </td>
+                                    <td class="view-message dont-show" onclick="showPreviewMsg()">JW Player</td>
+                                    <td class="view-message" onclick="showPreviewMsg()">Last Chance: Upgrade to Pro for </td>
                                     <td class="view-message inbox-small-cells"></td>
                                     <td class="view-message text-right">March 15</td>
                                 </tr>
@@ -704,11 +696,243 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <!--Inbox prview code end ================-->
+                        <!--Message preview code start====================-->
+                        <div class="email-app mb-4" style="display: none" id="messagePreview">
+                            <main class="message">
+                                <div class="details">
+                                    <div class="title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</div>
+                                    <div class="header">
+                                        <img class="avatar" src="https://bootdey.com/img/Content/avatar/avatar1.png">
+                                        <div class="from">
+                                            <span>Lukasz Holeczek</span>
+                                            lukasz@bootstrapmaster.com
+                                        </div>
+                                        <div class="date">Today, <b>3:47 PM</b></div>
+                                    </div>
+                                    <div class="content">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                        <blockquote>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                            in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </blockquote>
+                                    </div>
+                                    <div class="attachments">
+                                        <div class="attachment">
+                                            <span class="badge badge-danger">zip</span> <b>bootstrap.zip</b> <i>(2,5MB)</i>
+                                            <span class="menu">
+                                                <a href="#" class="fa fa-search"></a>
+                                                <a href="#" class="fa fa-share"></a>
+                                                <a href="#" class="fa fa-cloud-download"></a>
+                                            </span>
+                                        </div>
+                                        <div class="attachment">
+                                            <span class="badge badge-info">txt</span> <b>readme.txt</b> <i>(7KB)</i>
+                                            <span class="menu">
+                                                <a href="#" class="fa fa-search"></a>
+                                                <a href="#" class="fa fa-share"></a>
+                                                <a href="#" class="fa fa-cloud-download"></a>
+                                            </span>
+                                        </div>
+                                        <div class="attachment">
+                                            <span class="badge badge-success">xls</span> <b>spreadsheet.xls</b> <i>(984KB)</i>
+                                            <span class="menu">
+                                                <a href="#" class="fa fa-search"></a>
+                                                <a href="#" class="fa fa-share"></a>
+                                                <a href="#" class="fa fa-cloud-download"></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <form method="post" action="">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="message" name="body" rows="12" placeholder="Click here to reply"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button tabindex="3" type="submit" class="btn btn-success">Send message</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </main>
+                        </div>
+                        <!--Message preview code end====================-->
                     </div>
                 </aside>
             </div>
-        </div>	<script type="text/javascript">
+        </div>	
+        <br>
+        <br>
+        <script>
+            function showPreviewMsg() {
+                var v = document.getElementById("messagePreview");
+                var inboxPre = document.getElementById("inboxPreview");
+                if (v.style.display === "none") {
+                    v.style.display = "block";
+                    inboxPre.style.display = "none";
+                } else {
+                    v.style.display = "none";
+                }
+            }
         </script>
+        <style>
+            .email-app {
+                display: flex;
+                flex-direction: row;
+                background: #fff;
+                border: 1px solid #e1e6ef;
+                padding: 15px;
+            }
 
+            .email-app .inbox .messages {
+                padding: 0;
+                list-style: none;
+            }
 
+            .email-app .inbox .message {
+                position: relative;
+                padding: 1rem 1rem 1rem 2rem;
+                cursor: pointer;
+                border-bottom: 1px solid #e1e6ef;
+            }
+
+            .email-app .inbox .message:hover {
+                background: #f9f9fa;
+            }
+
+            .email-app .inbox .message .actions {
+                position: absolute;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .email-app .inbox .message .actions .action {
+                width: 2rem;
+                margin-bottom: 0.5rem;
+                color: #c0cadd;
+                text-align: center;
+            }
+
+            .email-app .inbox .message a {
+                color: #000;
+            }
+
+            .email-app .inbox .message a:hover {
+                text-decoration: none;
+            }
+
+            .email-app .inbox .message.unread .header,
+            .email-app .inbox .message.unread .title {
+                font-weight: bold;
+            }
+
+            .email-app .inbox .message .header {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 0.5rem;
+            }
+
+            .email-app .inbox .message .header .date {
+                margin-left: auto;
+            }
+
+            .email-app .inbox .message .title {
+                margin-bottom: 0.5rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .email-app .inbox .message .description {
+                font-size: 12px;
+            }
+
+            .email-app .message .toolbar {
+                padding-bottom: 1rem;
+                border-bottom: 1px solid #e1e6ef;
+            }
+
+            .email-app .message .details .title {
+                padding: 1rem 0;
+                font-weight: bold;
+            }
+
+            .email-app .message .details .header {
+                display: flex;
+                padding: 1rem 0;
+                margin: 1rem 0;
+                border-top: 1px solid #e1e6ef;
+                border-bottom: 1px solid #e1e6ef;
+            }
+
+            .email-app .message .details .header .avatar {
+                width: 40px;
+                height: 40px;
+                margin-right: 1rem;
+            }
+
+            .email-app .message .details .header .from {
+                font-size: 12px;
+                color: #9faecb;
+                align-self: center;
+            }
+
+            .email-app .message .details .header .from span {
+                display: block;
+                font-weight: bold;
+            }
+
+            .email-app .message .details .header .date {
+                margin-left: auto;
+            }
+
+            .email-app .message .details .attachments {
+                padding: 1rem 0;
+                margin-bottom: 1rem;
+                border-top: 3px solid #f9f9fa;
+                border-bottom: 3px solid #f9f9fa;
+            }
+
+            .email-app .message .details .attachments .attachment {
+                display: flex;
+                margin: 0.5rem 0;
+                font-size: 12px;
+                align-self: center;
+            }
+
+            .email-app .message .details .attachments .attachment .badge {
+                margin: 0 0.5rem;
+                line-height: inherit;
+            }
+
+            .email-app .message .details .attachments .attachment .menu {
+                margin-left: auto;
+            }
+
+            .email-app .message .details .attachments .attachment .menu a {
+                padding: 0 0.5rem;
+                font-size: 14px;
+                color: #e1e6ef;
+            }
+
+            @media (max-width: 767px) {
+                .email-app {
+                    flex-direction: column;
+                }
+                .email-app nav {
+                    flex: 0 0 100%;
+                }
+            }
+
+            @media (max-width: 575px) {
+                .email-app .message .header {
+                    flex-flow: row wrap;
+                }
+                .email-app .message .header .date {
+                    flex: 0 0 100%;
+                }
+            }
+        </style>
     </body></html>
