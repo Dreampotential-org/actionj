@@ -293,7 +293,7 @@ function verifyPhone(event){
     
     document.addEventListener('phoneVerified', function (e) {
         $('#verify_phone').modal('hide');
-        phone_verification_status = true
+        phone_verification_status = true 
     });
 }
 

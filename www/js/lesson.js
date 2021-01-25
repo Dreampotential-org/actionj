@@ -131,10 +131,18 @@ function addQuestionChoices(isNew, id, question, choices, image, posU) {
 	$('#question_choices')
 		.find('input')
 		.first()
-		.attr('name', 'question_' + question_choices_count);
-	$('#question_choices')
-		.find('#choices')
-		.attr('id', 'choices_' + question_choices_count);
+        .attr('name', 'question_' + question_choices_count);
+        if(question_choices_count ==0){
+            $('#question_choices')
+            .find('#choices')
+            .attr('id', 'choices_' + question_choices_count);
+            
+        }else{
+            $('#question_choices')
+            .find('#choices_'+(question_choices_count-1))
+            .attr('id', 'choices_' + question_choices_count);    
+        }
+
 	$('#question_choices')
 		.find('input')
 		.last()
@@ -164,10 +172,10 @@ function addQuestionChoices(isNew, id, question, choices, image, posU) {
 		$('#question_choices').find('text').html('');
 		$('#question_choices').find('input').last().attr('value', '');
 	}
-
 	$('#sortable').append($('#question_choices').html());
-	question_choices_count++;
-	sortablePositionFunction(isNew, posU);
+    sortablePositionFunction(isNew, posU);
+    question_choices_count++;
+
 }
 
 function handleImageUpload() {
