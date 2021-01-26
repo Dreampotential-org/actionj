@@ -479,18 +479,19 @@ function addVerifyPhone(isNew,id,question,image,posU){
     sortablePositionFunction(isNew, posU);
 }
 
-function addBrainTree(isNew, id, merchant_ID, braintree_public_key, braintree_private_key, 
-                        braintree_item_name, braintree_item_price, posU) {
+function addBrainTree(isNew, id, merchant_ID, braintree_public_key,
+                      braintree_private_key,
+                      braintree_item_name, braintree_item_price, posU) {
     console.log(isNew);
     if (!isNew) {
-        console.log(id, merchant_ID, braintree_public_key, braintree_private_key, 
+        console.log(id, merchant_ID, braintree_public_key, braintree_private_key,
             braintree_item_name, braintree_item_price, posU);
         $("#brain_tree").find("#braintree_merchant_ID").attr("value", merchant_ID)
         $("#brain_tree").find("#braintree_public_key").attr("value", braintree_public_key)
         $("#brain_tree").find("#braintree_private_key").attr("value", braintree_private_key)
         $("#brain_tree").find("#braintree_item_name").attr("value", braintree_item_name)
         $("#brain_tree").find("#braintree_item_price").attr("value", braintree_item_price)
-        //// falsh card ID
+        //// flash card ID
         $("#brain_tree").find("#braintree_merchant_ID").attr("data-id", id)
         $("#brain_tree").find("#braintree_public_key").attr("data-id", id)
         $("#brain_tree").find("#braintree_private_key").attr("data-id", id)
@@ -907,4 +908,5 @@ $(document).ready(function () {
                 alert("Please select a type");
             }
         })
+    }
 });
