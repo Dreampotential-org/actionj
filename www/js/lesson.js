@@ -27,6 +27,7 @@ function selectLesson() {
 
 function getAllLessons() {
 	$.get(API_SERVER + '/courses_api/lesson/all', function(response2) {
+        console.log(response2)
         for(var lesson of response2) {
 			$('#select_lesson').append(
 				"<option value='" + lesson.id + "'>" + lesson.lesson_name + '</option>'
@@ -882,5 +883,5 @@ $(document).ready(function () {
         }
     })
     // XXX cause some error
-    // getAllLessons();
+    getAllLessons();
 })
