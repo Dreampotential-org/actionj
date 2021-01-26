@@ -3,13 +3,15 @@ var title_text_count = 0;
 var question_choices_count = 0;
 var video_file_count = 0;
 var iframe_link_count = 0;
+var braintree_count = 0;
 var question_text_count = 0;
 var sign_count = 0;
 var sortArray = [];
 var MODE;
 var pos = 0;
 
-var API_SERVER = 'https://sfapp-api.dreamstate-4-all.org';
+// var API_SERVER = 'https://sfapp-api.dreamstate-4-all.org';
+var API_SERVER = 'http://localhost:8000';
 
 var lesson_id = getParam("lesson_id");
 
@@ -368,6 +370,45 @@ function addSignaturePad(isNew, id, sign_data, posU) {
     sortablePositionFunction(isNew, posU);
 }
 
+function addBrainTree(isNew, id, merchant_ID, braintree_public_key, braintree_private_key, 
+                        braintree_item_name, braintree_item_price, posU) {
+    console.log(isNew);
+    if (!isNew) {
+        console.log(id, merchant_ID, braintree_public_key, braintree_private_key, 
+            braintree_item_name, braintree_item_price, posU);
+        $("#brain_tree").find("#braintree_merchant_ID").attr("value", merchant_ID)
+        $("#brain_tree").find("#braintree_public_key").attr("value", braintree_public_key)
+        $("#brain_tree").find("#braintree_private_key").attr("value", braintree_private_key)
+        $("#brain_tree").find("#braintree_item_name").attr("value", braintree_item_name)
+        $("#brain_tree").find("#braintree_item_price").attr("value", braintree_item_price)
+        //// falsh card ID
+        $("#brain_tree").find("#braintree_merchant_ID").attr("data-id", id)
+        $("#brain_tree").find("#braintree_public_key").attr("data-id", id)
+        $("#brain_tree").find("#braintree_private_key").attr("data-id", id)
+        $("#brain_tree").find("#braintree_item_name").attr("data-id", id)
+        $("#brain_tree").find("#braintree_item_price").attr("data-id", id)
+
+    } else {
+        console.log("empty values");
+        $("#brain_tree").find("#braintree_merchant_ID").attr("value", "")
+        $("#brain_tree").find("#braintree_public_key").attr("value", "")
+        $("#brain_tree").find("#braintree_private_key").attr("value", "")
+        $("#brain_tree").find("#braintree_item_name").attr("value", "")
+        $("#brain_tree").find("#braintree_item_price").attr("value", "")
+    }
+
+    $("#brain_tree").find("#braintree_merchant_ID").attr("name", "braintree_merchant_ID_" + braintree_count)
+    $("#brain_tree").find("#braintree_public_key").attr("name", "braintree_public_key_" + braintree_count)
+    $("#brain_tree").find("#braintree_private_key").attr("name", "braintree_private_key_" + braintree_count)
+    $("#brain_tree").find("#braintree_item_name").attr("name", "braintree_item_name_" + braintree_count)
+    $("#brain_tree").find("#braintree_item_price").attr("name", "braintree_item_price_" + braintree_count)
+    
+
+    $("#sortable").append($("#brain_tree").html())
+    braintree_count++;
+    sortablePositionFunction(isNew, posU);
+}
+
 function sendUpdates() {
     var lesson_name = $("#lesson_name").val()
     data_ = {
@@ -476,6 +517,30 @@ function sendUpdates() {
         flashcards.push(temp)
     }
 
+    for (var i = 0; i < braintree_count; i++) {
+        var braintree_merchant_ID = $('input[name="braintree_merchant_ID_' + i + '"]').val();
+        var braintree_public_key = $('input[name="braintree_public_key_' + i + '"]').val();
+        var braintree_private_key = $('input[name="braintree_private_key_' + i + '"]').val();
+        var braintree_item_name = $('input[name="braintree_item_name_' + i + '"]').val();
+        var braintree_item_price = $('input[name="braintree_item_price_' + i + '"]').val();
+
+        position_me = $('input[name="braintree_merchant_ID_' + i + '"]').parent().parent().data("position")
+
+        temp = {
+            "lesson_type": "BrainTree",
+            // "question": title_value,
+            // "answer": text_value,
+            "braintree_merchant_ID":braintree_merchant_ID,
+            "braintree_public_key":braintree_public_key,
+            "braintree_private_key":braintree_private_key,
+            "braintree_item_name":braintree_item_name,
+            "braintree_item_price":braintree_item_price,
+            "position": position_me
+
+        }
+        flashcards.push(temp)
+    }
+
     data_.flashcards = flashcards
     console.log(data_)
 
@@ -517,6 +582,8 @@ $(document).ready(function () {
     } else {
         MODE = "CREATE";
     }
+    // console.log(MODE);
+    // MODE = "UPDATE";
 
 
     if (MODE == "UPDATE") {
@@ -538,11 +605,14 @@ $(document).ready(function () {
                 return 0;
             })
         })
+    }
 
         if (MODE == "UPDATE") {
+            console.log("update start");
             $.get(API_SERVER + '/courses_api/lesson/read/' + lesson_id + '/', function (response) {
                 $("#lesson_slide").attr("href", SERVER + "/slide.html?lesson_id=" + lesson_id)
                 $("#lesson_name").val(response.lesson_name)
+                console.log("response",response);
                 var flashcards = response.flashcards;
 
                 flashcards.sort(function (a, b) {
@@ -555,7 +625,7 @@ $(document).ready(function () {
                     return 0;
                 })
                 flashcards.forEach((flashcard) => {
-
+                    console.log("update check2");
                     if (pos < flashcard.position) {
                         pos = flashcard.position + 1
                     }
@@ -566,6 +636,22 @@ $(document).ready(function () {
                     }
                     if (flashcard.lesson_type == "title_text") {
                         addTitleText(false, flashcard.id, flashcard.question, flashcard.answer, flashcard.position)
+                    }
+                    if (flashcard.lesson_type == "BrainTree") {
+                        console.log(flashcard.id, 
+                            flashcard.braintree_merchant_ID,
+                            flashcard.braintree_public_key,
+                            flashcard.braintree_private_key,
+                            flashcard.braintree_item_name,
+                            flashcard.braintree_item_price,
+                            flashcard.position);
+                        addBrainTree(false, flashcard.id, 
+                                flashcard.braintree_merchant_ID,
+                                flashcard.braintree_public_key,
+                                flashcard.braintree_private_key,
+                                flashcard.braintree_item_name,
+                                flashcard.braintree_item_price,
+                                flashcard.position)
                     }
                     if (flashcard.lesson_type == "question_choices") {
                         addQuestionChoices(false, flashcard.id, flashcard.question, flashcard.options, flashcard.image, flashcard.position)
@@ -622,6 +708,8 @@ $(document).ready(function () {
                     question_text_count--
                 } else if (lesson_element_type.startsWith("sign_b64")) {
                     sign_count--
+                } else if (lesson_element_type.startsWith("brain_tree")) {
+                    braintree_count--
                 }
                 //console.log(lesson_element_type)
                 $(e.target).parent().parent().remove()
@@ -632,7 +720,6 @@ $(document).ready(function () {
 
 
         $('#add').click(function (e) {
-
             if ($("#selectsegment").val() == 'speed_read')
             {
                 addSpeedRead(true);
@@ -666,11 +753,15 @@ $(document).ready(function () {
                 addSignaturePad(true)
 
             }
+            if ($("#selectsegment").val() == 'brain_tree')
+            {
+                addBrainTree(true)
+            }
             if ($("#selectsegment").val() == 'select_type')
             {
                 alert("Please select a type");
             }
         })
-    }
-})
+    })
+// })
 
