@@ -40,8 +40,14 @@ $.get(SERVER+'/courses_api/lesson/response/get/'+lesson_id+'/',function(response
         var q = r.flashcard[0].question
         var a = r.answer
         var s_id = r.user_session[0].session_id
+        var type = r.flashcard[0].lesson_type
+        if(type =="signature"){
+            $("#the_body").append("<tr><td>"+s_id+"</td><td>"+q+"</td><td><img src='"+a+"'></td></tr>")
 
-        $("#the_body").append("<tr><td>"+s_id+"</td><td>"+q+"</td><td>"+a+"</td></tr>")
+        }else{
+            $("#the_body").append("<tr><td>"+s_id+"</td><td>"+q+"</td><td>"+a+"</td></tr>")
+
+        }
     })
 })
 </script>
