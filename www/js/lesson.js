@@ -787,7 +787,14 @@ $(document).ready(function () {
                                     flashcard.position + 1);
                 }
             })
+        
+            getAllLessons();
+
+       
         })
+    }else{
+        getAllLessons();
+
     }
 
     $("#lesson_form").submit((e) => {
@@ -882,6 +889,4 @@ $(document).ready(function () {
             alert("Please select a type");
         }
     })
-    // XXX cause some error
-    getAllLessons();
 })
