@@ -25,6 +25,7 @@ function init_meds() {
 
 function refresh_meds() {
     list_meds(function(meds) {
+        console.log(meds)
         $("#med_list").empty()
         for(var med of meds) {
             add_med_html(med)
@@ -88,7 +89,8 @@ function delete_med(med_id) {
         });
         refresh_meds()
     }).fail(function (err) {
-      alert("ERROR")
+        console.log(err)
+      //alert("ERROR")
     });
 }
 
@@ -122,7 +124,8 @@ function add_meds() {
         $(".close").click()
 
     }).fail(function (err) {
-      alert("ERROR")
+        console.log(err)
+      //alert("ERROR")
     });
 }
 
@@ -144,6 +147,7 @@ function list_meds(callback) {
         // change screen for code collecton
         callback(JSON.parse(response).meds)
     }).fail(function (err) {
-      alert("ERROR")
+        console.log(err)
+      //alert("ERROR")
     });
 }

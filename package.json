@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "cordova-android": "^8.1.0",
+    "cordova-plugin-keep-awake": "0.0.1",
     "shelljs": "^0.8.4"
   }
 }
