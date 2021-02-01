@@ -203,12 +203,15 @@ function init() {
             if(flashcard.lesson_type == "question_choices"){
                 $("#prevButton").attr("data-type","question_choices");
                 $("#nextButton").attr("data-type","question_choices");
-                $("#theSlide").append('<div class="'+className+'" id="flashcard_'+i+'"><div class="question_choices"><h1>'+flashcard.question+'</h1><ul></ul></div></div>')
+                $("#theSlide").append('<div class="'+className+'" id="flashcard_'+i+'"><div class="question_choices"><h1>'+flashcard.question+'</h1><ul alt="question_choices_'+i+'"></ul></div></div>')
                 if(flashcard.image){
                     $("#flashcard_"+i).prepend('<center><img src="'+flashcard.image+'" alt="Chania" style="height:300px;border:5px;border-style:solid;border-color:black"></center>')
                 }
+                console.log(flashcard)
+    
                 flashcard.options.split(",").forEach(function (valu) {
-                    $("#theSlide").find('ul').append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
+                    console.log("adding in question choices"+i)
+                    $("#theSlide").find('ul').attr("alt","question_choices_"+i).append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
                 })
             }
             if(flashcard.lesson_type == "iframe_link"){

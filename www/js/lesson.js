@@ -149,8 +149,10 @@ function addQuestionChoices(isNew, id, question, choices, image, posU) {
 		.last()
 		.attr('name', 'image_' + question_choices_count);
 	$('#question_choices')
-		.find('button')
+        .find('button')
+        .last()
 		.attr('onclick', 'addChoices(' + question_choices_count + ')');
+        let tempQC = $("#question_choices").html()
 
 	if (!isNew) {
 		$('#question_choices').find('input').first().attr('value', question);
@@ -176,6 +178,7 @@ function addQuestionChoices(isNew, id, question, choices, image, posU) {
 	$('#sortable').append($('#question_choices').html());
     sortablePositionFunction(isNew, posU);
     question_choices_count++;
+    $("#question_choices").html(tempQC)
 
 }
 
