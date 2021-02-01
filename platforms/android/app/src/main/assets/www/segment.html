@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-xs-6 col-sm-6" style="margin-top: 20px;margin-bottom: 10px;">
                     <select class="form-control" id="selectsegment">
-                        <option selected value="select_type">select segment type</option>
+                        <option selected value="select_type">Select Segment Type</option>
                         <option value="speed_read">Speed Read</option>
                         <option value="title_text">Title Text</option>
                         <option value="question_choices">Question Choices</option>
@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="speed_read" id="speed_read" style="display: none; padding-top: 15px">
-                        <form>
+                        <form onsubmit="alert()">
                             <div class="form-group">
                                 <textarea class="form-control" id="speed_read_input" rows="7" placeholder=""></textarea>
                             </div>
@@ -164,7 +164,13 @@
                     $(this).parent('div').remove();
                     x--;
                 })
+
+
+            function createCourse(e){
+                    alert();
+            }
             });
+
         </script>
 
     </body>
