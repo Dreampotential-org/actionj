@@ -161,8 +161,8 @@ function init() {
           function (response) {
 
         get_session();
-        let sign_flashcard = {lesson_type: 'input_signature'}
-        response.flashcards.push(sign_flashcard)
+        //let sign_flashcard = {lesson_type: 'input_signature'}
+        //response.flashcards.push(sign_flashcard)
         total_slides = response.flashcards.length;
         $("#progress-section").show();
 
