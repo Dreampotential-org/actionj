@@ -207,11 +207,19 @@ function init() {
                 if(flashcard.image){
                     $("#flashcard_"+i).prepend('<center><img src="'+flashcard.image+'" alt="Chania" style="height:300px;border:5px;border-style:solid;border-color:black"></center>')
                 }
-                console.log(flashcard)
-    
+
                 flashcard.options.split(",").forEach(function (valu) {
-                    console.log("adding in question choices"+i)
-                    $("#theSlide").find('ul').attr("alt","question_choices_"+i).append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
+                $("#theSlide").find("ul").each((a,b,c) => {
+                        let alt_q = $(b).attr("alt")
+                        if(alt_q == "question_choices_"+i){
+                            $(b).append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
+
+                        }
+                        
+                });
+                    if($("#theSlide").find('ul').attr("alt") === "question_choices_"+i){
+
+                    }
                 })
             }
             if(flashcard.lesson_type == "iframe_link"){
