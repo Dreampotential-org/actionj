@@ -210,8 +210,7 @@ function init() {
 
                 flashcard.options.split(",").forEach(function (valu) {
                 $("#theSlide").find("ul").each((a,b,c) => {
-                        let alt_q = $(b).attr("alt")
-                        if(alt_q == "question_choices_"+i){
+                        if($(b).attr("alt") == "question_choices_"+i){
                             $(b).append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
 
                         }
