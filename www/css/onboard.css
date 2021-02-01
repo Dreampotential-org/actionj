@@ -637,3 +637,19 @@ td {
 .modal-header .close {
   margin-top: 0 !important;
 }
+
+.navbar-header.nav-header {
+  display: flex;
+}
+
+.nav-logo {
+  width: 20%;
+}
+
+.modal-title {
+  width: 100%;
+}
+
+.modal-header.onboardpop {
+  display: flex;
+}
