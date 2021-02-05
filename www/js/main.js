@@ -2,7 +2,9 @@ var SERVER = "https://sfapp-api.dreamstate-4-all.org/";
 // var SERVER = 'http://localhost:8000/'
 
 function init() {
-  KeepAwake.start();
+  if (isApp()) {
+    KeepAwake.start();
+  }
   init_mapbox();
   setup_click_events();
   setup_gps_events();
