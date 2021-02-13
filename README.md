@@ -1,8 +1,10 @@
-# sfapp
+# action
 
-```virtualenv -p python3 venv
-source venv/bin/activate
-pip install -r requirements.txt
-python code/manage.py runserver```
+``` start webservice - localhost:8084
+docker-compose -f docker-compose.yml down
+docker-compose -f docker-compose.yml build
+docker-compose -f docker-compose.yml up -d
+
+```
 
 
