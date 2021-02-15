@@ -615,6 +615,36 @@ function sendUpdates() {
         flashcards.push(temp)
     }
 
+    /////////////////////// braintree
+    for (var i = 0; i < braintree_count; i++) {
+        var braintree_merchant_ID = $('input[name="braintree_merchant_ID_' + i + '"]').val()
+        var braintree_public_key = $('input[name="braintree_public_key_' + i + '"]').val()
+        var braintree_private_key = $('input[name="braintree_private_key_' + i + '"]').val()
+        var braintree_item_name = $('input[name="braintree_item_name_' + i + '"]').val()
+        var braintree_item_price = $('input[name="braintree_item_price_' + i + '"]').val()
+        var data_id = $('input[name="braintree_merchant_ID_' + i + '"]').attr("data-id")
+        position_me = $('input[name="braintree_merchant_ID_' + i + '"]').parent().parent().data("position")
+
+    //     $("#brain_tree").find("#braintree_merchant_ID").attr("name", "braintree_merchant_ID_" + braintree_count)
+    // $("#brain_tree").find("#braintree_public_key").attr("name", "braintree_public_key_" + braintree_count)
+    // $("#brain_tree").find("#braintree_private_key").attr("name", "braintree_private_key_" + braintree_count)
+    // $("#brain_tree").find("#braintree_item_name").attr("name", "braintree_item_name_" + braintree_count)
+    // $("#brain_tree").find("#braintree_item_price").attr("name", "braintree_item_price_" + braintree_count)
+
+        temp = {
+            "lesson_type": "BrainTree",
+            "id":data_id,
+            "braintree_merchant_ID": braintree_merchant_ID,
+            "braintree_public_key": braintree_public_key,
+            "braintree_private_key": braintree_private_key,
+            "braintree_item_name": braintree_item_name,
+            "braintree_item_price": braintree_item_price,
+            "position": position_me
+        }
+        flashcards.push(temp)
+    }
+    ///////////////////////
+
     for (var i = 0; i < iframe_link_count; i++) {
         var question = $('input[name="question_' + i + '"]').val()
         position_me = $('input[name="question_' + i + '"]').parent().parent().data("position")
@@ -644,7 +674,6 @@ function sendUpdates() {
 
     data_.flashcards = flashcards
     console.log(data_)
-
     if (MODE == "CREATE") {
 
         $.ajax({
@@ -661,7 +690,6 @@ function sendUpdates() {
         })
 
     } else {
-
         $.ajax({
             "url": API_SERVER + "/courses_api/lesson/update/" + lesson_id + "/",
             'data': JSON.stringify(data_),
@@ -720,7 +748,6 @@ $(document).ready(function () {
                 })
 
                 flashcards.forEach((flashcard) => {
-                    console.log("update check2");
                     if (pos < flashcard.position) {
                         pos = flashcard.position + 1
                     }
