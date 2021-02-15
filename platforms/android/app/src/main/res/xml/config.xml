@@ -4,7 +4,7 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>SF Onboard</name>
+    <name>Action</name>
     <description>
        This is SF Onborad application.
     </description>

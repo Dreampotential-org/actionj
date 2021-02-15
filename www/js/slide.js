@@ -161,8 +161,8 @@ function init() {
           function (response) {
 
         get_session();
-        let sign_flashcard = {lesson_type: 'input_signature'}
-        response.flashcards.push(sign_flashcard)
+        //let sign_flashcard = {lesson_type: 'input_signature'}
+        //response.flashcards.push(sign_flashcard)
         total_slides = response.flashcards.length;
         $("#progress-section").show();
 
@@ -203,19 +203,29 @@ function init() {
             if(flashcard.lesson_type == "question_choices"){
                 $("#prevButton").attr("data-type","question_choices");
                 $("#nextButton").attr("data-type","question_choices");
-                $("#theSlide").append('<div class="'+className+'" id="flashcard_'+i+'"><div class="question_choices"><h1>'+flashcard.question+'</h1><ul></ul></div></div>')
+                $("#theSlide").append('<div class="'+className+'" id="flashcard_'+i+'"><div class="question_choices"><h1>'+flashcard.question+'</h1><ul alt="question_choices_'+i+'"></ul></div></div>')
                 if(flashcard.image){
                     $("#flashcard_"+i).prepend('<center><img src="'+flashcard.image+'" alt="Chania" style="height:300px;border:5px;border-style:solid;border-color:black"></center>')
                 }
+
                 flashcard.options.split(",").forEach(function (valu) {
-                    $("#theSlide").find('ul').append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
+                $("#theSlide").find("ul").each((a,b,c) => {
+                        if($(b).attr("alt") == "question_choices_"+i){
+                            $(b).append("<input type='radio' value='"+valu+"' name='choices_"+i+"'> "+valu+"<br>")
+
+                        }
+                        
+                });
+                    if($("#theSlide").find('ul').attr("alt") === "question_choices_"+i){
+
+                    }
                 })
             }
             if(flashcard.lesson_type == "iframe_link"){
                 $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><iframe src= "'+flashcard.image+'"></iframe></div></div>')
             }
             if(flashcard.lesson_type == "video_file"){
-                $("#theSlide").append('<div class="'+className+'"><div alt="title_text" style="height:500px"><h1> '+flashcard.question+'</h1><video controls> <source src= "'+flashcard.image+'"></video></div></div>')
+                $("#theSlide").append('<div class="'+className+'"><div alt="title_text"><h1> '+flashcard.question+'</h1><video controls style="height:100%; width:100%;"> <source src= "'+flashcard.image+'"></video></div></div>')
             }
 
             if(flashcard.lesson_type == "image_file"){
