@@ -715,7 +715,7 @@ $(document).ready(function () {
 
     if (MODE == "UPDATE") {
         $.get(API_SERVER + '/courses_api/lesson/read/' +
-              lesson_id + '/', function (response) {
+                lesson_id + '/', function (response) {
 
             $("#lesson_slide").attr(
                 "href", "/slide.html?lesson_id=" + lesson_id)
@@ -827,7 +827,9 @@ $(document).ready(function () {
 
        
         })
-    }else{
+    })
+    }
+    else{
         getAllLessons();
 
     }
