@@ -2182,13 +2182,12 @@
                                                 document.body.style.backgroundColor = "gray";
                                             }
                                             function Check(clicked_id, qustion) {
-                                            var name = $(this).val(clicked_id);
-                                            var age = $(this).data(qustion);
-                                                alert("Hello, " + name + "; you are " + age + " years old.");
-                                                if (clicked_id == '0') {
-                                                    document.getElementById(tabQuestion).style.display = 'block';
+                                                var checkVal = $(this).data(clicked_id);
+                                                var tabQue = $(this).data(qustion);
+                                                if (checkVal == '0') {
+                                                    document.getElementById(tabQue).style.display = 'block';
                                                 } else {
-                                                    document.getElementById(tabQuestion).style.display = 'none';
+                                                    document.getElementById(tabQue).style.display = 'none';
 
                                                 }
                                             }
