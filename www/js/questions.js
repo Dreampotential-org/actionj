@@ -16,7 +16,7 @@ function init_questions () {
     que += `<div class="tab here" question_id=${element.id} id="tab${i}">
                         <h4>${element.question_text}</h4>
                         ${getOptions(element.choices, i)}
-            <p class="qua_detail" style="background: lightgray;padding: 10px 12px;"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>       
+            <p id="qua_detail" style="background: lightgray;padding: 10px 12px; display: none;"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>       
            </div>`
     html += `<span class="step"></span>`
   })
@@ -46,7 +46,7 @@ function getOptions(choices, i) {
      var yes = b++;
     opt += `
             <div class="radio">
-                <label><input type="radio" onclick="Check();" id="${yes}" value="${item.id}"
+                <label><input type="radio" onclick="Check(this.id);" id="${yes}" value="${item.id}"
                         oninput="this.className = ''" name="que${i}">
                             ${item.choice_text}</label>
             </div>`
