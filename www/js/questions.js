@@ -13,7 +13,7 @@ function init_questions () {
   }
 
   questions.forEach((element, i) => {
-    que += `<div class="tab" question_id=${element.id} id="tab${i}">
+    que += `<div class="tab here" question_id=${element.id} id="tab${i}">
                         <h4>${element.question_text}</h4>
                         ${getOptions(element.choices, i)}
                     </div>`
