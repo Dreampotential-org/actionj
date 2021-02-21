@@ -2181,12 +2181,12 @@
                                                 $("#screen1").hide();
                                                 document.body.style.backgroundColor = "gray";
                                             }
-                                            function Check(clicked_id) {
-                                                 alert(clicked_id)
+                                            function Check(clicked_id, qustion) {
+                                                console.log(qustion);
                                                 if (clicked_id == '0') {
-                                                    document.getElementById('qua_detail').style.display = 'block';
+                                                    document.getElementById('qustion').style.display = 'block';
                                                 } else {
-                                                    document.getElementById('qua_detail').style.display = 'none';
+                                                    document.getElementById('qustion').style.display = 'none';
 
                                                 }
                                             }
