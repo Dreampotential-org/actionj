@@ -41,10 +41,12 @@ function init_questions () {
 var answers = []
 function getOptions(choices, i) {
   var opt = ''
+  var b = 0;
   choices.forEach((item, ind) => {
+     var yes = b++;
     opt += `
             <div class="radio">
-                <label><input type="radio" onclick="Check();" id="id${item.id}" value="${item.id}"
+                <label><input type="radio" onclick="Check();" id="${yes}" value="${item.id}"
                         oninput="this.className = ''" name="que${i}">
                             ${item.choice_text}</label>
             </div>`
