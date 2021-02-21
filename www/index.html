@@ -2182,11 +2182,12 @@
                                                 document.body.style.backgroundColor = "gray";
                                             }
                                             function Check(clicked_id, qustion) {
-                                                alert(qustion);
+                                                var radioclck = this.val(clicked_id);
+                                                var tabQuestion = this.val(qustion);
                                                 if (clicked_id == '0') {
-                                                    document.getElementById('qustion').style.display = 'block';
+                                                    document.getElementById(tabQuestion).style.display = 'block';
                                                 } else {
-                                                    document.getElementById('qustion').style.display = 'none';
+                                                    document.getElementById(tabQuestion).style.display = 'none';
 
                                                 }
                                             }
