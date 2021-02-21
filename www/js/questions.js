@@ -46,7 +46,7 @@ function getOptions(choices, i) {
      var yes = b++;
     opt += `
             <div class="radio">
-                <label><input type="radio" onclick="Check(this.id,que${i});" id="${yes}" value="${item.id}"
+                <label><input type="radio" onclick="Check(this.id, que${i});" id="${yes}" value="${item.id}"
                         oninput="this.className = ''" name="que${i}">
                             ${item.choice_text}</label>
             </div>`

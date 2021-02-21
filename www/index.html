@@ -2182,8 +2182,9 @@
                                                 document.body.style.backgroundColor = "gray";
                                             }
                                             function Check(clicked_id, qustion) {
-                                               
-                                                alert(qustion);
+                                                var name = $(this).data('clicked_id');
+                                                var age = $(this).data('qustion');
+                                                alert("Hello, " + name + "; you are " + age + " years old.");
                                                 if (clicked_id == '0') {
                                                     document.getElementById(tabQuestion).style.display = 'block';
                                                 } else {
