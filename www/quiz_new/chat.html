@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Flashcards</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+
+<div class="top__bar">
+    <div class="content__container">
+        <i class="bx bx-arrow-back back__icon"></i>
+        <div class="header">College Search</div>
+        <i class="bx bx-refresh refresh__icon"></i>
+    </div>
+</div>
+<div class="container">
+        <!-- Wrapper for slides -->
+    <div class="mod__box">
+        <div class="prep__box">
+                <div class="big__title">
+                    Welcome to <div class="big__text">BigFuture<sup>TM</sup></div> <div class="lower__text">College Search</div>
+                </div>
+
+            <div class="caption__title">
+                Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed
+                do eiusmod tempor incididunt
+            </div>
+        </div>
+
+    <div class="prep__box">
+        <div class="big__title">
+            Find the best colleges
+            and universities for you
+        </div>
+
+        <div class="caption__title">
+            Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt
+        </div>
+    </div>
+
+        <div class="step__dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+  <div class="movement__button">
+      <button class="btn btn__test" id="slide__mover" data-current="0">
+          Let's start
+      </button>
+  </div>
+
+</div>
+
+    <div id="progress-section">
+        <p style="color: #777777;">Progress: <span id="progress"> </span> answered</p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+
+    <div class="test__container">
+        <div class="test__question question__choices">
+            <div class="question clearable">
+
+            </div>
+            <div class="options clearable">
+
+            </div>
+        </div>
+
+        <div class="test__question text__area__question">
+            <div class="question clearable">
+
+            </div>
+
+                <textarea name="text_area" id="text__area"></textarea>
+        </div>
+
+        <div class="selections clearable">
+
+        </div>
+
+        <div class="navigation__buttons">
+            <button id="move-backward" class="btn btn__test__alt">Previous</button>
+            <button id="move-forward" class="btn btn__test">Next</button>
+        </div>
+    </div>
+
+
+
+    <!--<br>
+    <div id="myCarousel" class="carousel" data-ride="carousel" data-interval="false" data-wrap="false" >
+        &lt;!&ndash; Wrapper for slides &ndash;&gt;
+        <div class="carousel-inner" id="theSlide" style="height:600px;border:2px;border-style:solid;padding:10px;min-height:500px" role="listbox"></div>
+        <div class="col-lg-6" style="margin-top:10px">
+            <button id="nextButton" onclick="nextSlide()">Next</button>
+            <button id="prevButton" onclick="prevSlide()">Previous</button>
+        </div>
+        <div class="col-lg-6" style="margin-top:10px;" id="progress-section">
+            <p style="color: #777777;">Progress: <span id="progress"> </span> answered</p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>-->
+</div>
+<div id="sign-modal"></div>
+<div id="verify-phone-modal"></div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<script src="js/slide.js"></script>
+</body>
+</html>
