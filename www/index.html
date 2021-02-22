@@ -2181,16 +2181,14 @@
                                                 $("#screen1").hide();
                                                 document.body.style.backgroundColor = "gray";
                                             }
-                                            function Check(qustion) {
-//                                                var checkVal = $(this).data(clicked_id);
-//                                                var tabQue = $(this).data(qustion);
-                                               alert(qustion);
-//                                                if (checkVal == '0') {
-//                                                    document.getElementById(tabQue).style.display = 'block';
-//                                                } else {
-//                                                    document.getElementById(tabQue).style.display = 'none';
-//
-//                                                }
+                                            function Check(qustion, secnd) {
+
+                                                if (secnd == '0') {
+                                                    document.getElementById('preQ' + qustion).style.display = 'block';
+                                                } else {
+                                                    document.getElementById('preQ' + qustion).style.display = 'none';
+
+                                                }
                                             }
         </script>
     </body>
