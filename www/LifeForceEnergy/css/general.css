@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+:root{
+    --grey: #EDEDED;
+    --darker-grey: #646464;
+    --dark-color: #333333;
+    --light-blue: #c5faf4;
+    --blue: #5f9ad6;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+.header__nav{
+    width: 95%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.header__nav .banner__logo{
+    margin-right: auto;
+}
+
+.header__nav .banner__logo a .full__logo{
+    width: 100px;
+    height: 100px;
+    mask: url("../assets/logo placeholder.svg") no-repeat center;
+    -webkit-mask: url("../assets/logo placeholder.svg") no-repeat center;
+    background-color: #ffffff;
+}
+
+
+.header__nav .link__container{
+    width: 80%;
+    margin-left: auto;
+}
+
+.header__nav .link__container ul {
+    list-style: none;
+    width: 100%;
+}
+
+.header__nav .link__container ul li{
+    float: left;
+    width: 15%;
+    height: auto;
+}
+
+.header__nav .link__container ul li .navbar__link{
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.header__nav .link__container .extra__links{
+    float: right;
+    display: inline;
+}
+
+.header__nav .link__container .extra__links i{
+    font-size: 24px;
+    padding: 0 12px;
+    color: var(--white);
+}
+
+.header__nav .mobile__menu{
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    background-color:  var(--grey);
+    animation: pad 0.5s;
+    display: none;
+}
+
+@keyframes pad{
+    from{width: 0%; opacity: 0}
+    to{width: 100%; opacity: 1}
+}
+
+@-webkit-keyframes pad{
+    from{width: 0%; opacity: 0}
+    to{width: 100%; opacity: 1}
+}
+
+@-moz-keyframes pad{
+    from{width: 0%; opacity: 0}
+    to{width: 100%; opacity: 1}
+}
+
+.pad-reverse{
+    animation: pad-reverse 0.2s;
+}
+
+@keyframes pad-reverse{
+    from{width: 100%; }
+    to{width: 0%;}
+}
+
+
+@-webkit-keyframes pad-reverse{
+    from{width: 100%; }
+    to{width: 0%;}
+}
+
+
+@-moz-keyframes pad-reverse{
+    from{width: 100%; }
+    to{width: 0%;}
+}
+
+.modal .modal-content{
+    width: 100%;
+}
+
+.close {
+    font-size: 35px;
+    color: var(--blue);
+    font-weight: bold;
+    float: right;
+    margin-right: 20px;
+}
+
+.close:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.fa-minus{
+    font-size: 18px;
+    color: var(--blue);
+}
+
+.modal .modal-content .inner-content{
+    padding-top: 150px;
+    width: 100%;
+    text-align: center;
+    animation: drop 0.5s;
+}
+
+@keyframes drop{
+    from{padding-top: 50px}
+    to{padding-top: 150px}
+}
+
+@-webkit-keyframes drop{
+    from{padding-top: 50px}
+    to{padding-top: 150px}
+}
+
+@-moz-keyframes drop{
+    from{padding-top: 50px}
+    to{padding-top: 150px}
+}
+
+
+.modal .modal-content .inner-content .links{
+    width: 100%;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.modal .modal-content .inner-content .links.regular__last{
+    margin-bottom: 50px;
+}
+
+.modal .modal-content .inner-content .links:last-child{
+    margin: 22px auto 0;
+    color: var(--blue);
+    width: fit-content;
+    width: -moz-fit-content;
+    padding: 12px 24px;
+    display: inline;
+}
+
+.modal .modal-content .inner-content .links:last-child a:first-child{
+    margin-right: 15px;
+}
+
+.modal .modal-content .inner-content .links:last-child a i{
+    font-size: 35px;
+}
+
+.modal .modal-content .inner-content .links .border{
+    height: 1px;
+    width: 35%;
+    background-color: #cccccc;
+    margin: 10px auto 0;
+}
+
+.modal .modal-content .inner-content .links a, .modal .modal-content .inner-content .links span{
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+.modal .modal-content .inner-content .links span{
+    padding-right: 25px;
+}
+
+main, section{
+    width: 100%;
+    height: auto;
+}
+
+
+.tip__subscription__section{
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+    background: var(--light-blue);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.50), 0 16px 32px rgba(0, 0, 0, 0.60);
+}
+
+
+.tip__subscription__section .inline__list{
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+}
+
+.tip__subscription__section .inline__list h3{
+    font-size: 2.1rem;
+    color: var(--blue);
+    padding: 0 15px;
+    width: 40%;
+    text-align: center;
+    font-weight: 900;
+}
+
+.tip__subscription__section .inline__list form{
+    width: 60%;
+}
+
+.tip__subscription__section .inline__list form .form__content{
+    width: 100%;
+    height: auto;
+}
+
+.tip__subscription__section .inline__list form .form__content input{
+    padding: 8px 16px;
+    border: 2px solid var(--blue);
+    border-radius: 25px;
+    font-size: 1.05rem;
+    width: 100%;
+}
+
+.tip__subscription__section .inline__list form .form__content input:focus,
+.tip__subscription__section .inline__list form .form__content button:focus{
+    outline: 0;
+}
+
+.tip__subscription__section .inline__list form .form__content input:focus{
+    box-shadow: 0 4px 8px rgba(95, 154 ,214, 0.19), 0 6px 12px rgba(95, 154 ,214, 0.20);
+}
+
+.tip__subscription__section .inline__list form .form__content input::placeholder{
+    color: rgba(95 ,154 ,214, 0.55);
+}
+
+.tip__subscription__section .inline__list form .form__content .submit__button{
+    padding: 12px 18px;
+    color: var(--white);
+    border: none;
+    background: var(--blue);
+    position: absolute;
+    right: 0;
+    border-radius: 0 25px 25px 0;
+}
+
+footer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 45px 45px 20px;
+    background: var(--blue);
+    margin-bottom: -15px;
+}
+
+
+.inner__section{
+    width: 35%;
+}
+
+
+.inner__section .footer__section{
+    width: 50%;
+}
+
+.inner__section:last-child{
+    width: 30%;
+}
+
+.inner__section:last-child .footer__section{
+    width: 100%;
+}
+
+.inner__section .footer__section a{
+    color: var(--white);
+    font-size: 0.80rem;
+    text-decoration: none;
+}
+
+.inner__section .footer__section ul{
+    list-style: none;
+}
+
+.inner__section .footer__section ul li{
+    padding: 8px 0;
+}
+
+.inner__section .footer__section .section__header{
+    color: var(--white);
+    font-size: 0.90rem;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.inner__section .footer__section .social__media__links{
+    display: inline;
+}
+
+.inner__section .footer__section .social__media__links a i{
+    margin-right: 15px;
+    font-size: 35px;
+}
+
+.inner__section .footer__section:last-child .inner__content{
+    float: right;
+}
+
+.inner__section .footer__section:last-child .inner__content .logo{
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    background: var(--white);
+    mask: url("../assets/logo placeholder.svg") no-repeat center;
+    -webkit-mask:  url("../assets/logo placeholder.svg") no-repeat center;
+}
+
+.inner__section .footer__section:last-child .inner__content .rights{
+    font-size: 0.65rem;
+    color: var(--white);
+}
+
+
+
+
+.landing__link:hover, footer a:hover{
+    text-decoration: underline !important;
+}
+.half__width{
+    width: 50%;
+}
+
+.flex__box{
+    display: flex;
+}
+
+.relative__position{
+    position: relative;
+}
+
+.hidden__content{
+    display: none;
+}
+
+@media screen and (max-width: 800px){
+    .page__banner .header__nav{
+        width: 100%;
+    }
+
+    .header__nav .link__container{
+        display: none;
+    }
+
+    .header__nav .banner__logo a .full__logo{
+        width: 80px;
+        height: 80px;
+    }
+
+    .header__nav .mobile__menu{
+        font-size: 32px;
+        color: var(--white);
+        display: block;
+        margin-left: auto;
+        cursor: pointer;
+    }
+
+    .tip__subscription__section .inline__list{
+        flex-direction: column;
+    }
+
+    .tip__subscription__section .inline__list h3,
+    .tip__subscription__section .inline__list form{
+        width: 100%;
+    }
+
+    .tip__subscription__section .inline__list h3{
+        padding: 0 0 15px 0;
+        font-size: 1.5rem;
+    }
+
+    .tip__subscription__section .inline__list form .form__content input{
+        font-size: 0.95rem;
+    }
+
+    .tip__subscription__section .inline__list form .form__content button{
+        font-size: 0.75rem;
+    }
+
+    footer{
+        flex-direction: column;
+    }
+
+    footer .inner__section{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .inner__section .footer__section .social__media__links a i{
+        font-size: 25px;
+    }
+
+    footer .inner__section:last-child{
+        width: 100%;
+    }
+
+    footer .inner__section .footer__section:last-child .inner__content{
+        float: none;
+        width: fit-content;
+        width: -moz-fit-content;
+        margin: 0 auto;
+    }
+
+    footer .inner__section .footer__section:last-child .inner__content .logo{
+        width: 80px;
+        height: 80px;
+    }
+}
