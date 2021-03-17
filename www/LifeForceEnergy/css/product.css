@@ -1,0 +1,492 @@
+.header__nav{
+    width: 85%;
+}
+
+.header__nav .link__container  ul li .navbar__link,
+.header__nav .link__container .extra__links i{
+    color: var(--blue);
+}
+
+.header__nav .banner__logo a .full__logo{
+    background-color: var(--blue);
+    width: 125px;
+    height: 125px;
+}
+
+main{
+    width: 85%;
+    margin:0 auto;
+}
+
+.product__container{
+    background: #fcfcfc;
+    border-radius: 20px;
+}
+
+.back__to__products{
+    font-size: 0.95rem;
+    color: var(--black);
+    text-decoration: none;
+    display: flex;
+    padding: 18px 0;
+}
+.back__to__products .link__icon{
+    margin-top: 1px;
+    margin-right: 8px;
+}
+
+.product__container .image__and__desc__container {
+    width: 100%;
+    height: auto;
+}
+
+.product__container .image__and__desc__container .image__container{
+    width: 45%;
+}
+
+.product__container .image__and__desc__container .image__container .big__image{
+    width: 100%;
+    height: 500px;
+}
+
+.product__container .image__and__desc__container .image__container .big__image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 0;
+}
+
+.product__container .image__and__desc__container .image__container .image__slider{
+    margin-top: 20px;
+}
+
+.product__container .image__and__desc__container .image__container .image__slider .image__item{
+    width: 24%;
+    height: 120px;
+}
+
+.product__container .image__and__desc__container .image__container .image__slider .image__item:not(:first-child) {
+    margin-left: 14px;
+}
+
+.product__container .image__and__desc__container .image__container .image__slider .image__item img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.product__container .image__and__desc__container .desc__container{
+    width: 55%;
+    justify-content: center;
+    align-items: center;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content{
+    width: 80%;
+    height: auto;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .share__container{
+    width: 100%;
+    text-align: right;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .share__container a{
+    color: var(--black);
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__name{
+    font-size: 2rem;
+    padding: 15px 0;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__price{
+    font-size: 1.35rem;
+    padding-bottom: 35px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__description,
+.product__container .image__and__desc__container .desc__container .inner__content .product__specs .product__weight,
+.product__container .image__and__desc__container .desc__container .inner__content .product__color .color__title,
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__title{
+    font-size: 0.85rem;
+    color: rgba(0, 0, 0, 0.70);
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__description{
+    padding-bottom: 14px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__specs{
+    width: 100%;
+    padding-bottom: 35px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__specs .product__weight{
+    width: 22%;
+
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__color{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__color .color__title,
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__title{
+    width: 22%;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__color .color{
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    border-radius: 50%;
+    margin-right: 14px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__color .color.purple__color{
+    background: #c832f2;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__color .color.blue__color{
+    background: #1513bf;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__color .color.orange__color{
+    background: #e2a63d;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity{
+    align-items: center;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__minus,
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__plus{
+    padding: 0 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__minus:hover,
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__plus:hover{
+    cursor: pointer;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__minus{
+    background: #cccccc;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__plus{
+    background: var(--black);
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__value{
+    width: 10%;
+    padding: 0 5px;
+    text-align: center;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__value input{
+    width: 90%;
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+}
+.product__container .image__and__desc__container .desc__container .inner__content .product__quantity .quantity__value input:focus{
+    outline: 0;
+    border-bottom: 1px solid #cccccc;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions{
+    justify-content: center;
+    padding: 45px 0 25px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions .product__like{
+    font-size: 45px;
+    color: var(--blue);
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions button,
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions a{
+    background: transparent;
+    font-size: 1rem;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    width: 44%;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions a{
+    padding: 16px 24px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions button{
+    margin-right: 8px;
+    padding: 6px 24px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions button:hover,
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions a:hover{
+    background: var(--blue);
+    color: var(--white);
+    transition: .2s ease-in;
+    cursor: pointer;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .shipping__details{
+    padding: 20px 0 35px;
+}
+
+.product__container .image__and__desc__container .desc__container .inner__content .shipping__details p{
+    font-size: 0.75rem;
+    padding-bottom: 12px;
+    color: rgba(0, 0, 0, 0.70);
+}
+
+.product__container .list__details__inline{
+    width: 100%;
+}
+
+.product__container .list__details__inline .detail__content{
+    width: 33.3%;
+    text-align: center;
+    background: rgba(95 ,154 ,214, 0.65);
+    color: var(--white);
+    font-size: 1.05rem;
+    padding: 17px 0;
+    cursor: pointer;
+}
+
+.product__container .list__details__inline .detail__content:hover{
+    background: var(--blue);
+    transition: .2s ease-in;
+}
+
+.product__container .list__details__inline .detail__content.active{
+    background: var(--blue);
+}
+
+.product__container .full__list__detail{
+    width: 100%;
+    height: auto;
+    padding: 35px 0 55px;
+}
+
+.product__container .full__list__detail p{
+    width: 85%;
+    margin: 0 auto;
+    font-size: 0.85rem;
+    line-height: 1.9rem;
+    color: rgba(0, 0, 0, 0.70);
+    font-weight: 700;
+}
+
+.similar__products{
+    margin: 70px 0 30px;
+}
+
+.similar__products header{
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.similar__products .full__list{
+    width: 100%;
+    justify-content: center;
+}
+
+.similar__products .full__list .product__item{
+    width: 19%;
+    height: auto;
+}
+
+.similar__products .full__list .product__item:not(:first-child) {
+    margin-left: 12px;
+}
+
+.similar__products .full__list .product__item img{
+    width: 100%;
+    height: 270px;
+    border-radius: 15px;
+}
+
+.similar__products .full__list .product__item .product__details{
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.similar__products .full__list .product__item .product__details a{
+    font-size: 1.05rem;
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+.similar__products .full__list .product__item .product__details .item__price{
+    font-size: 1rem;
+    margin-top: 8px;
+}
+
+.product__modal{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+}
+
+.product__modal .close__modal{
+    width: 50%;
+    padding: 25px 0 15px;
+    text-align: right;
+    margin: 5px auto;
+}
+
+.product__modal .close__modal span{
+    font-size: 45px;
+    font-weight: 700;
+    color: var(--white);
+    cursor: pointer;
+}
+.product__modal .close__modal span:hover{
+    transform: scale(1.1);
+}
+
+.product__modal .image__container{
+    width: 50%;
+    margin: 0 auto;
+    height: 500px;
+}
+
+.product__modal .image__container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.liked{
+    color: #d82070 !important;
+}
+
+.colored__border{
+    border: 2px solid var(--black);
+}
+
+@media screen and (max-width: 800px) {
+    .header__nav{
+        width: 90%;
+    }
+
+    .header__nav .banner__logo a .full__logo{
+        width: 95px;
+        height: 95px;
+    }
+
+    .header__nav .mobile__menu{
+        color: var(--blue);
+    }
+
+    main{
+        width: 90%;
+    }
+
+    .product__container .image__and__desc__container{
+        flex-direction: column;
+    }
+
+    .product__container .image__and__desc__container .image__container{
+        width: 90%;
+        margin: 15px auto;
+    }
+
+    .product__container .image__and__desc__container .desc__container{
+        width: 100%;
+    }
+
+    .product__container .image__and__desc__container .desc__container .inner__content{
+        width: 90%;
+    }
+
+    .product__container .image__and__desc__container .image__container .big__image{
+        height: 280px;
+    }
+
+    .product__container .image__and__desc__container .image__container .big__image img{
+        border-radius: 15px;
+    }
+
+    .product__container .image__and__desc__container .image__container .image__slider .image__item{
+        height: 100px;
+    }
+
+    .product__container .image__and__desc__container .desc__container .inner__content .product__name{
+        font-size: 1.6rem;
+    }
+
+    .product__container .image__and__desc__container .desc__container .inner__content .product__price{
+        font-size: 1.1rem;
+    }
+
+    .product__container .image__and__desc__container .desc__container .inner__content .product__actions .product__like{
+        font-size: 35px;
+        line-height: 55px;
+    }
+
+    .product__container .image__and__desc__container .desc__container .inner__content .product__actions button,
+    .product__container .image__and__desc__container .desc__container .inner__content .product__actions a{
+        font-size: 0.9rem;
+    }
+
+    .product__container .list__details__inline .detail__content{
+        font-size: 0.95rem;
+    }
+
+    .similar__products header {
+        font-size: 1.5rem;
+    }
+
+    .similar__products .full__list {
+        flex-direction: column;
+    }
+
+    .similar__products .full__list .product__item{
+        width: 60%;
+        margin: 0 auto 15px;
+    }
+
+    .similar__products .full__list .product__item:not(:first-child){
+        margin: 0 auto 15px;
+    }
+
+
+    .product__modal .close__modal,
+    .product__modal .image__container{
+        width: 85%;
+    }
+
+    .product__modal .image__container{
+        height: 350px;
+    }
+}
+
+
+

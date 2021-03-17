@@ -1,0 +1,96 @@
+.page__banner{
+    width: 100%;
+    height: 65vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.19), rgba(0, 0, 0, 0.20)), url("../assets/Article-header.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.page__banner .header__nav{
+    width: 80%;
+}
+
+.page__banner .article__title{
+    width: 100%;
+    height: calc(100% - 150px);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.page__banner .article__title h3{
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.article__body{
+    margin: 55px 0 35px;
+}
+
+
+.article__body .article__header,
+.article__body p{
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 35px;
+}
+
+.article__body .article__header .article__author{
+    font-size: 0.8rem;
+    color: var(--blue);
+    padding-bottom: 18px;
+}
+
+.article__body .article__header .heading{
+    width: 70%;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.70);
+}
+
+.article__body p{
+    font-size: 0.90rem;
+    color: rgba(0, 0, 0, 0.85);
+    line-height: 2rem;
+    padding-bottom: 35px;
+}
+
+.article__body .quote__container{
+    width: 100%;
+    padding: 40px 0;
+    background: #fcfcfc;
+    margin-bottom: 35px;
+}
+
+.article__body .quote__container .quote{
+    width: 55%;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0 auto;
+}
+@media screen and (max-width: 800px){
+    .page__banner .header__nav{
+        width: 90%;
+    }
+
+    .page__banner .article__title h3{
+        font-size: 1.5rem;
+        width: 85%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .article__body .article__header, .article__body p{
+        width: 90%;
+    }
+
+    .article__body .article__header .heading{
+        width: 90%;
+        font-size: 1.35rem;
+    }
+
+    .article__body .quote__container .quote{
+        width: 75%;
+        font-size: 1.1rem;
+    }
+}

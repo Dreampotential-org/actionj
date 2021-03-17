@@ -1,0 +1,172 @@
+.header__nav{
+    width: 80%;
+}
+
+.header__nav .link__container  ul li .navbar__link,
+.header__nav .link__container .extra__links i{
+    color: var(--blue);
+}
+
+.header__nav .banner__logo a .full__logo{
+    background-color: var(--blue);
+    width: 125px;
+    height: 125px;
+}
+
+.contact__container{
+    height: 450px;
+    background: rgba(197 , 250, 244, 0.65);
+}
+
+.contact__container .inline__contact__form{
+    width: 75%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.contact__container .inline__contact__form .contact__text{
+    width: 40%;
+    height: 100%;
+    align-items: center;
+}
+
+.contact__container .inline__contact__form .contact__text .inner__content{
+    width: 65%;
+    height: auto;
+}
+
+.contact__container .inline__contact__form .contact__text .inner__content h3{
+    font-size: 2rem;
+    padding: 20px 0;
+}
+
+.contact__container .inline__contact__form .contact__text .inner__content p{
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: 600;
+
+}
+
+.contact__container .inline__contact__form .contact__form{
+    width: 60%;
+    height: 90%;
+    margin-top: auto;
+    border-radius: 50px 50px 0 0;
+    border-right: 3px solid var(--blue);
+    border-top: 3px solid var(--blue);
+    border-left: 3px solid var(--blue);
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+}
+
+.contact__container .inline__contact__form .contact__form .inner__content{
+    width: 80%;
+    height: auto;
+    text-align: center;
+ }
+
+.contact__container .inline__contact__form .contact__form .inner__content .input__container{
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.contact__container .inline__contact__form .contact__form .inner__content .input__container input,
+.contact__container .inline__contact__form .contact__form .inner__content .input__container textarea{
+    width: 100%;
+    padding: 8px 20px;
+    font-size: 0.95rem;
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+}
+
+.contact__container .inline__contact__form .contact__form .inner__content .input__container textarea{
+    height: 150px;
+}
+
+.contact__container .inline__contact__form .contact__form .inner__content .input__container input::placeholder,
+ .contact__container .inline__contact__form .contact__form .inner__content .input__container textarea::placeholder{
+    color: rgba(95 ,154 ,214, 0.55);
+ }
+
+.contact__container .inline__contact__form .contact__form .inner__content .input__container input:focus,
+.contact__container .inline__contact__form .contact__form .inner__content .input__container textarea:focus{
+    outline: 0;
+    box-shadow: 0 4px 8px rgba(95 ,154 ,214, 0.19), 0 8px 16px rgba(95 ,154 ,214, 0.20);
+}
+
+.contact__container .inline__contact__form .contact__form .inner__content button{
+    background: transparent;
+    border: 1px solid var(--blue);
+    padding: 6px 24px;
+    display: flex;
+    font-size: 0.85rem;
+    color: var(--blue);
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 5px auto 0;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.contact__container .inline__contact__form .contact__form .inner__content button:hover{
+    color: var(--white);
+    background: var(--blue);
+    cursor: pointer;
+    transition: .2s ease-in;
+}
+
+.contact__container .inline__contact__form .contact__form .inner__content  button .link__icon{
+    margin-top: -1px;
+    margin-left: 8px;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+    .header__nav{
+        width: 95%;
+    }
+
+    .header__nav .mobile__menu{
+        color: var(--blue);
+    }
+
+    .header__nav .banner__logo a .full__logo{
+        width: 95px;
+        height: 95px;
+    }
+    .contact__container .inline__contact__form{
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .contact__container{
+        height: auto;
+    }
+
+    .contact__container .inline__contact__form .contact__text{
+        height: 250px;
+    }
+
+    .contact__container .inline__contact__form .contact__text .inner__content h3{
+        font-size: 1.3rem;
+    }
+
+    .contact__container .inline__contact__form .contact__text .inner__content p{
+        font-size: 0.95rem;
+    }
+
+    .contact__container .inline__contact__form .contact__text .inner__content{
+        width: 100%;
+    }
+
+    .contact__container .inline__contact__form .contact__text,
+    .contact__container .inline__contact__form .contact__form{
+        width: 100%;
+    }
+
+    .contact__container .inline__contact__form .contact__form{
+        height: 450px;
+    }
+}

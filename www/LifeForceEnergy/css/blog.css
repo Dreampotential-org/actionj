@@ -1,0 +1,358 @@
+.header__nav{
+    width: 85%;
+}
+
+.header__nav .link__container  ul li .navbar__link,
+.header__nav .link__container .extra__links i{
+    color: var(--blue);
+}
+
+.header__nav .banner__logo a .full__logo{
+    background-color: var(--blue);
+    width: 125px;
+    height: 125px;
+}
+
+.top__article{
+    width: 85%;
+    margin: 25px auto -150px;
+    height: 500px;
+}
+
+.top__article .inner__content{
+    width: 50%;
+    height: 100%;
+}
+
+.top__article .image__container img,
+.chiro__section .exercise__banner__container .article__banner .image__container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+}
+
+.top__article .text__container,
+.chiro__section .exercise__banner__container .article__banner .text__container{
+    align-items: center;
+    background: #fcfcfc;
+    border-radius: 0 20px 20px 0;
+}
+
+.top__article .text__container .text__content,
+.chiro__section .exercise__banner__container .article__banner .text__container .text__content{
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.top__article .text__container .text__content .article__category,
+.chiro__section .exercise__banner__container .article__banner .text__container .text__content .article__category{
+    font-size: 1.2rem;
+}
+
+.top__article .text__container .text__content .article__title,
+.chiro__section .exercise__banner__container .article__banner .text__container .text__content .article__title{
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 2.7rem;
+    padding: 35px 0 20px;
+}
+
+.top__article .text__container .text__content p,
+.chiro__section .exercise__banner__container .article__banner .text__container .text__content p{
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.70);
+    padding-bottom: 65px;
+}
+
+.top__article .text__container .text__content a,
+.chiro__section .exercise__banner__container .article__banner .text__container .text__content a{
+    text-decoration: none;
+    display: flex;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+    width: fit-content;
+    width: -moz-fit-content;
+    margin: 0 auto;
+}
+
+.top__article .text__container .text__content a .link__icon,
+.chiro__section .exercise__banner__container .article__banner .text__container .text__content a .link__icon{
+    margin-left: 8px;
+    margin-top: 2px;
+}
+
+.section__background{
+    height: 500px;
+    background: rgba(197 , 250, 244, 0.65);
+    z-index: -1;
+}
+
+.latest__articles{
+    margin: -200px auto 0;
+    width: 95%;
+}
+
+.latest__articles .section__title,
+.chiro__section .article__container .section__title,
+.bottom__article__list .section__title{
+    color: var(--blue);
+    font-size: 1.15rem;
+    font-weight: 700;
+    width: 92%;
+    margin: 15px auto;
+}
+
+.latest__articles .article__list,
+.chiro__section .article__container .article__list,
+.bottom__article__list .article__list{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+}
+
+.latest__articles .article__list .article__item,
+.chiro__section .article__container .article__list .article__item,
+.bottom__article__list .article__list .article__item{
+    width: 30%;
+}
+
+.latest__articles .article__list .article__item:not(:first-child),
+.chiro__section .article__container .article__list .article__item:not(:first-child),
+.bottom__article__list .article__list .article__item:not(:first-child){
+    margin-left: 16px;
+}
+
+.latest__articles .article__list .article__item img,
+.chiro__section .article__container .article__list .article__item img,
+.bottom__article__list .article__list .article__item img{
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.latest__articles .article__list .article__item .item__content,
+.chiro__section .article__container .article__list .article__item .item__content,
+.bottom__article__list .article__list .article__item .item__content{
+    width: 90%;
+    padding: 18px 0;
+}
+
+.latest__articles .article__list .article__item .item__content .article__title,
+.chiro__section .article__container .article__list .article__item .item__content .article__title,
+.bottom__article__list .article__list .article__item .item__content .article__title{
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.70);
+    padding-bottom: 8px;
+}
+
+.latest__articles .article__list .article__item .item__content .article__short__desc,
+.chiro__section .article__container .article__list .article__item .item__content .article__short__desc,
+.bottom__article__list .article__list .article__item .item__content .article__short__desc{
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.latest__articles .more__articles__link,
+.chiro__section .article__container .more__articles__link,
+.bottom__article__list .more__articles__link{
+    width: 92%;
+    text-align: right;
+    display: flex;
+}
+
+.latest__articles .more__articles__link{
+    margin: 15px auto;
+}
+
+.chiro__section .article__container .more__articles__link,
+.bottom__article__list .more__articles__link{
+    margin: 25px auto;
+}
+
+.latest__articles .more__articles__link a,
+.chiro__section .article__container .more__articles__link a,
+.bottom__article__list .more__articles__link a
+{
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    margin-left: auto;
+}
+
+.latest__articles .more__articles__link a .link__icon,
+.chiro__section .article__container .more__articles__link a .link__icon,
+.bottom__article__list .more__articles__link a .link__icon{
+    margin: 2px 0 0 8px;
+}
+
+.chiro__section{
+    margin: 50px 0 35px;
+    height: 1100px;
+    flex-direction: column;
+}
+.chiro__section .background__shape{
+    width: 55%;
+    height: 950px;
+    border-radius:95% 100% 100% 90%;
+    background: rgba(197 , 250, 244, 0.65);
+    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+}
+
+.chiro__section .article__container{
+    width: 95%;
+    margin: 0 auto;
+    height: auto;
+    z-index: 1;
+}
+
+.chiro__section .exercise__banner__container{
+    width: 100%;
+    height: calc(100% - 374px);
+    align-items: center;
+    justify-content: center;
+}
+
+.chiro__section .exercise__banner__container .article__banner{
+    width: 85%;
+    height: 500px;
+}
+
+.chiro__section .exercise__banner__container .article__banner .inner__content{
+    width: 50%;
+    height: 100%;
+}
+
+.bottom__article__list{
+    width: 95%;
+    margin: 55px auto;
+}
+
+@media screen and (max-width: 800px) {
+    .header__nav{
+        width: 90%;
+    }
+
+    .header__nav .banner__logo a .full__logo{
+        width: 95px;
+        height: 95px;
+    }
+
+    .header__nav .mobile__menu{
+        color: var(--blue);
+    }
+
+    .top__article{
+        width: 90%;
+        flex-direction: column;
+        background: #fcfcfc;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .top__article .image__container{
+        width: 90%;
+        height: 280px;
+        margin: 20px auto;
+    }
+
+    .top__article .image__container img,
+    .chiro__section .exercise__banner__container .article__banner .image__container img{
+        border-radius: 20px;
+    }
+
+    .top__article .text__container,
+    .chiro__section .exercise__banner__container .article__banner .text__container{
+        width: 100%;
+        padding: 20px 0 35px;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .top__article .text__container .text__content,
+    .chiro__section .exercise__banner__container .article__banner .text__container .text__content{
+        width: 90%;
+    }
+
+    .top__article .text__container .text__content .article__category,
+    .chiro__section .exercise__banner__container .article__banner .text__container .text__content .article__category{
+        font-size: 0.95rem;
+    }
+
+    .top__article .text__container .text__content .article__title,
+    .chiro__section .exercise__banner__container .article__banner .text__container .text__content .article__title{
+        font-size: 1.3rem;
+        padding: 15px 0;
+        line-height: 1.8rem;
+    }
+
+    .top__article .text__container .text__content p,
+    .chiro__section .exercise__banner__container .article__banner .text__container .text__content p{
+        font-size: 1rem;
+    }
+
+    .top__article .text__container .text__content a,
+    .chiro__section .exercise__banner__container .article__banner .text__container .text__content a{
+        font-size: 0.95rem;
+    }
+
+    .top__article .text__container .text__content a .link__icon,
+    .chiro__section .exercise__banner__container .article__banner .text__container .text__content a .link__icon{
+        margin-top: 1px;
+    }
+
+    .latest__articles .article__list,
+    .chiro__section .article__container .article__list, .bottom__article__list .article__list{
+        flex-direction: column;
+    }
+
+    .latest__articles .article__list .article__item,
+    .chiro__section .article__container .article__list .article__item,
+    .bottom__article__list .article__list .article__item{
+        width: 90%;
+        margin: 0 auto 30px;
+    }
+
+    .latest__articles .article__list .article__item:not(:first-child),
+    .chiro__section .article__container .article__list .article__item:not(:first-child),
+    .bottom__article__list .article__list .article__item:not(:first-child){
+        margin: 0 auto 20px;
+    }
+
+    .chiro__section{
+        height: auto;
+    }
+
+    .chiro__section .background__shape{
+        width: 80%;
+    }
+
+    .chiro__section .exercise__banner__container{
+        height: auto;
+        flex-direction: column;
+    }
+
+    .chiro__section .exercise__banner__container .article__banner .image__container{
+        width: 100%;
+    }
+
+    .chiro__section .exercise__banner__container .article__banner{
+        width: 90%;
+        flex-direction: column;
+        height: auto;
+        background: #fcfcfc;
+        border-radius: 8px;
+    }
+
+    .chiro__section .exercise__banner__container .article__banner .image__container{
+        width: 90%;
+        margin: 20px auto;
+        height: 250px;
+    }
+}
+
