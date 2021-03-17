@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Action</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0 ,height=device-height, viewport-fit=cover"
+            />
+
+        <!--<script src="./js/widget.js" room='test'></script>-->
+
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/onboard.css" />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            rel="stylesheet"
+            />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <link
+            href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+            rel="stylesheet"
+            />
+        <link
+            href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css"
+            rel="stylesheet"
+            />
+
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+            type="text/javascript"
+        ></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/resources.js"></script>
+        <script src="js/login.js"></script>
+        <script src="js/gps.js"></script>
+        <script src="js/video.js"></script>
+        <script src="js/meds.js"></script>
+        <script src="js/questions.js"></script>
+        <script
+            async
+            defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWJ2UbLhFeu3jVgd4ZwWMMNyGl4Kqx7V4"
+        ></script>
+
+        <style>
+            .container.start-container {
+                margin-top: 50px;
+            }
+
+            .onboard {
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration: underline;
+            }
+
+            .emergency {
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid red;
+                background: red;
+            }
+            .emergencysocial {
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #3f8ed0;
+                background: #3f8ed0;
+            }
+            .emergencysocial p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            .emergency p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            .emergencyother {
+                padding: 30px 28px;
+                border-radius: 15px;
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #3fd05e;
+                background: #3fd05e;
+            }
+            .emergencyother p {
+                color: black;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            .modal-header {
+                padding: 15px;
+                border-bottom: 1px solid red;
+            }
+
+            .close {
+                opacity: 1;
+            }
+            .aboutOnboard {
+                margin-left: -16px;
+            }
+            .helppop {
+                margin-top: 0px !important;
+            }
+            .modal-header {
+                border-bottom: none !important;
+            }
+            .modal-header .close {
+                margin-top: -20px;
+            }
+            .imagelog img {
+                width: 160px;
+                height: 100%;
+                margin-bottom: 20px;
+            }
+            .glyphicon-earphone {
+                font-size: 24px;
+                margin-top: -16px;
+                margin-right: 5px;
+            }
+            .otherNum th {
+                color: black !important;
+            }
+            .otherNum td {
+                color: black !important;
+            }
+            .catname {
+                font-weight: bold;
+                text-decoration: underline;
+            }
+            .phone-icon-other {
+                font-size: 14px;
+                margin-top: 0px;
+                margin-right: 0px;
+            }
+            td {
+                word-break: break-all;
+            }
+
+            ul {
+                list-style-type: none;
+            }
+
+            .month {
+                padding: 16px 20px;
+                width: 100%;
+                background: #1abc9c;
+                text-align: center;
+            }
+            .event-table th {
+                background: #ddd;
+                color: black;
+            }
+            .event-table td {
+                background: white;
+                color: black;
+                white-space: pre-wrap !important;
+                text-align: left;
+                word-break: keep-all;
+            }
+        </style>
+    </head>
+
+    <body style="background: white">
+        <div id="index_page" style="display: none">
+            <style>
+                .radio label {
+                    padding-left: 25px;
+                }
+
+                .radio input[type="radio"] {
+                    margin-left: -25px;
+                }
+
+                #journal-list div {
+                    padding: 7px 14px;
+                    display: flex;
+                    align-items: center;
+                    background-color: #ffffff;
+                    margin: 7px;
+                    border-radius: 7px;
+                }
+
+                #journal-list a {
+                    padding-right: 7px;
+                }
+
+                #journal-list .glyphicon {
+                    font-size: 20px;
+                }
+            </style>
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header nav-header">
+                        <a class="navbar-brand" href="#">
+                            <img class="logo nav-logo" src="img/sfapp_logo.png" />
+                        </a>
+                        <button
+                            type="button"
+                            class="navbar-toggle"
+                            data-toggle="collapse"
+                            data-target="#myNavbar"
+                            >
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="https://sfapp.dreamstate-4-all.org/terms.pdf"
+                                   >Terms of service</a
+                                >
+                            </li>
+                            <li>
+                                <a id="logout" href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <br />
+            <br />
+            <br />
+            <div class="container start-container">
+                <div class="row" id="screen1">
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style my-profile" id="my-profile">
+                            <div>
+                                <span class="glyphicon glyphicon-user"></span>
+                                <p>My Status</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style my-meds" id="my-meds">
+                            <div>
+                                <i class="fa fa-capsules"></i>
+                                <p>My Med</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style gps-check">
+                            <div>
+                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <p>GPS Journal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style video-check">
+                            <div>
+                                <span class="glyphicon glyphicon-facetime-video"></span>
+                                <p>Video Journal</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style shelters" id="shelters">
+                            <div>
+                                <span class="glyphicon glyphicon-home"></span>
+                                <p>Service Providers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style help" id="help">
+                            <div>
+                                <span class="glyphicon glyphicon-earphone"></span>
+                                <p>Help</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style journal" id="journal">
+                            <div>
+                                <span class="glyphicon glyphicon-list-alt"></span>
+                                <p>Journal Entries</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                                        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                                            <div class="common-style food" id="food">
+                                                <div>
+                                                    <i class='fa fa-hamburger'></i>
+                                                    <p>Food</p>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style work" id="work">
+                            <div>
+                                <span class="glyphicon glyphicon-briefcase"></span>
+                                <p>Work</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style Suggestions" id="Suggestions">
+                            <div>
+                                <span class="glyphicon glyphicon-certificate"></span>
+                                <p>Suggestions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                        <div class="common-style calendar" id="calendar">
+                            <div>
+                                <span class="glyphicon glyphicon-calendar"></span>
+                                <p>Events</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="week-calendar" style="display: none">
+                    <div class="col-xs-12">
+                        <div class="month">
+                            <h2 style="text-align: center">Events</h2>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered event-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sunday</th>
+                                        <th>Monday</th>
+                                        <th>Tuesday</th>
+                                        <th>Wednesday</th>
+                                        <th>Thursday</th>
+                                        <th>Friday</th>
+                                        <th>Saturday</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Info & Resource GRID Services for May 2019</td>
+                                        <td>Welcome May <br />We've beta Waiting tor You!</td>
+                                        <td>TACO TuesDAY</td>
+                                        <td></td>
+                                        <td colspan="2">
+                                            <strong
+                                                >*Please Call Ahead for Availability of
+                                                Services:</strong
+                                            ><br /><strong
+                                                >*Holidays May Affect Services #’s are Used on
+                                                Back</strong
+                                            >
+                                        </td>
+                                        <td>Lots To Do In May Of Saturdays</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>3 Crosses Church</strong><br /><strong>
+                                                7am-Breakfast </strong
+                                            ><br />Clothing when available Service 8am, 9:30,11:30am
+                                        </td>
+                                        <td>
+                                            HEDCO Wellness Ctr<br />Breakfast 9-10am <br />*Must
+                                            Partake in Program
+                                        </td>
+                                        <td>
+                                            HEDCO Wellness Ctr<br />Breakfast 9-10am <br />*Must
+                                            Partake in Program
+                                        </td>
+                                        <td>
+                                            HEDCO Wellness Ctr<br />Breakfast 9-10am <br />*Must
+                                            Partake in Program
+                                        </td>
+                                        <td>
+                                            HEDCO Wellness Ctr<br />Breakfast 9-10am <br />*Must
+                                            Partake in Program
+                                        </td>
+                                        <td>
+                                            HEDCO Wellness Ctr<br />Breakfast 9-10am <br />*Must
+                                            Partake in Program
+                                        </td>
+                                        <td>
+                                            KHCG: Clean & Green<br />May 25/Southgate Comm Ctr<br />26780
+                                            ChiplayAve<br />8am - 11:30am <br />call to register
+                                            510-881-7745<br />www.hayward-ca.gov/KHCG
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            1st Presbyterian Church<br />Breakfast 7:30-8:30am<br />Please
+                                            Do Not Arrive Earlier
+                                        </td>
+                                        <td>
+                                            New Bridges<br />Outreach Center<br /><strong
+                                                >60+ senior Lunch $3.75</strong
+                                            ><br />12-1pm<br />Provided by Spectrum
+                                        </td>
+                                        <td>
+                                            1st United Methodist<br /><strong
+                                                >9-9:30am Breakfast</strong
+                                            ><br />Bag lunch / Clothes<br />•Referral to Healthcare<br />2nd
+                                            & 4th Tuesdays
+                                        </td>
+                                        <td>
+                                            El Shaddai Ministries<br />SHOWERS 9:30-11:00<br />Hot
+                                            Soup 9:30 - 12 noon<br />(•Referral to Healthcare<br />3rd
+                                            Wednesday Only)
+                                        </td>
+                                        <td>
+                                            <strong>1st Presbyterian Church</strong><br />>»»NEW
+                                            LOCATION<<<<<<br /><strong>9-11am Health Services</strong
+                                            ><br />HOPE Van w/ Abode Srvcs
+                                        </td>
+                                        <td>
+                                            Palma Ceia Baptist Church<br /><strong
+                                                >lunch 12-1pm</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            3 Crosses Church<br />SHOWERS 9am-12noon<br />Hot Meal
+                                            11am<br />Clothing & Hair Cuts
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Church Of Nazarene</strong><br /><strong
+                                                >Hot Breakfast 9am</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            CRIL HOUSING WORKSHOP<br />for People with Disabilities<br /><strong
+                                                >Monday’s 2-4pm</strong
+                                            ><br />Call to REGISTER 510-881-5743<strong
+                                                >arrive by 1:40</strong
+                                            ><br />www.crilhayward.org
+                                        </td>
+                                        <td>
+                                            <strong>Downtown Streets Team</strong><br />Weekly Success
+                                            Meeting 12:30- 1:30pm<br /><strong
+                                                >New Meeting Location</strong
+                                            ><br />New Hope Church<br />2211C Montgomery & Sunset
+                                            www.streetsteam.org<br />Work Experience Program Case Mgmt
+                                            / Job Coach<br />
+                                            "Ending Homelessness Through Dignity of Work" Sign Up
+                                            Today!!!
+                                        </td>
+                                        <td>HEDCO Wellness Ctr<br />Housing Education 10:30-12</td>
+                                        <td>
+                                            <strong>Bridge of Faith</strong><br />9am Doors Open<br /><strong
+                                                >12 Noon Meals of Love lunch</strong
+                                            ><br />Groceries given after lunch
+                                        </td>
+                                        <td>
+                                            Hayward Senior Center<br />22325 N. 3rd St<br />NO ENTRY
+                                            after 12:15!!<br />12:30 - 1:30pm<br />Bag Lunch
+                                            distribution<br />*Seniors 60+ only*
+                                        </td>
+                                        <td>
+                                            3 Crosses Church<br />Food Pantry 9am *Bring ID<br />2nd &
+                                            4th Saturday's
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            San Leandro Boys&Girls Club<br />’April Showers"
+                                            Ministry<br />1st, 3rd, 5th Sundays<br /><strong
+                                                >SHOWERS 11a-1pm</strong
+                                            >
+                                            <br />Breakfast, Bag lunch to go<br />Clothes, Toiletries
+                                            <br />ask @ Laundry Day!
+                                        </td>
+                                        <td>
+                                            Glad Tidings White House<br /><strong
+                                                >Food items & Bread</strong
+                                            ><br />11:30-1:30
+                                        </td>
+                                        <td>
+                                            Glad Tidings White House<br /><strong
+                                                >Food items & Bread</strong
+                                            ><br />11:30-1:30
+                                        </td>
+                                        <td>
+                                            Community of Grace<br /><strong
+                                                >Food Pantry 1 lam-noon</strong
+                                            ><br />Closed the 5th Wed
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >New Hope Fellowship<br />MEDICAL Team w/ Nurse<br />2nd
+                                                Thursday 9:30am-2pm<br />Call for Appt (510)253-7525
+                                            </strong>
+                                        </td>
+                                        <td>Senior Lunch</td>
+                                        <td>
+                                            <strong>Hayward Farmers Market</strong><br />22550 Watkins
+                                            & B Street<br />9am-1pm
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>1st Presbyterian Church</strong><br />"Chance of
+                                            Showers”<br />SHOWER Ministry 4-6pm <br />2nd & 4th
+                                            Sundays<br /><strong>Lunch</strong>, Toiletries,
+                                            Clothes<br />ask @ Laundry Day!
+                                        </td>
+                                        <td>
+                                            Salvation Army<br /><strong>Sack Lunch 12:30-2pm</strong>
+                                        </td>
+                                        <td>
+                                            Salvation Army<br /><strong>Sack Lunch 12:30-2pm</strong>
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Generations Project 12-4p<br />at 1st United
+                                                Methodist</strong
+                                            ><br />w/Tri Cities Health
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Good Shepherd Lutheran<br />Food Pantry &
+                                                Groceries</strong
+                                            >Thursday 10-12pm <br />'Believe in yourself<br />A Little
+                                            Bit More'
+                                        </td>
+                                        <td>MAY YOUR CHOICES LECT YOUR HOPES,NOT YOUR FEARS.</td>
+                                        <td>
+                                            St Vincent de Paul<br />All Saints Catholic Church<br /><strong
+                                                >Call for appt. 581-3642<br />10:00-11:30 am</strong
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Salvation Army<br /><strong>Dinner @ 4:15 pm</strong
+                                            ><br />NO ENTRY after 4:45!!
+                                        </td>
+                                        <td>
+                                            Salvation Army<br /><strong
+                                                >Food Pantry & Bread Rack</strong
+                                            ><br />10-11:45 & 1-3 pm
+                                        </td>
+                                        <td>
+                                            Salvation Army<br /><strong
+                                                >Food Pantry & Bread Rack</strong
+                                            ><br />10-11:45 & 1-3 pm
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >St Vincent de Paul<br />All Saints Catholic
+                                                Church</strong
+                                            ><br />Call for appt. 581-3642<br />1:00-2:30 pm
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Glad Tidings White House<br />Food items &
+                                                Bread</strong
+                                            ><br />11:30-1:30
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Glad Tidings White House<br />Food items &
+                                                Bread</strong
+                                            ><br />11:30-1:30
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Glad Tidings White House<br />Food items &
+                                                Bread</strong
+                                            ><br />11:30-1:30
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Mother's Day is May 12th</strong></td>
+                                        <td>
+                                            <strong>St Vincent de Paul</strong><br />All Saints
+                                            Catholic Church<strong
+                                                >Call for appt. 581-3642<br />6:30pm-8pm</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            Salvation Army<strong
+                                                >Senior Lunch Bunch<br />Ages 50+ 11-1pm<br />2nd & 4th
+                                                Tues Only!!</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            Glad Tidings White House<br /><strong
+                                                >Food items & Bread</strong
+                                            ><br />11:30-1:30
+                                        </td>
+                                        <td>
+                                            <strong>Salvation Army<br />Sack Lunch 12:30-2pm</strong>
+                                        </td>
+                                        <td>
+                                            <strong>Salvation Army<br />Sack Lunch 12:30-2pm</strong>
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >St Clement Church<br />Lunch Meal with Friends<br />McCallum
+                                                Hall 11:30-1pm</strong
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Monday May 27th</td>
+                                        <td>
+                                            <strong
+                                                >South Hayward Parish <br />New Bridges Outreach Ctr<br />Food
+                                                Pantry 2:30-5:00 pm</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            Salvation Army<br /><strong>Sack Lunch 12:30-2pm</strong>
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Salvation Army<br />Food Pantry & Bread Rack</strong
+                                            ><br />10-11:45 & 1-3 pm
+                                        </td>
+                                        <td>
+                                            Every Day May Not be Good<br />but,There 's Something<br />Good
+                                            in Even Day
+                                        </td>
+                                        <td>
+                                            MAY THE FOURTH<br />DO OR DO NOT,THERE IS NO TRY"<br />-JODA
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong
+                                                >EMERGENCY CALL 911<br />HPD Non-Emergency 510-293 7000
+                                                <br />Information & Referrals Dial 2-1-1<br />Veterans
+                                                Crisis Hotline 800-273-8255 <br />Transgender Suicide
+                                                Hotline 877-565-8860 <br />Suicide Prevention/Crisis
+                                                Support Hotline 800-309-2131</strong
+                                            ><br />GRID Provided By Task Force to End Hunger &
+                                            Homelessness In Hayward (5/2019kb)
+                                        </td>
+                                        <td>
+                                            <strong>New Hope:</strong> Feed My Sheep<br />777 B Street
+                                            City Hall<strong
+                                                >1st, 3rd & 4th Tuesdays<br />www.hayward-ca.gov<br />7:00
+                                                PM</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            Salvation Army<br /><strong
+                                                >Food Pantry & Bread Rack</strong
+                                            ><br />10-11:45 & 1-3 pm
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Palma Ceia Baptist ChurchCommunity Lunch<br /></strong
+                                            >12:00-1:00pm
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >Palma Ceia Baptist ChurchCommunity Lunch<br /></strong
+                                            >12:00-1:00pm
+                                        </td>
+                                        <td>
+                                            MAY THE FOURTH<br />DO OR DO NOT,THERE IS NO TRY"<br />-JODA
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            Homeless? Want Shelter? Want Housing?call 211<br /><strong
+                                                >New program > CES : Coordinated Entry System</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            Treat everyone with politeness<br />even those who are
+                                            rude to you<br />not because they are not nice<br />but
+                                            because YOU are nice.
+                                        </td>
+                                        <td>
+                                            Salvation Army<br /><strong>USDA FOOD Distribution</strong
+                                            >12:00-2:00p<br /><strong>3rd Wednesday Only !!</strong>
+                                        </td>
+                                        <td colspan="2">
+                                            "Try To Be A Rainbow In SomeOne Elses Clouds"
+                                        </td>
+                                        <td>
+                                            MAY THE FOURTH<br />DO OR DO NOT,THERE IS NO TRY"<br />-JODA
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <strong
+                                                >Pro Screen Intake & Referral for Assessment</strong
+                                            >
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <strong
+                                                >South Hayward Parish<br />New Bridges Outreach Ctr<br />Food
+                                                Pantry 1:30:5:00pm</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >South Hayward Parish<br />New Bridges Outreach Ctr<br />Food
+                                                Pantry 2:30:5:00am</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >South Hayward Parish<br />New Bridges Outreach Ctr<br />Food
+                                                Pantry 2:30:5:00am</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >May 4th /37th Annual<br />CInco De Maye 2019</strong
+                                            ><br />Main Street 10am-5pm<br /><strong
+                                                >Download Hayward</strong
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            EUCC:Eden United Church<br /><strong
+                                                >Food Pantry 1:30-4:30pm</strong
+                                            ><br />2nd & 4th Wed ONLY!!
+                                        </td>
+                                        <td>
+                                            <strong>New life Church</strong><br />5-6pm Bible
+                                            Study<strong>6pm Food Pantry/Grocery</strong>
+                                        </td>
+                                        <td><strong>Our lady of the Rosaiy Dinner 6pm</strong></td>
+                                        <td>
+                                            <strong>
+                                                May 11th/ 10:00:00 am Rowell Ranch Rodeo Parade Castro
+                                                Valley Blvd</strong
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            Our Lady of Grace<br /><strong
+                                                >4pm Sandwiches/Pantry</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            Faith lutheren Church<br /><strong
+                                                >Food Pantry 7-8 pm</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            <strong
+                                                >"Don't Let Your Struggle Become Your Identity</strong
+                                            >
+                                        </td>
+                                        <td>
+                                            May 18th /1pm-7pm<strong
+                                                >Latin Jazz Festival<br />B Street & Main</strong
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <strong>Generations Project 7pm</strong><br />at New
+                                            Bridges Outreach Ctr<br /><strong
+                                                >Medical referrals , HIV</strong
+                                            >
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <strong>May 18th</strong><br />ARMED FORCES DAY<br />Thank~You
+                                            All Who Serve
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <strong
+                                                >Downtown Hayward<br />SHOWER Ministry 6p-7:30<br />New
+                                                Life Church 1265 B St</strong
+                                            >PLEASE DO NOT ARRIVE BEFORE 5:50 pm!!!!!!!!
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="map-check" style="display: none">
+                    <div class="col-xs-12">
+                        <h1>GPS Check-In</h1>
+                        <div>
+                            <textarea class="form-control" rows="10" name="note"></textarea>
+                            <br />
+                            <button
+                                id="post_gps"
+                                type="button"
+                                class="btn btn-primary btn-lg btn-block"
+                                >
+                                Submit
+                            </button>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="journal-screen" style="display: none">
+                    <div class="title">Your Journal</div>
+                    <div class="col-xs-12" id="journal-list"></div>
+                    <div
+                        class="modal fade"
+                        id="journalModal"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="journalModalLabel"
+                        aria-hidden="true"
+                        >
+                        <div
+                            class="modal-dialog modal-dialog-centered-custom"
+                            role="document"
+                            >
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button
+                                        type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                        >
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div id="journal-body" class="modal-body text-center"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="questions-screen" style="display: none">
+                    <div class="title">Your Status</div>
+                    <div class="col-xs-12" id="questions-list">
+                        <form id="regForm"></form>
+                    </div>
+                </div>
+                <div class="row" id="shelters-screen" style="display: none">
+                    <div class="title">Shelters</div>
+                    <div class="filter-row">
+                        <div
+                            class="col-xs-4 col-sm-4"
+                            style="display: grid; padding-right: 0px; padding-left: 10px"
+                            >
+                            <select id="population_filter"></select>
+                        </div>
+                        <div
+                            class="col-xs-4 col-sm-4"
+                            style="display: grid; padding-right: 0px; padding-left: 10px"
+                            >
+                            <select id="service_filter"></select>
+                            <!--Make so all fit on same line with toggle map view UI -->
+                        </div>
+                        <div
+                            class="col-xs-4 col-sm-4"
+                            style="display: grid; padding-right: 0px; padding-left: 10px"
+                            >
+                            <span class="map-togle">Map</span>
+                            <div class="anil_nepal">
+                                <label class="switch switch-left-right">
+                                    <input class="switch-input" type="checkbox" />
+                                    <span class="switch-label" data-on="On" data-off="Off"></span>
+                                    <span class="switch-handle"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" id="shelters-list"></div>
+                    <div class="col-xs-12" id="map-shelters" style="display: none">
+                        <div id="map-shelters-view" style="width: 100%; height: 75vh"></div>
+                    </div>
+                </div>
+                <div class="row" id="screen2" style="display: none">
+                    <div class="col-xs-12">
+                        <h1>Profile</h1>
+                        <div>
+                            <div class="input-group name-input" style="display: none">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <input
+                                    id="name"
+                                    type="text"
+                                    class="form-control"
+                                    name="name"
+                                    placeholder="Name"
+                                    />
+                            </div>
+                            <br />
+                            <div class="input-group phone-code-input" style="display: none">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-file" aria-hidden="true"></i>
+                                </span>
+                                <input
+                                    id="phone-code"
+                                    type="tel"
+                                    class="form-control"
+                                    name="phone-code"
+                                    placeholder="Text Code"
+                                    />
+                            </div>
+                            <div class="input-group phone-input">
+                                <span class="input-group-addon">
+                                    <i
+                                        class="fa fa-phone"
+                                        style="font-size: 19px"
+                                        aria-hidden="true"
+                                        ></i>
+                                </span>
+                                <input
+                                    id="phone"
+                                    type="tel"
+                                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                                    class="form-control"
+                                    name="phone"
+                                    placeholder="Phone Number"
+                                    />
+                            </div>
+                            <!--
+                                                                                <br>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon"><i class="fa fa-birthday-cake" aria-hidden="true"></i></span>
+                                                                                    <input id="phone" type="text" class="form-control" name="age" placeholder="Age">
+                                                                                </div>
+                                                                                <br>
+                                                                                <div class="input-group">
+                                                                                    <span class="input-group-addon"><i class="fa fa-users" aria-hidden="true"></i></span>
+                                                                                    <input id="phone" type="text" class="form-control" name="ethnicity" placeholder="Ethnicity">
+                                                                                </div>-->
+                            <br />
+                            <button
+                                id="login_number"
+                                type="button"
+                                class="btn btn-primary btn-lg btn-block"
+                                >
+                                Next
+                            </button>
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="my-meds-screen" style="display: none">
+                    <div class="col-xs-12">
+                        <h1>My Meds</h1>
+                        <button type="button" class="btn btn-success">
+                            <a data-toggle="modal" data-target="#myModal">
+                                <i
+                                    class="fa fa-plus-circle"
+                                    style="font-size: 19px; color: white"
+                                    ></i>
+                                <span style="font-size: 19px; color: white"> Add</span>
+                            </a>
+                        </button>
+                        <br />
+                        <br />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Dosage</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="med_list"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="map-check" style="display: none">
+                    <div class="col-xs-12">
+                        <h1>GPS Check-In</h1>
+                        <form>
+                            <textarea class="form-control" rows="10" name="note">
+ Note</textarea
+                            >
+                            <br />
+                            <button type="button" class="btn btn-primary btn-lg btn-block">
+                                Submit
+                            </button>
+                            <br />
+                            <br />
+                        </form>
+                    </div>
+                </div>
+                <div class="row" id="help-screen" style="display: none">
+                    <div class="col-sm-12">
+                        <h1>Help</h1>
+                        <p class="white">Choose the help you need</p>
+                        <p class="white">(All help lines are available 24/7)</p>
+                        <div class="crisi-line">
+                            <p class="white">Youth (12-24) Crisis Line</p>
+                            <p class="white">We're here when you need us.</p>
+                            <br />
+                            <button type="button" class="btn btn-primary btn-lg">
+                                Counseling/ Referrals
+                            </button>
+                        </div>
+                        <br />
+                        <div class="physical-danger">
+                            <p class="white text-left">Suicide Prevention:</p>
+                            <p class="white text-left">Counselors available 24/7</p>
+                            <br />
+                            <button type="button" class="btn btn-default">
+                                <a href="tel:44444">Youth & Adult</a>
+                            </button>
+                            <button type="button" class="btn btn-default">
+                                <a href="tel:44444">LGBTQ</a>
+                            </button>
+                            <button type="button" class="btn btn-default">
+                                <a href="tel:44444">Veterans</a>
+                            </button>
+                        </div>
+                        <br />
+                        <div class="col-sm-12" style="background: white; padding: 16px">
+                            <table
+                                id="example"
+                                class="table table-striped table-bordered table-responsive otherNum"
+                                style="width: 100%"
+                                >
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Addresses</th>
+                                        <th>Phone #</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Church Addresses</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st Presbyterian Church</td>
+                                        <td>2490 Grove & Redwood Castro Valley x207</td>
+                                        <td>
+                                            <a href="tel:510.581.4063"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.581.4063
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st United Methodist Hayward</td>
+                                        <td>1183 B Street (at 2nd), Hayward</td>
+                                        <td>
+                                            <a href="tel:510.581.2266"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.581.2266</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1st United Methodist San Leandro</td>
+                                        <td>1600 Bancroft Ave San Leandro</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3 Crosses</td>
+                                        <td>20600 John Drive, Castro Valley</td>
+                                        <td>
+                                            <a href="tel:510.537.4690"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.537.4690</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>22824 Second Street, Hayward</td>
+                                        <td>All Saints Catholic Church</td>
+                                        <td>
+                                            <a href="tel:510.582.2570"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.582.2570</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bridge of Faith</td>
+                                        <td>27343 Whitman St, Hayward</td>
+                                        <td>
+                                            <a href="tel:510.886.7551"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.886.7551</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Church of the Nazarene</td>
+                                        <td>26221 Gading Road, Hayward</td>
+                                        <td>
+                                            <a href="tel:510.732.0777"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.732.0777</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Community of Grace</td>
+                                        <td>380 Elmhurst Street, Hayward</td>
+                                        <td>
+                                            <a href="tel:510.783.8062"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.783.8062</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eden United Church of Christ</td>
+                                        <td>21455 Birch St. #1, Hayward</td>
+                                        <td>
+                                            <a href="tel:510.582.9533"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.582.9533</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>El Shaddai</td>
+                                        <td>565 East Lewelling Boulevard, San Lorenzo</td>
+                                        <td>
+                                            <a href="tel:510.481.5200"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.481.5200</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Faith Lutheran Church of CV</td>
+                                        <td>20080 Redwood Rd, Castro Valley</td>
+                                        <td>
+                                            <a href="tel:510.582.0818"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.582.0818</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Glad Tidings White House</td>
+                                        <td>27751 Tyrell Ave, Hayward</td>
+                                        <td>
+                                            <a href="tel:510.783.9377"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.783.9377</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Good Shepherd Lutheran</td>
+                                        <td>166 Harder Rd Hayward</td>
+                                        <td>
+                                            <a href="tel:510.782.0872"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.782.0872</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hayward Senior Cener</td>
+                                        <td>22325 North 3rd Street, Hayward</td>
+                                        <td>
+                                            <a href="tel:510.881.6766"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.881.6766</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>New Hope Church</td>
+                                        <td>22110 Montgomery St & Sunset Hayward</td>
+                                        <td>
+                                            <a href="tel:510.537.6230"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.537.6230</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>New Life Christian Church</td>
+                                        <td>1265 B St, Hayward</td>
+                                        <td>
+                                            <a href="tel:510.889.1304"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.889.1304</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Our Lady of Grace</td>
+                                        <td>3433 Somerset Ave Castro Valley</td>
+                                        <td>
+                                            <a href="tel:510.537.0806"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.537.0806</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Our Lady of the Rosary</td>
+                                        <td>703 C St. Union City</td>
+                                        <td>
+                                            <a href="tel:510.471.2609"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.471.2609</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Palma Ceia Baptist Church</td>
+                                        <td>28605 Ruus Rd Hayward</td>
+                                        <td>
+                                            <a href="tel:510.786.2866"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.786.2866</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Redwood Chapel</td>
+                                        <td>19300 Redwood Road, Castro Valley</td>
+                                        <td>
+                                            <a href="tel:510.886.6300"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.886.6300</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>St Clement Church</td>
+                                        <td>750 Calhoun Street/Mission Bl, Hayward</td>
+                                        <td>
+                                            <a href="tel:510 582 7282"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510 582 7282</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Medical, Dental, Etc</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2nd Chance Recovery Ctr</td>
+                                        <td>107 Jackson St Hwd www.secondchanceinc.com</td>
+                                        <td>
+                                            <a href="tel:510-886-8696"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510-886-8696</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashland Free Clinic</td>
+                                        <td>Medical Adults Sat. 8-11a / Children Wed 6-8p</td>
+                                        <td>
+                                            <a href="tel:510.407.2362"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.407.2362</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Birthright of San Lorenzo: for Pregnant Women</td>
+                                        <td>1048 Grant Ave Slz</td>
+                                        <td>
+                                            <a href="tel:510.481.9677"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.481.9677</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Davis Street Family Resource Ctr</td>
+                                        <td>3081 Teagarden San Leandro M-Th8a-8p Fri</td>
+                                        <td>
+                                            <a href="tel:510.347.4620"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.347.4620</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dental Clinic: at Davis St.</td>
+                                        <td>Call To be PreScreened for Apptoinment M-F 8a-4p</td>
+                                        <td>
+                                            <a href="tel:510.347.4620"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.347.4620</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eden Hospital</td>
+                                        <td>20103 Lake Chabot Rd Castro Valley</td>
+                                        <td>
+                                            <a href="tel:510.537.1234"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.537.1234</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Firehouse Clinic/Tiburcio Vasquez Healthcare Ctr</td>
+                                        <td>28300 Huntwood Ave Hwd</td>
+                                        <td>
+                                            <a href="tel:510.398.7474"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.398.7474</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Healthcare for the Homeless Medical Referral</td>
+                                        <td>See frontside/Days Time Location</td>
+                                        <td>
+                                            <a href="tel:510.532.1930"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.532.1930</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatitis A Vaccination Sites</td>
+                                        <td><a href="www.achch.org">www.achch.org</a></td>
+                                        <td>
+                                            <a href="tel:510-598-6310"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510-598-6310</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>HIV/AIDS Service Info</td>
+                                        <td>AHIP 877 424.3746 / 510.53702600 HIV Testing Sites</td>
+                                        <td>
+                                            <a href="tel:800.367.2437"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                800.367.2437</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>“NEW* Progressive Urgent Care/Accepts Medi-Cal</td>
+                                        <td>22101 Redwood Rd Castro Valley</td>
+                                        <td>
+                                            <a href="tel:510-605-5330"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510-605-5330</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>St Rose Hospital</td>
+                                        <td>Urgent Care 27200 Calaroga Ave Hayward</td>
+                                        <td>
+                                            <a href="tel:510.264.4046"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.264.4046</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tri Cities HealthCare</td>
+                                        <td>1999 Mowry Bl Ste F Fremont</td>
+                                        <td>
+                                            <a href="tel:510.713.6690"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.713.6690</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">
+                                            Job Opportunities/V/olunteer Opportunities/Case Management
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Command Center</td>
+                                        <td>
+                                            22449 Foothill Bl Hayward M-F 6a-6p www.commandonline.com
+                                        </td>
+                                        <td>
+                                            <a href="tel:510.583.9300"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.583.9300</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Downtown Streets Team</td>
+                                        <td>
+                                            Tues 12:30-1:30 New Hope Church: 22110 Montgomery & Sunset
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eden Area Job Center & Rubicon</td>
+                                        <td>24100 Amador Street, 3rd Floor Hayward</td>
+                                        <td>
+                                            <a href="tel:510.670.5700"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.670.5700</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">
+                                            Supportive Services. Service Providers. Wellness & Drop In
+                                            Centers
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>CRIL</td>
+                                        <td>439 A Street, Hayward www.crilhayward.org</td>
+                                        <td>
+                                            <a href="tel:510.881.5743"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.881.5743</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>HEDCO Weiness Center</td>
+                                        <td>590 B St Hwd www.bayareacs.org</td>
+                                        <td>
+                                            <a href="tel:510.247.8235"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.247.8235</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Salvation Army</td>
+                                        <td>430 A St Hwd www.salvationarmyusa.org</td>
+                                        <td>
+                                            <a href="tel:510.581.6444"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.581.6444</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>San Leandro Boys/Girls Club</td>
+                                        <td>401 Marina Blvd San Leandro</td>
+                                        <td>
+                                            <a href="tel:510.483.6468"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.483.6468</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>South Hayward Parish/New Bridges Outreach Ctr</td>
+                                        <td>27287 Patrick Ave Hayward</td>
+                                        <td>
+                                            <a href="tel:510.785.3663"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.785.3663</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Housing Info.Resources</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DIAL 2-1-1</td>
+                                        <td>for Shelter Referral & Services</td>
+                                        <td>
+                                            <a href="tel:888.886.9660"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                888.886.9660</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>BACS HEDCO Housing Education Classes</td>
+                                        <td>Wed 10:30a -12 noon</td>
+                                        <td>
+                                            <a href="tel:510.247.8235"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.247.8235</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CRIL Housing Workshop</td>
+                                        <td>Mon 2pm Call ahead to register</td>
+                                        <td>
+                                            <a href="tel:510.881.5743"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.881.5743</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">
+                                            Shelters/Transitional Housing & Sober Living Building
+                                            Futures
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Building Futures</td>
+                                        <td>San Leandro Shelter Women w/ Children</td>
+                                        <td>
+                                            <a href="tel:211"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                211</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>City Team Ministries</td>
+                                        <td>722 Washngton St Oakland Men</td>
+                                        <td>
+                                            <a href="tel:510.452.3758"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.452.3758</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>East Oakland Community Project</td>
+                                        <td>7515 International Bl Oakland Men</td>
+                                        <td>
+                                            <a href="tel:211"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                211</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Family Emergency Shelter</td>
+                                        <td>Hayward Families with Children</td>
+                                        <td>
+                                            <a href="tel:211"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                211</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Magnolia House</td>
+                                        <td>Hayward Pregnant Women</td>
+                                        <td>
+                                            <a href="tel:510.487.2910"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.487.2910</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Second Chance, Inc.</td>
+                                        <td>Fremont Single Adults 18+</td>
+                                        <td>
+                                            <a href="tel:211"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                211</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shepherd's Gate</td>
+                                        <td>Livermore 1 yr Commitment Women w/ Children</td>
+                                        <td>
+                                            <a href="tel:925.487.4147"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                925.487.4147</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sunrise Village</td>
+                                        <td>588 Brown Rd Fremont Single Adults & Families</td>
+                                        <td>
+                                            <a href="tel:211"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                211</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ASH House Sober Living</td>
+                                        <td>Ash St. Hayward Men</td>
+                                        <td>
+                                            <a href="tel:510.754.0620"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.754.0620</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Into The Solution, Inc.</td>
+                                        <td>Transitional Housing SSI Required Women</td>
+                                        <td>
+                                            <a href="tel:510.672.7869"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.672.7869</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lifehouse Sober Living</td>
+                                        <td>Hayward Men, Women Women w/ Children</td>
+                                        <td>
+                                            <a href="tel:510.999.7901"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.999.7901</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Off the Streets Ministry</td>
+                                        <td>High Street Oakland Men</td>
+                                        <td>
+                                            <a href="tel:510.688.2366"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.688.2366</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tranquility House Alternatives</td>
+                                        <td>San Leandro Men, Women</td>
+                                        <td>
+                                            <a href="tel:510.987.6232"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.987.6232</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Victory Outreach</td>
+                                        <td>South Hayward 1 year Commitment Men</td>
+                                        <td>
+                                            <a href="tel:510.783.1022"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.783.1022</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Domestic Violence/Battered Women</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DV National Hotline</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="tel:800.799.7233"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                800.799.7233</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Building Futures</td>
+                                        <td>Women w/ Children DV</td>
+                                        <td>
+                                            <a href="tel:866.282.9688"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                866.282.9688</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ruby's Place-Emergency Shelter</td>
+                                        <td>Human Traffiking & DV</td>
+                                        <td>
+                                            <a href="tel:888.339.7233"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                888.339.7233</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>SAVE</td>
+                                        <td>1900 Mowry Ave #201 Fremont 24hr Hotline DV</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">VETERANS</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Operation Dignity</td>
+                                        <td>3850 San Pablo Ave Emeryville</td>
+                                        <td>
+                                            <a href="tel:510.287.8465"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.287.8465</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Swords to Plowshares</td>
+                                        <td>2719 Telegraph Ave Oakland</td>
+                                        <td>
+                                            <a href="tel:510.844.7500"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.844.7500</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veterens CRISIS LINE</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="tel:800.273.8255"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                800.273.8255</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Homeless Vets Hotline</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="tel:800.838.4357"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                800.838.4357</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="catname">Legal Services</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bay Area Legal Aid</td>
+                                        <td>1735 Telegraph, Oakland Mon-Fri 9 5</td>
+                                        <td>
+                                            <a href="tel:510.663.4744"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.663.4744</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>East Bay Law Center</td>
+                                        <td>2921 Adeline St Berkeley M-F 9-5</td>
+                                        <td>
+                                            <a href="tel:510.548.4040"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.548.4040</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Homeless Action Center</td>
+                                        <td>1432 Franklin St Oakland</td>
+                                        <td>
+                                            <a href="tel:510.836.3260"
+                                               ><span
+                                                    class="glyphicon glyphicon-earphone phone-icon-other"
+                                                    ></span>
+                                                510.836.3260</a
+                                            >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Self-Help Center ©Hall of Justice Bldg: 24405 Amador St
+                                            Dpt 501 8:30am-12pm M-Th
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade add-new-meds" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                &times;
+                            </button>
+                            <h4 class="modal-title">Add New Meds</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="med_name"
+                                        placeholder="Name"
+                                        />
+                                </div>
+                                <div class="form-group">
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="dosage"
+                                        placeholder="Dosage"
+                                        />
+                                </div>
+                                <!--<div class="form-group form-check">
+                                                                                <input type="checkbox" class="form-check-input" id="needMed">
+                                                                                <label class="form-check-label" for="exampleCheck1"> &nbsp;Need</label>
+                                                                            </div>-->
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-default"
+                                data-dismiss="modal"
+                                >
+                                Close
+                            </button>
+                            <button type="button" class="btn btn-success" id="add_meds">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <script>
+                                            $(document).ready(function () {
+                                                alert("document ready");
+                                                $("input[type=radio]").change(function () {
+                                                    alert($(this).val());
+                                                });
+                                            });
+                                        </script> -->
+
+            <form id="upload_vid_form" method="post" enctype="multipart/form-data">
+                <input
+                    type="file"
+                    accept="video/*"
+                    id="upload-vid"
+                    capture="environment"
+                    style="display: none"
+                    />
+            </form>
+        </div>
+        <div id="index_land">
+            <div class="container start-container">
+                <div class="row">
+                    <div class="col-xs-12" align="middle">
+                        <a data-toggle="modal" data-target="#aboutOnboard"
+                           ><strong class="aboutOnboard">About Action App</strong></a
+                        >
+                        <br />
+                        <br />
+                        <br />
+                        <!-- Modal -->
+                        <div
+                            class="modal fade"
+                            id="aboutOnboard"
+                            tabindex="-1"
+                            role="dialog"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                            >
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            Action
+                                            <button
+                                                type="button"
+                                                class="close"
+                                                data-dismiss="modal"
+                                                aria-label="Close"
+                                                >
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        Action App is onramp to social services, wellness and your
+                                        self service Action portal.
+                                    </div>
+                                    <br /><br />
+                                    <div class="imagelog" align="middle">
+                                        <img src="img/sfapp_logo.png" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div
+                            class="common-style help"
+                            data-toggle="modal"
+                            data-target="#exampleModal"
+                            style="cursor: pointer"
+                            >
+                            <span class="glyphicon glyphicon-earphone"></span>
+                            <p>Help Now</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            <br />
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12s">
+                        <p class="onboard">
+                            <a onclick="showmainPage();">Action Interface (Start)</a>
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <p>
+                            <br />
+                        </p>
+                    </div>
+                    <!--
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <p class="onboard">
+                        <a href="email.html"
+                          ><strong class="composeEmail">Email</strong></a
+                        >
+                      </p>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <div
+                class="modal fade"
+                id="exampleModal"
+                role="dialog"
+                aria-labelledby="helpmod"
+                aria-hidden="true"
+                >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button
+                                type="button"
+                                class="close helppop"
+                                data-dismiss="modal"
+                                aria-label="Close"
+                                >
+                                <span aria-hidden="true" style="color: black; font-weight: bold"
+                                      >&times;</span
+                                >
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="emergency">
+                                        <p class="white"><a href="tel:911">911</a> Call</p>
+                                        <p class="white">Emergency</p>
+                                    </div>
+                                    <br />
+                                    <div class="emergencysocial">
+                                        <p class="white">Social Call</p>
+                                        <p class="white">Service</p>
+                                    </div>
+                                    <br />
+                                    <div class="col-xs-12" align="middle">
+                                        <a onclick="showPhoneDirectory()"
+                                           ><strong class="aboutOnboard"
+                                                 >Services Directory</strong
+                                            ></a
+                                        >
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script type="text/javascript">
+                                            $("#example").dataTable({
+                                                order: [],
+                                                columnDefs: [
+                                                    {
+                                                        targets: "no-sort",
+                                                        orderable: false,
+                                                    },
+                                                ],
+                                            });
+                                            $(document).ready(function () {
+                                                $("#example").DataTable();
+                                            });
+                                            function showmainPage() {
+                                                $("#index_page").show();
+                                                $("#index_land").hide();
+                                                document.body.style.backgroundColor = "gray";
+                                            }
+                                            function showPhoneDirectory() {
+                                                $("#index_page").show();
+                                                $("#index_land").hide();
+                                                $("body").removeClass("modal-open");
+                                                $(".modal-backdrop").remove();
+                                                $("#help-screen").show();
+                                                $("#screen1").hide();
+                                                document.body.style.backgroundColor = "gray";
+                                            }
+                                            function Check(qustion, secnd) {
+                                                if (secnd == '0') {
+                                                    document.getElementById('preQ' + qustion).style.display = 'block';
+                                                } else {
+                                                    document.getElementById('preQ' + qustion).style.display = 'none';
+
+                                                }
+                                            }
+        </script>
+    </body>
+</html>
