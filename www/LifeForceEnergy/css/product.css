@@ -212,6 +212,11 @@ main{
     cursor: pointer;
 }
 
+.product__container .image__and__desc__container .desc__container .inner__content .product__actions .button__list{
+    width: 90%;
+    padding-left: 8px;
+}
+
 
 
 .product__container .image__and__desc__container .desc__container .inner__content .product__actions button,
@@ -220,7 +225,7 @@ main{
     font-size: 1rem;
     border: 2px solid var(--blue);
     color: var(--blue);
-    width: 44%;
+    width: 45%;
     text-decoration: none;
     text-align: center;
     font-weight: 600;
@@ -446,6 +451,21 @@ main{
         font-size: 1.1rem;
     }
 
+    .product__container .image__and__desc__container .desc__container .inner__content .product__specs .product__weight{
+        width: 31%;
+    }
+
+    .product__container .image__and__desc__container .desc__container .inner__content .product__actions{
+        flex-direction: column;
+    }
+
+    .product__container .image__and__desc__container .desc__container .inner__content .product__actions .button__list{
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding-left: 0;
+    }
+
     .product__container .image__and__desc__container .desc__container .inner__content .product__actions .product__like{
         font-size: 35px;
         line-height: 55px;
@@ -454,6 +474,7 @@ main{
     .product__container .image__and__desc__container .desc__container .inner__content .product__actions button,
     .product__container .image__and__desc__container .desc__container .inner__content .product__actions a{
         font-size: 0.9rem;
+        width: 47%;
     }
 
     .product__container .list__details__inline .detail__content{
