@@ -1,14 +1,187 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<title></title>
+<html lang="en">
+    <style type="text/css">
+        .bcn { width:210px;list-style:none;float:center;margin:0;padding:0 0 0 10px;color:#F66F23; }
+        a.navbar__link {
+            font-size: inherit !important;
+        }
+        .section__header {
+            font-size: inherit !important;
+        }
+        li a {
+            font-size: inherit !important;
+        }
+        .rights {
+            font-size: inherit !important;
+        }
+        .add_form {
+            background: #fff;
+            padding: 30px 30px;
+            border-radius: 10px;
+        }
+        .page__banner{
+            height: auto !important;
+        }
+        td.dataTables_empty {
+            display: none;
+        }
+        .img-sizing{
+            width: 100px !important;
+            height: 100px !important;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Add a new stadium</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
-	<div id="stadiumlist"> 
-		<ul id="stadiums"></ul>
-	</div>
-	<script src="js/list.js"></script>
+    <div class="page__banner">
+        <div class="header__nav flex__box">
+            <div class="banner__logo">
+                <a href="#"><div class="full__logo"></div></a>
+            </div>
 
+            <div class="link__container">
+                <ul>
+                    <li>
+                        <a href="#" class="navbar__link">About</a>
+                    </li>
+
+                    <li>
+                        <a href="add_stadium.html" class="navbar__link">Add a stadium</a>
+                    </li>
+                    <li>
+                        <a href="#" class="navbar__link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="extra__links">
+                    <a href="#"><i class='bx bx-user'></i></a>
+                    <a href="#"> <i class='bx bx-cart'></i></a>
+                </div>
+            </div>
+
+            <div class="mobile__menu" id="toggler"><i class='bx bx-menu' ></i></div>
+        </div>
+        <div class="add_form">
+            <script>
+                $(document).ready(function () {
+                    $('#example').DataTable();
+                });
+            </script>
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Capacity</th>
+                        <th>Country</th>
+                        <th>City</th>
+                        <th>Sport</th>
+                    </tr>
+                </thead>
+                <tbody id="stadiums">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Image</th>
+                        <th>Capacity</th>
+                        <th>Country</th>
+                        <th>City</th>
+                        <th>Sport</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <script src="js/list.js"></script> 
+        </div>
+    </div>
+    <footer>
+        <div class="inner__section flex__box">
+            <div class="footer__section">
+                <div class="section__header">SUPPORT</div>
+
+                <ul>
+                    <li>
+                        <a href="#">FAQs</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Shipping</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Returns</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__section">
+                <div class="section__header">CONTACT</div>
+
+                <ul>
+                    <li>
+                        <a href="#">email@site.com</a>
+                    </li>
+
+                    <li>
+                        <a href="#">000.000.000</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="inner__section flex__box">
+            <div class="footer__section">
+                <div class="section__header">LEGAL</div>
+
+                <ul>
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Terms & Conditions</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Returns</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__section">
+                <div class="section__header">SUPPORT</div>
+
+                <div class="social__media__links">
+                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="inner__section">
+            <div class="footer__section">
+                <div class="inner__content">
+                    <div class="logo"></div>
+                    <div class="rights">&copy; 2021 ALL RIGHTS RESERVED</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
