@@ -386,6 +386,11 @@ footer{
     display: none;
 }
 
+
+.liked{
+    color: #d82070 !important;
+}
+
 @media screen and (max-width: 800px){
     .page__banner .header__nav{
         width: 100%;

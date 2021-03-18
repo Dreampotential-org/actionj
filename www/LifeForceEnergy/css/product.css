@@ -324,7 +324,7 @@ main{
 
 .similar__products .full__list .product__item img{
     width: 100%;
-    height: 270px;
+    height: 250px;
     border-radius: 15px;
 }
 
@@ -388,9 +388,7 @@ main{
     border-radius: 8px;
 }
 
-.liked{
-    color: #d82070 !important;
-}
+
 
 .colored__border{
     border: 2px solid var(--black);
