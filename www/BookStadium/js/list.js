@@ -1,14 +1,14 @@
-var $stadiums = $('#stadiums') ;
+var $stadiums = $('#stadiums');
 
- $.ajax({
-                  url: 'https://api.dreampotential.org/bookingstadium/api/stadium/list',
-                  type: 'GET',
-                  success: function(data) {
+$.ajax({
+    url: 'https://api.dreampotential.org/bookingstadium/api/stadium/list',
+    type: 'GET',
+    success: function (data) {
 
-                     $.each(data,function(i,stadium){
-                      $stadiums.append('<li>'+stadium.name+'</li>');
-                      $stadiums.append('<img src='+stadium.image+' witdh="400" height="300"></>');
-                      $stadiums.append('<p>capacity:'+stadium.capacity+'</p>')
-                     })
-                  }
-      });
+        for (var i = 0; i < data.length; i++) {
+            var stadium = data[i];
+            $stadiums.append('<tr><td>' + stadium.name + '</td><td><img src=' + stadium.image + ' class="img-sizing"></td><td>' + stadium.capacity + '</td><td>' + stadium.country + '</td><td>' + stadium.city + '</td><td>' + stadium.sports + '</td></tr>')
+        }
+    }
+})
+      
