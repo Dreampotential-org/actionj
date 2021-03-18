@@ -1,12 +1,12 @@
 var $stadiums = $('#stadiums') ;
 
  $.ajax({
-                  url: 'https://sfapp-api.dreamstate-4-all.org/neighbormade/stadiums',
+                  url: 'https://api.dreampotential.org/bookingstadium/api/stadium/list',
                   type: 'GET',
                   success: function(data) {
                   
-                     for (var i = 0; i < data.stadiums.length; i++) {
-                      var stadium = data.stadiums[i];
+                     for (var i = 0; i < data.length; i++) {
+                      var stadium = data[i];
                       $stadiums.append('<l>'+stadium.name+'</l><br>');
                       $stadiums.append('<img src='+stadium.image+' witdh="400" height="300"></>');
                       $stadiums.append('<p>Capacity:'+stadium.capacity+'</p>')
