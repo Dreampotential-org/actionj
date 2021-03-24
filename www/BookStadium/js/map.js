@@ -9,13 +9,8 @@
              	  var keys=Object.getOwnPropertyNames(grouped);
              	  var values=Object.values(grouped);
         		  for(var i=0;i<keys.length;i++) {
-        		  	$stadiums.append('<li style="color:red">'+keys[i]+'</li>')
         		  	for (var x = 0; x< values[i].length; x++) {
-        		  		$stadiums.append('<br><p>'+values[i][x].name+'</p>')
-        		  		$stadiums.append('<img src='+values[i][x].image+' witdh="400" height="300"></>');
-        		  		$stadiums.append('<p>Capacity:'+values[i][x].capacity+'</p>')
-                      	$stadiums.append('<p>City:'+values[i][x].city+'</p>')
-                      	$stadiums.append('<p>Sport:'+values[i][x].sports+'</p></br>')
+        		  		$stadiums.append('<tr><td>' + values[i][x].name + '</td><td style="color:red">' + keys[i] + '</td><td><img src=' + values[i][x].image + ' class="img-sizing"></td><td>' + values[i][x].capacity + '</td><td>' + values[i][x].city + '</td><td>' + values[i][x].sports + '</td></tr>')
         		  	}
         		  }
         	
@@ -26,4 +21,12 @@
 
       
           )
+  var columns = {
+    formCode: 'Form Code',
+    formName: 'Form Name',
+    fullName: 'Full Name',
+    appointmentDate: 'Appointment Date',
+    appointmentTime: 'Appointment Time',
+    phone: 'Phone',
+}
  
