@@ -7,12 +7,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
     </head>
     <body>
 
         <div class="container">
             <h2>Search Zipcode</h2>
-            <form class="form-inline">
+            <div class="form-inline">
                 <div class="form-group">
                     <label for="email">Zipcode:</label>
                     <input type="text" class="form-control" id="zipcode" placeholder="Enter Zipcode" name="zipcode">
@@ -21,23 +22,73 @@
                     <label for="distan">Distance</label>
                     <input type="text" class="form-control" id="distance" placeholder="Enter Distance" name="distance">
                 </div>
+
                 <button  class="btn btn-success" onclick="myFunction()">Search</button>
-            </form>
+            </div>
+            <br><br>
+            <div class="table-responsive" id="csv-display"></div>
         </div>
         <script>
-          
+            var data;
+            $.ajax({
+                type: "GET",
+                url: "table.csv",
+                dataType: "text",
+                success: function (response)
+                {
+                    data = $.csv.toArrays(response);
+                    generateHtmlTable(data);
+                }
+            });
             function myFunction() {
                 // Selecting the input element and get its value 
                 var zipCode = document.getElementById("zipcode").value;
                 var distance = document.getElementById("distance").value;
-                $.ajax({
-                    url: 'https://gutenberg-api.dreampotential.org/collegeboard/schooldetailziptablecsv/' + zipCode + '/' + distance + '/',
-                    type: 'GET',
-                    success: function (data) {
 
-                    }
-                })
+                var url = 'https://gutenberg-api.dreampotential.org/collegeboard/schooldetailziptablecsv/' + zipCode + '/' + distance + '/';
+                var a = document.createElement("a");
+                a.href = url;
+                fileName = url.split("/").pop();
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                a.remove();
+            }
+            function generateHtmlTable(data) {
+                var html = '<table  class="table table-condensed table-hover table-striped table-bordered">';
 
+                if (typeof (data[0]) === 'undefined') {
+                    return null;
+                } else {
+                    $.each(data, function (index, row) {
+                        //bind header
+                        if (index == 0) {
+                            html += '<thead>';
+                            html += '<tr>';
+                            $.each(row, function (index, colData) {
+                                html += '<th>';
+                                html += colData;
+                                html += '</th>';
+                            });
+                            html += '</tr>';
+                            html += '</thead>';
+                            html += '<tbody>';
+                        } else {
+                            html += '<tr>';
+                            $.each(row, function (index, colData) {
+                                html += '<td>';
+                                html += colData;
+                                html += '</td>';
+                            });
+                            html += '</tr>';
+                        }
+                    });
+                    html += '</tbody>';
+                    html += '</table>';
+
+                    $('#csv-display').append(html);
+                }
             }
         </script>
 
