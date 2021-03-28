@@ -12,7 +12,7 @@
 
         <div class="container">
             <h2>Search Zipcode</h2>
-            <form class="form-inline" action="/action_page.php">
+            <form class="form-inline" action="">
                 <div class="form-group">
                     <label for="email">Zipcode:</label>
                     <input type="email" class="form-control" id="zipcode" placeholder="Enter Zipcode" name="email">
@@ -27,17 +27,15 @@
 
         <script>
 
+            $.ajax({
+                url: 'https://gutenberg-api.dreampotential.org/collegeboard/schooldetailziptablecsv/94601/100/',
+                type: 'GET',
+                success: function (data) {
 
-            $(document).ready(function () {
-                $.ajax({
-                    url: 'https://gutenberg-api.dreampotential.org/collegeboard/schooldetailziptablecsv/94601/100/',
-                    type: 'GET',
-                    success: function (data) {
+                   console.log(data);
+                }
+            })
 
-                        console.log(data);
-                    }
-                })
-            });
         </script>
     </body>
 </html>
