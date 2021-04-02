@@ -45,7 +45,7 @@
                 var zipCode = document.getElementById("zipcode").value;
                 var distance = document.getElementById("distance").value;
 
-                var url = 'https://gutenberg-api.dreampotential.org/collegeboard/schooldetailziptablecsv/' + zipCode + '/' + distance + '/';
+                var url = 'https://gutenberg-api.dreampotential.org/collegeboard/schooldetailziptable/' + zipCode + '/' + distance + '/';
                 var a = document.createElement("a");
                 a.href = url;
                 fileName = url.split("/").pop();
