@@ -1,6 +1,6 @@
 var $bookings = $('#bookings');
 $.ajax({
-    url: 'http://127.0.0.1:8000/bookingstadium/api/bookings',
+    url: 'https://api.dreampotential.org/bookingstadium/api/bookings',
     type: 'GET',
     success: function(data) {
 
