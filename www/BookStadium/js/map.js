@@ -21,12 +21,3 @@
 
       
           )
-  var columns = {
-    formCode: 'Form Code',
-    formName: 'Form Name',
-    fullName: 'Full Name',
-    appointmentDate: 'Appointment Date',
-    appointmentTime: 'Appointment Time',
-    phone: 'Phone',
-}
- 
