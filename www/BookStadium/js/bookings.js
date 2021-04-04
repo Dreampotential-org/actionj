@@ -6,11 +6,7 @@ $.ajax({
 
         for (var i = 0; i < data.length; i++) {
             var event = data[i];
-            $bookings.append('<li>Event name: ' + event.name + '</li><br>')
-            $bookings.append('<p>Event date: ' + event.date + '</p>')
-            $bookings.append('<p>Event start time: ' + event.start_time + '</p>')
-            $bookings.append('<p>Event end_time: ' + event.end_time + '</p>')
-            $bookings.append('<p>Event stadium: ' + event.stadium + '</p></br>')
+            $bookings.append('<tr><td>' + event.name + '</td><td>'+ event.date +'</td><td>'+ event.start_time +'</td><td>'+ event.end_time +'</td><td>'+ event.stadium +'</td></tr>')   
         }
 
     }
