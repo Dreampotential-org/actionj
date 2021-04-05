@@ -181,9 +181,6 @@
 }
 
 @media screen and (max-width: 800px){
-    .page__banner{
-        height: 55vh;
-    }
     .page__banner .banner__text .inner__content {
         width: 85%;
     }

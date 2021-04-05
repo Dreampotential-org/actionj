@@ -1,0 +1,272 @@
+body{
+    background: #fcfcfc;
+}
+
+.header__nav{
+    width: 85%;
+}
+
+.header__nav .link__container  ul li .navbar__link,
+.header__nav .link__container .extra__links i{
+    color: var(--blue);
+}
+
+.header__nav .banner__logo a .full__logo{
+    background-color: var(--blue);
+    width: 125px;
+    height: 125px;
+}
+
+.cart__container{
+    width: 85%;
+    margin: 40px auto;
+
+}
+
+.cart__container header{
+    margin-bottom: 35px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.cart__container .cart{
+    width: 100%;
+    height: auto;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.19), 0 4px 8px rgba(0, 0, 0, 0.20);
+}
+
+.cart__container .cart .cart__header{
+    background: var(--blue);
+    width: 100%;
+}
+
+.cart__container .cart .cart__header div{
+    padding: 15px 0;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.cart__container .cart .cart__header .product__details,
+.cart__container .cart .cart__item .product__details{
+    width: 50%;
+    padding-left: 35px;
+}
+
+.cart__container .cart .cart__header .product__quantity,
+.cart__container .cart .cart__item .product__quantity{
+    width: 25%;
+}
+
+.cart__container .cart .cart__header .product__price,
+.cart__container .cart .cart__item .product__price{
+    width: 15%;
+}
+
+.cart__container .cart .cart__header .product__total,
+.cart__container .cart .cart__item .product__total{
+    width: 10%;
+}
+
+.cart__container .cart .cart__item {
+    padding: 25px 0;
+}
+
+.cart__container .cart .cart__item .product__details .product__image{
+    width: 120px;
+    height: 120px;
+}
+
+.cart__container .cart .cart__item .product__details .product__image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.cart__container .cart .cart__item .product__details .full__details{
+    padding: 12px 0 12px 25px;
+}
+
+.cart__container .cart .cart__item .product__details .full__details .name{
+    font-size: 1rem;
+    font-weight: 700;
+    padding-bottom: 18px;
+}
+
+.cart__container .cart .cart__item .product__details .full__details .color,
+.cart__container .cart .cart__item .product__details .full__details .size{
+    font-size: 0.95rem;
+}
+
+.cart__container .cart .cart__item .product__details .full__details .color{
+    padding-bottom: 15px;
+}
+
+
+
+.cart__container .cart .cart__item .product__quantity input{
+    font-size: 1rem;
+    padding: 6px ;
+    border: 1px solid var(--darker-grey);
+    width: 50px;
+}
+
+.cart__container .cart .cart__item .product__quantity .remove__product{
+    margin: 15px 0;
+}
+
+.cart__container .cart .cart__item .product__quantity div a{
+    font-size: 0.75rem;
+    color: var(--blue);
+}
+
+.cart__container .cart .cart__item .product__price,
+.cart__container .cart .cart__item .product__total{
+    font-size: 1.05rem;
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.cart__container .cart .lower__link{
+    width: 92%;
+    margin: 0 auto;
+    height: 55px;
+}
+
+.cart__container .cart .lower__link a{
+    font-size: 0.75rem;
+    color: var(--blue);
+}
+
+.cart__container .cart .lower__link a:last-child{
+    float: right;
+}
+
+.cart__container .shop__links{
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+}
+
+.cart__container .shop__links a:last-child{
+    margin-left: auto;
+}
+
+.cart__container .cart .cart__item .prop label,
+.cart__container .cart .cart__item .product__quantity.prop i,
+.cart__container .total__section,
+.cart__container .cart .lower__link a:first-child{
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+
+    .header__nav .banner__logo a .full__logo{
+        width: 85px;
+        height: 85px;
+    }
+
+    .header__nav .mobile__menu{
+        color: var(--blue);
+    }
+    .cart__container .cart .cart__item{
+        flex-direction: column;
+    }
+
+    .cart__container .cart .cart__item .product__details,
+   .cart__container .cart .cart__item .product__quantity,
+    .cart__container .cart .cart__item .product__price,
+    .cart__container .cart .cart__item .product__total{
+        width: 80%;
+        margin: 12px auto;
+    }
+
+    .cart__container .cart .cart__header div:not(:first-child) {
+        display: none;
+    }
+
+    .cart__container .cart .cart__item .product__details{
+        padding-left: 0;
+    }
+
+    .cart__container .cart .cart__item .product__quantity .remove__product{
+        display: none;
+    }
+    .cart__container .cart .cart__item .prop{
+        display: flex;
+        align-items: center;
+
+    }
+
+    .cart__container .cart .cart__item .product__total{
+        display: none;
+    }
+
+    .cart__container .cart .cart__item .prop label{
+        width: 50%;
+        font-size: 1.05rem;
+        color: var(--blue);
+        font-weight: 700;
+        display: block;
+    }
+
+    .cart__container .cart .lower__link{
+        width: 85%;
+    }
+
+    .cart__container .cart .lower__link a:first-child{
+        display: block;
+    }
+
+    .cart__container .shop__links{
+        width: 85%;
+        margin: 20px auto;
+        flex-direction: column;
+    }
+
+    .cart__container .shop__links a{
+        width: 100%;
+        padding: 12px 30px;
+        text-align: center;
+    }
+
+    .cart__container .shop__links a:last-child{
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .cart__container .cart .cart__item .product__quantity input{
+        width: 40px;
+        text-align: center;
+        color: var(--blue);
+        border: 1px solid var(--darker-grey);
+        font-weight: 700;
+    }
+
+    .cart__container .cart .cart__item .product__quantity.prop i{
+        color: var(--darker-grey);
+        cursor: pointer;
+        display: block;
+    }
+
+    .cart__container .cart .cart__item .product__quantity.prop i:hover{
+        color: var(--blue);
+    }
+
+    .cart__container .total__section{
+        width: 75%;
+        margin: 50px auto;
+        color: var(--blue);
+        font-weight: 700;
+        display: flex;
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .cart__container .total__section div{
+        width: 50%;
+    }
+}
+

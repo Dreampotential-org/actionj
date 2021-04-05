@@ -1,0 +1,901 @@
+body{
+    background: #fcfcfc;
+}
+
+.header__nav{
+    width: 85%;
+}
+
+.header__nav .link__container  ul li .navbar__link,
+.header__nav .link__container .extra__links i{
+    color: var(--blue);
+}
+
+.header__nav .banner__logo a .full__logo{
+    background-color: var(--blue);
+    width: 125px;
+    height: 125px;
+}
+
+
+.settings__container{
+    width: 85%;
+    margin: 50px auto
+}
+
+.settings__container .settings__list{
+    width: 30%;
+    color: var(--darker-grey);
+    font-weight: 700;
+}
+
+.settings__container .settings__list .list__header{
+    font-size: 1.45rem;
+    margin-bottom: 50px;
+}
+
+.settings__container .settings__list .setting{
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.settings__container .settings__list .setting:hover,
+.settings__container .settings__list .setting a:hover{
+    color: var(--blue);
+    transition: .3s ease-in;
+}
+
+.settings__container .settings__list .setting a{
+    display: flex;
+    align-items: center;
+    color: var(--darker-grey);
+    text-decoration: none;
+}
+
+.settings__container .settings__list .setting i{
+    font-size: 26px;
+    margin-right: 8px;
+}
+
+.settings__container .settings__list .setting.active{
+    color: var(--blue);
+}
+
+.settings__container .setting__content{
+    width: 70%;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(204 ,204 ,204, 0.19), 0 4px 8px rgba(204 ,204 ,204, 0.20);
+    padding: 45px;
+    border-radius: 12px;
+}
+
+.settings__container .setting__content.extra__section{
+    display: none;
+}
+
+.settings__container .setting__content header{
+    width: 100%;
+    padding-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--darker-grey);
+    border-bottom: 1px solid rgba(100 ,100 ,100, 0.2);
+}
+
+.settings__container .setting__content .content{
+    width: 85%;
+    margin: 30px auto 80px;
+}
+
+.settings__container .account__details .content .input__list{
+    margin-bottom: 30px;
+}
+
+.settings__container .account__details .content .input__list .input__group{
+    width: 48%;
+}
+
+.settings__container .account__details .content .input__list .input__group.end{
+    margin-left: auto;
+}
+
+.settings__container .account__details .content .input__list .input__group label{
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--darker-grey);
+}
+
+.settings__container .account__details .content .input__list .input__group input{
+    margin-top: 12px;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.blue__button{
+    width: 23%;
+    padding: 8px 20px;
+}
+.settings__container .account__details .content .content__box{
+    width: 48%;
+    background: #fcfcfc;
+    border: 2px solid #cccccc;
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+.settings__container .account__details .content .content__box .header,
+.settings__container .account__details .content .content__box .number{
+    align-items: center;
+}
+
+
+.settings__container .account__details .content .content__box .header span{
+    font-weight: 700;
+}
+
+.settings__container .account__details .content .content__box i{
+    margin-left: auto;
+    font-size: 17px;
+}
+
+.settings__container .account__details .content .content__box div{
+    line-height: 1.6rem;
+    padding: 3px 12px;
+
+}
+
+.settings__container .account__details .content .content__box .address{
+    width: 50%;
+}
+
+.settings__container .account__details .content .content__box .payment{
+    align-items: center;
+}
+
+.settings__container .account__details .content .content__box .payment img{
+    width: 35px;
+    height: 35px;
+    margin-right: 6px;
+}
+
+.settings__container .account__details .address__book .content button,
+.settings__container .account__details .payments .content button{
+    margin-top: 30px;
+    width: 40%;
+    padding: 7px 15px;
+    border-radius: 4px;
+}
+
+.settings__container .order__details .header{
+    color: var(--darker-grey);
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.settings__container .order__details .header span{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.settings__container .order__details .header select{
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    padding: 6px 8px;
+    font-size: 1rem;
+}
+
+.settings__container .order__details table{
+    width: 100%;
+    border-spacing: 0;
+    border-radius: 8px;
+    border-collapse: collapse;
+    overflow: hidden;
+
+}
+
+.settings__container .order__details table thead{
+    background: var(--blue);
+    color: var(--white);
+}
+
+
+.settings__container .order__details table thead th{
+    padding: 20px 16px;
+    font-size: 1rem;
+    border: 1px solid var(--blue);
+    text-align: left;
+    margin-right: -10px;
+}
+
+.settings__container .order__details table tbody tr{
+    font-size: 0.9rem;
+    color: var(--darker-grey);
+}
+
+.settings__container .order__details table tbody tr td{
+    padding: 20px 16px;
+}
+
+.settings__container .order__details table tbody tr:nth-child(even) td{
+    background: #fcfcfc;
+}
+.settings__container .order__details table tbody tr td a{
+    color: var(--black);
+    font-size: 0.9rem;
+}
+
+.settings__container .order__details table tbody tr:last-child{
+    border-bottom: 1px solid #cccccc;
+}
+
+
+.settings__container .order__details table tbody tr td:last-child a{
+    color: var(--black);
+    background: #f2f2f2;
+    border: 1px solid #cccccc;
+    padding: 6px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.settings__container .favorites .upper__actions{
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(100 ,100 ,100, 0.2);
+    width: 100%;
+}
+
+.settings__container .favorites .upper__actions .header{
+    width: 53%;
+}
+
+.settings__container .favorites .upper__actions .search{
+    width: 25%;
+}
+
+.settings__container .favorites .upper__actions .filter,
+.settings__container .favorites .upper__actions .sort{
+    width: 10%;
+}
+
+.settings__container .favorites .upper__actions .header{
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--darker-grey);
+}
+
+.settings__container .favorites .upper__actions .search{
+    position: relative;
+}
+
+.settings__container .favorites .upper__actions .search i{
+    position: absolute;
+    left: 0;
+    top: 3px;
+}
+
+.settings__container .favorites .upper__actions input,
+.settings__container .favorites .upper__actions select{
+    border: none;
+    font-size: 0.85rem;
+    color: var(--darker-grey);
+}
+
+.settings__container .favorites .upper__actions input{
+    padding: 4px 22px;
+    width: 100%;
+}
+
+.settings__container .favorites .upper__actions input:focus,
+.settings__container .favorites .upper__actions select:focus{
+    outline: 0;
+}
+
+.settings__container .favorites .upper__actions input:focus{
+    border-bottom: 1px solid var(--blue);
+    transition: .2s ease-in;
+}
+
+.settings__container .favorites .upper__actions input::placeholder{
+    color: var(--darker-grey);
+}
+
+.settings__container .favorites .upper__actions select{
+    padding: 4px 8px;
+}
+
+.settings__container .favorites .product{
+    width: 100%;
+    height: auto;
+    padding: 18px 25px;
+    border-bottom: 1px solid rgba(100 ,100 ,100, 0.2);
+    position: relative;
+}
+
+.settings__container .favorites .product .image__container{
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.settings__container .favorites .product .image__container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.settings__container .favorites .product .text__container div{
+    padding-bottom: 7px;
+    font-size: 0.93rem;
+}
+
+.settings__container .favorites .product .text__container .name{
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.settings__container .favorites .product .cart__action,
+.settings__container .favorites .product .heart{
+    position: absolute;
+}
+
+.settings__container .favorites .product .cart__action{
+    font-size: 0.95rem;
+    font-weight: 700;
+    bottom: 18px;
+    right: 25px;
+}
+
+.settings__container .favorites .product .cart__action a{
+    color: var(--blue);
+}
+
+.settings__container .favorites .product .heart{
+    font-size: 20px;
+    top: 18px;
+    right: 25px;
+    color: var(--blue);
+}
+
+.settings__container .account__settings .content .input__group{
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.settings__container .account__settings .content .input__group label{
+    width: 50%;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--darker-grey);
+}
+
+.settings__container .account__settings .content .input__group .relative__container{
+    position: relative;
+    width: 35%;
+}
+
+.settings__container .account__settings .content .input__group .relative__container input{
+    background: #f2f2f2;
+    border: 1px solid var(--darker-grey);
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.settings__container .account__settings .content .input__group .relative__container i{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.settings__container .account__settings .content .input__group .relative__container input:focus{
+    background: var(--white);
+    border: 1px solid #cccccc;
+}
+
+.settings__container .account__settings .content .notifications .type{
+    width: 50%;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--darker-grey);
+}
+
+.settings__container .account__settings .content .notifications .list{
+    width: 40%;
+}
+
+.settings__container .account__settings .content .notifications .list div{
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+}
+
+.settings__container .account__settings .content .notifications .list div input{
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+}
+
+.settings__container .account__settings .content .close__account{
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+}
+
+.settings__container .account__settings .content .close__account a{
+    font-size: 0.9rem;
+    color: var(--blue);
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.settings__container .account__settings .content{
+    margin: 30px auto 15px;
+}
+
+.settings__container .account__settings .content .save__button{
+    width: 100%;
+}
+
+.settings__container .account__settings .content .save__button button{
+    margin-left: auto;
+    padding: 6px 30px;
+}
+
+.settings__container .detailed__order header{
+    display: flex;
+    align-items: center;
+    border-bottom: none;
+}
+
+.settings__container .detailed__order header span{
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+
+.settings__container .detailed__order header select{
+    border: none;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    margin-left: auto;
+}
+
+.settings__container .detailed__order .order__number{
+    padding: 20px 16px;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 0.95rem;
+    border-radius: 8px;
+}
+
+.settings__container .detailed__order .order__tracking{
+    padding: 24px 16px;
+    border-bottom: 1px solid rgba(100 ,100 ,100, 0.2);
+}
+.settings__container .detailed__order .order__tracking .date,
+.settings__container .detailed__order .order__tracking .tracking{
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--blue);
+}
+
+.settings__container .detailed__order .order__tracking .date span,
+.settings__container .detailed__order .order__tracking .tracking a{
+    font-size: 0.9rem;
+    color: var(--black);
+    margin-left: 8px;
+}
+
+.settings__container .detailed__order .order__tracking .tracking{
+    margin-left: auto;
+}
+
+.settings__container .detailed__order .detailed__content{
+    width: 90%;
+    margin: 35px auto 20px;
+}
+
+.settings__container .detailed__order .detailed__content .detail__header{
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.settings__container .detailed__order .detailed__content .detail__header .image__container{
+    width: 125px;
+    height: 125px;
+    margin-right: 30px;
+}
+
+.settings__container .detailed__order .detailed__content .detail__header .image__container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.settings__container .detailed__order .detailed__content .detail__header .text__container div{
+    padding-bottom: 7px;
+    font-size: 0.93rem;
+}
+
+.settings__container .detailed__order .detailed__content .detail__header .text__container .name{
+    font-weight: 600;
+    padding-top: 5px;
+}
+
+.settings__container .detailed__order .detailed__content .detail__header .price{
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.settings__container .detailed__order .detailed__content .details{
+    width: 100%;
+    display: flex;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    align-items: center;
+    font-weight: 600;
+}
+
+.settings__container .detailed__order .detailed__content .details .value{
+    margin-left: auto;
+    font-size: 0.95rem;
+}
+
+.settings__container .detailed__order .detailed__content .details:last-child{
+    margin: 30px 0;
+}
+
+
+.settings__container .detailed__order .final__details{
+    width: 100%;
+    border-top: 1px solid rgba(100 ,100 ,100, 0.2);
+}
+
+.settings__container .detailed__order .final__details .final__content{
+    width: 90%;
+    margin: 40px auto;
+}
+
+.settings__container .detailed__order .final__details .final__content .content__box{
+    width: 35%;
+    margin-right: 10px;
+}
+
+.settings__container .detailed__order .final__details .final__content .content__box div{
+    padding-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.settings__container .detailed__order .final__details .final__content .content__box .header{
+    font-weight: 600;
+    padding-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.settings__container .detailed__order .final__details .final__content .content__box .address{
+    width: 45%;
+    line-height: 1.5rem;
+}
+
+.settings__container .detailed__order .final__details .final__content .content__box .payment{
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.settings__container .detailed__order .final__details .final__content .content__box img{
+    width: 30px;
+    height: 30px;
+    margin-right: 6px;
+}
+
+.settings__container .mobile__selection{
+    display: none;
+}
+
+input::placeholder{
+    opacity: 0;
+}
+
+.settings__container .favorites .upper__actions input::placeholder,
+.settings__container .favorites .mobile__search input::placeholder,
+.settings__container .account__settings .content .input__group .relative__container input::placeholder{
+    opacity: 1;
+}
+
+.settings__container .favorites .mobile__search{
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .header__nav .mobile__menu{
+        color: var(--blue);
+    }
+
+    .header__nav .banner__logo a .full__logo{
+        width: 85px;
+        height: 85px;
+    }
+
+    input::placeholder{
+        opacity: 1;
+    }
+    .settings__container{
+        width: 95%;
+        flex-direction: column;
+    }
+    .settings__container .settings__list{
+        display: none;
+    }
+
+    .settings__container .setting__content{
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .settings__container .account__details .content .input__list{
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .settings__container .account__details .content .input__list .input__group{
+        width: 100%;
+        margin-bottom: 11px;
+    }
+
+    .settings__container .account__details .content .input__list .input__group input{
+        padding: 14px 15px;
+        font-size: 0.95rem;
+    }
+
+    .settings__container .account__details .content .input__list .input__group input::placeholder{
+        font-weight: 600;
+    }
+
+    .settings__container .account__details .content .input__list .input__group label{
+        display: none;
+    }
+
+    .blue__button{
+        width: 85%;
+        padding: 12px 20px;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+    .settings__container .setting__content .content{
+        text-align: center;
+    }
+
+    .settings__container .account__details header{
+        padding-left: 28px;
+        font-size: 1.1rem;
+    }
+
+    .address__container{
+        flex-direction: column;
+    }
+
+    .settings__container .account__details .content .content__box{
+        width: 90%;
+        margin: 0 auto 15px;
+        border: 1px solid #cccccc;
+    }
+
+    .settings__container .account__details .content .content__box div{
+        text-align: left;
+    }
+
+    .settings__container .account__details .address__book .content button,
+    .settings__container .account__details .payments .content button{
+        width: 75%;
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+
+    .settings__container .account__details .content .content__box .payment{
+        padding: 15px 12px;
+    }
+
+    .settings__container .account__details .content .content__box i{
+        font-size: 20px;
+    }
+
+
+    .settings__container .mobile__selection{
+        align-items: center;
+        width: 100%;
+        margin: 20px 0;
+        display: flex;
+    }
+
+    .settings__container .mobile__selection select{
+        width: 70%;
+        padding: 8px;
+        background: var(--white);
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+    }
+
+    .settings__container .mobile__selection select:focus{
+        outline: 0;
+    }
+
+    .settings__container .mobile__selection a{
+        color: var(--blue);
+        font-size: 0.85rem;
+        margin-left: auto;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .settings__container .mobile__selection a i{
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    .settings__container .mobile__selection a:hover{
+        transform: scale(1.1);
+    }
+
+    .settings__container .order__details table,
+    .settings__container .order__details .header{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .settings__container .order__details table thead .mob__void,
+    .settings__container .order__details table tbody tr .mob__void{
+        display: none;
+    }
+
+    .settings__container .order__details table tbody tr td:last-child{
+        text-align: center;
+        text-align: -moz-center;
+    }
+
+    .settings__container .detailed__order .order__number{
+        border-radius: 0;
+    }
+
+    .settings__container .detailed__order header{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .settings__container .detailed__order .final__details .final__content .content__box{
+        width: 48%;
+    }
+
+    .settings__container .favorites .upper__actions .search{
+        display: none;
+    }
+
+    .settings__container .favorites .upper__actions{
+       padding: 0 15px 20px;
+    }
+
+    .settings__container .favorites .upper__actions .header{
+        width: 60%;
+    }
+
+    .settings__container .favorites .upper__actions .filter,
+    .settings__container .favorites .upper__actions .sort{
+        width: 20%;
+    }
+
+    .settings__container .favorites .mobile__search{
+        padding: 14px 16px;
+        position: relative;
+        background: var(--blue);
+        color: var(--white);
+        display: block;
+    }
+
+    .settings__container .favorites .mobile__search input{
+        border: none;
+        padding: 6px 25px;
+        font-size: 0.95rem;
+        background: transparent;
+        color: var(--white);
+    }
+
+    .settings__container .favorites .mobile__search input::placeholder{
+        color: var(--white);
+    }
+
+    .settings__container .favorites .mobile__search i{
+        position: absolute;
+        top: 22px;
+        left: 20px;
+    }
+
+    .settings__container .favorites .mobile__search input:focus{
+        outline: 0;
+        border-bottom: 1px solid var(--white);
+    }
+
+    .settings__container .favorites .product{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .settings__container .favorites .product .flex__box{
+        width: 100%;
+    }
+
+    .settings__container .favorites .product .actions{
+        display: flex;
+        margin-top: 15px;
+        width: 70%;
+        margin-left: auto;
+    }
+
+    .settings__container .favorites .product .heart,
+    .settings__container .favorites .product .cart__action{
+        position: unset;
+    }
+
+    .settings__container .favorites .product .cart__action{
+        margin-left: 12px;
+    }
+
+    .settings__container .account__settings header{
+        padding-left: 25px;
+    }
+
+    .settings__container .account__settings .content .input__group, .notifications{
+        flex-direction: column;
+    }
+
+    .settings__container .account__settings .content .input__group label,
+    .settings__container .account__settings .content .input__group .relative__container,
+    .settings__container .account__settings .content .notifications .list{
+        width: 100%;
+    }
+
+    .settings__container .account__settings .content .input__group label,
+    .settings__container .account__settings .content .notifications .type{
+        margin-bottom: 14px;
+    }
+
+    .settings__container .account__settings .content .input__group label,
+    .settings__container .account__settings .content .notifications .list,
+    .settings__container .account__settings .content .notifications .type{
+        text-align: left;
+    }
+
+    .settings__container .account__settings .content .save__button{
+        margin-top: 40px;
+    }
+
+    .settings__container .account__settings .content .save__button button{
+        width: 85%;
+        margin: 0 auto;
+        padding: 9px 20px;
+    }
+    .settings__container .account__settings .content .close__account{
+        margin-top: 10px;
+    }
+
+    .settings__container .account__settings .content .close__account a{
+        margin: 0 auto;
+    }
+
+    .settings__container .detailed__order .final__details .final__content .content__box .address{
+        width: 85%;
+    }
+}
+
+
+
+

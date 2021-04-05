@@ -1,0 +1,72 @@
+.confirmed__banner{
+    width: 100%;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: var(--blue);
+    position: relative;
+}
+
+.header__nav{
+    width: 85%;
+}
+
+.confirmed__banner img{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.confirmed__banner .confirmation__message{
+    width: 55%;
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    text-align: center;
+}
+
+.confirmed__banner .confirmation__message .header{
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+
+.confirmed__banner .confirmation__message .details,
+.confirmed__banner .confirmation__message .extra{
+    font-size: 1.1rem;
+}
+
+.confirmed__banner .confirmation__message .details{
+    margin-bottom: 12px;
+}
+
+.confirmed__banner .confirmation__message .details a{
+    font-weight: 700;
+    font-size: 1.13rem;
+    color: var(--white);
+}
+
+.confirmed__banner .confirmation__message .extra{
+    margin-bottom: 50px;
+}
+
+.confirmed__banner .confirmation__message .order__link a{
+    padding: 10px 30px;
+    background: var(--white);
+    border: 1px solid var(--white);
+    color: var(--blue);
+}
+
+.confirmed__banner .confirmation__message .order__link a:hover{
+    color: var(--white);
+    background: transparent;
+}
+
+@media screen and (max-width: 800px) {
+    .confirmed__banner .confirmation__message{
+        width: 85%;
+    }
+}

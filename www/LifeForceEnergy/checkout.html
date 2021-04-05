@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LifeForceEnergy | Checkout</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/checkout.css">
+</head>
+<body>
+<div class="header__nav flex__box">
+    <div class="banner__logo">
+        <a href="#"><div class="full__logo"></div></a>
+    </div>
+
+    <div class="link__container">
+        <div class="checkout__header">CHECKOUT</div>
+
+        <div class="extra__links">
+            <a href="#"><i class='bx bx-user'></i></a>
+            <a href="#"> <i class='bx bx-cart'></i></a>
+        </div>
+    </div>
+
+    <div class="mobile__menu" id="toggler"><i class='bx bx-menu' ></i></div>
+</div>
+
+<section class="checkout flex__box">
+    <div class="checkout__list">
+        <h2 class="mobile__checkout__header">Checkout</h2>
+        <div class="checkout__section shipping__section">
+            <div class="section__header flex__box">
+                <div class="header__tag">1. Shipping</div>
+                <i class='bx bxs-down-arrow'></i>
+            </div>
+
+            <div class="section__content">
+                <form method="post" action="" role="form">
+                    <div class="content__item flex__box">
+                        <div class="item__desc">First Name<span>*</span></div>
+                        <div class="item__input">
+                            <input type="text" name="firstname"placeholder="First Name" >
+                        </div>
+                    </div>
+
+                    <div class="content__item flex__box">
+                        <div class="item__desc">Last Name<span>*</span></div>
+                        <div class="item__input">
+                            <input type="text" name="lastname" placeholder="Last Name">
+                        </div>
+                    </div>
+
+                    <div class="content__item flex__box">
+                        <div class="item__desc">Address<span>*</span></div>
+                        <div class="item__input">
+                            <input type="text" name="address" placeholder="Address">
+                        </div>
+                    </div>
+
+                    <div class="content__item flex__box">
+                        <div class="item__desc">City<span>*</span></div>
+                        <div class="item__input">
+                            <input type="text" name="city" placeholder="City">
+                        </div>
+                    </div>
+
+                    <div class="content__item flex__box">
+                        <div class="item__desc">State<span>*</span></div>
+                        <div class="item__input">
+                            <select>
+                                <option value="" disabled selected>Select State</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="content__item flex__box">
+                        <div class="item__desc">Zipcode<span>*</span></div>
+                        <div class="item__input">
+                            <input type="text" name="zipcode" placeholder="Zipcode">
+                        </div>
+                    </div>
+
+                    <div class="content__item flex__box">
+                        <div class="item__desc">Select Shipping Method</div>
+                        <div class="item__input">
+                            <div> <input type="checkbox" value="standard" checked aria-checked="true" > Standard (4-5 days) $1.00 </div>
+                            <div> <input type="checkbox" value="express"> Express (2-3 days) $5.00 </div>
+                            <div> <input type="checkbox" value="next day"> Next day (1-2 days) $10.00 </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="button__container">
+                <button class="button blue__button">NEXT <i class="bx bx-right-arrow-alt"></i></button>
+            </div>
+        </div>
+
+        <div class="checkout__section payment__section phased">
+            <div class="section__header flex__box">
+                <div class="header__tag">2. Payment</div>
+                <i class='bx bxs-down-arrow'></i>
+            </div>
+
+            <div class="section__content flex__box">
+                <div class="payment__options desktop">
+                    <div class="pay__option active">
+                        <input type="checkbox" value="credit card" checked> Credit / Debit Card
+                    </div>
+
+                    <div class="pay__option">
+                      <a href="#">
+                          <input type="checkbox" value="paypal">
+                          <img src="assets/icons8-paypal.svg">
+                      </a>
+                    </div>
+
+                    <div class="pay__option">
+                       <a href="#">
+                           <input type="checkbox" value="apple pay">
+                           <img src="assets/icons8-apple-pay.svg">
+                       </a>
+                    </div>
+
+                    <div class="pay__option">
+                       <a href="#">
+                           <input type="checkbox" value="google pay">
+                           <img src="assets/icons8-google-pay.svg">
+                       </a>
+                    </div>
+                </div>
+
+                <div class="payment__option__content">
+                    <div class="card__header flex__box">
+                        <img src="assets/icons8-visa.svg">
+                        <img src="assets/icons8-american-express.svg">
+                        <img src="assets/icons8-discover.svg">
+                        <img src="assets/icons8-mastercard.svg">
+                    </div>
+            <form method="post" action="" role="form">
+                <div class="input__group">
+                    <label for="card_number">Card Number<span>*</span></label>
+                    <input type="text" name="card_number" id="card_number" placeholder="Card Number">
+                </div>
+
+                <div class="input__group">
+                    <label for="name_on_card">Name On Card<span>*</span></label>
+                    <input type="text" name="name_on_card" id="name_on_card" placeholder="Name On Card">
+                </div>
+
+                <div class="input__group flex__box">
+                    <div class="inner__group expiration">
+                        <label for="expiration_date">Expiration date<span>*</span></label>
+                        <input type="text" name="expiration_date" id="expiration_date" placeholder="MM/YY">
+                    </div>
+
+                    <div class="inner__group cvv">
+                        <label for="cvv">CVV<span>*</span></label>
+                        <input type="text" name="cvv" id="cvv">
+                    </div>
+
+                </div>
+            </form>
+
+                </div>
+
+                <div class="payment__options mobile">
+
+                    <div class="pay__option">
+                       <a href="#">
+                           <input type="checkbox" value="paypal">
+                           <img src="assets/icons8-paypal.svg">
+                       </a>
+                    </div>
+
+                    <div class="pay__option">
+                        <a href="#">
+                            <input type="checkbox" value="apple pay">
+                            <img src="assets/icons8-apple-pay.svg">
+                        </a>
+                    </div>
+
+                    <div class="pay__option">
+                       <a href="#">
+                           <input type="checkbox" value="google pay">
+                           <img src="assets/icons8-google-pay.svg">
+                       </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button__container">
+                <button class="button blue__button">NEXT <i class="bx bx-right-arrow-alt"></i></button>
+            </div>
+        </div>
+
+        <div class="checkout__section review__section phased">
+            <div class="section__header flex__box">
+                <div class="header__tag">3. Order Review</div>
+                <i class='bx bxs-down-arrow'></i>
+            </div>
+
+            <div class="section__content review__content">
+                <div class="close__marker"><span>&times;</span></div>
+
+                <div class="review__header flex__box">
+                    <div class="image__container">
+                        <img src="assets/product-placeholder1.png">
+                    </div>
+                    <div class="text__container">
+                        <div class="name prop">Product name</div>
+                        <div class="description prop">Short description...</div>
+                        <div class="color prop">Color: <span>Blue</span></div>
+                        <div class="size prop">Size: <span>Large</span></div>
+                        <div class="qty prop">Qty: <span>2</span></div>
+                        <div class="sub__total">$2.00</div>
+                    </div>
+                </div>
+
+                <div class="sub__section price__review">
+                    <div class="inner__content flex__box">
+                        <div>
+                            <div class="delivery__type">Standard delivery <i class='bx bxs-edit'></i></div>
+                            <div class="delivery__range">Arrives April 3 - 4</div>
+                        </div>
+
+                        <div class="sub__total">$1.00</div>
+                    </div>
+
+                    <div class="inner__content flex__box">
+                        <div>
+                           Tax
+                        </div>
+
+                        <div class="sub__total">$0.10</div>
+                    </div>
+
+                    <div class="inner__content total flex__box">
+                        <div>
+                            Total
+                        </div>
+
+                        <div class="sub__total">$3.10</div>
+                    </div>
+                </div>
+
+                <div class="sub__section final__section">
+                   <div class="inner__content flex__box">
+                       <div class="final__details">
+                           <div class="details__header">
+                               Delivery Address <i class="bx bxs-edit"></i>
+                           </div>
+
+                           <div class="recipient final">Krisia P,</div>
+                           <div class="address final">
+                               222 ABS ZY St.,
+                               Abcd City, AA
+                           </div>
+
+                           <div class="number final">US 00-00</div>
+                       </div>
+
+                       <div class="final__details">
+                           <div class="details__header">
+                               Payment Method <i class="bx bxs-edit"></i>
+                           </div>
+
+                           <div class="card__details"><img src="assets/icons8-visa.svg"> ending in 1234</div>
+                       </div>
+                   </div>
+                </div>
+            </div>
+
+            <div class="button__container">
+                <button class="button blue__button">PLACE ORDER <i class="bx bx-right-arrow-alt"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="checkout__summary">
+        <div class="inner__content">
+            <div class="summary__header">ORDER SUMMARY</div>
+            <div class="sub__total__content">
+                <div class="list__content flex__box">
+                    <div>
+                        Subtotal
+                    </div>
+
+                    <div class="sub__total">$2.00</div>
+                </div>
+
+                <div class="list__content flex__box">
+                    <div>
+                        Shipping
+                    </div>
+
+                    <div class="sub__total">$1.00</div>
+                </div>
+
+
+                <div class="list__content flex__box">
+                    <div>
+                        Tax
+                    </div>
+
+                    <div class="sub__total">$0.10</div>
+                </div>
+
+                <div class="list__content voucher flex__box">
+                    <div>
+                        Add Promo Code / Voucher
+                    </div>
+
+                    <div class="sub__total">+</div>
+                </div>
+
+                <div class="list__content total flex__box">
+                    <div>
+                        Total
+                    </div>
+
+                    <div class="sub__total">$3.10</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation__buttons">
+       <div><button class="button blue__button" id="forward"><span>NEXT</span> <i class="bx bx-right-arrow-alt"></i></button></div>
+       <div><button class="button dark__button" id="backward"><i class="bx bx-left-arrow-alt"></i> <span>BACK</span></button></div>
+    </div>
+</section>
+
+<div class="modal" id="modal-box">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+
+
+        <div class="inner-content">
+            <div class="links"><a href="#">About</a><div class="border"></div></div>
+            <div class="links"><a href="#">Shop</a><div class="border"></div></div>
+            <div class="links"><a href="#">Blog</a><div class="border"></div></div>
+            <div class="links"><a href="#">Contact</a><div class="border"></div></div>
+            <div class="links regular__last"><a href="#">Free Consultation</a></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="inner__section flex__box">
+        <div class="footer__section">
+            <div class="section__header">SUPPORT</div>
+
+            <ul>
+                <li>
+                    <a href="#">FAQs</a>
+                </li>
+
+                <li>
+                    <a href="#">Shipping</a>
+                </li>
+
+                <li>
+                    <a href="#">Returns</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer__section">
+            <div class="section__header">CONTACT</div>
+
+            <ul>
+                <li>
+                    <a href="#">email@site.com</a>
+                </li>
+
+                <li>
+                    <a href="#">000.000.000</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="inner__section flex__box">
+        <div class="footer__section">
+            <div class="section__header">LEGAL</div>
+
+            <ul>
+                <li>
+                    <a href="#">Privacy Policy</a>
+                </li>
+
+                <li>
+                    <a href="#">Terms & Conditions</a>
+                </li>
+
+                <li>
+                    <a href="#">Returns</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer__section">
+            <div class="section__header">SUPPORT</div>
+
+            <div class="social__media__links">
+                <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="inner__section">
+        <div class="footer__section">
+            <div class="inner__content">
+                <div class="logo"></div>
+                <div class="rights">&copy; 2021 ALL RIGHTS RESERVED</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/toggler.js"></script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <title>LifeForceEnergy | Settings</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/settings.css">
+</head>
+<body>
+<div class="header__nav flex__box">
+    <div class="banner__logo">
+        <a href="#"><div class="full__logo"></div></a>
+    </div>
+
+    <div class="link__container">
+        <ul>
+            <li>
+                <a href="#" class="navbar__link">About</a>
+            </li>
+
+            <li>
+                <a href="#" class="navbar__link">Shop</a>
+            </li>
+
+            <li>
+                <a href="#" class="navbar__link">Blog</a>
+            </li>
+
+            <li>
+                <a href="#" class="navbar__link">Contact</a>
+            </li>
+
+            <li>
+                <a href="#" class="navbar__link">Free Consultation</a>
+            </li>
+        </ul>
+
+        <div class="extra__links">
+            <a href="#"><i class='bx bx-user'></i></a>
+            <a href="#"> <i class='bx bx-cart'></i></a>
+        </div>
+    </div>
+
+    <div class="mobile__menu" id="toggler"><i class='bx bx-menu' ></i></div>
+</div>
+
+        <div class="settings__container flex__box">
+            <div class="mobile__selection">
+                <select>
+                    <option value="0">My Account</option>
+                    <option value="1">Order History</option>
+                    <option value="2">Favorites</option>
+                    <option value="3">Account Settings</option>
+                </select>
+
+                <a href="#"><i class='bx bx-log-out-circle' ></i> Log Out</a>
+            </div>
+            <div class="settings__list">
+                <div class="list__header">My Account</div>
+
+                <div class="setting active">
+                    <i class='bx bxs-user-circle'></i> My Account
+                </div>
+
+                <div class="setting">
+                    <i class='bx bxs-shopping-bag-alt' ></i> Order History
+                </div>
+
+                <div class="setting">
+                    <i class='bx bx-heart' ></i> Favorites
+                </div>
+
+                <div class="setting">
+                    <i class='bx bx-cog' ></i> Account Settings
+                </div>
+
+                <div class="setting">
+                    <a href="#"><i class='bx bx-log-out-circle' ></i> Log Out</a>
+                </div>
+
+            </div>
+
+            <div class="setting__content account__details">
+                    <section class="personal__details">
+                        <header>Personal Details</header>
+
+                        <div class="content">
+                            <form method="post" action="" role="form">
+                                <div class="input__list flex__box">
+                                    <div class="input__group">
+                                        <label for="firstname">First Name</label>
+                                        <input class="input__field" type="text" name="firstname" id="firstname" placeholder="First Name">
+                                    </div>
+
+                                    <div class="input__group end">
+                                        <label for="lastname">Last Name</label>
+                                        <input class="input__field" type="text" name="lastname" id="lastname" placeholder="Last Name">
+                                    </div>
+                                </div>
+
+                                <div class="input__list flex__box">
+                                    <div class="input__group">
+                                        <label for="email">Email Address</label>
+                                        <input class="input__field" type="text" name="email" id="email" placeholder="Email Address">
+                                    </div>
+
+                                    <div class="input__group end">
+                                        <label for="lastname">Phone Number</label>
+                                        <input class="input__field" type="text" name="phone" id="phone" placeholder="Phone Number">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="button blue__button">SAVE <i class="bx bx-right-arrow-alt"></i></button>
+                            </form>
+
+                        </div>
+
+                    </section>
+
+                <section class="address__book">
+                    <header>Address Book</header>
+
+                    <div class="content">
+                        <div class="flex__box address__container">
+                            <div class="content__box">
+                                <div class="header flex__box">
+                                    <span>Default</span> <i class="bx bxs-edit"></i>
+                                </div>
+
+                                <div class="name">Krisia P.</div>
+                                <div class="address">222 ABS ZY St.,
+                                    Abcd City, AA
+                                </div>
+                                <div class="number flex__box">
+                                    <span>US 00:00</span>
+                                    <i class='bx bx-trash'></i>
+                                </div>
+                            </div>
+
+                            <div class="content__box">
+                                <div class="header flex__box">
+                                    <i class="bx bxs-edit"></i>
+                                </div>
+
+                                <div class="name">Krisia P2.</div>
+                                <div class="address">
+                                    8429 XYZ 32 St.,
+                                    ZZZZ City, VV
+                                </div>
+                                <div class="number flex__box">
+                                    <span>US 01-002</span>
+                                    <i class='bx bx-trash'></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="button blue__button"><i class="bx bx-plus"></i> Add a New Address</button>
+                    </div>
+                </section>
+
+                <section class="payments">
+                    <header>Saved Payment Method</header>
+                    <div class="content">
+                      <div class="flex__box">
+                          <div class="content__box">
+
+                              <div class="header flex__box">
+                                  <span>Default</span> <i class="bx bxs-edit"></i>
+                              </div>
+
+                              <div class="payment flex__box">
+                                  <img src="assets/icons8-visa.svg"> ending in 1234
+
+                                  <i class='bx bx-trash'></i>
+                              </div>
+                          </div>
+                      </div>
+
+                        <button class="button blue__button"><i class="bx bx-plus"></i> Add Payment Method</button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="setting__content extra__section order__details">
+                <div class="header flex__box">
+                    <span>Order History</span>
+
+                    <select>
+                        <option value="" disabled selected>Sort</option>
+                    </select>
+                </div>
+
+                <table>
+                    <thead>
+                        <th>Order Number</th>
+                        <th class="mob__void">Date</th>
+                        <th class="mob__void">Total</th>
+                        <th class="mob__void">Status</th>
+                        <th></th>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td class="order__id">039202</td>
+                            <td class="date mob__void">03/03/2021</td>
+                            <td class="total mob__void">$3.10</td>
+                            <td class="status mob__void">Confirmed</td>
+                            <td><a href="#" class="show__details">Details</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="order__id">029384</td>
+                            <td class="date mob__void">16/01/2021</td>
+                            <td class="total mob__void">$12.00</td>
+                            <td class="status mob__void"><a href="#">Track package</a></td>
+                            <td><a href="#" class="show__details">Details</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="order__id">015524</td>
+                            <td class="date mob__void">02/04/2021</td>
+                            <td class="total mob__void">$10.40</td>
+                            <td class="status mob__void">Delivered</td>
+                            <td><a href="#" class="show__details">Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="setting__content extra__section favorites">
+                <div class="upper__actions flex__box">
+                    <div class="header">
+                        Favorites
+                    </div>
+                    <div class="search">
+                        <i class="bx bx-search"></i>
+                        <input type="text" name="search" placeholder="Search">
+                    </div>
+
+                    <div class="filter">
+                        <select>
+                            <option value="" disabled selected>Filter</option>
+                        </select>
+                    </div>
+
+                    <div class="sort">
+                        <select>
+                            <option value="" disabled selected>Sort</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mobile__search">
+                    <i class="bx bx-search"></i>
+                    <input type="text" name="search" placeholder="Search">
+                </div>
+
+                <div class="product">
+                  <div class="flex__box">
+                      <div class="image__container">
+                          <img src="assets/product-placeholder1.png">
+                      </div>
+
+                      <div class="text__container">
+                          <div class="name">Product name</div>
+                          <div class="description">Short description..</div>
+                          <div class="color">Color: Blue</div>
+                          <div class="size">Size: Large</div>
+                      </div>
+                  </div>
+
+                    <div class="actions">
+                        <div class="heart"><i class='bx bxs-heart' ></i></div>
+                        <div class="cart__action"><a href="#">Add to Cart</a></div>
+                    </div>
+
+                </div>
+
+                <div class="product">
+                    <div class="flex__box">
+                        <div class="image__container">
+                            <img src="assets/product-placeholder3.png">
+                        </div>
+
+                        <div class="text__container">
+                            <div class="name">Product name</div>
+                            <div class="description">Short description..</div>
+                            <div class="color">Color: Blue</div>
+                            <div class="size">Size: Large</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <div class="heart"><i class='bx bxs-heart' ></i></div>
+                        <div class="cart__action"><a href="#">Add to Cart</a></div>
+                    </div>
+
+                </div>
+
+                <div class="product">
+                    <div class="flex__box">
+                        <div class="image__container">
+                            <img src="assets/product-placeholder1.png">
+                        </div>
+
+                        <div class="text__container">
+                            <div class="name">Product name</div>
+                            <div class="description">Short description..</div>
+                            <div class="color">Color: Blue</div>
+                            <div class="size">Size: Large</div>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <div class="heart"><i class='bx bxs-heart' ></i></div>
+                        <div class="cart__action"><a href="#">Add to Cart</a></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="setting__content extra__section account__settings">
+                <header>Account Settings</header>
+                <div class="content">
+                    <form method="post" action="" role="form">
+                        <div class="input__group flex__box">
+                            <label for="username">Username</label>
+                            <div class="relative__container">
+                                <input type="text" name="username" id="username" value="krisiap21" class="input__field">
+                                <i class='bx bxs-pencil'></i>
+                            </div>
+
+                        </div>
+
+                        <div class="input__group flex__box">
+                            <label for="password">Password</label>
+                            <div class="relative__container">
+                                <input type="password" name="username" id="password" placeholder="Change password" class="input__field">
+                                <i class='bx bxs-pencil'></i>
+                            </div>
+
+                        </div>
+
+                        <div class="notifications flex__box">
+                            <div class="type">Email notifications</div>
+                            <div class="list">
+                                <div><input type="checkbox" value="Newsletter" checked aria-checked="true"> Newsletter</div>
+                                <div><input type="checkbox" value="Sales and Promo"> Sales and Promo</div>
+                                <div><input type="checkbox" value="Free Health tips and articles">Free Health tips and articles</div>
+                            </div>
+                        </div>
+
+                        <div class="save__button flex__box">
+                            <button type="submit" class="button blue__button">SAVE <i class="bx bx-right-arrow-alt"></i></button>
+                        </div>
+
+                    </form>
+
+
+
+                    <div class="close__account ">
+                        <a href="#">Close Account</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="setting__content extra__section detailed__order">
+                <header>
+                    <span id="back__to__orders"><i class="bx bx-left-arrow-alt"></i> All Orders</span>
+
+                    <select>
+                        <option value="" disabled selected>Sort</option>
+                    </select>
+                </header>
+
+                <div class="order__number">
+                    Order Number: <span>029384</span>
+                </div>
+
+                <div class="order__tracking flex__box">
+                    <div class="date">Order Date <span>03/01/2021</span></div>
+                    <div class="tracking">Status <a href="">Track Package</a></div>
+                </div>
+
+                <div class="detailed__content">
+                    <div class="detail__header flex__box">
+                        <div class="image__container">
+                            <img src="assets/product-placeholder1.png">
+                        </div>
+
+                        <div class="text__container">
+                            <div class="name">Product name</div>
+                            <div class="description">Short description</div>
+                            <div class="color">Color: Blue</div>
+                            <div class="size">Size: Large</div>
+                            <div class="quantity">Qty: 2</div>
+                        </div>
+
+                        <div class="price">$2.00</div>
+                    </div>
+
+                    <div class="details">
+                        Standard delivery
+                        <div class="value">$1.00</div>
+                    </div>
+
+                    <div class="details">
+                        Tax
+                        <div class="value">$0.10</div>
+                    </div>
+
+                    <div class="details">
+                        Total
+                        <div class="value">$3.10</div>
+                    </div>
+                </div>
+
+                <div class="final__details">
+                    <div class="final__content flex__box">
+                        <div class="content__box">
+                            <div class="header">Delivery Address</div>
+
+                            <div class="name">Krisia P.</div>
+                            <div class="address">
+                                222 ABS ZY St.,
+                                Abcd City, AA
+                            </div>
+
+                            <div class="number">US 00-00</div>
+                        </div>
+
+                        <div class="content__box">
+                            <div class="header">Payment Method</div>
+                            <div class="payment"><img src="assets/icons8-visa.svg"> ending in 1234</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+<div class="modal" id="modal-box">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+
+
+        <div class="inner-content">
+            <div class="links"><a href="#">About</a><div class="border"></div></div>
+            <div class="links"><a href="#">Shop</a><div class="border"></div></div>
+            <div class="links"><a href="#">Blog</a><div class="border"></div></div>
+            <div class="links"><a href="#">Contact</a><div class="border"></div></div>
+            <div class="links regular__last"><a href="#">Free Consultation</a></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/toggler.js"></script>
+</body>
+</html>

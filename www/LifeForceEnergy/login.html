@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+    <title>LifeForceEnergy | Login</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <link rel="stylesheet" type="text/css" href="css/auth.css">
+</head>
+<body>
+
+<section class="page__content flex__box">
+    <div class="header__nav flex__box">
+        <div class="banner__logo">
+            <a href="#"><div class="full__logo"></div></a>
+        </div>
+
+        <div class="link__container">
+            <ul>
+                <li>
+                    <a href="#" class="navbar__link">About</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar__link">Shop</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar__link">Blog</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar__link">Contact</a>
+                </li>
+
+                <li>
+                    <a href="#" class="navbar__link">Free Consultation</a>
+                </li>
+            </ul>
+
+            <div class="extra__links">
+                <a href="#"><i class='bx bx-user'></i></a>
+                <a href="#"> <i class='bx bx-cart'></i></a>
+            </div>
+        </div>
+
+        <div class="mobile__menu" id="toggler"><i class='bx bx-menu' ></i></div>
+    </div>
+    <div class="image__container inner__content">
+    </div>
+    <div class="content__container inner__content flex__box">
+        <div class="full__content">
+            <div class="form__container">
+                <div class="tab__header flex__box">
+                    <div class="tab active">Log In</div>
+                    <div class="tab">Sign Up</div>
+                </div>
+                <div class="login__form auth__form">
+                    <form method="post" action="" role="form">
+                        <div class="form__field">
+                            <input class="input__field" type="email" name="email" placeholder="Email">
+                        </div>
+
+                        <div class="form__field">
+                            <input class="input__field" type="password" name="password" placeholder="Password">
+                        </div>
+
+                        <div class="button__container">
+                            <a href="#">Forgot password?</a>
+                            <button type="submit" class="submit__button button blue__button">Log In <i class="bx bx-right-arrow-alt"></i></button>
+                        </div>
+                    </form>
+
+
+                </div>
+
+                <div class="registration__form auth__form">
+                    <form method="post" action="" role="form">
+                        <div class="form__field">
+                            <input class="input__field" type="email" name="email" placeholder="Email">
+                        </div>
+
+                        <div class="form__field">
+                            <input class="input__field" type="password" name="password" placeholder="Password">
+                        </div>
+
+                        <div class="form__field">
+                            <input class="input__field" type="password" name="password__confirm" placeholder="Re-enter password">
+                        </div>
+
+                        <div class="button__container">
+                            <button type="submit" class="submit__button button blue__button">SIGN UP <i class="bx bx-right-arrow-alt"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+
+            <div class="option__giver flex__box">
+                <div class="straight__line"></div>
+                <div class="option__name">OR</div>
+                <div class="straight__line"></div>
+            </div>
+
+            <div class="links__container login">
+                <a href="#">
+                    <div class="link__icon facebook"><img src="assets/icons8-facebook.svg"></div>
+                    <div class="link__text">LOG IN WITH FACEBOOK</div>
+                </a>
+
+                <a href="#">
+                    <div class="link__icon google"><img src="assets/icons8-google.svg"></div>
+                    <div class="link__text">LOG IN WITH GOOGLE</div>
+                </a>
+            </div>
+
+            <div class="links__container register">
+                <a href="#">
+                    <div class="link__icon facebook"><img src="assets/icons8-facebook.svg"></div>
+                    <div class="link__text">SIGN UP WITH FACEBOOK</div>
+                </a>
+
+                <a href="#">
+                    <div class="link__icon google"><img src="assets/icons8-google.svg"></div>
+                    <div class="link__text">SIGN UP WITH GOOGLE</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal" id="modal-box">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+
+
+        <div class="inner-content">
+            <div class="links"><a href="#">About</a><div class="border"></div></div>
+            <div class="links"><a href="#">Shop</a><div class="border"></div></div>
+            <div class="links"><a href="#">Blog</a><div class="border"></div></div>
+            <div class="links"><a href="#">Contact</a><div class="border"></div></div>
+            <div class="links regular__last"><a href="#">Free Consultation</a></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/toggler.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

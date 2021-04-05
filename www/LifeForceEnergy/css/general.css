@@ -183,14 +183,6 @@
     margin-bottom: 50px;
 }
 
-.modal .modal-content .inner-content .links:last-child{
-    margin: 22px auto 0;
-    color: var(--blue);
-    width: fit-content;
-    width: -moz-fit-content;
-    padding: 12px 24px;
-    display: inline;
-}
 
 .modal .modal-content .inner-content .links:last-child a:first-child{
     margin-right: 15px;
@@ -364,7 +356,19 @@ footer{
     color: var(--white);
 }
 
+.input__field{
+    width: 100%;
+    padding: 6px 14px;
+    border-radius: 12px;
+    border: 1px solid #c3c3c3;
+    font-size: 1rem;
+}
 
+.input__field:focus{
+    outline: 0;
+    border: 1px solid var(--blue);
+    box-shadow: 0 4px 8px rgba(95, 154 ,214, 0.19), 0 6px 12px rgba(95, 154 ,214, 0.20)
+}
 
 
 .landing__link:hover, footer a:hover{
@@ -391,14 +395,61 @@ footer{
     color: #d82070 !important;
 }
 
+.button{
+    padding: 5px 18px;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.blue__button{
+    background: var(--blue);
+    border: 1px solid var(--blue);
+}
+
+.dark__button{
+    background: var(--darker-grey);
+    border: 1px solid var(--darker-grey);
+}
+
+.button:hover{
+    background: transparent;
+    transition: .3s ease-in;
+}
+
+.button:focus{
+    outline: 0;
+}
+
+.blue__button:hover{
+    color: var(--blue);
+}
+
+.dark__button:hover{
+    color: var(--darker-grey);
+}
+
+a:hover{
+    font-weight: bold;
+}
+
 @media screen and (max-width: 800px){
     .page__banner .header__nav{
         width: 100%;
     }
 
     .header__nav .link__container{
+        width: 60%;
+    }
+
+    .header__nav .link__container ul{
         display: none;
     }
+
 
     .header__nav .banner__logo a .full__logo{
         width: 80px;

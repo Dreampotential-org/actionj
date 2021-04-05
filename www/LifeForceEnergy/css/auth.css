@@ -1,0 +1,195 @@
+.header__nav{
+    position: absolute;
+    top: 2%;
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.page__content{
+    background: var(--blue);
+    height: 120vh;
+    position: relative;
+}
+
+.page__content .inner__content{
+    height: 100%;
+}
+
+.page__content .image__container {
+    width: 47%;
+    border-radius: 0 0 150px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.10), rgba(0, 0, 0, 0.15)), url("../assets/login.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+.page__content .content__container{
+    width: 53%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.page__content .content__container .full__content{
+    width: 65%;
+    margin-top: 80px;
+}
+
+.page__content .content__container .full__content .form__container{
+    width: 100%;
+    background: var(--white);
+    border-radius: 15px;
+}
+
+.page__content .content__container .full__content .form__container .tab__header{
+    width: 100%;
+}
+
+.page__content .content__container .full__content .form__container .tab__header .tab{
+    width: 50%;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #cccccc;
+    background: #f2f2f2;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.page__content .content__container .full__content .form__container .tab__header .tab:first-child{
+    border-radius: 15px 0 0 0;
+}
+
+.page__content .content__container .full__content .form__container .tab__header .tab:last-child{
+    border-radius: 0 15px 0 0;
+}
+
+.page__content .content__container .full__content .form__container .tab__header .tab.active{
+    color: var(--blue);
+    background: var(--white);
+    border: none;
+}
+
+.page__content .content__container .full__content .form__container .login__form,
+.page__content .content__container .full__content .form__container .registration__form{
+    width: 100%;
+    padding: 45px 0;
+    height: auto;
+}
+
+.page__content .content__container .full__content .form__container .registration__form{
+    display: none;
+}
+
+.page__content .content__container .full__content .form__container form{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.page__content .content__container .full__content .form__container .form__field{
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+
+.page__content .content__container .full__content .form__container .form__field input::placeholder{
+    color: #c3c3c3;
+}
+
+.page__content .content__container .full__content .form__container .button__container{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.page__content .content__container .full__content .form__container .button__container a{
+    color: var(--dark-color);
+    font-size: 0.85rem;
+}
+
+.page__content .content__container .full__content .form__container .button__container button{
+    margin-left: auto;
+}
+
+.page__content .content__container .full__content .option__giver {
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.page__content .content__container .full__content .option__giver  .straight__line{
+    width: 42.5%;
+    height: 1px;
+    background: var(--white);
+}
+
+.page__content .content__container .full__content .option__giver .option__name{
+    width: 15%;
+    text-align: center;
+    font-size: 1.05rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+.page__content .content__container .full__content .links__container a{
+    width: 100%;
+    display: flex;
+    padding: 8px 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.90);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--blue);
+    text-decoration: none;
+    margin-bottom: 18px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.page__content .content__container .full__content .links__container a .link__icon{
+    font-size: 32px;
+    margin-right: 20px;
+}
+
+.page__content .content__container .full__content .links__container a .link__icon.facebook{
+    color: #003366;
+}
+
+.page__content .content__container .full__content .links__container a .link__icon img{
+    width: 32px;
+    height: 32px;
+}
+
+.page__content .content__container .full__content .links__container.login{
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .page__content .image__container{
+        display: none;
+    }
+
+    .page__content .content__container{
+        width: 100%;
+    }
+
+    .page__content .content__container .full__content{
+        width: 75%;
+    }
+    .page__content .content__container .full__content .form__container .tab__header .tab{
+        font-size: 1.05rem;
+    }
+    .page__content .content__container .full__content .form__container .form__field input{
+        font-size: 0.92rem;
+    }
+
+    .page__content .content__container .full__content .links__container a{
+        font-size: 0.9rem;
+    }
+
+}
