@@ -7,9 +7,15 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="css/general.css">
     <link rel="stylesheet" type="text/css" href="css/shop.css">
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
 </head>
 <body>
-<header class="page__banner">
+    <header class="page__banner">
     <div class="header__nav flex__box">
         <div class="banner__logo">
             <a href="#"><div class="full__logo"></div></a>
@@ -103,100 +109,216 @@
 </div>
 
 <section class="shop__item__container">
-    <div class="item__container triple flex__box">
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder1.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
+<div id="tabDiv" class="row">
+                  <div class="col-md-12" id="list-class">
+                    <p class="list-of-classes">List Items</p>
 
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder2.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
+                    <div class="tab-content" id="nav-tabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="nav-home"
+                        role="tabpanel"
+                        aria-labelledby="nav-home-tab"
+                      >
+                      
+                      <div class="text-right mt-2">
+                       
+                      </div>
+                      <div class="container-fluid p-0">
+      <!-- Bootstrap row -->
+      <div class="row" id="body-row">
+        <div id="left-sidebar"></div>
+        <div class="col p-0 content-div">
+          <div id="page-header"></div>
+          <div class="container my-2">
+            <section id="tabs" class="administration-tab">
+              <div class="container">
+                <!-- item -->
+                <div id="tabDiv" class="row">
+                  <div class="col-md-12" id="list-class">
+                    <p class="list-of-classes">List Items</p>
 
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder3.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
-    </div>
+                    <div class="tab-content" id="nav-tabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="nav-home"
+                        role="tabpanel"
+                        aria-labelledby="nav-home-tab"
+                      >
+                      
+                      <div class="text-right mt-2">
+                        
+                        <button
+                          type="button"
+                          data-toggle="modal"
+                          data-target="#itemModal"
+                          class="btn btn-primary"
+                        >
+                          <i class="fa fa-plus"></i> Add
+                        </button>
+                      </div>
+                      <br>
+                        <div class="table-div">
+                          <table id="item_data_table"
+                            class="table table-striped table-bordered"
+                            cellspacing="0"
+                          >
+                            <thead>
+                              <tr>
+                                <th>Item Id</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                <th>Images</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                              </tr>
+                            </thead>
+                            <tbody id="item-data"></tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-    <div class="item__container double flex__box">
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder4.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
-
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder5.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="item__container triple flex__box">
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder1.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
-
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder2.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
-
-        <div class="shop__item">
-            <div class="image__container">
-                <i class='bx bx-heart' ></i>
-                <img src="assets/product-placeholder3.png" alt="Item image">
-            </div>
-            <div class="text__container">
-                <span class="item__name"><a href="#">Product name</a></span>
-                <span class="item__price">$0.00</span>
-            </div>
-        </div>
-    </div>
 </section>
+
+
+              </div>
+            </section>
+
+            <!-- Add item Modal -->
+            <div
+              class="modal fade"
+              id="itemModal"
+              tabindex="-1"
+              role="dialog"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Add Item</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="px-2" id="additem" >
+                      <div class="form-group">
+                        <label for="Title">Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="title"
+                          placeholder="Item Title"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="Description">Item Description</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="description"
+                          placeholder="Description"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="Price">Price</label>
+                        <input
+                          type="number"
+                          min="0"
+                          class="form-control"
+                          id="price"
+                          placeholder="Price"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" id="imageFile" name="imageFile" accept="application/image/*" multiple="" required/>
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-primary float-right"
+                      >
+                        Submit
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+<div class="modal fade" id="itemEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Item</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="px-2" id="edititem" >
+                      <input type="hidden" id="edit_id">
+                      <div class="form-group">
+                        <label for="Title">Title</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="editTitle"
+                          placeholder="Item Title"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="Description">Item Description</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="editDescription"
+                          placeholder="Description"
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="Price">Price</label>
+                        <input
+                          type="number"
+                          min="0"
+                          class="form-control"
+                          id="editPrice"
+                          placeholder="Price"
+                        />
+                      </div>
+                      <div id="imagesUpdateDisplay"></div>
+                      <div class="form-group">
+                        <label for="image">Image</label>
+                        <input type="file" class="form-control" id="editimageFile" name="editImageFile" accept="application/image/*" multiple="" required/>
+                      </div>
+                      <button
+                        type="submit"
+                        class="btn btn-primary float-right"
+                      >
+                        Update
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 <footer>
     <div class="inner__section flex__box">
@@ -271,9 +393,22 @@
             </div>
         </div>
     </div>
+
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+<script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>s
 <script src="js/shop.js"></script>
 <script src="js/toggler.js"></script>
 </body>

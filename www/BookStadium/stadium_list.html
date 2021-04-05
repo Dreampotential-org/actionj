@@ -78,9 +78,26 @@
         <div class="add_form">
             <script>
                 $(document).ready(function () {
-                    $('#example').DataTable();
+                    $('#example').DataTable({
+                        paging: true,
+                        "ajax": {url: "https://api.dreampotential.org/bookingstadium/api/stadium/list",
+                            dataSrc: ''
+                        },
+                        "columns": [
+                            {"data": "name"},
+                            {"data": "image", render: getImg},
+                            {"data": "capacity"},
+                            {"data": "country"},
+                            {"data": "city"},
+                            {"data": "sports"}
+                        ]
+                    });
                 });
+                function getImg(data, type, full, meta) {
+                    return '<img  src="'+data+'" class="img-sizing"/>';
+                }
             </script>
+              <h2 style="text-align:center">Stadiums List</h2>
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
