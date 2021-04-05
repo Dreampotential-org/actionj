@@ -170,6 +170,9 @@
 }
 
 @media screen and (max-width: 800px) {
+    .page__content{
+        height: 105vh;
+    }
     .page__content .image__container{
         display: none;
     }
