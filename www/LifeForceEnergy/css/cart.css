@@ -133,6 +133,8 @@ body{
     width: 92%;
     margin: 0 auto;
     height: 55px;
+    display: flex;
+    align-items: center;
 }
 
 .cart__container .cart .lower__link a{
@@ -141,7 +143,7 @@ body{
 }
 
 .cart__container .cart .lower__link a:last-child{
-    float: right;
+    margin-left: auto;
 }
 
 .cart__container .shop__links{
