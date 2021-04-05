@@ -66,6 +66,9 @@
 }
 
 @media screen and (max-width: 800px) {
+    .confirmed__banner{
+        height: 95vh;
+    }
     .confirmed__banner .confirmation__message{
         width: 85%;
     }
