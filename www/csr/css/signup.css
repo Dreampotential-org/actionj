@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+
+:root{
+    --light-blue:  #96A8FF;
+    --yellow: #ECFE9F;
+    --grey: #E8E8E8;
+    --white:#ffffff;
+    --black: #000000;
+}
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .page__banner{
+    width: 100%;
+    /* height: 100vh; */
+    background-image: url("../images/header.png");
+    background-size: cover;
+    background-repeat:  no-repeat;
+    display: flex;
+    justify-content: center;
+}
+  body {
+    font-family: 'Nunito', sans-serif;
+    color: #384047;
+  }
+  
+  form {
+    max-width: 60%;
+    margin: 10px auto;
+    padding: 20px 60px;
+    background: #f4f7f8;
+    border-radius: 8px;
+  }
+  
+  h1 {
+    /* margin: 0 0 30px 0; */
+    text-align: center;
+    color: var(--light-blue);
+    font-family: "Mulish", sans-serif;
+    margin: 8% 0;
+  }
+  
+  input[type="password"],
+  input[type="email"],
+  input[type="text"],
+  textarea,
+  select {
+    /* background: rgba(255,255,255,0.1); */
+    /* border: none; */
+    background-color: #FBFBFB;
+    border: 2px solid var(--light-blue);
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    /* background-color: #e8eeef; */
+    background: #f4f7f8;
+    border-radius: 5px;
+    color: var(--light-blue);;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 30px;
+  }
+  ::placeholder {
+      color: var(--light-blue);
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 4px 8px 0;
+  }
+  
+  select {
+    padding: 6px;
+    height: 32px;
+    border-radius: 2px;
+  }
+  
+  button {
+    padding: 19px 39px 18px 39px;
+    color: var(--yellow);
+    background-color: var(--light-blue);
+    font-size: 25px;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid var(--light-blue);
+    border-width: 1px 1px 3px;
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+    margin-bottom: 8%;
+  }
+  
+  fieldset {
+    margin-bottom: 30px;
+    border: none;
+  }
+  
+  legend {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  label.light {
+    font-weight: 300;
+    display: inline;
+    color: var(--light-blue);
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+  }
+  
+  .number {
+    background-color: #5fcf80;
+    color: #fff;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin-right: 4px;
+    line-height: 30px;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 100%;
+  }
+
+  .logo-img{
+    width: 20%;
+    margin: 5% 40%;
+  }
+
+  .already-text{
+    margin: 5% 30%;
+    font-size: 22px;
+    color:var(--light-blue);
+    font-family: "Mulish", sans-serif;
+  }
+  .login-text a{
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: underline;
+    font-family: "Mulish", sans-serif;
+    color:var(--light-blue)
+  }
+  .login-text a:hover{
+    color:var(--light-blue)
+  }
+.TAC-text{
+     text-decoration: underline;
+}
+  footer{
+    width: 100%;
+    height: auto;
+    padding: 45px 60px 40px;
+    background-color: var(--light-blue);
+}
+
+footer ul{
+    width: 100%;
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+footer ul li{
+    font-size: 22px;
+    text-align: center;
+}
+
+footer ul li a{
+    text-decoration: none;
+    color: var(--white);
+    font-size: 22px;
+}
+
+footer span{
+    /* float: right; */
+    font-size: 22px;
+    color: var(--white);
+}
+
+@media screen and (max-width: 800px) {  
+    .page__banner{
+        /* height: 90vh; */
+    }
+    footer{
+        padding: 35px 15px 25px;
+        text-align: center;
+    }
+
+    footer ul{
+        width: 100%;
+    }
+
+    footer ul li{
+        text-align: center;
+    }
+
+    footer span{
+        font-size: 18px;
+    }
+    footer ul li a{
+        font-size: 18px;
+    }
+    form{
+        max-width: 80%;        
+    }
+    .already-text{
+        margin: 5% 21%
+    }
+}
+@media only screen and (max-width: 425px) {
+    footer ul{
+        width: 100%;
+        display: block;
+    }
+    form{
+        max-width: 90%;
+        padding: 20px 10px;
+    }
+    h1{
+        font-size: 25px;
+    }
+    footer ul li{
+        margin-bottom: 10px;
+        margin-left: -15%;
+    }
+    .page__banner{
+        /* height: 100vh; */
+    }
+    .logo-img{
+        width: 30%;
+        margin: 5% 33%;
+    }
+    input[type="password"],
+    input[type="email"],
+    input[type="text"],
+    textarea,
+    select {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    label.light{
+        font-size: 15px;
+    }
+    button{
+        padding: 12px 38px 11px 39px;
+        font-size: 20px;
+    }
+    .already-text{
+        font-size: 15px;
+        margin:33px 40px;
+    }
+    .login-text a{
+        font-size: 15px;       
+    }
+}

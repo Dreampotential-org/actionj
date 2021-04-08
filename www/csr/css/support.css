@@ -24,12 +24,25 @@
     display: flex;
     justify-content: center;
 }
-
-
-.page__banner .banner__content{
-    width: 40%;
-    text-align: center;
+.loginText{
+    color: var(--light-blue);
+    font-family: "Mulish", sans-serif;
+    align-self: center;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+.loginText a{
+    color: var(--light-blue);
+}
+.logo-section{
+    display: inline-flex;
+    width: 100%;
     margin-top: 25px;
+}
+.page__banner .banner__content{   
+    text-align: center;
+    width: 100%;
+    padding: 2% 5%;
     animation: slide-up 1.5s;
 }
 
@@ -72,17 +85,18 @@
 
 
 .page__banner .banner__content img{
-    margin: 0 auto 75px;
-    display: block;
+    margin-left: 35%;
     width: 120px;
     height: 120px;
 }
 
 .page__banner .banner__content .text__content{
     width: 100%;
-    font-size: 2.75rem;
+    font-size: 4.75rem;
     font-weight: 600;
     color: var(--light-blue);
+    padding: 0 25%;
+    margin-top: 5%;
 }
 
 .page__banner .banner__content .text__content .colored__text{
@@ -98,7 +112,7 @@
 
 .page__banner .banner__content .links__container a{
     font-size: 1.05rem;
-    padding: 14px 20px;
+    padding: 14px 25px;
     text-decoration: none;
     font-weight: 700;
 }
@@ -343,12 +357,20 @@ footer span{
 }
 
 @media screen and (max-width: 800px) {
-    .page__banner .banner__content{
-        width: 80%;
+    .page__banner .banner__content img
+    {
+        margin-left: 20%;
     }
-
+    /* .page__banner .banner__content{
+        width: 80%;
+    } */
+    .page__banner{
+        height: 75vh;
+    }
     .page__banner .banner__content .text__content{
         font-size: 2.4rem;
+        padding: 0px 10%;
+        margin-top: 20%;
     }
 
     .page__banner .banner__content .links__container a{
@@ -466,5 +488,26 @@ footer span{
         float: none;
         text-align: center;
         margin: 15px auto;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .page__banner {
+        height: 100vh;
+    }
+    .page__banner .banner__content .text__content {
+        font-size: 2rem;
+        padding: 0px 6%;
+        margin-top: 20%;
+    }
+    .loginText{
+        margin-left: 3px;
+    }
+    .logo-section{
+        margin-top: 0px;
+    }
+    .page__banner .banner__content img{
+        margin-left: -11%;
+    padding-top: 22%;
+    margin-top: 20%;
     }
 }
