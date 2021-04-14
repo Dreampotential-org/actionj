@@ -1,7 +1,8 @@
 $(document).ready(function() {
     $("#signUpForm").on("submit", function(ev) {
+        
         ev.preventDefault();
-
+        
         $.ajax({
             url: SERVER + "s3_uploader/user/register/",
             type: "post",
@@ -21,15 +22,18 @@ $(document).ready(function() {
                 });
 
                 // displayPage("dashboard");
-                // window.location.replace("student_dashboard.html");
+                window.location.replace("/csr/Pages/login.html");
             },
             error: function(err) {
                 swal({
                     title: "Error",
                     text: err.responseJSON.msg,
                     icon: "error",
+                    buttons: false,
                 });
+                window.location.replace("/csr/Pages/login.html");
             },
         });
     });
+    
 })
