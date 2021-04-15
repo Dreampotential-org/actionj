@@ -27,7 +27,7 @@ $(document).ready(function() {
 
                 // displayPage("dashboard");
                 // window.curr_user = response.user;
-                // window.location.replace("student_dashboard.html");
+                window.location.replace("/csr/dashboard/dashboard.html");
             },
             error: function() {
                 swal({
