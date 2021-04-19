@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;800&display=swap" rel="stylesheet">
+        <style>
+            html {
+                line-height: 1.15; /* 1 */
+                -webkit-text-size-adjust: 100%; /* 2 */
+                overflow: hidden;
+            }
+            a {
+                background-color: transparent;
+            }
+            img {
+                border-style: none;
+                max-width: 100%;
+                vertical-align: top;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat', sans-serif;
+                color: #000;
+                width: 6in;
+                height: 4in;
+                position: relative;
+                overflow: hidden;
+            }
+            img.logo {
+                margin-bottom: 30px;
+                max-width: 100px;
+            }
+            .front-content-left {
+                padding: 20px;
+                color: #fff;
+                width: 40%;
+            }
+            .front-content-right {
+                width: 60%;
+            }
+            .front-row {
+                display: flex;
+            }
+            .front-content-left-middle {
+                margin-bottom: 40px;
+            }
+            .front-content-left-middle h3 {
+                font-weight: 100;
+                font-size: 20px;
+                margin: 0;
+            }
+            .front-content-left-middle h1 {
+                font-size: 20px;
+                margin: 0 0 10px;
+            }
+            .front-content-left-bottom h6 {
+                font-size: 12px;
+                font-weight: 400;
+                letter-spacing: 3px;
+                margin: 0;
+            }
+            .front-content-left-middle p {
+                line-height: 1.6;
+                font-size: 12px;
+            }
+            .horizontal-line {
+                display: inline-block;
+                vertical-align: middle;
+                width: 50px;
+                background-color: #f4a240;
+                height: 7px;
+                border-radius: 7px;
+                margin-left: 60px;
+            }
+
+            .back-row{
+                border: 2px solid #cccccc;
+            }
+            /*
+            * Back Page
+            */
+            .back-content-left {
+                max-width: 100%;
+                padding: 5%;
+                background: url("bg_image/postcard_2.png");
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+            }
+            .icon-list-wrap {
+                display: flex;
+                align-items: center;
+            }
+            .icon-list-right {
+                padding-left: 20px;
+            }
+            .icon-list-left img {
+                width: 40px;
+            }
+            .icon-list-right h4 {
+                margin: 0 0 5px;
+            }
+            .icon-list-right p {
+                margin: 0;
+            }
+            .icon-list-wrap + .icon-list-wrap {
+                margin-top: 10px;
+            }
+            .back-content-left-middle h1 {
+                font-size: 20px;
+                margin: 0;
+            }
+            .back-content-left-middle p {
+                font-size: 11px;
+                color: #f2f2f2;
+            }
+            .icon-list-wrap {
+                display: flex;
+                align-items: center;
+                margin-top: 20px;
+            }
+            .border-top-center {
+                position: absolute;
+                top: 0;
+                bottom: auto;
+                left: auto;
+                right: 40%;
+                margin: 0;
+                height: 60px;
+                width: 30px;
+                background: #000;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+            }
+
+            .border-top-center::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                height: 60%;
+                width: 100%;
+                background: #f4a240;
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 40px;
+            }
+            .border-bottom-center {
+                position: absolute;
+                top: auto;
+                bottom: 0;
+                left: auto;
+                right: 40%;
+                margin: 0;
+                height: 60px;
+                width: 30px;
+                background: #f4a240;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+            }
+
+            .border-bottom-center::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                height: 60%;
+                width: 100%;
+                background: #000;
+                border-top-left-radius: 40px;
+                border-top-right-radius: 40px;
+            }
+            .back-content-left-middle {
+                max-width: 50%;
+                color: #ffffff;
+                opacity: 0;
+            }
+            .border-top-center,
+            .border-bottom-center{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="back-row">
+            <div class="back-content-left">
+                <div class="back-content-left-middle">
+                    <h1>
+                        Lorem<br>
+                        ipsum dolor<br>
+                        sit amet
+                    </h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <div class="icon-list-wrap">
+                        <div class="icon-list-left">
+                            <img src="http://postgrid.com/postcard/images/icon-1.png"/>
+                        </div>
+                        <div class="icon-list-right">
+                            <h4>Lorem Ipsum Dolor</h4>
+                            <p>
+                                Lorem ipsu<br>
+                                m dolor sit amet, consectetur
+                            </p>
+                        </div>
+                    </div>
+                    <div class="icon-list-wrap">
+                        <div class="icon-list-left">
+                            <img src="http://postgrid.com/postcard/images/icon-2.png"/>
+                        </div>
+                        <div class="icon-list-right">
+                            <h4>Lorem Ipsum Dolor</h4>
+                            <p>
+                                Lorem ipsu<br>
+                                m dolor sit amet, consectetur
+                            </p>
+                        </div>
+                    </div>
+                    <div class="icon-list-wrap">
+                        <div class="icon-list-left">
+                            <img src="http://postgrid.com/postcard/images/icon-3.png"/>
+                        </div>
+                        <div class="icon-list-right">
+                            <h4>Lorem Ipsum Dolor</h4>
+                            <p>
+                                Lorem ipsu<br>
+                                m dolor sit amet, consectetur
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="border-top-center"></div>
+        <div class="border-bottom-center"></div>
+    </body>
+</html>
+
