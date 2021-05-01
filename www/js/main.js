@@ -11,8 +11,10 @@ function init() {
   setup_click_resources();
   init_login();
   init_meds();
-  init_questions();
-  get_questions_api();
+  // init_questions();
+  init_onboarding();
+
+  // get_questions_api();
   init_video_events();
   //$('.shelters').click()
   //$("#my-profile").click()
