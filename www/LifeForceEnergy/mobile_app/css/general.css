@@ -39,6 +39,7 @@
         width: fit-content;
         width: -moz-fit-content;
         margin-left: auto;
+        cursor: pointer;
     }
 
     .navigator .menu__icon i{
