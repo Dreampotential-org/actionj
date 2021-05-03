@@ -252,7 +252,7 @@ function init() {
                 console.log("adding verify phone")
 
                 $("#theSlide").append(`
-                    <duv class="${className}" id="flascard_${i}" id="verify_phone">
+                    <duv class="${className}" id="flashcard_${i}" id="verify_phone">
                         <div alt="verify_phone">
                             <input type="text" hidden name="verify_phone_${i}" id="verifyPhone">
                             <button class="btn btn-primary" type="button" onclick="verifyPhone(event)"> Click To Verify Phone Number</button>

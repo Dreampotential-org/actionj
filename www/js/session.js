@@ -1,5 +1,5 @@
 // var SERVER ='https://sfapp-api.dreamstate-4-all.org'
-var SERVER = "http://localhost:8000";
+// var SERVER = "http://localhost:8000";
 
 function tableSession() {
     $.get(SERVER + '/courses_api/session/event/', function (response) {
