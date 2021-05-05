@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+        <title>LifeForceEnergy App | Account</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="css/general.css">
+        <link rel="stylesheet" type="text/css" href="css/auth.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    </head>
+    <body>
+        <div class="mobile__menu">
+            <div class="content">
+                <div class="navigator">
+                    <div class="app__logo"></div>
+
+                    <div class="menu__icon">
+                        <i class="bx bx-menu"></i>
+                    </div>
+                </div>
+
+                <div class="links__cover">
+                    <div class="link__item">
+                        <div class="link">
+                            <a href="#">Instructions</a>
+                        </div>
+                    </div>
+
+
+                    <div class="link__item">
+                        <div class="link">
+                            <a href="#">My Journal</a>
+                        </div>
+                    </div>
+
+
+                    <div class="link__item">
+                        <div class="link">
+                            <a href="#">Account</a>
+                        </div>
+                    </div>
+
+
+                    <div class="link__item">
+                        <div class="link">
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+
+                    <div class="extras">
+                        <div class="link">
+                            <a href="#">Terms Of Service</a>
+                        </div>
+
+                        <div class="link">
+                            <a href="#">Service Agreement</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom__link">
+                    <a href="#">
+                        <div class="link__content">
+                            <i class='bx bx-plus plus__sign'></i>
+                            <i class='bx bxs-pencil pencil' ></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <style>
+            .page__content {
+                background: var(--blue);
+                position: relative;
+            }
+            .heading_account{
+                font-size: 30px;
+                line-height: 34px;
+                color: #c5faf4;
+                font-weight: 400;
+                font-family: "Montserrat";
+            }
+            .form-control + .glyphicon {
+                position: absolute;
+                right: 0;
+                padding: 8px 27px;
+                color: darkgray;
+            }
+            .padding-sm{
+                padding:20px;
+            }
+            .lable_text{
+                font-size: 22px;
+                line-height: 34px;
+                color: #ffffff;
+                font-weight: 400;
+                font-family: "Montserrat";
+            }
+            .lable_text_link a{
+                font-size: 22px;
+                line-height: 34px;
+                color: #c5faf4;
+                text-decoration: underline;
+                font-weight: 400;
+                font-family: "Montserrat";
+            }
+            .custom-checkbox .custom-control:checked ~ .custom-control-label::before {
+                border-color: #D7B1D7;
+                background-color: #D7B1D7;
+            }
+            .space-bottom{
+                height: 80px;
+            }
+            .btn-default {
+                color: #5f9ad6;
+                background-color: #c5faf4;
+                border-color: #c5faf4;
+            }
+        </style>
+        <div class="page__content">
+            <section class="content__container ">
+                <div class="navigator">
+                    <div class="app__logo"></div>
+
+                    <div class="menu__icon">
+                        <i class="bx bx-menu"></i>
+                    </div>
+                </div>
+                <br> <br>
+                <p class="heading_account">Account</p>
+                <div class="row padding-sm">
+                    <div class="col-xs-4"><span class="lable_text">Email</span></div>
+                    <div class="col-xs-8"><input class="form-control"   type="text" placeholder="email@email.coms" />
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </div>
+                    <br><br> <br>
+                    <div class="col-xs-4"><span class="lable_text">Password</span></div>
+                    <div class="col-xs-8"><input class="form-control"   type="text" placeholder="********" />
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </div>
+                </div>
+                <br> <br>
+                <p class="heading_account">Notiﬁcations</p>
+                <div class="row padding-sm">
+
+                    <div class="col-xs-2 custom-checkbox"><input class="form-control"   type="checkbox"/></div>
+                    <div class="col-xs-10"><span class="lable_text"> Enable daily reminders.</span></div>
+                    <br><br> <br>
+                    <div class="col-xs-2 custom-checkbox"><input class="form-control"   type="checkbox"/></div>
+                    <div class="col-xs-10"><span class="lable_text"> Subscribe to newsletters and email  
+                            updates</span></div>
+
+                </div>
+                <br> <br>
+                <p class="heading_account">Privacy and Security</p>
+                <div class="row padding-sm">
+
+                    <div class="col-xs-2 custom-checkbox"><input class="form-control"   type="checkbox"/></div>
+                    <div class="col-xs-10"><span class="lable_text"> Enable app passcode.</span></div>
+                    <br><br> <br>
+                    <div class="col-xs-2 custom-checkbox"></div>
+                    <div class="col-xs-10"><span class="lable_text_link"><a href="#">Change passcode.</a>  </span></div>
+                </div>
+                <br> <br><br>
+                <div class="col-xs-12" align="middle"> 
+                    <button type="button" class="btn btn-default">SAVE CHANGES  <i class="bx bx-right-arrow-alt"></i></button>
+
+                </div>
+                <div class="space-bottom"></div>
+            </section>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/toggler.js"></script>
+    </body>
+</html>
