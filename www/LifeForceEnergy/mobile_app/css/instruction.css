@@ -50,23 +50,23 @@
         background: var(--white);
     }
 
-    .content .bottom__link{
+    .main .content .bottom__link{
         height: 55px;
         width: 120px;
         background: var(--blue);
     }
 
-    .content .bottom__link .link__content{
+    .main .content .bottom__link .link__content{
         height: 40px;
         width: 43px;
         color: var(--light-blue);
     }
 
-    .content .bottom__link .link__content .plus__sign{
+    .main .content .bottom__link .link__content .plus__sign{
         font-size: 18px;
     }
 
-    .content .bottom__link .link__content .pencil{
+    .main .content .bottom__link .link__content .pencil{
         font-size: 30px;
     }
 
