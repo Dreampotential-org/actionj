@@ -69,12 +69,12 @@
         font-size: 1rem;
     }
 
-    .main .bottom__link{
+    .bottom__link.page__content{
         background: var(--blue);
         height: 75px;
     }
 
-    .main .bottom__link .link__content{
+    .bottom__link.page__content .link__content{
         color: var(--light-blue);
         height: 50px;
     }
