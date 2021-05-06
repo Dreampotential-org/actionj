@@ -1,0 +1,39 @@
+@media screen and (max-width: 800px) {
+    body{
+        position: relative;
+    }
+    .content.calc__height .navigator{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .content.calc__height .navigator .app__logo{
+        background: var(--blue);
+    }
+
+    .content.calc__height .navigator .menu__icon i {
+        color: var(--blue);
+    }
+
+    .calendar__container{
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .mobile__menu .navigator{
+        margin: 0 auto 15px;
+    }
+
+    .mobile__menu .bottom__link{
+        height: 75px;
+    }
+
+    .bottom__link.page__inner{
+        background: var(--blue);
+        height: 75px;
+    }
+
+    .bottom__link.page__inner .link__content{
+        color: var(--light-blue);
+        height: 50px;
+    }
+}
