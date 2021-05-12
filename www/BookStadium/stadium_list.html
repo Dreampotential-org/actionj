@@ -76,6 +76,7 @@
             <div class="mobile__menu" id="toggler"><i class='bx bx-menu' ></i></div>
         </div>
         <div class="add_form">
+            <form action="public/index.html">
             <script>
                 $(document).ready(function () {
                     $('#example').DataTable({
@@ -84,6 +85,7 @@
                             dataSrc: ''
                         },
                         "columns": [
+                            {"data":"id",render: minput},
                             {"data": "name"},
                             {"data": "image", render: getImg},
                             {"data": "capacity"},
@@ -96,11 +98,15 @@
                 function getImg(data, type, full, meta) {
                     return '<img  src="'+data+'" class="img-sizing"/>';
                 }
+                function minput(data,type,full,meta){
+                    return '<label for=stadium'+data+'><input type="radio" id="stadium'+data+'" name="stadium" value="'+data+'"></label>'
+                }
             </script>
               <h2 style="text-align:center">Stadiums List</h2>
             <table id="example" class="display" style="width:100%">
                 <thead>
                     <tr>
+                        <th>Choice</th>
                         <th>Name</th>
                         <th>Image</th>
                         <th>Capacity</th>
@@ -110,10 +116,10 @@
                     </tr>
                 </thead>
                 <tbody id="stadiums">
-
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>Choice</th>
                         <th>Name</th>
                         <th>Image</th>
                         <th>Capacity</th>
@@ -123,7 +129,9 @@
                     </tr>
                 </tfoot>
             </table>
-            <script src="js/list.js"></script> 
+            <script src="js/list.js"></script>
+              <input type="submit" value="Submit">
+</form> 
         </div>
     </div>
     <footer>
