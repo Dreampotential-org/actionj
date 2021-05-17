@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/BookStadium/calendar/static/css/main.2ae47eeb.chunk.css",
+    "main.js": "/BookStadium/calendar/static/js/main.d38007d2.chunk.js",
+    "main.js.map": "/BookStadium/calendar/static/js/main.d38007d2.chunk.js.map",
+    "runtime-main.js": "/BookStadium/calendar/static/js/runtime-main.c6ef90a2.js",
+    "runtime-main.js.map": "/BookStadium/calendar/static/js/runtime-main.c6ef90a2.js.map",
+    "static/css/2.cbafec5a.chunk.css": "/BookStadium/calendar/static/css/2.cbafec5a.chunk.css",
+    "static/js/2.68d8d14b.chunk.js": "/BookStadium/calendar/static/js/2.68d8d14b.chunk.js",
+    "static/js/2.68d8d14b.chunk.js.map": "/BookStadium/calendar/static/js/2.68d8d14b.chunk.js.map",
+    "static/js/3.0bcfed6d.chunk.js": "/BookStadium/calendar/static/js/3.0bcfed6d.chunk.js",
+    "static/js/3.0bcfed6d.chunk.js.map": "/BookStadium/calendar/static/js/3.0bcfed6d.chunk.js.map",
+    "index.html": "/BookStadium/calendar/index.html",
+    "static/css/2.cbafec5a.chunk.css.map": "/BookStadium/calendar/static/css/2.cbafec5a.chunk.css.map",
+    "static/css/main.2ae47eeb.chunk.css.map": "/BookStadium/calendar/static/css/main.2ae47eeb.chunk.css.map",
+    "static/js/2.68d8d14b.chunk.js.LICENSE.txt": "/BookStadium/calendar/static/js/2.68d8d14b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c6ef90a2.js",
+    "static/css/2.cbafec5a.chunk.css",
+    "static/js/2.68d8d14b.chunk.js",
+    "static/css/main.2ae47eeb.chunk.css",
+    "static/js/main.d38007d2.chunk.js"
+  ]
+}
