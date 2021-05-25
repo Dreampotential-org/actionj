@@ -122,4 +122,9 @@
         line-height: 1.6rem;
     }
 
+
+    #video-file{
+        display: none;
+    }
+
 }

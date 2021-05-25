@@ -91,13 +91,15 @@
                     </div>
 
                     <div class="form__container">
-                        <form method="post" action="" role="form">
+                        <form method="post" action="" role="form" id="loginForm">
                             <div class="input__group">
-                                <input type="email" name="email" placeholder="Email">
+                                <input type="text" name="username" placeholder="Email">
+                                <div class="error"></div>
                             </div>
 
                             <div class="input__group">
                                 <input type="password" name="password" placeholder="Password">
+                                <div class="error"></div>
                             </div>
 
                             <div class="extra__links">
@@ -113,18 +115,21 @@
                     </div>
 
 
-                    <div class="form__container">
-                        <form method="post" action="" role="form">
+                    <div class="form__container" id="registrationForm">
+                        <form method="post" action="" role="form" id="signUpForm">
                             <div class="input__group">
-                                <input type="text" name="name" placeholder="Name">
+                                <input type="text" name="name" placeholder="Name" id="name">
+                                <div class="error"></div>
                             </div>
 
                             <div class="input__group">
-                                <input type="email" name="email" placeholder="Email">
+                                <input type="email" name="email" placeholder="Email" id="email">
+                                <div class="error"></div>
                             </div>
 
                             <div class="input__group">
-                                <input type="password" name="password" placeholder="Password">
+                                <input type="password" name="password" placeholder="Password" id="password">
+                                <div class="error"></div>
                             </div>
 
                             <div class="extra__links">
@@ -207,8 +212,14 @@
 
             </section>
         </main>
+<div class="auth__modal hidden__content">
+    <div class="modal__message">
 
+    </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth_api.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/toggler.js"></script>
 </body>

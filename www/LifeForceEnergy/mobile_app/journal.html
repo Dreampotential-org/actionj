@@ -27,12 +27,15 @@
                 </div>
 
                 <div class="type__container">
-                    <div class="journal__type">
-                        <div class="type__content">
-                            <div class="icon"><i class='bx bxs-videos'></i></div>
-                            <div class="text">Video Journal</div>
-                        </div>
-                    </div>
+                   <label for="video-file">
+                       <div class="journal__type" id="video-journal">
+                           <div class="type__content">
+                               <div class="icon"><i class='bx bxs-videos'></i></div>
+                               <div class="text">Video Journal</div>
+                           </div>
+                       </div>
+                   </label>
+                    <input type="file" name="video-file" id="video-file">
 
                     <div class="journal__type">
                         <div class="type__content">
@@ -79,4 +82,69 @@
         </div>
     </main>
 </body>
+
+
+<div class="mobile__menu">
+    <div class="content">
+        <div class="navigator">
+            <div class="app__logo"></div>
+
+            <div class="menu__icon">
+                <i class="bx bx-menu"></i>
+            </div>
+        </div>
+
+        <div class="links__cover">
+            <div class="link__item">
+                <div class="link">
+                    <a href="#">Instructions</a>
+                </div>
+            </div>
+
+
+            <div class="link__item">
+                <div class="link">
+                    <a href="#">My Journal</a>
+                </div>
+            </div>
+
+
+            <div class="link__item">
+                <div class="link">
+                    <a href="#">Account</a>
+                </div>
+            </div>
+
+
+            <div class="link__item">
+                <div class="link">
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+
+            <div class="extras">
+                <div class="link">
+                    <a href="#">Terms Of Service</a>
+                </div>
+
+                <div class="link">
+                    <a href="#">Service Agreement</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom__link">
+            <a href="#">
+                <div class="link__content">
+                    <i class='bx bx-plus plus__sign'></i>
+                    <i class='bx bxs-pencil pencil' ></i>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/toggler.js"></script>
+<script src="js/video_upload.js"></script>
 </html>
