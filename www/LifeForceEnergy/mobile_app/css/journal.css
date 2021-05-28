@@ -98,15 +98,24 @@
         padding-bottom: 10px;
     }
 
-   .entry__listing .entries .entry{
+    .entry__listing .entries .video,
+    .entry__listing .entries .entry{
         width: 250px;
         height: 200px;
+        margin-right: 15px;
+        flex: 0 0 auto;
+    }
+
+    .entry__listing .entries .video video{
+        width: 100%;
+        height: 100%;
+    }
+
+   .entry__listing .entries .entry{
         border-radius: 18px;
         background: var(--white);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.19), 0 4px 8px rgba(0, 0, 0, 0.20);
         padding: 16px;
-       margin-right: 15px;
-       flex: 0 0 auto
     }
 
   .entry__listing .entries .entry .date{
@@ -124,6 +133,79 @@
 
 
     #video-file{
+        display: none;
+    }
+
+    .content__overlay .overlay__inner{
+        background: var(--white);
+        padding: 16px;
+        width: 85%;
+        border-radius: 8px;
+    }
+
+    .content__overlay .overlay__inner .upload__progress .progress__header{
+        display: flex;
+        align-items: center;
+    }
+
+    .content__overlay .overlay__inner .upload__progress .progress__header .message{
+        font-size: 1rem;
+        color: var(--darker-grey);
+        font-weight: 700;
+    }
+
+    .content__overlay .overlay__inner .upload__progress .progress__header .percentage{
+        margin-left: auto;
+        font-size: 1.05rem;
+        color: var(--blue);
+        font-weight: 700;
+    }
+
+    .content__overlay .overlay__inner .upload__progress .progress__container{
+        width: 100%;
+        height: 25px;;
+        border-radius: 8px;
+        background: rgba(100, 100, 100, .08);
+        margin-top: 25px;
+    }
+
+    .content__overlay .overlay__inner .upload__progress .progress__bar{
+        width: 0%;
+        height: 100%;
+        background: var(--blue);
+        border-radius: inherit;
+    }
+
+    .content__overlay .overlay__inner .processing{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content__overlay .overlay__inner .processing .txt{
+        font-size: 0.95rem;
+        color: var(--darker-grey);
+        font-weight: 600;
+        margin-left: 7px;
+    }
+
+    .content__overlay .overlay__inner .response__message{
+        text-align: center;
+        font-weight: 700;
+        margin-top: 12px;
+        font-size: 1rem;
+    }
+
+    .content__overlay .overlay__inner .response__message .success{
+        color:  #2edd9a;
+    }
+
+    .content__overlay .overlay__inner .response__message .error{
+        color: #ff0000;
+    }
+
+    .content__overlay .overlay__inner .response__message .error,
+    .content__overlay .overlay__inner .response__message .success{
         display: none;
     }
 

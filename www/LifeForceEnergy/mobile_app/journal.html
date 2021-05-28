@@ -51,6 +51,11 @@
             <div class="header">Recent Entries</div>
 
             <div class="entries">
+                <div class="video">
+                    <video autoplay controls>
+                        <source src="https://sfappv2.s3.amazonaws.com/videos/217/ef210833-aa51-409c-8e90-3b954c2d310b.mp4" type="video/mp4">
+                    </video>
+                </div>
                 <div class="entry">
                     <div class="date">24 October</div>
 
@@ -140,6 +145,36 @@
                     <i class='bx bxs-pencil pencil' ></i>
                 </div>
             </a>
+        </div>
+    </div>
+</div>
+
+<div class="content__overlay hidden__content">
+    <div class="overlay__inner">
+
+        <div class="processing">
+            <div id="loader"></div>
+            <div class="txt">Processing your upload..</div>
+        </div>
+        <div class="upload__progress hidden__content">
+            <div class="progress__header">
+                <div class="message">
+                    Uploading
+                    <span class="indicator">.</span>
+                    <span class="indicator">.</span>
+                    <span class="indicator">.</span>
+                </div>
+
+                <div class="percentage"><span id="value">0</span>%</div>
+            </div>
+
+            <div class="progress__container">
+                <div class="progress__bar"></div>
+            </div>
+        </div>
+        <div class="response__message">
+            <div class="success content">Entry upload successful.</div>
+            <div class="error content">Error uploading entry.</div>
         </div>
     </div>
 </div>
