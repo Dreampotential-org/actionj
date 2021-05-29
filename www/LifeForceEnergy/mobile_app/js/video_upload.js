@@ -1,7 +1,35 @@
-var SERVER = 'http://localhost:8000/'
-var HOST = 'https://sfapp-api.dreamstate-4-all.org'
+//var SERVER = 'http://localhost:8000/'
+var SERVER = 'https://sfapp-api.dreamstate-4-all.org';
 
 $(document).ready(function () {
+
+    $(document).on("click", ".video", function () {
+        var index = $(".video").index(this);
+      //  document.getElementsByTagName("video")[index].pause();
+        $(".player").eq(index).toggleClass("hidden__content");
+    })
+    $(document).on("click", ".player", function () {
+        var index = $(".player").index(this);
+
+        $(".player").eq(index).find("i").toggleClass("bx-play");
+        $(".player").eq(index).find("i").toggleClass("bx-pause");
+
+        var video =document.getElementsByTagName("video")[index];
+               if(video.paused) {
+                   video.play();
+               } else{
+                   video.pause();
+               }
+
+        document.getElementsByTagName("video")[index].addEventListener('ended', function () {
+            $(".player").eq(index).find("i").removeClass("bx-pause");
+            $(".player").eq(index).find("i").addClass("bx-play");
+            $(".player").removeClass("hidden__content");
+        }, false)
+    })
+
+
+
     $("#video-file").change(function () {
         var file = $("#video-file")[0].files[0];
 
@@ -69,6 +97,9 @@ function uploadToS3(signed_request, file) {
 
             if (percentage === 100) {
                 $(".response__message .success").show();
+                $(".overlay__inner").addClass("hidden__content");
+                $(".content__overlay").addClass("dark");
+                $("#processor").removeClass("hidden__content");
 
                 var key = signed_request.fields["key"];
                 console.log(key)
@@ -136,5 +167,49 @@ function saveUpload(video_key) {
 
         $.ajax(settings).done(function (response) {
             console.log(response)
+
+            fetchActivity()
         })
+
+}
+
+function fetchActivity() {
+    var setup = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "sfapp2/api/checkin_activity_admin",
+        "method": "GET",
+        "headers": {
+            "Authorization": localStorage.getItem("user-token")
+        }
+    }
+    $.ajax(setup).done(function (response) {
+        console.log(response)
+        var activity = response.user_activities;
+
+        $(".entries").prepend(`
+             <div class="video">
+                    <video id="video">
+                        <source src="${activity[0].video_url}" type="video/mp4">
+                    </video>
+
+                    <div class="player">
+                        <i class='bx bx-play'></i>
+                    </div>
+                </div>
+        `)
+
+
+        $(".content__overlay").addClass("hidden__content");
+        $("#processor").addClass("hidden__content");
+        $(".content__overlay").removeClass("dark");
+        $(".overlay__inner").removeClass("hidden__content");
+        $(".response__message .content").hide();
+        $(".upload__progress").addClass("hidden__content");
+        $(".processing").removeClass("hidden__content");
+        $(".progress__bar").css('width', '0%')
+
+
+        // 497bfb30-076a-4ae1-bad4-05ccb34ccf2c
+    })
 }
