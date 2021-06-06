@@ -7,17 +7,20 @@
 
 function init() {
   var SERVER = "https://api.dreampotential.org/";
+  if(!localStorage.getItem("token")) {
+    alert("Need to login")
+    window.location = '/sms_login.html'
+  }
 
-    $("body").delegate("#start_session", "click", function(e) {
+  $("body").delegate("#start_session", "click", function(e) {
       $("#start_session").hide()
       $("#stop_session").show()
-    })
+  })
 
-    $("body").delegate("#stop_session", "click", function(e) {
+  $("body").delegate("#stop_session", "click", function(e) {
       $("#start_session").show()
       $("#stop_session").hide()
-    })
-
+  })
 }
   window.addEventListener("DOMContentLoaded", init, false);
 
