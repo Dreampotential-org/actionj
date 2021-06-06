@@ -1,0 +1,91 @@
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+
+function init() {
+var SERVER = "https://api.dreampotential.org/";
+
+function phone_login() {
+    var form = new FormData();
+    form.append("phone_number", $("#phone").val());
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "sfapp2/api/login-phone-number",
+        "method": "POST",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
+    }
+    $.ajax(settings).done(function (response) {
+        console.log(response)
+        // change screen for code collecton
+        $("#phone").hide()
+        $("#phone_code").show()
+        $("#code_login_click").show()
+        $("#login_click").hide()
+
+    }).fail(function (err) {
+      alert("errr");
+    });
+}
+
+function next_code_login() {
+    var form = new FormData();
+    form.append("phone_number", $("#phone").val());
+    form.append("code_2fa", $("#phone_code").val());
+
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": SERVER + "sfapp2/api/login-verify-2fa",
+        "method": "POST",
+        "processData": false,
+        "contentType": false,
+        "mimeType": "multipart/form-data",
+        "data": form
+    }
+    $.ajax(settings).done(function (response) {
+      var resp = JSON.parse(response)
+      if(resp.message.includes("success")) {
+        localStorage.setItem('token', resp.token)
+        alert("Success")
+      }
+    }).fail(function (err) {
+      alert("ERER")
+    });
+}
+
+    $("body").delegate("#login_click", "click", function(e) {
+        phone_login()
+    })
+
+    $("body").delegate("#code_login_click", "click", function(e) {
+        next_code_login();
+    })
+}
+
+  window.addEventListener("DOMContentLoaded", init, false);
+
+  </script>
+
+  </head>
+
+
+  <body>
+
+    <input id='phone'/>
+    <button id='login_click'>Login</button>
+
+    <input id='phone_code' style='display:none;'>
+    <button id='code_login_click' style='display:none;' >Confirm Code</button>
+
+  </body>
+<html>
+
+
