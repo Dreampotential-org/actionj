@@ -1,0 +1,36 @@
+<html>
+
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+
+function init() {
+  var SERVER = "https://api.dreampotential.org/";
+
+    $("body").delegate("#start_session", "click", function(e) {
+      $("#start_session").hide()
+      $("#stop_session").show()
+    })
+
+    $("body").delegate("#stop_session", "click", function(e) {
+      $("#start_session").show()
+      $("#stop_session").hide()
+    })
+
+}
+  window.addEventListener("DOMContentLoaded", init, false);
+
+  </script>
+
+  </head>
+
+
+  <body>
+    <button id='start_session'>Start Session</button>
+    <button id='stop_session' style='display:none;'>Stop Session</button>
+
+  </body>
+<html>
+
+
