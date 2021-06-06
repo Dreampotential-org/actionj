@@ -7,6 +7,8 @@
 
 function init() {
   var SERVER = "https://api.dreampotential.org/";
+  var CURRENT_POSITION = null;
+
   if(!localStorage.getItem("token")) {
     alert("Need to login")
     window.location = '/sms_login.html'
@@ -15,13 +17,44 @@ function init() {
   $("body").delegate("#start_session", "click", function(e) {
       $("#start_session").hide()
       $("#stop_session").show()
+
+      // XXX SEND CURRENT_POSITION to server on interval loop
+
   })
 
   $("body").delegate("#stop_session", "click", function(e) {
       $("#start_session").show()
       $("#stop_session").hide()
   })
-}
+
+
+  var geo_options = {
+    enableHighAccuracy: true,
+    maximumAge: 30000,
+    timeout: 2700,
+  };
+
+  navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+
+  function geo_error(err) {
+    if (
+      err.code == 1 ||
+      err.code == err.PERMISSION_DENIED ||
+      err.code == err.UNKNOWN_ERROR
+    ) {
+        alert("GPS error")
+      }
+      console.log("errror no gps");
+      console.warn("ERROR(" + err.code + "): " + err.message);
+
+    }
+  }
+
+  function geo_success(position) {
+    CURRENT_POSITION = position;
+    console.log(position.coords.latitude + " " + position.coords.longitude);
+  }
+
   window.addEventListener("DOMContentLoaded", init, false);
 
   </script>
