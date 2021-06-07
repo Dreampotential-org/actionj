@@ -7,7 +7,7 @@
 
 function init() {
 var SERVER = "https://api.dreampotential.org/";
-
+// var SERVER = "http://localhost:8000/";
 function phone_login() {
     var form = new FormData();
     form.append("phone_number", $("#phone").val());
@@ -54,7 +54,9 @@ function next_code_login() {
       var resp = JSON.parse(response)
       if(resp.message.includes("success")) {
         localStorage.setItem('token', resp.token)
+        window.location = '/gps_session.html'
         alert("Success")
+
       }
     }).fail(function (err) {
       alert("ERER")

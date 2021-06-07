@@ -4,9 +4,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <script>
-
+var data = {};
 function init() {
   var SERVER = "https://api.dreampotential.org/";
+  // var SERVER = "http://localhost:8000/";
   var CURRENT_POSITION = null;
 
   if(!localStorage.getItem("token")) {
@@ -19,13 +20,61 @@ function init() {
       $("#stop_session").show()
 
       // XXX SEND CURRENT_POSITION to server on interval loop
+      $(document).ready(function () {
+            $.ajax({
+                url: SERVER + "sfapp2/api/member_session_start",
+                async: true,
+                crossDomain: true,
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                processData: false,
+                headers: {
+                    Authorization: localStorage.getItem('token'),
+                  },
+                success: function (response) {
+                    console.log("🚀 ~ file: gps_session.html ~ line 36 ~ response", response)
+                    // Whatever you want to do after the form is successfully submitted
+                    data['latitude'] = 0;
+                    data['longitude'] = 0;
+                },
+                error: function (err) {
+                  console.log("🚀 ~ file: gps_session.html ~ line 42 ~ err", err)
+                },
+            });
+    });
 
-  })
+  });
 
   $("body").delegate("#stop_session", "click", function(e) {
       $("#start_session").show()
       $("#stop_session").hide()
-  })
+      $(document).ready(function () {
+            $.ajax({
+                url: SERVER + "sfapp2/api/member_session_stop",
+                async: true,
+                crossDomain: true,
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                processData: false,
+                headers: {
+                    Authorization: localStorage.getItem('token'),
+                  },
+                success: function (response) {
+                  console.log("🚀 ~ file: gps_session.html ~ line 71 ~ response", response);
+                  data['latitude'] = 0;
+                  data['longitude'] = 0;
+                    // Whatever you want to do after the form is successfully submitted
+                },
+                error: function (err) {
+                  console.log("🚀 ~ file: gps_session.html ~ line 75 ~ err", err);
+                },
+            });
+    });
+  });
 
 
   var geo_options = {
@@ -53,6 +102,8 @@ function init() {
   function geo_success(position) {
     CURRENT_POSITION = position;
     console.log(position.coords.latitude + " " + position.coords.longitude);
+    data['latitude'] = position.coords.latitude;
+    data['longitude'] = position.coords.longitude;
   }
 
   window.addEventListener("DOMContentLoaded", init, false);
