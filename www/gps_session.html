@@ -17,7 +17,6 @@ function init() {
 
   $("body").delegate("#start_session", "click", function(e) {
       $("#start_session").hide()
-      $("#distance").hide()
       $("#stop_session").show()
 
       // XXX SEND CURRENT_POSITION to server on interval loop
