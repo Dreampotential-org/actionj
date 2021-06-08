@@ -63,6 +63,30 @@ function init() {
                   },
                 success: function (response) {
                   console.log("🚀 ~ file: gps_session.html ~ line 71 ~ response", response);
+                  if (response !== 'error'){
+
+                    $(document).ready(function () {
+                          $.ajax({
+                              url: SERVER + "sfapp2/api/member_session_distance",
+                              async: true,
+                              crossDomain: true,
+                              type: "GET",
+                              contentType: false,
+                              processData: false,
+                              headers: {
+                                  Authorization: localStorage.getItem('token'),
+                                },
+                              success: function (response) {
+                                console.log("🚀 ~ file: gps_session.html ~ line 71 ~ response", response);
+                                  // Whatever you want to do after the form is successfully submitted
+                                  $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
+                              },
+                              error: function (err) {
+                                console.log("🚀 ~ file: gps_session.html ~ line 75 ~ err", err);
+                              },
+                          });
+                  });
+                  }
                     // Whatever you want to do after the form is successfully submitted
                 },
                 error: function (err) {
@@ -70,27 +94,7 @@ function init() {
                 },
             });
     });
-    $(document).ready(function () {
-            $.ajax({
-                url: SERVER + "sfapp2/api/member_session_distance",
-                async: true,
-                crossDomain: true,
-                type: "GET",
-                contentType: false,
-                processData: false,
-                headers: {
-                    Authorization: localStorage.getItem('token'),
-                  },
-                success: function (response) {
-                  console.log("🚀 ~ file: gps_session.html ~ line 71 ~ response", response);
-                    // Whatever you want to do after the form is successfully submitted
-                    $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
-                },
-                error: function (err) {
-                  console.log("🚀 ~ file: gps_session.html ~ line 75 ~ err", err);
-                },
-            });
-    });
+
   });
 
 
