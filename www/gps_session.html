@@ -17,6 +17,7 @@ function init() {
 
   $("body").delegate("#start_session", "click", function(e) {
       $("#start_session").hide()
+      $("#distance").hide()
       $("#stop_session").show()
 
       // XXX SEND CURRENT_POSITION to server on interval loop
@@ -70,6 +71,28 @@ function init() {
                 },
             });
     });
+    $(document).ready(function () {
+            $.ajax({
+                url: SERVER + "sfapp2/api/member_session_distance",
+                async: true,
+                crossDomain: true,
+                type: "GET",
+                contentType: false,
+                processData: false,
+                headers: {
+                    Authorization: localStorage.getItem('token'),
+                  },
+                success: function (response) {
+                  console.log("🚀 ~ file: gps_session.html ~ line 71 ~ response", response);
+                    // Whatever you want to do after the form is successfully submitted
+                    $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
+                },
+                error: function (err) {
+                  console.log("🚀 ~ file: gps_session.html ~ line 75 ~ err", err);
+                },
+            });
+    });
+    $("#distance").show()
   });
 
 
@@ -112,7 +135,8 @@ function init() {
   <body>
     <button id='start_session'>Start Session</button>
     <button id='stop_session' style='display:none;'>Stop Session</button>
-
+    <div id='distance' style='display:none;'>
+    </div>
   </body>
 <html>
 
