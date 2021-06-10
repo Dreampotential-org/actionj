@@ -37,10 +37,12 @@ function init() {
                 success: function (response) {
                     console.log("🚀 ~ file: gps_session.html ~ line 36 ~ response", response)
                     succ = response.status;
+                    console.log("🚀 ~ file: gps_session.html ~ line 40 ~ succ", succ)
                     // Whatever you want to do after the form is successfully submitted
                 },
                 error: function (err) {
                   console.log("🚀 ~ file: gps_session.html ~ line 42 ~ err", err)
+                  succ = err.status;
                 },
             });
     });
@@ -50,7 +52,8 @@ function init() {
   $("body").delegate("#stop_session", "click", function(e) {
       $("#start_session").show()
       $("#stop_session").hide()
-      if (succ !== 'error' ){
+      if (succ == "okay"){
+        console.log("🚀 ~ file: gps_session.html ~ line 55 ~ $ ~ succ", succ)
 
         $(document).ready(function () {
               $.ajax({
