@@ -6,9 +6,10 @@
   <script>
 var succ;
 var data = {};
+var interval;
 function init() {
-  var SERVER = "https://api.dreampotential.org/";
-  // var SERVER = "http://localhost:8000/";
+  // var SERVER = "https://api.dreampotential.org/";
+  var SERVER = "http://localhost:8000/";
   var CURRENT_POSITION = null;
 
   if(!localStorage.getItem("token")) {
@@ -38,6 +39,33 @@ function init() {
                     console.log("🚀 ~ file: gps_session.html ~ line 36 ~ response", response)
                     succ = response.status;
                     console.log("🚀 ~ file: gps_session.html ~ line 40 ~ succ", succ)
+                    interval = setInterval(function() {
+                      //your jQuery ajax code
+                      $(document).ready(function () {
+                            $.ajax({
+                                url: SERVER + "sfapp2/api/member_session_livedata",
+                                async: true,
+                                crossDomain: true,
+                                type: "POST",
+                                data: JSON.stringify(data),
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                processData: false,
+                                headers: {
+                                    Authorization: localStorage.getItem('token'),
+                                  },
+                                success: function (response) {
+                                    console.log("🚀 ~ file: gps_session.html ~ line 57 ~ response", response)
+                                    var elTime = document.getElementById("livedata");
+                                    elTime.textContent = "Total Distance : "+ response.distance +" km  Speed : "+ response.avg_speed + " m/s Total Time : "+ response.total_time +" second";
+                                },
+                                error: function (err) {
+                                  console.log("🚀 ~ file: gps_session.html ~ line 60 ~ err", err)
+                                },
+                            });
+                    });
+
+                      }, 1000 * 3); // where X is your every X minutes
                     // Whatever you want to do after the form is successfully submitted
                 },
                 error: function (err) {
@@ -54,7 +82,7 @@ function init() {
       $("#stop_session").hide()
       if (succ == "okay"){
         console.log("🚀 ~ file: gps_session.html ~ line 55 ~ $ ~ succ", succ)
-
+        clearInterval(interval);
         $(document).ready(function () {
               $.ajax({
                   url: SERVER + "sfapp2/api/member_session_stop",
@@ -90,7 +118,9 @@ function init() {
                                     console.log("🚀 ~ file: gps_session.html ~ line 90 ~ response.status", response.status)
 
                                     }else{
+                                      $("#livedata").hide()
                                       $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
+                                      
                                       succ = ""
                                     }
                                 },
@@ -149,6 +179,7 @@ function init() {
 
 
   <body>
+    <div id="livedata"></div>
     <button id='start_session'>Start Session</button>
     <button id='stop_session' style='display:none;'>Stop Session</button>
     <div id='distance'>
