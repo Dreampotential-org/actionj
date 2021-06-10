@@ -70,7 +70,7 @@ function init() {
                     },
                   success: function (response) {
                     console.log("🚀 ~ file: gps_session.html ~ line 71 ~ response", response);
-                    if (response.response !== 'error'){
+                    if (response.status == 'okay'){
   
                       $(document).ready(function () {
                             $.ajax({
@@ -86,8 +86,13 @@ function init() {
                                 success: function (response) {
                                   console.log("🚀 ~ file: gps_session.html ~ line 71 ~ response", response);
                                     // Whatever you want to do after the form is successfully submitted
-                                    $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
-                                    succ = ""
+                                    if(response.status == "error"){
+                                    console.log("🚀 ~ file: gps_session.html ~ line 90 ~ response.status", response.status)
+
+                                    }else{
+                                      $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
+                                      succ = ""
+                                    }
                                 },
                                 error: function (err) {
                                   console.log("🚀 ~ file: gps_session.html ~ line 75 ~ err", err);
