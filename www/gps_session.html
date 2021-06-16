@@ -2,7 +2,11 @@
 
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <style>
+      #livedata {
+          height: 100px;
+      }
+    </style>
   <script>
 var succ;
 var data = {};
@@ -39,6 +43,8 @@ function init() {
                     console.log("🚀 ~ file: gps_session.html ~ line 36 ~ response", response)
                     succ = response.status;
                     console.log("🚀 ~ file: gps_session.html ~ line 40 ~ succ", succ)
+                    const out = document.getElementById("livedata")
+                    let c = 0
                     interval = setInterval(function() {
                       //your jQuery ajax code
                       $(document).ready(function () {
@@ -56,8 +62,17 @@ function init() {
                                   },
                                 success: function (response) {
                                     console.log("🚀 ~ file: gps_session.html ~ line 57 ~ response", response)
-                                    var elTime = document.getElementById("livedata");
-                                    elTime.textContent = "Total Distance : "+ response.distance +" km  Speed : "+ response.avg_speed + " m/s Total Time : "+ response.total_time +" second";
+                                    const isScrolledToBottom = out.scrollHeight - out.clientHeight <= out.scrollTop + 1
+                                    const newElement = document.createElement("div")
+                                    newElement.textContent = format(c++, "Total Distance : ", response.distance,  'Speed :', response.avg_speed,"Total Time :",response.total_time)
+                                    // newElement.textContent = "Total Distance : "+ response.distance +" km  Speed : "+ response.avg_speed + " m/s Total Time : "+ response.total_time +" second";
+                                    out.appendChild(newElement)
+                                    if (isScrolledToBottom) {
+                                        out.scrollTop = out.scrollHeight - out.clientHeight
+                                      }
+
+                                    // var elTime = document.getElementById("livedata");
+                                    // elTime.textContent = "Total Distance : "+ response.distance +" km  Speed : "+ response.avg_speed + " m/s Total Time : "+ response.total_time +" second";
                                 },
                                 error: function (err) {
                                   console.log("🚀 ~ file: gps_session.html ~ line 60 ~ err", err)
@@ -65,7 +80,11 @@ function init() {
                             });
                     });
 
-                      }, 1000 * 3); // where X is your every X minutes
+                      }, 1000 * 3); 
+                      function format () {
+                          return Array.prototype.slice.call(arguments).join(' ')
+                        }
+                      // where X is your every X minutes
                     // Whatever you want to do after the form is successfully submitted
                 },
                 error: function (err) {
@@ -118,7 +137,7 @@ function init() {
                                     console.log("🚀 ~ file: gps_session.html ~ line 90 ~ response.status", response.status)
 
                                     }else{
-                                      $("#livedata").hide()
+                                      // $("#livedata").hide()
                                       $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
                                       
                                       succ = ""
@@ -171,6 +190,17 @@ function init() {
     data['longitude'] = position.coords.longitude;
   }
 
+
+  let acl = new Accelerometer({frequency: 60});
+  acl.addEventListener('reading', () => {
+    console.log("Acceleration along the X-axis " + acl.x);
+    console.log("Acceleration along the Y-axis " + acl.y);
+    console.log("Acceleration along the Z-axis " + acl.z);
+  });
+  console.log("🚀 ~ file: gps_session.html ~ line 174 ~ acl", acl)
+  acl.start();
+
+
   window.addEventListener("DOMContentLoaded", init, false);
 
   </script>
@@ -179,10 +209,10 @@ function init() {
 
 
   <body>
-    <div id="livedata"></div>
+    <div id="livedata" style="overflow:auto"></div>
     <button id='start_session'>Start Session</button>
     <button id='stop_session' style='display:none;'>Stop Session</button>
-    <div id='distance'>
+    <div id='distance' >
     </div>
   </body>
 <html>
