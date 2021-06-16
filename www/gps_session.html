@@ -138,8 +138,8 @@ function init() {
 
                                     }else{
                                       // $("#livedata").hide()
-                                      var newtime = response.total_time + 2
-                                      $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ newtime +" second</h2>")
+                                      
+                                      $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
                                       
                                       succ = ""
                                     }
@@ -200,10 +200,22 @@ function init() {
   });
   console.log("🚀 ~ file: gps_session.html ~ line 174 ~ acl", acl)
   acl.start();
-
+  // let magSensor = new Magnetometer({frequency: 60});
 
   window.addEventListener("DOMContentLoaded", init, false);
-
+  window.addEventListener("deviceorientation", handleOrientation, true);
+  function handleOrientation(event) {
+  var absolute = event.absolute;
+  console.log("🚀 ~ file: gps_session.html ~ line 213 ~ handleOrientation ~ absolute", absolute)
+  var alpha    = event.alpha;
+  console.log("🚀 ~ file: gps_session.html ~ line 215 ~ handleOrientation ~ alpha", alpha)
+  var beta     = event.beta;
+  console.log("🚀 ~ file: gps_session.html ~ line 217 ~ handleOrientation ~ beta", beta)
+  var gamma    = event.gamma;
+  console.log("🚀 ~ file: gps_session.html ~ line 219 ~ handleOrientation ~ gamma", gamma)
+  // Do stuff with the new orientation data
+}
+handleOrientation()
   </script>
 
   </head>
