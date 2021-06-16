@@ -138,7 +138,8 @@ function init() {
 
                                     }else{
                                       // $("#livedata").hide()
-                                      $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
+                                      var newtime = response.total_time + 2
+                                      $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ newtime +" second</h2>")
                                       
                                       succ = ""
                                     }
