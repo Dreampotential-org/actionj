@@ -20,7 +20,7 @@ function init() {
     alert("Need to login")
     window.location = '/sms_login.html'
   }
-
+  var time_t;
   $("body").delegate("#start_session", "click", function(e) {
       $("#start_session").hide()
       $("#stop_session").show()
@@ -44,7 +44,7 @@ function init() {
                     succ = response.status;
                     console.log("🚀 ~ file: gps_session.html ~ line 40 ~ succ", succ)
                     const out = document.getElementById("livedata")
-                    let c = 0
+                    let c = 1
                     interval = setInterval(function() {
                       //your jQuery ajax code
                       $(document).ready(function () {
@@ -62,6 +62,7 @@ function init() {
                                   },
                                 success: function (response) {
                                     console.log("🚀 ~ file: gps_session.html ~ line 57 ~ response", response)
+                                    time_t = response.total_time
                                     const isScrolledToBottom = out.scrollHeight - out.clientHeight <= out.scrollTop + 1
                                     const newElement = document.createElement("div")
                                     newElement.textContent = format(c++, "Total Distance : ", response.distance,  'Speed :', response.avg_speed,"Total Time :",response.total_time)
@@ -127,7 +128,7 @@ function init() {
                                 type: "GET",
                                 contentType: false,
                                 processData: false,
-                                headers: {
+                                headers: {  
                                     Authorization: localStorage.getItem('token'),
                                   },
                                 success: function (response) {
@@ -139,7 +140,7 @@ function init() {
                                     }else{
                                       // $("#livedata").hide()
                                       
-                                      $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ response.total_time +" second</h2>")
+                                      $('#distance').append("<h2>Total Distance : "+ response.distance +" km</h2><h2>Averege Speed : "+ response.avg_speed + " m/s</h2><h2>Total Time : "+ time_t +" second</h2>")
                                       
                                       succ = ""
                                     }
@@ -203,19 +204,20 @@ function init() {
   // let magSensor = new Magnetometer({frequency: 60});
 
   window.addEventListener("DOMContentLoaded", init, false);
-  window.addEventListener("deviceorientation", handleOrientation, true);
+  
   function handleOrientation(event) {
-  var absolute = event.absolute;
-  console.log("🚀 ~ file: gps_session.html ~ line 213 ~ handleOrientation ~ absolute", absolute)
-  var alpha    = event.alpha;
-  console.log("🚀 ~ file: gps_session.html ~ line 215 ~ handleOrientation ~ alpha", alpha)
-  var beta     = event.beta;
-  console.log("🚀 ~ file: gps_session.html ~ line 217 ~ handleOrientation ~ beta", beta)
-  var gamma    = event.gamma;
-  console.log("🚀 ~ file: gps_session.html ~ line 219 ~ handleOrientation ~ gamma", gamma)
-  // Do stuff with the new orientation data
-}
-handleOrientation()
+    var absolute = event.absolute;
+    console.log("🚀 ~ file: gps_session.html ~ line 213 ~ handleOrientation ~ absolute", absolute)
+    var alpha    = event.alpha;
+    console.log("🚀 ~ file: gps_session.html ~ line 215 ~ handleOrientation ~ alpha", alpha)
+    var beta     = event.beta;
+    console.log("🚀 ~ file: gps_session.html ~ line 217 ~ handleOrientation ~ beta", beta)
+    var gamma    = event.gamma;
+    console.log("🚀 ~ file: gps_session.html ~ line 219 ~ handleOrientation ~ gamma", gamma)
+    // Do stuff with the new orientation data
+  }
+  window.addEventListener("deviceorientation", handleOrientation, true);
+// handleOrientation()
   </script>
 
   </head>
